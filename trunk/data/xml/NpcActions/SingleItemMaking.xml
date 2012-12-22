@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NpcActionList>
+<!-- 多重地区 -->
+	<!-- 1个马普勒之石->20个魔法宝石 / 炼金术师 -->
+	<Action Name="a" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="20" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 10个马普勒之石->200个魔法宝石 / 炼金术师 -->
+	<Action Name="b" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="200" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 50个马普勒之石->1000个魔法宝石 / 炼金术师 -->
+	<Action Name="c" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1000" ItemId="40318"/>		<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 马普勒之石1个->精灵玉 / 炼金术师 -->
+	<Action Name="d" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="40" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 马普勒之石10个->精灵玉 / 炼金术师 -->
+	<Action Name="e" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="400" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 马普勒之石50个->精灵玉 / 炼金术师 -->
+	<Action Name="f" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="2000" ItemId="40319"/>		<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 马普勒之石1个->一级黑魔石 / 炼金术师 -->
+	<Action Name="g" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="10" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 马普勒之石10个->一级黑魔石 / 炼金术师 -->
+	<Action Name="h" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="100" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 马普勒之石50个->一级黑魔石 / 炼金术师 -->
+	<Action Name="i" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40304"/>		<!-- 马普勒之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="500" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石1个->魔法宝石 / 炼金术师 -->
+	<Action Name="j" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="25" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石10个->魔法宝石 / 炼金术师 -->
+	<Action Name="k" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="250" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石50个->魔法宝石 / 炼金术师 -->
+	<Action Name="l" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1250" ItemId="40318"/>		<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石1个->精灵玉 / 炼金术师 -->
+	<Action Name="m" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="60" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石10个->精灵玉 / 炼金术师 -->
+	<Action Name="n" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="600" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石50个->精灵玉 / 炼金术师 -->
+	<Action Name="o" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="3000" ItemId="40319"/>		<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石1个->一级黑魔石 / 炼金术师 -->
+	<Action Name="p" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="20" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石10个->一级黑魔石 / 炼金术师 -->
+	<Action Name="q" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="200" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 沙哈之石50个->一级黑魔石 / 炼金术师 -->
+	<Action Name="r" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40307"/>		<!-- 沙哈之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1000" ItemId="40320"/>		<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石1个->魔法宝石 / 炼金术师 -->
+	<Action Name="s" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="30" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石10个->魔法宝石 / 炼金术师 -->
+	<Action Name="t" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="300" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石50个->魔法宝石 / 炼金术师 -->
+	<Action Name="u" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1500" ItemId="40318"/>		<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石1个->精灵玉 / 炼金术师 -->
+	<Action Name="v" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="50" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石10个->精灵玉 / 炼金术师 -->
+	<Action Name="w" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="500" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石50个->精灵玉 / 炼金术师 -->
+	<Action Name="x" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="2500" ItemId="40319"/>		<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石1个->一级黑魔石 / 炼金术师 -->
+	<Action Name="y" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="20" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石10个->一级黑魔石 / 炼金术师 -->
+	<Action Name="z" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="200" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 伊娃之石50个->一级黑魔石 / 炼金术师 -->
+	<Action Name="A" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40306"/>		<!-- 伊娃之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1000" ItemId="40320"/>		<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石1个->魔法宝石 / 炼金术师 -->
+	<Action Name="B" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="25" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石10个->魔法宝石 / 炼金术师 -->
+	<Action Name="C" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="250" ItemId="40318"/>			<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石50个->魔法宝石 / 炼金术师 -->
+	<Action Name="D" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1250" ItemId="40318"/>		<!-- 魔法宝石 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石1个->精灵玉 / 炼金术师 -->
+	<Action Name="E" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="30" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石10个->精灵玉 / 炼金术师 -->
+	<Action Name="F" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="300" ItemId="40319"/>			<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石50个->精灵玉 / 炼金术师 -->
+	<Action Name="G" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1500" ItemId="40319"/>		<!-- 精灵玉 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石1个->一级黑魔石 / 炼金术师 -->
+	<Action Name="H" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="10" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石10个->一级黑魔石 / 炼金术师 -->
+	<Action Name="I" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="100" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 帕格里奥之石50个->一级黑魔石 / 炼金术师 -->
+	<Action Name="J" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40305"/>		<!-- 帕格里奥之石 -->
+			<Material Amount="50000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="500" ItemId="40320"/>			<!-- 一级黑魔石 -->
+		</MakeItem>
+	</Action>
+	<!-- 黑色血痕1个 / 炼金术师 -->
+	<Action Name="K" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40524"/>		<!-- 黑色血痕 -->
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1" ItemId="40304"/>			<!-- 马普勒之石 -->
+			<Item Amount="1" ItemId="40305"/>			<!-- 帕格里奥之石 -->
+			<Item Amount="1" ItemId="40306"/>			<!-- 伊娃之石 -->
+			<Item Amount="1" ItemId="40307"/>			<!-- 沙哈之石 -->
+		</MakeItem>
+	</Action>
+	<!-- 黑色血痕10个 / 炼金术师 -->
+	<Action Name="L" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="40524"/>		<!-- 黑色血痕 -->
+			<Material Amount="100000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="10" ItemId="40304"/>			<!-- 马普勒之石 -->
+			<Item Amount="10" ItemId="40305"/>			<!-- 帕格里奥之石 -->
+			<Item Amount="10" ItemId="40306"/>			<!-- 伊娃之石 -->
+			<Item Amount="10" ItemId="40307"/>			<!-- 沙哈之石 -->
+		</MakeItem>
+	</Action>
+	<!-- 黑色血痕50个 / 炼金术师 -->
+	<Action Name="M" NpcId="70520">
+		<MakeItem AmountInputable="false">
+			<Material Amount="50" ItemId="40524"/>		<!-- 黑色血痕 -->
+			<Material Amount="500000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="50" ItemId="40304"/>			<!-- 马普勒之石 -->
+			<Item Amount="50" ItemId="40305"/>			<!-- 帕格里奥之石 -->
+			<Item Amount="50" ItemId="40306"/>			<!-- 伊娃之石 -->
+			<Item Amount="50" ItemId="40307"/>			<!-- 沙哈之石 -->
+		</MakeItem>
+	</Action>
+
+<!-- 食人妖精竞技场 -->
+	<!-- 布莱斯 -->
+	<Action Name="1" NpcId="70605">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40526"/>		<!-- 薄金属板 -->
+			<Material Amount="5" ItemId="40779"/>		<!-- 钢铁块 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1" ItemId="40391"/>			<!-- 计算机 -->
+		</MakeItem>
+	</Action>
+
+<!-- L1J-JP -->
+	<!-- 研磨材 / 提米 -->
+	<Action Name="1" NpcId="71006">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41209"/>		<!-- [jp]ポピレアの依赖书 -->
+			<Item Amount="1" ItemId="41210"/>			<!-- [jp]研磨剂 -->
+			<Succeed>
+				<ShowHtml HtmlId="jpe0055"/>
+			</Succeed>
+		</MakeItem>
+	</Action>
+	<!--ハーブ / 鍛冶屋ロン-->
+	<Action Name="request ei004" NpcId="71003">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41210"/>		<!-- [jp]研磨剂 -->
+			<Item Amount="1" ItemId="41211"/>			<!-- 香菜 -->
+		</MakeItem>
+	</Action>
+	<!--特製キャンディー/ 薬剤師イクシー-->
+	<Action Name="request ei005" NpcId="71001">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41211"/>		<!-- 香菜 -->
+			<Item Amount="1" ItemId="41212"/>			<!-- [jp]特制糖果 -->
+		</MakeItem>
+	</Action> 
+	<!--シアンポーション / 齐柯利 -->
+	<Action Name="1" NpcId="71009">
+		<MakeItem AmountInputable="false">
+			<Material Amount="3" ItemId="41222"/>		<!-- 蘑菇汁 -->
+			<Item Amount="1" ItemId="40017"/>			<!-- 翡翠药水 -->
+			<Succeed>
+				<ShowHtml HtmlId="jpe0074"/>
+			</Succeed>
+		</MakeItem>
+	</Action>
+	<!--バナナジュース / 布里亚那 -->
+	<Action Name="1" NpcId="71011">
+		<MakeItem AmountInputable="false">
+			<Material Amount="3" ItemId="40060"/>		<!-- 胡萝卜 -->
+			<Material Amount="3" ItemId="40061"/>		<!-- 柠檬 -->
+			<Material Amount="3" ItemId="40062"/>		<!-- 香蕉 -->
+			<Item Amount="1" ItemId="40026"/>			<!-- 香蕉汁 -->
+			<Succeed>
+				<ShowHtml HtmlId="jpe0065"/>
+			</Succeed>
+		</MakeItem>
+	</Action>
+	<!-- [jp]王族袋子 / 冒险者艾塔 -->
+	<Action Name="request ei028" NpcId="71032">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41214"/>		<!-- [jp]运の证 -->
+			<Material Amount="5" ItemId="41215"/>		<!-- [jp]知の证 -->
+			<Material Amount="5" ItemId="41216"/>		<!-- [jp]力の证 -->
+			<Item Amount="1" ItemId="41217"/>			<!-- [jp]王族袋子 -->
+		</MakeItem>
+	</Action>
+	<!-- [jp]骑士袋子 / 冒险者艾塔 -->
+	<Action Name="request ei029" NpcId="71032">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41214"/>		<!-- [jp]运の证 -->
+			<Material Amount="5" ItemId="41215"/>		<!-- [jp]知の证 -->
+			<Material Amount="5" ItemId="41216"/>		<!-- [jp]力の证 -->
+			<Item Amount="1" ItemId="41218"/>			<!-- [jp]骑士袋子 -->
+		</MakeItem>
+	</Action>
+	<!-- [jp]妖精袋子 / 冒险者艾塔 -->
+	<Action Name="request ei030" NpcId="71032">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41214"/>		<!-- [jp]运の证 -->
+			<Material Amount="5" ItemId="41215"/>		<!-- [jp]知の证 -->
+			<Material Amount="5" ItemId="41216"/>		<!-- [jp]力の证 -->
+			<Item Amount="1" ItemId="41219"/>			<!-- [jp]妖精袋子 -->
+		</MakeItem>
+	</Action>
+	<!-- [jp]法师袋子 / 冒险者艾塔 -->
+	<Action Name="request ei031" NpcId="71032">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41214"/>		<!-- [jp]运の证 -->
+			<Material Amount="5" ItemId="41215"/>		<!-- [jp]知の证 -->
+			<Material Amount="5" ItemId="41216"/>		<!-- [jp]力の证 -->
+			<Item Amount="1" ItemId="41220"/>			<!-- [jp]法师袋子 -->
+		</MakeItem>
+	</Action>
+	<!-- [jp]黑暗妖精袋子 / 冒险者艾塔 -->
+	<Action Name="request ei032" NpcId="71032">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41214"/>		<!-- [jp]运の证 -->
+			<Material Amount="5" ItemId="41215"/>		<!-- [jp]知の证 -->
+			<Material Amount="5" ItemId="41216"/>		<!-- [jp]力の证 -->
+			<Item Amount="1" ItemId="41221"/>			<!-- [jp]黑暗妖精袋子 -->
+		</MakeItem>
+	</Action>
+
+<!-- 隐藏之谷 -->
+	<!-- 萝芭 -->
+	<Action Name="request amulet of valley" NpcId="70506">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40653"/>		<!-- 红钥匙 -->
+			<Item Amount="1" ItemId="20243"/>			<!-- 隐藏之谷项链 -->
+		</MakeItem>
+	</Action>
+	<!-- 萝芭 -->
+	<Action Name="request amulet of island" NpcId="70506">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="40613"/>		<!-- 黑钥匙 -->
+			<Item Amount="1" ItemId="20259"/>			<!-- 歌唱之岛项链 -->
+		</MakeItem>
+	</Action>
+	<!--ラビのお守り / 拉比 -->
+	<Action Name="request ei034" NpcId="71034">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41227"/>		<!-- [jp]亚历斯的介绍书 -->
+			<Item Amount="1" ItemId="41228"/>			<!-- [jp]ラビのお守り -->
+		</MakeItem>
+	</Action>
+	<!--象牙の塔のリング / 哈米特 -->
+	<Action Name="request ring of oren tower" NpcId="71033">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41228"/>		<!-- [jp]ラビのお守り -->
+			<Item Amount="1" ItemId="20282"/>			<!-- 象牙塔戒指 -->
+		</MakeItem>
+	</Action>
+	<!--ジーナンの手紙 / 骨头加工师志男 -->
+	<Action Name="0" NpcId="71022">
+		<MakeItem AmountInputable="false">
+			<Material Amount="5" ItemId="41229"/>		<!-- [jp]骷髅头 -->
+			<Item Amount="1" ItemId="41230"/>			<!-- [jp]ジ－ナンの手纸 -->
+			<Succeed>
+				<ShowHtml HtmlId="jpe0154"/>
+			</Succeed>
+		</MakeItem>
+	</Action>
+	<!--マッティーの手紙 / 骨头加工师麦提 -->
+	<Action Name="request ei021" NpcId="71021">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41230"/>		<!-- [jp]ジ－ナンの手纸 -->
+			<Item Amount="1" ItemId="41231"/>			<!-- [jp]マッティの手纸 -->
+		</MakeItem>
+	</Action>
+	<!--ジョンの届け物 / 约翰 -->
+	<Action Name="0" NpcId="71020">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41231"/>		<!-- [jp]マッティの手纸 -->
+			<Item Amount="1" ItemId="41232"/>			<!-- [jp]ジョンの届け物 -->
+		</MakeItem>
+	</Action>
+	<!--材料表 / 骨头加工师凯 -->
+	<Action Name="0" NpcId="71023">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41233"/>		<!-- [jp]ケ－イへの手纸 -->
+			<Material Amount="1" ItemId="41234"/>		<!-- [jp]骨の入った袋 -->
+			<Item Amount="1" ItemId="41235"/>			<!-- [jp]材料表 -->
+		<Succeed>
+			<ShowHtml HtmlId="jpe0146"/>
+		</Succeed>
+		</MakeItem>
+	</Action>
+	<!--ケーイの届け物 / 骨头加工师凯 -->
+	<Action Name="1" NpcId="71023">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41235"/>		<!-- [jp]材料表 -->
+			<Material Amount="3" ItemId="41236"/>		<!-- [jp]骷髅弓箭手的骨头 -->
+			<Material Amount="3" ItemId="41237"/>		<!-- [jp]骷髅枪兵的骨头 -->
+			<Item Amount="1" ItemId="41238"/>			<!-- [jp]ケ－イの届け物 -->
+		<Succeed>
+			<ShowHtml HtmlId="jpe0147"/>
+		</Succeed>
+		</MakeItem>
+	</Action>	
+	<!--骨細工師の袋 / 徒弟福托 -->
+	<Action Name="0" NpcId="71019">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41239"/>		<!-- [jp]ヴ－トへの手纸 -->
+			<Item Amount="1" ItemId="41241"/>			<!-- [jp]骨细工师の袋 -->
+		<Succeed>
+			<ShowHtml HtmlId="jpe0116"/>
+		</Succeed>
+		</MakeItem>
+	</Action>
+	<!--ボーンアーマー / 菲达 -->
+	<Action Name="0" NpcId="71018">
+	<MakeItem AmountInputable="false">
+		<Material Amount="1" ItemId="41240"/>			<!-- [jp]フェ－ダへの手纸 -->
+		<Item Amount="1" ItemId="20124"/>				<!-- 骷髅盔甲 -->
+		<Succeed>
+			<ShowHtml HtmlId="jpe0135"/>
+		</Succeed>
+		</MakeItem>
+	</Action>
+	<!--パゴの薬 / 帕古 -->
+	<Action Name="request ei014" NpcId="70005">
+	<MakeItem AmountInputable="false">
+		<Material Amount="1" ItemId="41225"/>			<!-- 遗失钥匙商人的请求 -->
+		<Item Amount="1" ItemId="41226"/>				<!-- [jp]帕古的药 -->
+		</MakeItem>
+	</Action>
+	<!--1000アデナ / 卡斯金 -->
+	<Action Name="1" NpcId="71025">
+	<MakeItem AmountInputable="false">
+		<Material Amount="1" ItemId="41226"/>			<!-- [jp]帕古的药 -->
+		<Material Amount="1" ItemId="40653"/>			<!-- 红钥匙 -->
+		<Item Amount="1000" ItemId="40308"/>			<!-- 金币 -->
+		<Succeed>
+			<ShowHtml HtmlId="jpe0085"/>
+		</Succeed>
+		</MakeItem>
+	</Action>
+	<!--1000アデナ / 卡斯金 -->
+	<Action Name="2" NpcId="71025">
+	<MakeItem AmountInputable="false">
+		<Material Amount="1" ItemId="41226"/>			<!-- [jp]帕古的药 -->
+		<Material Amount="1" ItemId="40613"/>			<!-- 黑钥匙 -->
+		<Item Amount="1000" ItemId="40308"/>			<!-- 金币 -->
+		<Succeed>
+			<ShowHtml HtmlId="jpe0085"/>
+		</Succeed>
+		</MakeItem>
+	</Action>
+
+<!-- 古鲁丁村庄 -->
+	<!-- 料理书：阶段1 / 拉庞斯 -->
+	<Action Name="A" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10000" ItemId="40308"/>	<!-- 金币 -->
+			<Item Amount="1" ItemId="41255"/>			<!-- 料理书：1阶段 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons1"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons2"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<!-- 料理书：阶段2 / 拉庞斯 -->
+	<Action Name="B" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="3000" ItemId="40308"/>	<!-- 金币 -->
+			<Material Amount="1" ItemId="41255"/>		<!-- 料理书：1阶段 -->
+			<Item Amount="1" ItemId="41256"/>			<!-- 料理书：2阶段 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons4"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons5"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<!-- 料理书：阶段3 / 拉庞斯 -->
+	<Action Name="q" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="5000" ItemId="40308"/>	<!-- 金币 -->
+			<Material Amount="1" ItemId="41256"/>		<!-- 料理书：2阶段 -->
+			<Item Amount="1" ItemId="41257"/>			<!-- 料理书：3阶段 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons10"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons11"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="a" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41277"/>		<!-- 漂浮之眼肉排 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="b" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41278"/>		<!-- 烤熊肉 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="c" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41279"/>		<!-- 煎饼 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="d" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41280"/>		<!-- 烤蚂蚁腿起司 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="e" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41281"/>		<!-- 水果沙拉 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="f" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41282"/>		<!-- 水果糖醋肉 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="g" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41283"/>		<!-- 烤山猪肉串 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="h" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="41284"/>		<!-- 蘑菇汤 -->
+			<Item Amount="1" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="i" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41277"/>		<!-- 漂浮之眼肉排 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="j" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41278"/>		<!-- 烤熊肉 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="k" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41279"/>		<!-- 煎饼 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="l" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41280"/>		<!-- 烤蚂蚁腿起司 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="m" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41281"/>		<!-- 水果沙拉 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="n" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41282"/>		<!-- 水果糖醋肉 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="o" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41283"/>		<!-- 烤山猪肉串 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="p" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="41284"/>		<!-- 蘑菇汤 -->
+			<Item Amount="10" ItemId="49048"/>			<!-- 综合烤肉酱 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons7"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons6"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="s" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49049"/>		<!-- 鱼子酱 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="t" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49050"/>		<!-- 鳄鱼肉排 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="u" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49051"/>		<!-- 龙龟蛋饼干 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="v" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49052"/>		<!-- 烤奇异鹦鹉 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="w" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49053"/>		<!-- 毒蝎串烧 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="x" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49054"/>		<!-- 炖伊莱克顿 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="y" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49055"/>		<!-- 蜘蛛腿串烧 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="z" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="1" ItemId="49056"/>		<!-- 蟹肉汤 -->
+			<Item Amount="1" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="C" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49049"/>		<!-- 鱼子酱 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="D" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49050"/>		<!-- 鳄鱼肉排 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="E" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49051"/>		<!-- 龙龟蛋饼干 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="F" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49052"/>		<!-- 烤奇异鹦鹉 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="G" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49053"/>		<!-- 毒蝎串烧 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="H" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49054"/>		<!-- 炖伊莱克顿 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="I" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49055"/>		<!-- 蜘蛛腿串烧 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+	<Action Name="J" NpcId="80091">
+		<MakeItem AmountInputable="false">
+			<Material Amount="10" ItemId="49056"/>		<!-- 蟹肉汤 -->
+			<Item Amount="10" ItemId="49243"/>			<!-- 香菜 -->
+			<Succeed>
+				<ShowHtml HtmlId="rrafons12"/>
+			</Succeed>
+			<Fail>
+				<ShowHtml HtmlId="rrafons14"/>
+			</Fail>
+		</MakeItem>
+	</Action>
+
+<!-- 矿物洞穴 -->
+	<!-- 欧姆矿工 -->
+	<Action Name="request mineral bag">
+		<MakeItem>
+			<Item Amount="1" ItemId="41002"/>			<!-- 矿物袋子 -->
+			<Material Amount="1" ItemId="40614"/>		<!-- 矿物收集文件 -->
+		</MakeItem>
+	</Action>
+	<!--オームの袋 / 欧姆矿工 -->
+	<Action Name="request oum giftbag" NpcId="71146">
+		<MakeItem>
+			<Item Amount="1" ItemId="40687"/>			<!-- 欧姆的袋子 -->
+			<Material Amount="1" ItemId="40527"/>		<!-- 锄头 -->
+			<Succeed>
+				<ShowHtml HtmlId="midoum3"/>
+			</Succeed>
+		</MakeItem>
+	</Action>
+
+<!-- 狄亚得要塞 -->
+	<!--ツルハシ / 达夫哥丁 -->
+	<Action Name="request hoe" NpcId="71166">
+		<MakeItem>
+			<Item Amount="1" ItemId="40527"/>			<!-- 锄头 -->
+			<Material Amount="5" ItemId="40899"/>		<!-- 钢铁原石 -->
+			<Material Amount="300" ItemId="40308"/>		<!-- 金币 -->
+		</MakeItem>
+	</Action>
+
+<!-- 钓鱼池 -->
+	<!-- 修好的耳环 / 钓鱼婆婆 雷蒂亚 -->
+	<Action Name="request not_broken earring" NpcId="80081">
+		<MakeItem>
+			<Item Amount="1" ItemId="21049"/>			<!-- 修好的耳环 -->
+			<Material Amount="1" ItemId="41305"/>		<!-- 破碎的耳环 -->
+			<Material Amount="1" ItemId="41303"/>		<!-- 发蓝光的鱼 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+		</MakeItem>
+	</Action>
+	<!-- 修好的戒指 / 钓鱼婆婆 雷蒂亚 -->
+	<Action Name="request not_broken ring left" NpcId="80081">
+		<MakeItem>
+			<Item Amount="1" ItemId="21048"/>			<!-- 修好的戒指 -->
+			<Material Amount="1" ItemId="41306"/>		<!-- 破碎的戒指 -->
+			<Material Amount="1" ItemId="41302"/>		<!-- 发绿光的鱼 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+		</MakeItem>
+	</Action>
+	<!-- 修好的项链 / 钓鱼婆婆 雷蒂亚 -->
+	<Action Name="request not_broken amulet" NpcId="80081">
+		<MakeItem>
+			<Item Amount="1" ItemId="21050"/>			<!-- 修好的项链 -->
+			<Material Amount="1" ItemId="41307"/>		<!-- 破碎的项链 -->
+			<Material Amount="1" ItemId="41301"/>		<!-- 发红光的鱼 -->
+			<Material Amount="1000" ItemId="40308"/>	<!-- 金币 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生皮带(水) / 庆典道具管理人 -->
+	<Action Name="a" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21070"/>			<!-- 新生皮带 -->
+			<Material Amount="1" ItemId="21069"/>		<!-- 新生皮带 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生皮带(火) / 庆典道具管理人 -->
+	<Action Name="b" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21072"/>			<!-- 新生皮带 -->
+			<Material Amount="1" ItemId="21069"/>		<!-- 新生皮带 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生皮带(风) / 庆典道具管理人 -->
+	<Action Name="c" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21071"/>			<!-- 新生皮带 -->
+			<Material Amount="1" ItemId="21069"/>		<!-- 新生皮带 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生皮带(地) / 庆典道具管理人 -->
+	<Action Name="d" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21073"/>			<!-- 新生皮带 -->
+			<Material Amount="1" ItemId="21069"/>		<!-- 新生皮带 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生耳环(AC1-HP20) / 庆典道具管理人 -->
+	<Action Name="e" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21075"/>			<!-- 新生耳环 -->
+			<Material Amount="1" ItemId="21074"/>		<!-- 新生耳环 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生耳环(AC1-MP10) / 庆典道具管理人 -->
+	<Action Name="f" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21076"/>			<!-- 新生耳环 -->
+			<Material Amount="1" ItemId="21074"/>		<!-- 新生耳环 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生耳环(AC1-HP10-MP5) / 庆典道具管理人 -->
+	<Action Name="g" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21077"/>			<!-- 新生耳环 -->
+			<Material Amount="1" ItemId="21074"/>		<!-- 新生耳环 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生耳环(MR2-HP20) / 庆典道具管理人 -->
+	<Action Name="h" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21078"/>			<!-- 新生耳环 -->
+			<Material Amount="1" ItemId="21074"/>		<!-- 新生耳环 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生耳环(MR2-MP10) / 庆典道具管理人 -->
+	<Action Name="i" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21079"/>			<!-- 新生耳环 -->
+			<Material Amount="1" ItemId="21074"/>		<!-- 新生耳环 -->
+		</MakeItem>
+	</Action>
+	<!-- 新生耳环(MR2-HP10-MP5) / 庆典道具管理人 -->
+	<Action Name="j" NpcId="81200">
+		<MakeItem>
+			<Item Amount="1" ItemId="21080"/>			<!-- 新生耳环 -->
+			<Material Amount="1" ItemId="21074"/>		<!-- 新生耳环 -->
+		</MakeItem>
+	</Action>
+
+<!-- 真·冥皇丹特斯之室 -->
+	<!-- 真·冥皇制作防具秘籍 / 马鲁贝斯 -->
+	<Action Name="request dantes manual" NpcId="71169">
+		<MakeItem>
+			<Item Amount="1" ItemId="40966"/>			<!-- 真·冥皇制作防具秘笈 -->
+			<Material Amount="1" ItemId="41035"/>		<!-- 完整的召唤球 -->
+		</MakeItem>
+	</Action>
+</NpcActionList>
