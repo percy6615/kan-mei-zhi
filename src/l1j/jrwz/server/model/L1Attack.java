@@ -77,7 +77,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.UNCANNY_DODGE;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.WarTimeController;
 import l1j.jrwz.server.model.Instance.L1DollInstance;

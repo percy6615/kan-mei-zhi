@@ -21,7 +21,7 @@ package l1j.jrwz.server.serverpackets;
 import java.io.IOException;
 import java.util.List;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Opcodes;
 import l1j.jrwz.server.datatables.ItemTable;
 import l1j.jrwz.server.datatables.ShopTable;

@@ -16,8 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import l1j.jrwz.Base64;
-import l1j.jrwz.Config;
 import l1j.jrwz.L1DatabaseFactory;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.utils.SQLUtil;
 
 public class Logins {

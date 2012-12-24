@@ -23,7 +23,7 @@ import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.AuctionBoardTable;
 import l1j.jrwz.server.datatables.ClanTable;
 import l1j.jrwz.server.datatables.HouseTable;

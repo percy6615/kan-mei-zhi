@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.L1TaxCalculator;
 import l1j.jrwz.server.templates.L1ShopItem;
 

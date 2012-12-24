@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.WarTimeController;
 import l1j.jrwz.server.datatables.CastleTable;

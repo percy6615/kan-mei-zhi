@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 
 public abstract class ServerBasePacket {
     private static Logger _log = Logger.getLogger(ServerBasePacket.class

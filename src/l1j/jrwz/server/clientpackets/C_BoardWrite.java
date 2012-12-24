@@ -23,7 +23,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.datatables.BoardTable;
 import l1j.jrwz.server.model.L1Object;

@@ -18,7 +18,7 @@
  */
 package l1j.jrwz.server.serverpackets;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Account;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.Opcodes;

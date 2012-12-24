@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.L1DatabaseFactory;
 import l1j.jrwz.server.model.L1Spawn;
 import l1j.jrwz.server.model.Instance.L1PcInstance;

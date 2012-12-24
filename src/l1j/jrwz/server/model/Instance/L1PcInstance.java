@@ -58,7 +58,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.GeneralThreadPool;
@@ -1292,7 +1292,7 @@ public class L1PcInstance extends L1Character {
         return _bowHitModifierByArmor;
     }
 
-    public ArrayList getBuyList() {
+    public ArrayList<L1PrivateShopBuyList> getBuyList() {
         return _buyList;
     }
 
@@ -1677,7 +1677,7 @@ public class L1PcInstance extends L1Character {
         return _quest;
     }
 
-    public ArrayList getSellList() {
+    public ArrayList<L1PrivateShopSellList> getSellList() {
         return _sellList;
     }
 

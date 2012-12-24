@@ -21,7 +21,7 @@ package l1j.jrwz.server.utils;
 
 import java.util.Random;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 
 public class CalcStat {
 

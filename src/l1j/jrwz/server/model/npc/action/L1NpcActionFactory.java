@@ -27,9 +27,8 @@ import java.util.logging.Logger;
 import org.w3c.dom.Element;
 
 public class L1NpcActionFactory {
-    private static Logger _log = Logger.getLogger(L1NpcActionFactory.class
-            .getName());
-    private static Map<String, Constructor<L1NpcAction>> _actions = new HashMap<String, Constructor<L1NpcAction>>();
+    private static Logger _log = Logger.getLogger(L1NpcActionFactory.class.getName());
+    private static Map<String, Constructor<? extends L1NpcAction>> _actions = new HashMap<String, Constructor<? extends L1NpcAction>>();
 
     static {
         try {
@@ -43,14 +42,14 @@ public class L1NpcActionFactory {
         }
     }
 
-    private static Constructor<L1NpcAction> loadConstructor(Class c)
+    private static Constructor<? extends L1NpcAction> loadConstructor(final Class<? extends L1NpcAction> c)
             throws NoSuchMethodException {
         return c.getConstructor(new Class[] { Element.class });
     }
 
     public static L1NpcAction newAction(Element element) {
         try {
-            Constructor<L1NpcAction> con = _actions.get(element.getNodeName());
+            Constructor<? extends L1NpcAction> con = _actions.get(element.getNodeName());
             return con.newInstance(element);
         } catch (NullPointerException e) {
             _log.warning(element.getNodeName() + " 未定义的NPC动作");

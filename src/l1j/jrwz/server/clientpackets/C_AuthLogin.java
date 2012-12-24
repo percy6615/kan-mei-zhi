@@ -20,7 +20,7 @@ package l1j.jrwz.server.clientpackets;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Account;
 import l1j.jrwz.server.AccountAlreadyLoginException;
 import l1j.jrwz.server.ClientThread;

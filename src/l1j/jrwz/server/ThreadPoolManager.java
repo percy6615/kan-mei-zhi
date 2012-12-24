@@ -30,7 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javolution.text.TextBuilder;
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 
 // import l1j.jrwz.server.network.L2GameClient;
 

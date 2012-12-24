@@ -26,7 +26,7 @@ import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.IdFactory;
 import l1j.jrwz.server.datatables.FurnitureSpawnTable;
 import l1j.jrwz.server.datatables.ItemTable;
@@ -38,11 +38,14 @@ import l1j.jrwz.server.templates.L1Item;
 
 public class L1Inventory extends L1Object {
 
-    public class DataComparator implements java.util.Comparator {
+    public class DataComparator implements java.util.Comparator<L1ItemInstance> {
+        /* 
+         * 按强化等级由低到高排序
+         * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+         */
         @Override
-        public int compare(Object item1, Object item2) {
-            return ((L1ItemInstance) item1).getEnchantLevel()
-                    - ((L1ItemInstance) item2).getEnchantLevel();
+        public int compare(L1ItemInstance item1, L1ItemInstance item2) {
+            return item1.getEnchantLevel() - item2.getEnchantLevel();
         }
     }
 

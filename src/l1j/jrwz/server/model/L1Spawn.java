@@ -25,7 +25,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.IdFactory;

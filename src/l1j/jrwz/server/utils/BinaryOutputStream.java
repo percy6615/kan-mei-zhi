@@ -22,7 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 
 public class BinaryOutputStream extends OutputStream {
     private static final String CLIENT_LANGUAGE_CODE = Config.CLIENT_LANGUAGE_CODE;
