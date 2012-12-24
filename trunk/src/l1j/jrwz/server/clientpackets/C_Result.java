@@ -340,7 +340,7 @@ public class C_Result extends ClientBasePacket {
             int order;
             int count;
             int price;
-            ArrayList sellList;
+            ArrayList<L1PrivateShopSellList> sellList;
             L1PrivateShopSellList pssl;
             int itemObjectId;
             int sellPrice;
@@ -352,9 +352,6 @@ public class C_Result extends ClientBasePacket {
             L1PcInstance targetPc = null;
             if (findObject instanceof L1PcInstance) {
                 targetPc = (L1PcInstance) findObject;
-                if (targetPc == null) {
-                    return;
-                }
             }
             if (targetPc.isTradingInPrivateShop()) {
                 return;
@@ -438,7 +435,7 @@ public class C_Result extends ClientBasePacket {
         } else if (resultType == 1 && size != 0 && isPrivateShop) { // 個人商店にアイテム売却
             int count;
             int order;
-            ArrayList buyList;
+            ArrayList<L1PrivateShopBuyList> buyList;
             L1PrivateShopBuyList psbl;
             int itemObjectId;
             L1ItemInstance item;
@@ -451,9 +448,6 @@ public class C_Result extends ClientBasePacket {
             L1PcInstance targetPc = null;
             if (findObject instanceof L1PcInstance) {
                 targetPc = (L1PcInstance) findObject;
-                if (targetPc == null) {
-                    return;
-                }
             }
             if (targetPc.isTradingInPrivateShop()) {
                 return;

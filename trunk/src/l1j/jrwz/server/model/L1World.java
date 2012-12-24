@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
@@ -87,6 +87,7 @@ public class L1World {
     /** _allClans的查看. */
     private Collection<L1Clan> _allClanValues;
 
+    @SuppressWarnings("unchecked")
     private L1World() {
         _allPlayers = new ConcurrentHashMap<String, L1PcInstance>(); // 所有角色
         _allPets = new ConcurrentHashMap<Integer, L1PetInstance>(); // 所有宠物

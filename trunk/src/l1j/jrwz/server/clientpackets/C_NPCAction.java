@@ -36,7 +36,7 @@ import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.WarTimeController;
 import l1j.jrwz.server.datatables.CastleTable;

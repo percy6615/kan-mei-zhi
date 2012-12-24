@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 
 public class TelnetServer {
     private class ServerThread extends Thread {

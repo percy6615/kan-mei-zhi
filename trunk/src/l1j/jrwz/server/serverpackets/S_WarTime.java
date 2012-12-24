@@ -22,7 +22,7 @@ package l1j.jrwz.server.serverpackets;
 import java.util.Calendar;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Opcodes;
 
 // Referenced classes of package l1j.jrwz.server.serverpackets:

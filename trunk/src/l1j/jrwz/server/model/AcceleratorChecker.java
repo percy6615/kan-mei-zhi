@@ -22,7 +22,7 @@ package l1j.jrwz.server.model;
 import java.util.EnumMap;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.SprTable;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.serverpackets.S_Disconnect;

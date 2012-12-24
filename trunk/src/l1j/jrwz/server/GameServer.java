@@ -25,7 +25,7 @@ import java.net.Socket;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.CastleTable;
 import l1j.jrwz.server.datatables.CharacterTable;
 import l1j.jrwz.server.datatables.ChatLogTable;

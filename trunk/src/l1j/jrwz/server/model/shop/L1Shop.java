@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.CastleTable;
 import l1j.jrwz.server.datatables.ItemTable;
 import l1j.jrwz.server.datatables.TownTable;

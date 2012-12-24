@@ -29,7 +29,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.COOKING_3_7_S;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.ExpTable;
 import l1j.jrwz.server.datatables.PetTable;
 import l1j.jrwz.server.model.L1Character;

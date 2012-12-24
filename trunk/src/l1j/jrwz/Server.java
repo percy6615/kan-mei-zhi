@@ -46,6 +46,7 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.GameServer;
 import l1j.jrwz.telnet.TelnetServer;
 

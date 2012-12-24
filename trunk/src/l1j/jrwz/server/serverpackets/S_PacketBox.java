@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.TimeZone;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Account;
 import l1j.jrwz.server.Opcodes;
 import l1j.jrwz.server.model.L1World;

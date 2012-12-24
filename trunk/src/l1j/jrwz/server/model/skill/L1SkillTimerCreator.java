@@ -18,7 +18,7 @@
  */
 package l1j.jrwz.server.model.skill;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.L1Character;
 
 public class L1SkillTimerCreator {

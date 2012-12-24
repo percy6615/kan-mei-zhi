@@ -806,7 +806,7 @@ class L1SkillTimerThreadImpl extends Thread implements L1SkillTimer {
         if (Thread.currentThread().getId() == super.getId()) {
             return; // 如果调用方不停止
         }
-        super.stop();
+        super.interrupt();
     }
 
     @Override

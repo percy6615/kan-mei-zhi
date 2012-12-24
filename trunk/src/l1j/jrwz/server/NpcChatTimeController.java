@@ -23,7 +23,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.NpcChatTable;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;

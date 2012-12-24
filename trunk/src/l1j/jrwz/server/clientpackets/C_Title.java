@@ -22,7 +22,7 @@ package l1j.jrwz.server.clientpackets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;

@@ -1,18 +1,18 @@
 <c3p0-config>
   <default-config>
-    <property name="autoCommitOnClose">true</property>
-    <property name="initialPoolSize">10</property>
-    <property name="minPoolSize">10</property>
-    <property name="maxPoolSize">100</property>
-    <property name="acquireRetryAttempts">0</property>
-    <property name="acquireRetryDelay">500</property>
-    <property name="checkoutTimeout">0</property>
-    <property name="acquireIncrement">5</property>
-    <property name="automaticTestTable">connection_test_table</property>
-    <property name="testConnectionOnCheckin">false</property>
-    <property name="idleConnectionTestPeriod">60</property>
-    <property name="maxIdleTime">0</property>
-    <property name="maxStatementsPerConnection">100</property>
-    <property name="breakAfterAcquireFailure">false</property>
+    <property name="autoCommitOnClose">true</property>  <!-- 连接关闭时默认将所有未提交的操作回滚。Default: false -->
+    <property name="initialPoolSize">10</property>      <!-- 初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+    <property name="minPoolSize">10</property>          <!-- 连接池中保留的最小连接数。-->
+    <property name="maxPoolSize">100</property>         <!-- 连接池中保留的最大连接数。Default: 15 -->
+    <property name="acquireRetryAttempts">0</property>  <!-- 定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+    <property name="acquireRetryDelay">500</property>   <!-- 两次连接中间隔时间，单位毫秒。Default: 1000 -->
+    <property name="checkoutTimeout">0</property>       <!-- 当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException,如设为0则无限期等待。单位毫秒。Default: 0 -->
+    <property name="acquireIncrement">5</property>      <!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+    <property name="automaticTestTable">connection_test_table</property>    <!-- c3p0将建一张名为Test的空表，并使用其自带的查询语句进行测试。如果定义了这个参数那么属性preferredTestQuery将被忽略。你不能在这张Test表上进行任何操作，它将只供c3p0测试使用。Default: null -->
+    <property name="testConnectionOnCheckin">false</property>   <!-- 如果设为true那么在取得连接的同时将校验连接的有效性。Default: false -->
+    <property name="idleConnectionTestPeriod">60</property>     <!-- 每60秒检查所有连接池中的空闲连接。Default: 0 -->
+    <property name="maxIdleTime">0</property>           <!-- 最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+    <property name="maxStatementsPerConnection">100</property>  <!-- maxStatementsPerConnection定义了连接池内单个连接所拥有的最大缓存statements数。Default: 0 -->
+    <property name="breakAfterAcquireFailure">false</property>  <!-- 获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试获取连接失败后该数据源将申明已断开并永久关闭。Default: false -->
   </default-config>
 </c3p0-config>

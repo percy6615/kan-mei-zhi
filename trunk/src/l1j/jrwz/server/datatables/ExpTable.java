@@ -19,7 +19,7 @@
 
 package l1j.jrwz.server.datatables;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 
 /**
  * 経験値テーブルを提供するクラス

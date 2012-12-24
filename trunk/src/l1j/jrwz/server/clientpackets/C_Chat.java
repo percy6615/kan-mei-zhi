@@ -25,7 +25,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_POISON_SILENCE;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.Config;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.GMCommands;
 import l1j.jrwz.server.Opcodes;

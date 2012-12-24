@@ -22,6 +22,7 @@ package l1j.jrwz;
 import java.io.IOException;
 import java.util.Map;
 
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.map.L1Map;
 
 /**
