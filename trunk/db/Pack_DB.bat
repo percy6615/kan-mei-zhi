@@ -1,5 +1,5 @@
 ﻿echo off
 :: ─────────────
-:: L1J-JRWZ 数据库 打包器 
+:: L1J-kanmeizhi数据库 打包器 
 :: ─────────────
-copy .\l1jdb\*.sql db_jrwz.sql
+copy .\l1jdb\*.sql kanmeizhi.sql

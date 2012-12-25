@@ -1,0 +1,363 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost_3306
+Source Server Version : 50524
+Source Host           : localhost:3306
+Source Database       : db_jrwz
+
+Target Server Type    : MYSQL
+Target Server Version : 50524
+File Encoding         : 65001
+
+Date: 2012-11-21 18:35:36
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `spawnlist_trap`
+-- ----------------------------
+DROP TABLE IF EXISTS `spawnlist_trap`;
+CREATE TABLE `spawnlist_trap` (
+  `id` int(8) NOT NULL,
+  `note` varchar(64) DEFAULT NULL,
+  `trapId` int(8) NOT NULL,
+  `mapId` int(4) NOT NULL,
+  `locX` int(4) NOT NULL,
+  `locY` int(4) NOT NULL,
+  `locRndX` int(4) NOT NULL DEFAULT '0',
+  `locRndY` int(4) NOT NULL DEFAULT '0',
+  `count` int(4) NOT NULL DEFAULT '1',
+  `span` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of spawnlist_trap
+-- ----------------------------
+INSERT INTO `spawnlist_trap` VALUES ('1', '傲慢之塔4楼', '8', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('2', '傲慢之塔4楼', '2', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('3', '傲慢之塔4楼', '3', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('4', '傲慢之塔4楼', '4', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('5', '傲慢之塔4楼', '5', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('6', '傲慢之塔4楼', '6', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('7', '傲慢之塔4楼', '7', '104', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('8', '傲慢之塔8楼', '9', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('9', '傲慢之塔8楼', '2', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('10', '傲慢之塔8楼', '3', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('11', '傲慢之塔8楼', '4', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('12', '傲慢之塔8楼', '5', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('13', '傲慢之塔8楼', '6', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('14', '傲慢之塔8楼', '7', '108', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('15', '傲慢之塔14楼', '10', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('16', '傲慢之塔14楼', '2', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('17', '傲慢之塔14楼', '3', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('18', '傲慢之塔14楼', '4', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('19', '傲慢之塔14楼', '5', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('20', '傲慢之塔14楼', '6', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('21', '傲慢之塔14楼', '7', '114', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('22', '傲慢之塔18楼', '11', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('23', '傲慢之塔18楼', '2', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('24', '傲慢之塔18楼', '3', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('25', '傲慢之塔18楼', '4', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('26', '傲慢之塔18楼', '5', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('27', '傲慢之塔18楼', '6', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('28', '傲慢之塔18楼', '7', '118', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('29', '傲慢之塔24楼', '12', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('30', '傲慢之塔24楼', '2', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('31', '傲慢之塔24楼', '3', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('32', '傲慢之塔24楼', '4', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('33', '傲慢之塔24楼', '5', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('34', '傲慢之塔24楼', '6', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('35', '傲慢之塔24楼', '7', '124', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('36', '傲慢之塔28楼', '13', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('37', '傲慢之塔28楼', '2', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('38', '傲慢之塔28楼', '3', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('39', '傲慢之塔28楼', '4', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('40', '傲慢之塔28楼', '5', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('41', '傲慢之塔28楼', '6', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('42', '傲慢之塔28楼', '7', '128', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('43', '傲慢之塔34楼', '14', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('44', '傲慢之塔34楼', '2', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('45', '傲慢之塔34楼', '3', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('46', '傲慢之塔34楼', '4', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('47', '傲慢之塔34楼', '5', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('48', '傲慢之塔34楼', '6', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('49', '傲慢之塔34楼', '7', '134', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('50', '傲慢之塔38楼', '15', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('51', '傲慢之塔38楼', '2', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('52', '傲慢之塔38楼', '3', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('53', '傲慢之塔38楼', '4', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('54', '傲慢之塔38楼', '5', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('55', '傲慢之塔38楼', '6', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('56', '傲慢之塔38楼', '7', '138', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('57', '傲慢之塔44楼', '16', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('58', '傲慢之塔44楼', '2', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('59', '傲慢之塔44楼', '3', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('60', '傲慢之塔44楼', '4', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('61', '傲慢之塔44楼', '5', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('62', '傲慢之塔44楼', '6', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('63', '傲慢之塔44楼', '7', '144', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('64', '傲慢之塔48楼', '17', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('65', '傲慢之塔48楼', '2', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('66', '傲慢之塔48楼', '3', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('67', '傲慢之塔48楼', '4', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('68', '傲慢之塔48楼', '5', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('69', '傲慢之塔48楼', '6', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('70', '傲慢之塔48楼', '7', '148', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('71', '傲慢之塔54楼', '18', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('72', '傲慢之塔54楼', '2', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('73', '傲慢之塔54楼', '3', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('74', '傲慢之塔54楼', '4', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('75', '傲慢之塔54楼', '5', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('76', '傲慢之塔54楼', '6', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('77', '傲慢之塔54楼', '7', '154', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('78', '傲慢之塔58楼', '18', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('79', '傲慢之塔58楼', '2', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('80', '傲慢之塔58楼', '3', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('81', '傲慢之塔58楼', '4', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('82', '傲慢之塔58楼', '5', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('83', '傲慢之塔58楼', '6', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('84', '傲慢之塔58楼', '7', '158', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('85', '傲慢之塔64楼', '19', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('86', '傲慢之塔64楼', '2', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('87', '傲慢之塔64楼', '3', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('88', '傲慢之塔64楼', '4', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('89', '傲慢之塔64楼', '5', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('90', '傲慢之塔64楼', '6', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('91', '傲慢之塔64楼', '7', '164', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('92', '傲慢之塔68楼', '19', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('93', '傲慢之塔68楼', '2', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('94', '傲慢之塔68楼', '3', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('95', '傲慢之塔68楼', '4', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('96', '傲慢之塔68楼', '5', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('97', '傲慢之塔68楼', '6', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('98', '傲慢之塔68楼', '7', '168', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('99', '傲慢之塔74楼', '20', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('100', '傲慢之塔74楼', '2', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('101', '傲慢之塔74楼', '3', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('102', '傲慢之塔74楼', '4', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('103', '傲慢之塔74楼', '5', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('104', '傲慢之塔74楼', '6', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('105', '傲慢之塔74楼', '7', '174', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('106', '傲慢之塔78楼', '21', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('107', '傲慢之塔78楼', '2', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('108', '傲慢之塔78楼', '3', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('109', '傲慢之塔78楼', '4', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('110', '傲慢之塔78楼', '5', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('111', '傲慢之塔78楼', '6', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('112', '傲慢之塔78楼', '7', '178', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('113', '傲慢之塔84楼', '22', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('114', '傲慢之塔84楼', '2', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('115', '傲慢之塔84楼', '3', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('116', '傲慢之塔84楼', '4', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('117', '傲慢之塔84楼', '5', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('118', '傲慢之塔84楼', '6', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('119', '傲慢之塔84楼', '7', '184', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('120', '傲慢之塔88楼', '22', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('121', '傲慢之塔88楼', '2', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('122', '傲慢之塔88楼', '3', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('123', '傲慢之塔88楼', '4', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('124', '傲慢之塔88楼', '5', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('125', '傲慢之塔88楼', '6', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('126', '傲慢之塔88楼', '7', '188', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('127', '傲慢之塔94楼', '23', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('128', '傲慢之塔94楼', '2', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('129', '傲慢之塔94楼', '3', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('130', '傲慢之塔94楼', '4', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('131', '傲慢之塔94楼', '5', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('132', '傲慢之塔94楼', '6', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('133', '傲慢之塔94楼', '7', '194', '32798', '32798', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('134', '傲慢之塔98楼', '23', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('135', '傲慢之塔98楼', '2', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('136', '傲慢之塔98楼', '3', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('137', '傲慢之塔98楼', '4', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('138', '傲慢之塔98楼', '5', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('139', '傲慢之塔98楼', '6', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('140', '傲慢之塔98楼', '7', '198', '32670', '32861', '100', '100', '20', '0');
+INSERT INTO `spawnlist_trap` VALUES ('141', '欧瑞 象牙塔4层', '24', '78', '32896', '32770', '50', '10', '30', '0');
+INSERT INTO `spawnlist_trap` VALUES ('142', '欧瑞 象牙塔4层', '25', '78', '32896', '32770', '50', '10', '30', '0');
+INSERT INTO `spawnlist_trap` VALUES ('143', '欧瑞 象牙塔4层', '26', '78', '32896', '32770', '50', '10', '30', '0');
+INSERT INTO `spawnlist_trap` VALUES ('144', '欧瑞 象牙塔5层', '27', '79', '32770', '32834', '50', '10', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('145', '欧瑞 象牙塔5层', '28', '79', '32770', '32834', '50', '10', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('146', '欧瑞 象牙塔5层', '29', '79', '32770', '32834', '50', '10', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('147', '欧瑞 象牙塔6层', '30', '80', '32767', '32833', '50', '50', '100', '0');
+INSERT INTO `spawnlist_trap` VALUES ('148', '欧瑞 象牙塔6层', '31', '80', '32767', '32833', '50', '50', '100', '0');
+INSERT INTO `spawnlist_trap` VALUES ('149', '欧瑞 象牙塔7层', '32', '81', '32762', '32829', '50', '50', '120', '0');
+INSERT INTO `spawnlist_trap` VALUES ('150', '欧瑞 象牙塔7层', '33', '81', '32762', '32829', '50', '50', '120', '0');
+INSERT INTO `spawnlist_trap` VALUES ('151', '欧瑞 象牙塔8层', '34', '82', '32701', '32834', '50', '50', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('152', '欧瑞 象牙塔8层', '35', '82', '32701', '32834', '50', '50', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('153', '欧瑞 象牙塔8层', '36', '82', '32701', '32834', '50', '50', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('154', '欧瑞 象牙塔8层', '37', '82', '32701', '32834', '50', '50', '50', '0');
+INSERT INTO `spawnlist_trap` VALUES ('155', '福朗克的迷宫', '3', '482', '32695', '32735', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('156', '福朗克的迷宫', '4', '482', '32696', '32746', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('157', '福朗克的迷宫', '38', '482', '32692', '32750', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('158', '福朗克的迷宫', '5', '482', '32716', '32736', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('159', '福朗克的迷宫', '39', '482', '32716', '32740', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('160', '福朗克的迷宫', '6', '482', '32724', '32744', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('161', '福朗克的迷宫', '3', '482', '32727', '32741', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('162', '福朗克的迷宫', '38', '482', '32727', '32747', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('163', '福朗克的迷宫', '4', '482', '32730', '32744', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('164', '福朗克的迷宫', '5', '482', '32799', '32736', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('165', '福朗克的迷宫', '40', '482', '32774', '32740', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('166', '福朗克的迷宫', '40', '482', '32728', '32784', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('167', '福朗克的迷宫', '6', '482', '32734', '32844', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('168', '福朗克的迷宫', '3', '482', '32731', '32850', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('169', '福朗克的迷宫', '41', '482', '32770', '32857', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('170', '福朗克的迷宫', '40', '482', '32776', '32848', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('171', '福朗克的迷宫', '5', '482', '32770', '32847', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('172', '福朗克的迷宫', '6', '482', '32741', '32850', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('173', '福朗克的迷宫', '40', '482', '32703', '32868', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('174', '福朗克的迷宫', '5', '482', '32700', '32866', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('175', '福朗克的迷宫', '4', '482', '32752', '32781', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('176', '福朗克的迷宫', '38', '482', '32788', '32769', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('177', '福朗克的迷宫', '39', '482', '32781', '32802', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('178', '福朗克的迷宫', '5', '482', '32771', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('179', '福朗克的迷宫', '40', '482', '32778', '32758', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('180', '福朗克的迷宫', '41', '482', '32737', '32792', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('181', '福朗克的迷宫', '4', '482', '32737', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('182', '福朗克的迷宫', '4', '482', '32753', '32810', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('183', '福朗克的迷宫', '40', '482', '32731', '32792', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('184', '福朗克的迷宫', '41', '482', '32731', '32798', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('185', '福朗克的迷宫', '5', '482', '32731', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('186', '福朗克的迷宫', '38', '482', '32668', '32760', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('187', '福朗克的迷宫', '39', '482', '32673', '32765', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('188', '福朗克的迷宫', '3', '482', '32676', '32779', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('189', '福朗克的迷宫', '4', '482', '32678', '32782', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('190', '福朗克的迷宫', '40', '482', '32680', '32788', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('191', '福朗克的迷宫', '41', '482', '32673', '32787', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('192', '福朗克的迷宫', '4', '482', '32672', '32813', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('193', '福朗克的迷宫', '5', '482', '32682', '32816', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('194', '福朗克的迷宫', '6', '482', '32689', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('195', '福朗克的迷宫', '38', '482', '32697', '32810', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('196', '福朗克的迷宫', '39', '482', '32694', '32813', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('197', '福朗克的迷宫', '3', '482', '32743', '32844', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('198', '福朗克的迷宫', '4', '482', '32704', '32829', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('199', '福朗克的迷宫', '40', '482', '32706', '32836', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('200', '福朗克的迷宫', '41', '482', '32702', '32839', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('201', '福朗克的迷宫', '6', '482', '32724', '32808', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('202', '福朗克的迷宫', '38', '482', '32723', '32756', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('203', '福朗克的迷宫', '5', '482', '32726', '32754', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('204', '福朗克的迷宫', '40', '482', '32732', '32756', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('205', '福朗克的迷宫', '41', '482', '32715', '32802', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('206', '福朗克的迷宫', '4', '482', '32795', '32811', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('207', '福朗克的迷宫', '4', '482', '32793', '32802', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('208', '福朗克的迷宫', '40', '482', '32743', '32792', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('209', '福朗克的迷宫', '41', '482', '32743', '32798', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('210', '福朗克的迷宫', '5', '482', '32743', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('211', '福朗克的迷宫', '6', '482', '32777', '32736', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('212', '福朗克的迷宫', '42', '482', '32786', '32826', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('213', '福朗克的迷宫', '42', '482', '32663', '32846', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('214', '福朗克的迷宫', '42', '482', '32745', '32844', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('215', '福朗克的迷宫', '42', '482', '32712', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('216', '福朗克的迷宫', '42', '482', '32695', '32782', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('217', '迪哥的废弃监狱', '38', '483', '32750', '32817', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('218', '迪哥的废弃监狱', '39', '483', '32740', '32834', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('219', '迪哥的废弃监狱', '5', '483', '32735', '32851', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('220', '迪哥的废弃监狱', '4', '483', '32749', '32843', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('221', '迪哥的废弃监狱', '40', '483', '32781', '32801', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('222', '迪哥的废弃监狱', '43', '483', '32780', '32802', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('223', '迪哥的废弃监狱', '3', '483', '32781', '32803', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('224', '迪哥的废弃监狱', '6', '483', '32782', '32802', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('225', '迪哥的废弃监狱', '6', '483', '32783', '32807', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('226', '迪哥的废弃监狱', '43', '483', '32790', '32800', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('227', '迪哥的废弃监狱', '41', '483', '32783', '32809', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('228', '迪哥的废弃监狱', '43', '483', '32782', '32808', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('229', '迪哥的废弃监狱', '6', '483', '32789', '32802', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('230', '迪哥的废弃监狱', '40', '483', '32793', '32803', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('231', '迪哥的废弃监狱', '6', '483', '32793', '32801', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('232', '迪哥的废弃监狱', '39', '483', '32793', '32799', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('233', '迪哥的废弃监狱', '46', '483', '32795', '32799', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('234', '迪哥的废弃监狱', '4', '483', '32783', '32813', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('235', '迪哥的废弃监狱', '43', '483', '32782', '32814', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('236', '迪哥的废弃监狱', '39', '483', '32783', '32815', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('237', '迪哥的废弃监狱', '6', '483', '32784', '32814', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('238', '迪哥的废弃监狱', '41', '483', '32783', '32815', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('239', '迪哥的废弃监狱', '43', '483', '32779', '32817', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('240', '迪哥的废弃监狱', '40', '483', '32780', '32818', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('241', '迪哥的废弃监狱', '39', '483', '32789', '32813', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('242', '迪哥的废弃监狱', '5', '483', '32788', '32814', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('243', '迪哥的废弃监狱', '43', '483', '32789', '32815', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('244', '迪哥的废弃监狱', '44', '483', '32790', '32814', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('245', '迪哥的废弃监狱', '4', '483', '32786', '32820', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('246', '迪哥的废弃监狱', '6', '483', '32787', '32819', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('247', '迪哥的废弃监狱', '5', '483', '32795', '32813', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('248', '迪哥的废弃监狱', '6', '483', '32794', '32814', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('249', '迪哥的废弃监狱', '43', '483', '32796', '32814', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('250', '迪哥的废弃监狱', '40', '483', '32795', '32815', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('251', '迪哥的废弃监狱', '3', '483', '32796', '32810', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('252', '迪哥的废弃监狱', '39', '483', '32797', '32811', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('253', '迪哥的废弃监狱', '44', '483', '32791', '32818', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('254', '迪哥的废弃监狱', '43', '483', '32791', '32820', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('255', '迪哥的废弃监狱', '5', '483', '32792', '32819', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('256', '迪哥的废弃监狱', '6', '483', '32796', '32819', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('257', '迪哥的废弃监狱', '4', '483', '32797', '32818', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('258', '迪哥的废弃监狱', '6', '483', '32798', '32810', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('259', '迪哥的废弃监狱', '43', '483', '32799', '32809', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('260', '迪哥的废弃监狱', '5', '483', '32799', '32811', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('261', '迪哥的废弃监狱', '40', '483', '32800', '32810', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('262', '迪哥的废弃监狱', '6', '483', '32802', '32809', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('263', '迪哥的废弃监狱', '43', '483', '32801', '32808', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('264', '迪哥的废弃监狱', '41', '483', '32803', '32808', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('265', '迪哥的废弃监狱', '3', '483', '32802', '32807', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('266', '迪哥的废弃监狱', '6', '483', '32807', '32807', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('267', '迪哥的废弃监狱', '43', '483', '32806', '32808', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('268', '迪哥的废弃监狱', '6', '483', '32800', '32807', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('269', '迪哥的废弃监狱', '4', '483', '32800', '32802', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('270', '迪哥的废弃监狱', '6', '483', '32803', '32803', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('271', '迪哥的废弃监狱', '3', '483', '32804', '32804', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('272', '迪哥的废弃监狱', '41', '483', '32803', '32803', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('273', '迪哥的废弃监狱', '43', '483', '32804', '32802', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('274', '迪哥的废弃监狱', '6', '483', '32804', '32800', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('275', '迪哥的废弃监狱', '43', '483', '32802', '32800', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('276', '迪哥的废弃监狱', '39', '483', '32803', '32799', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('277', '迪哥的废弃监狱', '43', '483', '32802', '32813', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('278', '迪哥的废弃监狱', '5', '483', '32806', '32812', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('279', '迪哥的废弃监狱', '41', '483', '32807', '32813', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('280', '迪哥的废弃监狱', '38', '483', '32808', '32814', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('281', '迪哥的废弃监狱', '6', '483', '32802', '32815', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('282', '迪哥的废弃监狱', '5', '483', '32801', '32816', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('283', '迪哥的废弃监狱', '43', '483', '32803', '32816', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('284', '迪哥的废弃监狱', '43', '483', '32780', '32837', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('285', '迪哥的废弃监狱', '5', '483', '32795', '32847', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('286', '迪哥的废弃监狱', '5', '483', '32735', '32831', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('287', '迪哥的废弃监狱', '43', '483', '32761', '32807', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('288', '迪哥的废弃监狱', '38', '483', '32803', '32814', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('289', '迪哥的废弃监狱', '40', '483', '32805', '32803', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('290', '迪哥的废弃监狱', '5', '483', '32805', '32898', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('291', '迪哥的废弃监狱', '4', '483', '32788', '32927', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('292', '迪哥的废弃监狱', '5', '483', '32747', '32864', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('293', '迪哥的废弃监狱', '5', '483', '32782', '32907', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('294', '迪哥的废弃监狱', '5', '483', '32773', '32880', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('295', '迪哥的废弃监狱', '5', '483', '32748', '32914', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('296', '豪势的地监', '5', '484', '32732', '32821', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('297', '豪势的地监', '39', '484', '32738', '32821', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('298', '豪势的地监', '4', '484', '32759', '32800', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('299', '豪势的地监', '41', '484', '32769', '32792', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('300', '豪势的地监', '6', '484', '32772', '32793', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('301', '豪势的地监', '39', '484', '32792', '32796', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('302', '豪势的地监', '40', '484', '32807', '32793', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('303', '豪势的地监', '2', '484', '32804', '32796', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('304', '豪势的地监', '5', '484', '32801', '32810', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('305', '豪势的地监', '4', '484', '32806', '32830', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('306', '豪势的地监', '41', '484', '32792', '32826', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('307', '豪势的地监', '5', '484', '32792', '32841', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('308', '豪势的地监', '40', '484', '32809', '32846', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('309', '豪势的地监', '3', '484', '32787', '32844', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('310', '豪势的地监', '5', '484', '32784', '32862', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('311', '豪势的地监', '41', '484', '32779', '32848', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('312', '豪势的地监', '45', '484', '32774', '32828', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('313', '豪势的地监', '39', '484', '32762', '32845', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('314', '豪势的地监', '5', '484', '32763', '32850', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('315', '豪势的地监', '44', '484', '32761', '32853', '0', '0', '1', '0');
+INSERT INTO `spawnlist_trap` VALUES ('316', '豪势的地监', '41', '484', '32779', '32801', '0', '0', '1', '10000');
+INSERT INTO `spawnlist_trap` VALUES ('317', '幽灵之家', '44', '5140', '32818', '32821', '76', '53', '150', '0');
+INSERT INTO `spawnlist_trap` VALUES ('318', '幽灵之家', '45', '5140', '32818', '32821', '76', '53', '150', '0');
+INSERT INTO `spawnlist_trap` VALUES ('319', '幽灵之家', '46', '5140', '32818', '32821', '76', '53', '150', '0');
+INSERT INTO `spawnlist_trap` VALUES ('320', '幽灵之家', '47', '5140', '32818', '32821', '76', '53', '150', '0');
+INSERT INTO `spawnlist_trap` VALUES ('321', '幽灵之家', '48', '5140', '32818', '32821', '76', '53', '10', '0');
+INSERT INTO `spawnlist_trap` VALUES ('322', '幽灵之家', '49', '5140', '32818', '32821', '76', '53', '10', '0');
+INSERT INTO `spawnlist_trap` VALUES ('323', '幽灵之家', '50', '5140', '32818', '32821', '76', '53', '10', '0');
+INSERT INTO `spawnlist_trap` VALUES ('324', '幽灵之家', '51', '5140', '32818', '32821', '76', '53', '10', '0');
+INSERT INTO `spawnlist_trap` VALUES ('325', '幽灵之家', '52', '5140', '32818', '32821', '76', '53', '10', '0');
