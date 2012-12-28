@@ -31,7 +31,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_FREEZE;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.SkillsTable;
 import l1j.jrwz.server.datatables.WeaponSkillTable;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;

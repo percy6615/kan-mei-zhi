@@ -61,10 +61,10 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Account;
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.FishingTimeController;
 import l1j.jrwz.server.IdFactory;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.CharacterTable;
 import l1j.jrwz.server.datatables.FurnitureSpawnTable;
 import l1j.jrwz.server.datatables.ItemTable;

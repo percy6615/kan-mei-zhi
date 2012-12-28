@@ -17,7 +17,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-package l1j.jrwz.server;
+package l1j.jrwz.server.codes;
 
 /**
  * 动作代码.

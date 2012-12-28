@@ -24,8 +24,8 @@ import static l1j.jrwz.server.model.skill.L1SkillId.SHAPE_CHANGE;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.ActionCodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.L1Character;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 

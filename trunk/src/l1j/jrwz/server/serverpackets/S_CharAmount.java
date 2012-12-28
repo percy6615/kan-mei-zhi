@@ -21,7 +21,7 @@ package l1j.jrwz.server.serverpackets;
 import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.Account;
 import l1j.jrwz.server.ClientThread;
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_CharAmount extends ServerBasePacket {
 

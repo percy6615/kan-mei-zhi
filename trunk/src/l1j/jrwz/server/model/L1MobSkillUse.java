@@ -28,8 +28,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.IdFactory;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.MobSkillTable;
 import l1j.jrwz.server.datatables.NpcTable;
 import l1j.jrwz.server.datatables.SkillsTable;

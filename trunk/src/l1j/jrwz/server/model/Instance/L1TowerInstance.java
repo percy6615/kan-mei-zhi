@@ -20,9 +20,9 @@ package l1j.jrwz.server.model.Instance;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.WarTimeController;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.model.L1Attack;
 import l1j.jrwz.server.model.L1CastleLocation;
 import l1j.jrwz.server.model.L1Character;

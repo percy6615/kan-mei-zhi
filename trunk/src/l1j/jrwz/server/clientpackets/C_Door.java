@@ -22,8 +22,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.ClientThread;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.HouseTable;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;

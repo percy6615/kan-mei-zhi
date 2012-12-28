@@ -21,7 +21,7 @@ package l1j.jrwz.server.serverpackets;
 
 import java.util.ArrayList;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;

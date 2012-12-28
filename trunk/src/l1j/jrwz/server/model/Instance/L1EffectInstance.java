@@ -29,9 +29,9 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_CUBE_SHOCK_TO_ENEMY;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.WarTimeController;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.SkillsTable;
 import l1j.jrwz.server.model.L1CastleLocation;
 import l1j.jrwz.server.model.L1Character;

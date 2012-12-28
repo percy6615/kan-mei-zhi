@@ -19,7 +19,7 @@
 package l1j.jrwz.server.serverpackets;
 
 import l1j.jrwz.configure.Config;
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_ServerVersion extends ServerBasePacket {
     private static final String S_SERVER_VERSION = "[S] ServerVersion";

@@ -20,7 +20,7 @@ package l1j.jrwz.server.serverpackets;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.Instance.L1NpcInstance;
 
 public class S_NpcChatPacket extends ServerBasePacket {

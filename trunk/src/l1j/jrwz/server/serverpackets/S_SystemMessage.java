@@ -20,7 +20,7 @@ package l1j.jrwz.server.serverpackets;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_SystemMessage extends ServerBasePacket {
     private static final String S_SYSTEM_MESSAGE = "[S] S_SystemMessage";
@@ -42,7 +42,7 @@ public class S_SystemMessage extends ServerBasePacket {
      */
     public S_SystemMessage(String msg) {
         _msg = msg;
-        writeC(Opcodes.S_OPCODE_SYSMSG);
+        writeC(Opcodes.S_OPCODE_GLOBALCHAT);
         writeC(0x09);
         writeS(msg);
     }
