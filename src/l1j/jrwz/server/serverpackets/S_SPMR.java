@@ -22,7 +22,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_WISDOM_POTION;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 
 public class S_SPMR extends ServerBasePacket {

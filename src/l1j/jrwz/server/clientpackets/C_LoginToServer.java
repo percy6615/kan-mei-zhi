@@ -45,11 +45,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.configure.Config;
 import l1j.jrwz.L1DatabaseFactory;
-import l1j.jrwz.server.ActionCodes;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.WarTimeController;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.CharacterTable;
 import l1j.jrwz.server.datatables.GetBackRestartTable;
 import l1j.jrwz.server.datatables.SkillsTable;
@@ -69,6 +69,8 @@ import l1j.jrwz.server.serverpackets.S_Bookmarks;
 import l1j.jrwz.server.serverpackets.S_CharTitle;
 import l1j.jrwz.server.serverpackets.S_CharacterConfig;
 import l1j.jrwz.server.serverpackets.S_InvList;
+import l1j.jrwz.server.serverpackets.S_Karma;
+import l1j.jrwz.server.serverpackets.S_LoginGame;
 import l1j.jrwz.server.serverpackets.S_MapID;
 import l1j.jrwz.server.serverpackets.S_OwnCharPack;
 import l1j.jrwz.server.serverpackets.S_OwnCharStatus;
@@ -78,8 +80,6 @@ import l1j.jrwz.server.serverpackets.S_SkillBrave;
 import l1j.jrwz.server.serverpackets.S_SkillHaste;
 import l1j.jrwz.server.serverpackets.S_SkillIconGFX;
 import l1j.jrwz.server.serverpackets.S_SummonPack;
-import l1j.jrwz.server.serverpackets.S_Unknown1;
-import l1j.jrwz.server.serverpackets.S_Unknown2;
 import l1j.jrwz.server.serverpackets.S_War;
 import l1j.jrwz.server.serverpackets.S_Weather;
 import l1j.jrwz.server.serverpackets.S_bonusstats;
@@ -146,10 +146,12 @@ public class C_LoginToServer extends ClientBasePacket {
         pc.setPacketOutput(client);
         client.setActiveChar(pc);
 
-        S_Unknown1 s_unknown1 = new S_Unknown1();
-        pc.sendPackets(s_unknown1);
-        S_Unknown2 s_unknown2 = new S_Unknown2();
-        pc.sendPackets(s_unknown2);
+//        S_Unknown1 s_unknown1 = new S_Unknown1();
+//        pc.sendPackets(s_unknown1);
+//        S_Unknown2 s_unknown2 = new S_Unknown2();
+//        pc.sendPackets(s_unknown2);
+        pc.sendPackets(new S_LoginGame()); // 3.3c
+        pc.sendPackets(new S_Karma(pc)); // カルマ値を表示
 
         bookmarks(pc);
 

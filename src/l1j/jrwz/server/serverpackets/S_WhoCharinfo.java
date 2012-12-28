@@ -20,7 +20,7 @@ package l1j.jrwz.server.serverpackets;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 
 public class S_WhoCharinfo extends ServerBasePacket {
@@ -43,7 +43,7 @@ public class S_WhoCharinfo extends ServerBasePacket {
             lawfulness = "(Lawful)";
         }
 
-        writeC(Opcodes.S_OPCODE_SYSMSG);
+        writeC(Opcodes.S_OPCODE_GLOBALCHAT);
         writeC(0x08);
 
         String title = "";

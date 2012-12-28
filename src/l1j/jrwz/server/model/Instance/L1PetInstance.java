@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.IdFactory;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.ExpTable;
 import l1j.jrwz.server.datatables.PetTable;
 import l1j.jrwz.server.datatables.PetTypeTable;

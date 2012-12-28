@@ -20,7 +20,7 @@ package l1j.jrwz.server.serverpackets;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_Bookmarks extends ServerBasePacket {
     private static final String _S__1F_S_Bookmarks = "[S] S_Bookmarks";

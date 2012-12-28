@@ -18,7 +18,7 @@
  */
 package l1j.jrwz.server.serverpackets;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_Message_YN extends ServerBasePacket {
 

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.datatables.MailTable;
 import l1j.jrwz.server.templates.L1Mail;
 

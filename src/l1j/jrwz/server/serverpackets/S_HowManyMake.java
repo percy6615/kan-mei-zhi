@@ -20,7 +20,7 @@ package l1j.jrwz.server.serverpackets;
 
 import java.io.IOException;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_HowManyMake extends ServerBasePacket {
     public S_HowManyMake(int objId, int max, String htmlId) {

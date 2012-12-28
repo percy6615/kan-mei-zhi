@@ -22,8 +22,8 @@ import static l1j.jrwz.server.model.skill.L1SkillId.FOG_OF_SLEEPING;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.GeneralThreadPool;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.NPCTalkDataTable;
 import l1j.jrwz.server.model.L1Attack;
 import l1j.jrwz.server.model.L1CastleLocation;

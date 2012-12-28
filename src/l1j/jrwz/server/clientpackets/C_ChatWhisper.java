@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.datatables.ChatLogTable;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;

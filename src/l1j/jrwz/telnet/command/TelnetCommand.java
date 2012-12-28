@@ -24,7 +24,7 @@ import static l1j.jrwz.telnet.command.TelnetCommandResult.CMD_OK;
 import java.util.StringTokenizer;
 
 import l1j.jrwz.server.GameServer;
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.datatables.ChatLogTable;
 import l1j.jrwz.server.model.L1Character;
 import l1j.jrwz.server.model.L1Object;

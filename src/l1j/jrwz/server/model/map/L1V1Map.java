@@ -20,7 +20,7 @@ package l1j.jrwz.server.model.map;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.DoorSpawnTable;
 import l1j.jrwz.server.model.Instance.L1DoorInstance;
 import l1j.jrwz.server.types.Point;

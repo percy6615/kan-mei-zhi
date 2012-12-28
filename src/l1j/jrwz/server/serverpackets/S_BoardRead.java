@@ -27,7 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import l1j.jrwz.L1DatabaseFactory;
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.utils.SQLUtil;
 
 public class S_BoardRead extends ServerBasePacket {

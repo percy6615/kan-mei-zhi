@@ -22,7 +22,7 @@ package l1j.jrwz.server.serverpackets;
 import java.util.List;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.datatables.ShopTable;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;

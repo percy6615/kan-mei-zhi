@@ -35,8 +35,8 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.GeneralThreadPool;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.model.Instance.L1MonsterInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;

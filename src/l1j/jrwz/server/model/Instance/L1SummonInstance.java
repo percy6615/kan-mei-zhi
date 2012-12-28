@@ -8,9 +8,9 @@ import java.util.Random;
 import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.IdFactory;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.DropTable;
 import l1j.jrwz.server.datatables.NpcTable;
 import l1j.jrwz.server.model.L1Attack;

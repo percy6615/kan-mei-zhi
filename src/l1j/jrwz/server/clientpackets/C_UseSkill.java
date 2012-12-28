@@ -32,8 +32,8 @@ import static l1j.jrwz.server.model.skill.L1SkillId.TRUE_TARGET;
 import java.util.logging.Logger;
 
 import l1j.jrwz.configure.Config;
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.ClientThread;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.datatables.SkillsTable;
 import l1j.jrwz.server.model.AcceleratorChecker;
 import l1j.jrwz.server.model.L1World;

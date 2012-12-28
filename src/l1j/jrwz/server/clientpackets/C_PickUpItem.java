@@ -20,8 +20,8 @@ package l1j.jrwz.server.clientpackets;
 
 import java.util.logging.Logger;
 
-import l1j.jrwz.server.ActionCodes;
 import l1j.jrwz.server.ClientThread;
+import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;

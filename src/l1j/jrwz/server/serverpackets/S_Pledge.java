@@ -19,7 +19,7 @@
  */
 package l1j.jrwz.server.serverpackets;
 
-import l1j.jrwz.server.Opcodes;
+import l1j.jrwz.server.codes.Opcodes;
 
 public class S_Pledge extends ServerBasePacket {
     private static final String _S_Pledge = "[S] _S_Pledge";
