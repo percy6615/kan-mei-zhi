@@ -355,6 +355,9 @@ public final class Config {
     /** /who 指令是否可以使用. */
     @Configures(file = ALT, key = "WhoCommand")
     public static boolean ALT_WHO_COMMAND = false;
+//    /** /who 指令如何显示. 0：系统广播；1弹出框 */
+//    @Configures(file = ALT, key = "WhoShowType ")
+//    public static int ALT_WHO_SHOW_TYPE = 0;
     /** 99级是否可以获得返生药水. */
     @Configures(file = ALT, key = "RevivalPotion")
     public static boolean ALT_REVIVAL_POTION = false;

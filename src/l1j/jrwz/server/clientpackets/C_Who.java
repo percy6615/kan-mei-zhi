@@ -25,7 +25,8 @@ import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
-import l1j.jrwz.server.serverpackets.S_WhoAmount;
+import l1j.jrwz.server.serverpackets.S_PacketBox;
+import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_WhoCharinfo;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -42,22 +43,25 @@ public class C_Who extends ClientBasePacket {
 
     public C_Who(byte[] decrypt, ClientThread client) {
         super(decrypt);
+        if (!Config.ALT_WHO_COMMAND) {
+            return;
+        }
         String s = readS();
         L1PcInstance find = L1World.getInstance().getPlayer(s);
         L1PcInstance pc = client.getActiveChar();
-
         if (find != null) {
             S_WhoCharinfo s_whocharinfo = new S_WhoCharinfo(find);
             pc.sendPackets(s_whocharinfo);
+        } else if (s != null && !"".equals(s)) {
+            pc.sendPackets(new S_ServerMessage(109, s));
         } else {
-            if (Config.ALT_WHO_COMMAND) {
-                String amount = String.valueOf(L1World.getInstance()
-                        .getAllPlayers().size());
-                S_WhoAmount s_whoamount = new S_WhoAmount(amount);
-                pc.sendPackets(s_whoamount);
+            String amount = String.valueOf(L1World.getInstance().getAllPlayers().size());
+            // S_WhoAmount s_whoamount = new S_WhoAmount(amount);
+            // pc.sendPackets(s_whoamount);
+            pc.sendPackets(new S_ServerMessage("\\fY当前游戏人数为:" + amount));
+            if (pc.isGm()) { // GM点选玩家清单可瞬移到玩家身边
+                pc.sendPackets(new S_PacketBox(S_PacketBox.CALL_SOMETHING));
             }
-            // TODO: ChrisLiu: SystemMessage 109
-            // 顯示消息如果目標是不存在？正方修知道，謝謝你。
         }
     }
 
