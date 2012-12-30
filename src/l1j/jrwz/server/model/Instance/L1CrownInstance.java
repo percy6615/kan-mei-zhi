@@ -158,7 +158,7 @@ public class L1CrownInstance extends L1NpcInstance {
                     loc = L1CastleLocation.getGetBackLoc(castle_id);
                     int locx = loc[0];
                     int locy = loc[1];
-                    short mapid = (short) loc[2];
+                    int mapid = (short) loc[2];
                     L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                 }
             }

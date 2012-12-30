@@ -1680,7 +1680,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 loc = L1CastleLocation.getCastleLoc(castle_id);
                                 int locx = loc[0];
                                 int locy = loc[1];
-                                short mapid = (short) (loc[2]);
+                                int mapid = (short) (loc[2]);
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5,
                                         true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1693,7 +1693,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 loc = L1HouseLocation.getHouseLoc(house_id);
                                 int locx = loc[0];
                                 int locy = loc[1];
-                                short mapid = (short) (loc[2]);
+                                int mapid = (short) (loc[2]);
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5,
                                         true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1706,7 +1706,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                         .getHomeTownId());
                                 int locx = loc[0];
                                 int locy = loc[1];
-                                short mapid = (short) (loc[2]);
+                                int mapid = (short) (loc[2]);
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5,
                                         true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1729,7 +1729,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if (pc.getMap().isEscapable() || pc.isGm()) {
                             int newX = bookm.getLocX();
                             int newY = bookm.getLocY();
-                            short mapId = bookm.getMapId();
+                            int mapId = bookm.getMapId();
 
                             if (itemId == 40086) { // マステレポートスクロール
                                 for (L1PcInstance member : L1World
@@ -1758,7 +1758,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                     .randomLocation(200, true);
                             int newX = newLocation.getX();
                             int newY = newLocation.getY();
-                            short mapId = (short) newLocation.getMapId();
+                            int mapId = (short) newLocation.getMapId();
 
                             if (itemId == 40086) { // マステレポートスクロール
                                 for (L1PcInstance member : L1World
@@ -1828,7 +1828,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.getX() <= 32814)
                             && (pc.getY() >= 32798 && pc.getY() <= 32807)
                             && pc.getMapId() == 13) {
-                        short mapid = 13;
+                        int mapid = 13;
                         L1Teleport.teleport(pc, 32815, 32810, mapid, 5, false);
                     } else {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -1838,7 +1838,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getX() <= 32674)
                             && (pc.getY() >= 32976 && pc.getY() <= 32985)
                             && pc.getMapId() == 440) {
-                        short mapid = 430;
+                        int mapid = 430;
                         L1Teleport.teleport(pc, 32922, 32812, mapid, 5, true);
                     } else {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -2949,7 +2949,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             .get_locx();
                     int locY = ((L1EtcItem) l1iteminstance.getItem())
                             .get_locy();
-                    short mapId = ((L1EtcItem) l1iteminstance.getItem())
+                    int mapId = ((L1EtcItem) l1iteminstance.getItem())
                             .get_mapid();
                     if (locX != 0 && locY != 0) { // 各種テレポートスクロール
                         if (pc.getMap().isEscapable() || pc.isGm()) {

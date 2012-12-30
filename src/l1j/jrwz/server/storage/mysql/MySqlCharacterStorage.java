@@ -231,7 +231,7 @@ public class MySqlCharacterStorage implements CharacterStorage {
             pc.setHeading(head);
             /*
              * int locX = resultset.getInt("locX"); int locY =
-             * resultset.getInt("locY"); short map =
+             * resultset.getInt("locY"); int map =
              * resultset.getShort("MapID"); if (locX < 30000 || locX > 40000 ||
              * locY < 30000 || locY > 40000) { locX = 32564; locY = 32955; } if
              * (map == 70) { locX = 32828; locY = 32848; } // 強制移動 short

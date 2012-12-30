@@ -127,7 +127,7 @@ public class L1UltimateBattle {
                     int rndy = random.nextInt(4);
                     int locx = 33503 + rndx;
                     int locy = 32764 + rndy;
-                    short mapid = 4;
+                    int mapid = 4;
                     L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                     removeMember(pc);
                 }
@@ -167,7 +167,7 @@ public class L1UltimateBattle {
     private int _locX;
     private int _locY;
     private L1Location _location; // 中心点
-    private short _mapId;
+    private int _mapId;
     private int _locX1;
     private int _locY1;
 
@@ -337,7 +337,7 @@ public class L1UltimateBattle {
         return _locY2;
     }
 
-    public short getMapId() {
+    public int getMapId() {
         return _mapId;
     }
 
@@ -588,7 +588,7 @@ public class L1UltimateBattle {
         this._locY2 = locY2;
     }
 
-    public void setMapId(short mapId) {
+    public void setMapId(int mapId) {
         this._mapId = mapId;
     }
 

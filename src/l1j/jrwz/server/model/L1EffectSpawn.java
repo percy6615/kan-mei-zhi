@@ -137,12 +137,12 @@ public class L1EffectSpawn {
      * @return 生成されたエフェクトオブジェクト
      */
     public L1EffectInstance spawnEffect(int npcId, int time, int locX,
-            int locY, short mapId) {
+            int locY, int mapId) {
         return spawnEffect(npcId, time, locX, locY, mapId, null, 0);
     }
 
     public L1EffectInstance spawnEffect(int npcId, int time, int locX,
-            int locY, short mapId, L1PcInstance user, int skiiId) {
+            int locY, int mapId, L1PcInstance user, int skiiId) {
         L1Npc template = NpcTable.getInstance().getTemplate(npcId);
         L1EffectInstance effect = null;
 

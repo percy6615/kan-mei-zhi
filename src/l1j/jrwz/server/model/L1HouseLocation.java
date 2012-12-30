@@ -352,7 +352,7 @@ public class L1HouseLocation {
      * @param cha
      * @return
      */
-    public static boolean isInHouse(int locx, int locy, short mapid) {
+    public static boolean isInHouse(int locx, int locy, int mapid) {
         boolean result = false;
         for (Integer houseId : _houseIds) {
             if (isInHouseLoc(houseId, locx, locy, mapid)) {
@@ -371,7 +371,7 @@ public class L1HouseLocation {
      * @return
      */
     public static boolean isInHouseLoc(int houseId, int locx, int locy,
-            short mapid) {
+            int mapid) {
         boolean ret = false;
         if (houseId == 262145) { // ギランアジト1
             if (locx >= 33368 && locx <= 33375 && locy >= 32651

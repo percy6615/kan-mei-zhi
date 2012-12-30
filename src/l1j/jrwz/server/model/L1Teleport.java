@@ -53,17 +53,17 @@ public class L1Teleport {
         L1Location newLocation = pc.getLocation().randomLocation(200, true);
         int newX = newLocation.getX();
         int newY = newLocation.getY();
-        short mapId = (short) newLocation.getMapId();
+        int mapId = (short) newLocation.getMapId();
 
         L1Teleport.teleport(pc, newX, newY, mapId, 5, effectable);
     }
 
-    public static void teleport(L1PcInstance pc, int x, int y, short mapid,
+    public static void teleport(L1PcInstance pc, int x, int y, int mapid,
             int head, boolean effectable) {
         teleport(pc, x, y, mapid, head, effectable, TELEPORT);
     }
 
-    public static void teleport(L1PcInstance pc, int x, int y, short mapId,
+    public static void teleport(L1PcInstance pc, int x, int y, int mapId,
             int head, boolean effectable, int skillType) {
 
         pc.sendPackets(new S_Paralysis(S_Paralysis.TYPE_TELEPORT_UNLOCK, false));
@@ -120,7 +120,7 @@ public class L1Teleport {
         int locY = target.getY();
         int heading = target.getHeading();
         L1Map map = target.getMap();
-        short mapId = target.getMapId();
+        int mapId = target.getMapId();
 
         // ターゲットの向きからテレポート先の座標を決める。
         switch (heading) {

@@ -67,7 +67,7 @@ public class L1WarSpawn {
         int locx2 = loc[1];
         int locy1 = loc[2];
         int locy2 = loc[3];
-        short mapid = (short) loc[4];
+        int mapid = (short) loc[4];
 
         for (x = locx1, y = locy1; x <= locx2; x += 8) {
             SpawnWarObject(l1npc, x, y, mapid);
@@ -107,7 +107,7 @@ public class L1WarSpawn {
         }
     }
 
-    private void SpawnWarObject(L1Npc l1npc, int locx, int locy, short mapid) {
+    private void SpawnWarObject(L1Npc l1npc, int locx, int locy, int mapid) {
         try {
             if (l1npc != null) {
                 // Object obj = null;

@@ -209,7 +209,7 @@ public class L1Object implements Serializable {
      * @param mapId
      *            - 地图ID
      */
-    public void setMap(short mapId) {
+    public void setMap(int mapId) {
         _loc.setMap(L1WorldMap.getInstance().getMap(mapId));
     }
 

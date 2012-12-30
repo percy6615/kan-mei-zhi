@@ -300,7 +300,7 @@ public class L1CastleLocation {
     /**
      * いずれかの戦争エリア（旗内）かどうかチェック
      */
-    public static boolean checkInAllWarArea(int locx, int locy, short mapid) {
+    public static boolean checkInAllWarArea(int locx, int locy, int mapid) {
         return checkInAllWarArea(new L1Location(locx, locy, mapid));
     }
 
@@ -322,7 +322,7 @@ public class L1CastleLocation {
     /**
      * ガーディアンタワー、クラウンの座標からcastle_idを返す
      */
-    public static int getCastleId(int locx, int locy, short mapid) {
+    public static int getCastleId(int locx, int locy, int mapid) {
         return getCastleId(new L1Location(locx, locy, mapid));
     }
 

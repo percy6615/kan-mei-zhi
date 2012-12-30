@@ -314,7 +314,7 @@ public class L1MobSkillUse {
                     mob.setY(loc.getY());
                     mob.setHomeX(loc.getX());
                     mob.setHomeY(loc.getY());
-                    short mapid = _attacker.getMapId();
+                    int mapid = _attacker.getMapId();
                     mob.setMap(mapid);
                     mob.setHeading(heading);
                     L1World.getInstance().storeObject(mob);

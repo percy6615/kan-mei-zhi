@@ -56,7 +56,7 @@ public class Teleportation {
 
     private static Random _random = new Random();
 
-    private static void teleport(L1NpcInstance npc, int x, int y, short map,
+    private static void teleport(L1NpcInstance npc, int x, int y, int map,
             int head) {
         L1World.getInstance().moveVisibleObject(npc, map);
 
@@ -77,7 +77,7 @@ public class Teleportation {
 
         int x = pc.getTeleportX();
         int y = pc.getTeleportY();
-        short mapId = pc.getTeleportMapId();
+        int mapId = pc.getTeleportMapId();
         int head = pc.getTeleportHeading();
 
         // テレポート先が不正であれば元の座標へ(GMは除く)
