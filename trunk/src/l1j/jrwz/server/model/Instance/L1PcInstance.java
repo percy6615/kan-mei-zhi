@@ -706,7 +706,7 @@ public class L1PcInstance extends L1Character {
 
     private int _teleportY = 0;
 
-    private short _teleportMapId = 0;
+    private int _teleportMapId = 0;
 
     private int _teleportHeading = 0;
 
@@ -912,11 +912,11 @@ public class L1PcInstance extends L1Character {
         new L1GameTimeCarrier(this).start();
     }
 
-    public void beginGhost(int locx, int locy, short mapid, boolean canTalk) {
+    public void beginGhost(int locx, int locy, int mapid, boolean canTalk) {
         beginGhost(locx, locy, mapid, canTalk, 0);
     }
 
-    public void beginGhost(int locx, int locy, short mapid, boolean canTalk,
+    public void beginGhost(int locx, int locy, int mapid, boolean canTalk,
             int sec) {
         if (isGhost()) {
             return;
@@ -939,7 +939,7 @@ public class L1PcInstance extends L1Character {
         if (getMapId() != 666) {
             int locx = 32701;
             int locy = 32777;
-            short mapid = 666;
+            int mapid = 666;
             L1Teleport.teleport(this, locx, locy, mapid, 5, false);
         }
 
@@ -1693,7 +1693,7 @@ public class L1PcInstance extends L1Character {
         return _teleportHeading;
     }
 
-    public short getTeleportMapId() {
+    public int getTeleportMapId() {
         return _teleportMapId;
     }
 
@@ -3981,7 +3981,7 @@ public class L1PcInstance extends L1Character {
         _teleportHeading = i;
     }
 
-    public void setTeleportMapId(short i) {
+    public void setTeleportMapId(int i) {
         _teleportMapId = i;
     }
 

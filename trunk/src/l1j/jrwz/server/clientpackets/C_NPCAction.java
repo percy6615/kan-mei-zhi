@@ -4399,7 +4399,7 @@ public class C_NPCAction extends ClientBasePacket {
         int sealId = 0;
         int locX = 0;
         int locY = 0;
-        short mapId = 0;
+        int mapId = 0;
         if (npc.getNpcTemplate().get_npcId() == 80059) { // 次元の扉(土)
             protectionId = 40909;
             sealId = 40913;

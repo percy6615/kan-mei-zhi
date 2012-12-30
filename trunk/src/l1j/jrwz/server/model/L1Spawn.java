@@ -76,7 +76,7 @@ public class L1Spawn extends L1GameTimeAdapter {
     private int _heading;
     private int _minRespawnDelay;
     private int _maxRespawnDelay;
-    private short _mapid;
+    private int _mapid;
     private boolean _respaenScreen;
     private int _movementDistance;
     private boolean _rest;
@@ -386,7 +386,7 @@ public class L1Spawn extends L1GameTimeAdapter {
         return _locy2;
     }
 
-    public short getMapId() {
+    public int getMapId() {
         return _mapid;
     }
 
@@ -531,7 +531,7 @@ public class L1Spawn extends L1GameTimeAdapter {
         _locy2 = locy2;
     }
 
-    public void setMapId(short _mapid) {
+    public void setMapId(int _mapid) {
         this._mapid = _mapid;
     }
 

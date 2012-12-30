@@ -306,7 +306,7 @@ public class L1World {
      *            - 地图
      * @return 地面道具object
      */
-    public L1GroundInventory getInventory(int x, int y, short map) {
+    public L1GroundInventory getInventory(int x, int y, int map) {
         int inventoryKey = ((x - 30000) * 10000 + (y - 30000)) * -1; // xyのマイナス値をインベントリキーとして使用
 
         Object object = _visibleObjects[map].get(inventoryKey);

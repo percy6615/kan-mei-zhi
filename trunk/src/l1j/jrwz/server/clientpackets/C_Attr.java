@@ -591,7 +591,7 @@ public class C_Attr extends ClientBasePacket {
                 isInWarArea = false; // 戰爭也可以在時間的旗
             }
         }
-        short mapId = callClanPc.getMapId();
+        int mapId = callClanPc.getMapId();
         if (mapId != 0 && mapId != 4 && mapId != 304 || isInWarArea) {
             // \f1你的情人在你無法傳送前往的地區。
             pc.sendPackets(new S_ServerMessage(547));

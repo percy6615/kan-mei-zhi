@@ -40,7 +40,7 @@ public class L1Loc implements L1CommandExecutor {
         try {
             int locx = pc.getX();
             int locy = pc.getY();
-            short mapid = pc.getMapId();
+            int mapid = pc.getMapId();
             int gab = L1WorldMap.getInstance().getMap(mapid)
                     .getOriginalTile(locx, locy);
             String msg = String.format("坐标 (%d, %d, %d) %d", locx, locy, mapid,

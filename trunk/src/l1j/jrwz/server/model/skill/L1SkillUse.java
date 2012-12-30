@@ -2133,7 +2133,7 @@ public class L1SkillUse {
                             if (pc.getMap().isEscapable() || pc.isGm()) {
                                 int newX = bookm.getLocX();
                                 int newY = bookm.getLocY();
-                                short mapId = bookm.getMapId();
+                                int mapId = bookm.getMapId();
 
                                 if (_skillId == MASS_TELEPORT) { // マステレポート
                                     List<L1PcInstance> clanMember = L1World
@@ -2164,7 +2164,7 @@ public class L1SkillUse {
                                         .randomLocation(200, true);
                                 int newX = newLocation.getX();
                                 int newY = newLocation.getY();
-                                short mapId = (short) newLocation.getMapId();
+                                int mapId = (short) newLocation.getMapId();
 
                                 if (_skillId == MASS_TELEPORT) { // マステレポート
                                     List<L1PcInstance> clanMember = L1World
