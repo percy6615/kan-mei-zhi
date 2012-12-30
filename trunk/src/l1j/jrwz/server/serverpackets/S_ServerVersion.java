@@ -23,13 +23,23 @@ import l1j.jrwz.server.codes.Opcodes;
 
 public class S_ServerVersion extends ServerBasePacket {
     private static final String S_SERVER_VERSION = "[S] ServerVersion";
-
+    /** 客户端语系. */
     private static final int CLIENT_LANGUAGE = Config.CLIENT_LANGUAGE;
+    /** . */
+    private static final int UPTIME = 1327204035;
+    /** 服务器版本. */
+    private static final int SERVER_VERSION = 12022011;
+    /** 缓存版本. */
+    private static final int CACHE_VERSION = 12021603;
+    /** 认证(身份验证)版本. */
+    private static final int AUTH_VERSION = 2010083002;
+    /** NPC版本. */
+    private static final int NPC_VERSION = 12020302;
 
     /*
-     * [Server] opcode = 89 0000: 59 00 02/ c9 60 01 00/ 6a 60 01 00/ 01 ee 00 00/
-     * db Y...`..j`....... 0010: 3c 01 00/ ec 66 c4 49/ 00 00 03 58 0d 00 00 10 5f
-     * <...f.I...X...._
+     * [Server] opcode = 89 0000: 59 00 02/ c9 60 01 00/ 6a 60 01 00/ 01 ee 00
+     * 00/ db Y...`..j`....... 0010: 3c 01 00/ ec 66 c4 49/ 00 00 03 58 0d 00 00
+     * 10 5f <...f.I...X...._
      */
     public S_ServerVersion() {
         writeC(Opcodes.S_OPCODE_SERVERVERSION);
@@ -54,17 +64,17 @@ public class S_ServerVersion extends ServerBasePacket {
         // writeD(0x0000791A); // cache verion // 2.70C
         // writeD(0x0000791A); // auth verion // 2.70C
         // writeD(0x00009DD1); // npc verion // 2.70C
-        writeD(0x000160c9); // server verion
-        writeD(0x0001606a); // cache verion
-        writeD(0x0000ee01); // auth verion
-        writeD(0x00013cdb); // npc verion
+        writeD(SERVER_VERSION); // 3.52 TW server version
+        writeD(CACHE_VERSION); // 3.52 TW cache version
+        writeD(AUTH_VERSION); // 3.52 TW auth version
+        writeD(NPC_VERSION); // 3.52 TW npc version
 
         // ↓ unknown
         // ↓ Old 270Lin.bin
         // ↓ New 270Lin.bin
         // ↓ isn't game time
         // writeD(0x882a2cc6); // 2.70C
-        writeD(0x49c466ec);
+        writeD(UPTIME); // 3.52
 
         writeC(0x00); // unknown
         writeC(0x00); // unknown
