@@ -631,8 +631,6 @@ public class ClientThread implements Runnable, PacketOutput {
             try {
                 if (this._activeChar != null) {
                     quitGame(this._activeChar);
-                    final L1PcInstance pc = this.getActiveChar();
-
                     synchronized (this._activeChar) {
                         // 从线上中登出角色
                         this._activeChar.logout();

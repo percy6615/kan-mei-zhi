@@ -55,7 +55,6 @@ public class L1DollInstance extends L1NpcInstance {
     @SuppressWarnings("unused")
     private static Logger _log = Logger.getLogger(L1DollInstance.class
             .getName());
-    private final ScheduledFuture<?> _dollFuture;
     private static Random _random = new Random();
     private int _dollType;
 
@@ -68,7 +67,7 @@ public class L1DollInstance extends L1NpcInstance {
 
         setDollType(dollType);
         setItemObjId(itemObjId);
-        _dollFuture = GeneralThreadPool.getInstance().schedule(new DollTimer(),
+        GeneralThreadPool.getInstance().schedule(new DollTimer(),
                 DOLL_TIME);
 
         setMaster(master);

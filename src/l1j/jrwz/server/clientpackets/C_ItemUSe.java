@@ -3074,19 +3074,15 @@ public class C_ItemUSe extends ClientBasePacket {
     private boolean createNewItem(L1PcInstance pc, int item_id, int count) {
         L1ItemInstance item = ItemTable.getInstance().createItem(item_id);
         item.setCount(count);
-        if (item != null) {
-            if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) {
-                pc.getInventory().storeItem(item);
-            } else { // 持てない場合は地面に落とす 処理のキャンセルはしない（不正防止）
-                L1World.getInstance()
-                        .getInventory(pc.getX(), pc.getY(), pc.getMapId())
-                        .storeItem(item);
-            }
-            pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // 获得%0%o 。
-            return true;
-        } else {
-            return false;
+        if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) {
+            pc.getInventory().storeItem(item);
+        } else { // 持てない場合は地面に落とす 処理のキャンセルはしない（不正防止）
+            L1World.getInstance()
+                    .getInventory(pc.getX(), pc.getY(), pc.getMapId())
+                    .storeItem(item);
         }
+        pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // 获得%0%o 。
+        return true;
     }
 
     private void doWandAction(L1PcInstance user, L1Object target) {
@@ -6542,9 +6538,6 @@ public class C_ItemUSe extends ClientBasePacket {
         for (String element : memberName) {
             L1ItemInstance item = ItemTable.getInstance().createItem(49016);
             item.setCount(1);
-            if (item == null) {
-                return false;
-            }
             if (sendLetter(pc, element, item, false)) {
                 saveLetter(item.getId(), letterCode, pc.getName(), element,
                         letterText);
@@ -6568,10 +6561,6 @@ public class C_ItemUSe extends ClientBasePacket {
         }
         L1ItemInstance item = ItemTable.getInstance().createItem(newItemId);
         item.setCount(1);
-        if (item == null) {
-            return false;
-        }
-
         if (sendLetter(pc, letterReceiver, item, true)) {
             saveLetter(item.getId(), letterCode, pc.getName(), letterReceiver,
                     letterText);

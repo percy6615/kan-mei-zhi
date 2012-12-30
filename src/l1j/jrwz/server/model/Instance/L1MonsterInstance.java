@@ -496,22 +496,10 @@ public class L1MonsterInstance extends L1NpcInstance {
         int objid = getId();
         L1NpcTalkData talking = NPCTalkDataTable.getInstance().getTemplate(
                 getNpcTemplate().get_npcId());
-        String htmlid = null;
-        String[] htmldata = null;
-
-        // html表示パケット送信
-        if (htmlid != null) { // htmlidが指定されている場合
-            if (htmldata != null) { // html指定がある場合は表示
-                pc.sendPackets(new S_NPCTalkReturn(objid, htmlid, htmldata));
-            } else {
-                pc.sendPackets(new S_NPCTalkReturn(objid, htmlid));
-            }
+        if (pc.getLawful() < -1000) { // プレイヤーがカオティック
+            pc.sendPackets(new S_NPCTalkReturn(talking, objid, 2));
         } else {
-            if (pc.getLawful() < -1000) { // プレイヤーがカオティック
-                pc.sendPackets(new S_NPCTalkReturn(talking, objid, 2));
-            } else {
-                pc.sendPackets(new S_NPCTalkReturn(talking, objid, 1));
-            }
+            pc.sendPackets(new S_NPCTalkReturn(talking, objid, 1));
         }
     }
 

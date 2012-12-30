@@ -375,10 +375,6 @@ public class L1Inventory extends L1Object {
         int itemType = item.getItem().getType2();
         int currentDurability = item.get_durability();
 
-        if (item == null) {
-            return null;
-        }
-
         if ((currentDurability == 0 && itemType == 0) || currentDurability < 0) {
             item.set_durability(0);
             return null;
@@ -412,10 +408,6 @@ public class L1Inventory extends L1Object {
     public L1ItemInstance recoveryDamage(L1ItemInstance item) {
         int itemType = item.getItem().getType2();
         int durability = item.get_durability();
-
-        if (item == null) {
-            return null;
-        }
 
         if ((durability == 0 && itemType != 0) || durability < 0) {
             item.set_durability(0);

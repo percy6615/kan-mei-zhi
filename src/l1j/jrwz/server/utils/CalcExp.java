@@ -124,7 +124,7 @@ public class CalcExp {
     }
 
     public static void calcExp(L1PcInstance l1pcinstance, int targetid,
-            ArrayList acquisitorList, ArrayList hateList, int exp) {
+            ArrayList<L1Character> acquisitorList, ArrayList<Integer> hateList, int exp) {
 
         int i = 0;
         double party_level = 0;
