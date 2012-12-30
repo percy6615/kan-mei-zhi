@@ -135,18 +135,19 @@ public class Point {
     public boolean isInScreen(Point pt) {
         int dist = this.getTileDistance(pt);
 
-        if (dist > 17) {
+        if (dist > 22) { // 当tile距离 > 22 的时候，判定为不在画面内(false)
             return false;
-        } else if (dist <= 13) {
+        } else if (dist <= 18) { // 当tile距离 <= 18 的时候，判定为位于同一个画面内(true)
             return true;
         } else {
             // 左右の画面外部分を除外
             // プレイヤーの座標を(15, 15)とした場合に(0, 0)にあたる座標からの距離で判断
             // Point pointZero = new Point(this.getX() - 15, this.getY() - 15);
             // int dist2 = pointZero.getTileDistance(pt);
-            int dist2 = Math.abs(pt.getX() - (this.getX() - 15))
-                    + Math.abs(pt.getY() - (this.getY() - 15));
-            if (17 <= dist2 && dist2 <= 43) {
+            // 显示区的座标系统 (20, 20)
+            int dist2 = Math.abs(pt.getX() - (this.getX() - 20))
+                    + Math.abs(pt.getY() - (this.getY() - 20));
+            if (22 <= dist2 && dist2 <= 58) { //不懂怎么计算 的
                 return true;
             }
             return false;
