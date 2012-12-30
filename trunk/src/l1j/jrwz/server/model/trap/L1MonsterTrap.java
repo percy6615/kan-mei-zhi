@@ -44,7 +44,7 @@ public class L1MonsterTrap extends L1Trap {
     private final int _count;
 
     private L1Npc _npcTemp = null; // パフォーマンスのためにキャッシュ
-    private Constructor _constructor = null; // パフォーマンスのためにキャッシュ
+    private Constructor<?> _constructor = null; // パフォーマンスのためにキャッシュ
 
     public L1MonsterTrap(TrapStorage storage) {
         super(storage);
@@ -71,7 +71,7 @@ public class L1MonsterTrap extends L1Trap {
                 .newInstance(new Object[] { _npcTemp });
     }
 
-    private Constructor getConstructor(L1Npc npc) throws ClassNotFoundException {
+    private Constructor<?> getConstructor(L1Npc npc) throws ClassNotFoundException {
         return Class.forName(
                 "l1j.jrwz.server.model.Instance." + npc.getImpl() + "Instance")
                 .getConstructors()[0];

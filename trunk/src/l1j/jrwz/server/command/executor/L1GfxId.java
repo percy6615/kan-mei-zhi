@@ -49,7 +49,7 @@ public class L1GfxId implements L1CommandExecutor {
                 L1Npc l1npc = NpcTable.getInstance().getTemplate(45001);
                 if (l1npc != null) {
                     String s = l1npc.getImpl();
-                    Constructor constructor = Class.forName(
+                    Constructor<?> constructor = Class.forName(
                             "l1j.jrwz.server.model.Instance." + s + "Instance")
                             .getConstructors()[0];
                     Object aobj[] = { l1npc };

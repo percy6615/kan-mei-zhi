@@ -5707,7 +5707,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     // Object obj = null;
                     try {
                         String s = l1npc.getImpl();
-                        Constructor constructor = Class.forName(
+                        Constructor<?> constructor = Class.forName(
                                 "l1j.jrwz.server.model.Instance." + s
                                         + "Instance").getConstructors()[0];
                         Object aobj[] = { l1npc };

@@ -18,8 +18,6 @@
  */
 package l1j.jrwz.server.model;
 
-import java.util.logging.Logger;
-
 import l1j.jrwz.server.IdFactory;
 import l1j.jrwz.server.datatables.NpcTable;
 import l1j.jrwz.server.datatables.UBTable;

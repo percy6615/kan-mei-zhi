@@ -45,7 +45,7 @@ public class L1WarSpawn {
         return _instance;
     }
 
-    private Constructor _constructor;
+    private Constructor<?> _constructor;
 
     public L1WarSpawn() {
     }

@@ -49,7 +49,7 @@ public class L1EffectSpawn {
         return _instance;
     }
 
-    private Constructor _constructor;
+    private Constructor<?> _constructor;
 
     private L1EffectSpawn() {
     }

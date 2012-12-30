@@ -56,7 +56,7 @@ public class LeakCheckedConnection {
         private final Object _delegateProxy;
         private final Object _original;
 
-        Delegate(Object o, Class c) {
+        Delegate(Object o, Class<?> c) {
             _original = o;
             _delegateProxy = Proxy.newProxyInstance(c.getClassLoader(),
                     new Class[] { c }, this);
