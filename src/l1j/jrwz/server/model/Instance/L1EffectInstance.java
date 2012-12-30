@@ -26,7 +26,6 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_CUBE_QUAKE_TO_ENEMY;
 import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_CUBE_SHOCK_TO_ALLY;
 import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_CUBE_SHOCK_TO_ENEMY;
 
-import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
 import l1j.jrwz.server.GeneralThreadPool;
@@ -179,7 +178,6 @@ public class L1EffectInstance extends L1NpcInstance {
     @SuppressWarnings("unused")
     private static Logger _log = Logger.getLogger(L1EffectInstance.class
             .getName());
-    private ScheduledFuture<?> _effectFuture;
     private static final int FW_DAMAGE_INTERVAL = 1000;
 
     private static final int CUBE_INTERVAL = 500; // キューブ範囲内に居るキャラクターをチェックする間隔
@@ -195,13 +193,13 @@ public class L1EffectInstance extends L1NpcInstance {
 
         int npcId = getNpcTemplate().get_npcId();
         if (npcId == 81157) { // FW
-            _effectFuture = GeneralThreadPool.getInstance().schedule(
+            GeneralThreadPool.getInstance().schedule(
                     new FwDamageTimer(this), 0);
         } else if (npcId == 80149 // キューブ[イグニション]
                 || npcId == 80150 // キューブ[クエイク]
                 || npcId == 80151 // キューブ[ショック]
                 || npcId == 80152) { // キューブ[バランス]
-            _effectFuture = GeneralThreadPool.getInstance().schedule(
+            GeneralThreadPool.getInstance().schedule(
                     new CubeTimer(this), 0);
         }
     }

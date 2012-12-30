@@ -2209,7 +2209,7 @@ public class L1PcInstance extends L1Character {
                 long interval = nowTime - _oldTime;
 
                 if (damage < 0) {
-                    damage = damage;
+                    damage = 0;
                 } else {
                     if (2000 > interval && interval >= 1900) {
                         damage = (damage * (100 - (10 / 3))) / 100;
@@ -2251,8 +2251,6 @@ public class L1PcInstance extends L1Character {
                         damage = (damage * (100 - 19 * (10 / 3))) / 100;
                     } else if (100 > interval && interval >= 0) {
                         damage = (damage * (100 - 20 * (10 / 3))) / 100;
-                    } else {
-                        damage = damage;
                     }
 
                     if (damage < 1) {

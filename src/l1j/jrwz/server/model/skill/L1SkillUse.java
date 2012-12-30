@@ -127,24 +127,8 @@ public class L1SkillUse {
             return _target;
         }
 
-        public boolean isAction() {
-            return _isAction;
-        }
-
-        public void isAction(boolean _flg) {
-            _isAction = _flg;
-        }
-
         public boolean isCalc() {
             return _isCalc;
-        }
-
-        public boolean isSendStatus() {
-            return _isSendStatus;
-        }
-
-        public void isSendStatus(boolean _flg) {
-            _isSendStatus = _flg;
         }
     }
 
@@ -519,24 +503,6 @@ public class L1SkillUse {
 
     private boolean isCheckedUseSkill() {
         return _checkedUseSkill;
-    }
-
-    /**
-     * スキルを使用するために必要なHPがあるか返す。
-     * 
-     * @return HPが十分であればtrue
-     */
-    private boolean isEnoughHp() {
-        return false;
-    }
-
-    /**
-     * スキルを使用するために必要なMPがあるか返す。
-     * 
-     * @return MPが十分であればtrue
-     */
-    private boolean isEnoughMp() {
-        return false;
     }
 
     // 必要ＨＰ、ＭＰがあるか？

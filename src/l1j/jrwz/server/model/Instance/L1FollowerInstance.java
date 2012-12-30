@@ -248,7 +248,7 @@ public class L1FollowerInstance extends L1NpcInstance {
             L1NpcInstance mob = null;
             try {
                 String implementationName = l1npc.getImpl();
-                Constructor _constructor = Class.forName(
+                Constructor<?> _constructor = Class.forName(
                         (new StringBuilder())
                                 .append("l1j.jrwz.server.model.Instance.")
                                 .append(implementationName).append("Instance")
