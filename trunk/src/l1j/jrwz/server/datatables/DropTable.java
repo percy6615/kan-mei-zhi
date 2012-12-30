@@ -105,8 +105,8 @@ public class DropTable {
     }
 
     // ドロップを分配
-    public void dropShare(L1NpcInstance npc, ArrayList acquisitorList,
-            ArrayList hateList) {
+    public void dropShare(L1NpcInstance npc, ArrayList<L1Character> acquisitorList,
+            ArrayList<Integer> hateList) {
         L1Inventory inventory = npc.getInventory();
         if (inventory.getSize() == 0) {
             return;

@@ -86,8 +86,6 @@ public class L1War {
     private final ArrayList<String> _attackClanList = new ArrayList<String>();
     private String _defenceClanName = null;
     private int _warType = 0;
-    private int _castleId = 0;
-
     private L1Castle _castle = null;
 
     private Calendar _warEndTime;
@@ -279,7 +277,7 @@ public class L1War {
         SetDefenceClanName(defence_clan_name);
 
         if (war_type == 1) { // 攻城戦
-            _castleId = GetCastleId();
+            GetCastleId();
             _castle = GetCastle();
             if (_castle != null) {
                 Calendar cal = (Calendar) _castle.getWarTime().clone();

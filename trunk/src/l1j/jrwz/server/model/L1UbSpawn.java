@@ -38,9 +38,6 @@ public class L1UbSpawn implements Comparable<L1UbSpawn> {
     private int _sealCount;
     private String _name;
 
-    private static final Logger _log = Logger.getLogger(L1UbSpawn.class
-            .getName());
-
     @Override
     public int compareTo(L1UbSpawn rhs) {
         // XXX - 本当はもっと厳密な順序付けがあるはずだが、必要なさそうなので後回し
@@ -140,11 +137,6 @@ public class L1UbSpawn implements Comparable<L1UbSpawn> {
                 (ub.getLocX2() - ub.getLocX1()) / 2, false);
         L1MonsterInstance mob = new L1MonsterInstance(NpcTable.getInstance()
                 .getTemplate(getNpcTemplateId()));
-        if (mob == null) {
-            _log.warning("mob == null");
-            return;
-        }
-
         mob.setId(IdFactory.getInstance().nextId());
         mob.setHeading(5);
         mob.setX(loc.getX());

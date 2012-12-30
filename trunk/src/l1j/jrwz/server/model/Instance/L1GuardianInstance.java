@@ -215,9 +215,6 @@ public class L1GuardianInstance extends L1NpcInstance {
                 getNpcTemplate().get_npcId());
         L1Object object = L1World.getInstance().findObject(getId());
         L1NpcInstance target = (L1NpcInstance) object;
-        String htmlid = null;
-        String[] htmldata = null;
-
         if (talking != null) {
             int pcx = player.getX(); // PCのX座標
             int pcy = player.getY(); // PCのY座標
@@ -243,20 +240,10 @@ public class L1GuardianInstance extends L1NpcInstance {
             }
             broadcastPacket(new S_ChangeHeading(this));
 
-            // html表示パケット送信
-            if (htmlid != null) { // htmlidが指定されている場合
-                if (htmldata != null) { // html指定がある場合は表示
-                    player.sendPackets(new S_NPCTalkReturn(objid, htmlid,
-                            htmldata));
-                } else {
-                    player.sendPackets(new S_NPCTalkReturn(objid, htmlid));
-                }
+            if (player.getLawful() < -1000) { // プレイヤーがカオティック
+                player.sendPackets(new S_NPCTalkReturn(talking, objid, 2));
             } else {
-                if (player.getLawful() < -1000) { // プレイヤーがカオティック
-                    player.sendPackets(new S_NPCTalkReturn(talking, objid, 2));
-                } else {
-                    player.sendPackets(new S_NPCTalkReturn(talking, objid, 1));
-                }
+                player.sendPackets(new S_NPCTalkReturn(talking, objid, 1));
             }
             // 動かないようにする
             synchronized (this) {
