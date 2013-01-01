@@ -22,12 +22,12 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
+import l1j.jrwz.server.templates.L1Item;
 
 public class S_IdentifyDesc extends ServerBasePacket {
 
     @SuppressWarnings("unused")
-    private static Logger _log = Logger.getLogger(S_IdentifyDesc.class
-            .getName());
+    private static Logger _log = Logger.getLogger(S_IdentifyDesc.class.getName());
 
     private byte[] _byte = null;
 
@@ -52,14 +52,14 @@ public class S_IdentifyDesc extends ServerBasePacket {
 
         name.append(item.getItem().getIdentifiedNameId());
 
-        if (item.getItem().getType2() == 1) { // weapon
+        if (item.getItem().getType2() == L1Item.TYPE2_WEAPON) { // weapon
             writeH(134); // \f1%0：小さなモンスター打撃%1 大きなモンスター打撃%2
             writeC(3);
             writeS(name.toString());
             writeS(item.getItem().getDmgSmall() + "+" + item.getEnchantLevel());
             writeS(item.getItem().getDmgLarge() + "+" + item.getEnchantLevel());
 
-        } else if (item.getItem().getType2() == 2) { // armor
+        } else if (item.getItem().getType2() == L1Item.TYPE2_ARMOR) { // armor
             if (item.getItem().getItemId() == 20383) { // 騎馬用ヘルム
                 writeH(137); // \f1%0：使用可能回数%1［重さ%2］
                 writeC(3);
@@ -69,11 +69,10 @@ public class S_IdentifyDesc extends ServerBasePacket {
                 writeH(135); // \f1%0：防御力%1 防御具
                 writeC(2);
                 writeS(name.toString());
-                writeS(Math.abs(item.getItem().get_ac()) + "+"
-                        + item.getEnchantLevel());
+                writeS(Math.abs(item.getItem().get_ac()) + "+" + item.getEnchantLevel());
             }
 
-        } else if (item.getItem().getType2() == 0) { // etcitem
+        } else if (item.getItem().getType2() == L1Item.TYPE2_ETC) { // etcitem
             if (item.getItem().getType() == 1) { // wand
                 writeH(137); // \f1%0：使用可能回数%1［重さ%2］
                 writeC(3);

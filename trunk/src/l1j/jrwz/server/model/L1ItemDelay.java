@@ -25,6 +25,7 @@ import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.templates.L1EtcItem;
+import l1j.jrwz.server.templates.L1Item;
 
 // Referenced classes of package l1j.jrwz.server.model:
 // L1ItemDelay
@@ -53,8 +54,7 @@ public class L1ItemDelay {
     }
 
     @SuppressWarnings("unused")
-    private static final Logger _log = Logger.getLogger(L1ItemDelay.class
-            .getName());
+    private static final Logger _log = Logger.getLogger(L1ItemDelay.class.getName());
 
     public static void onItemUse(ClientThread client, L1ItemInstance item) {
         int delayId = 0;
@@ -62,18 +62,17 @@ public class L1ItemDelay {
 
         L1PcInstance pc = client.getActiveChar();
 
-        if (item.getItem().getType2() == 0) {
+        if (item.getItem().getType2() == L1Item.TYPE2_ETC) {
             // 种类：其他物品
             delayId = ((L1EtcItem) item.getItem()).get_delayid();
             delayTime = ((L1EtcItem) item.getItem()).get_delaytime();
-        } else if (item.getItem().getType2() == 1) {
+        } else if (item.getItem().getType2() == L1Item.TYPE2_WEAPON) {
             // 种类：武器
             return;
-        } else if (item.getItem().getType2() == 2) {
+        } else if (item.getItem().getType2() == L1Item.TYPE2_ARMOR) {
             // 种类：防具
 
-            if (item.getItem().getItemId() == 20077
-                    || item.getItem().getItemId() == 20062
+            if (item.getItem().getItemId() == 20077 || item.getItem().getItemId() == 20062
                     || item.getItem().getItemId() == 120077) {
                 // 隐身斗篷、炎魔的血光斗篷
                 if (item.isEquipped() && !pc.isInvisble()) {

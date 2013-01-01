@@ -25,6 +25,12 @@ public abstract class L1Item implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int _type2; // ● 0=L1EtcItem, 1=L1Weapon, 2=L1Armor
+    /** 道具 */
+    public static final int TYPE2_ETC = 0;
+    /** 武器 */
+    public static final int TYPE2_WEAPON = 1;
+    /** 防具 */
+    public static final int TYPE2_ARMOR = 2;
 
     // ■■■■■■ L1EtcItem,L1Weapon,L1Armor に共通する項目 ■■■■■■
 
@@ -397,18 +403,23 @@ public abstract class L1Item implements Serializable {
     /**
      * アイテムの種類を返す。<br>
      * 
-     * @return
-     *         <p>
+     * @return <p>
      *         [etcitem]<br>
-     *         0:arrow, 1:wand, 2:light, 3:gem, 4:totem, 5:firecracker, 6:potion, 7:food, 8:scroll, 9:questitem, 10:spellbook, 11:petitem, 12:other, 13:material, 14:event, 15:sting
+     *         0:arrow, 1:wand, 2:light, 3:gem, 4:totem, 5:firecracker,
+     *         6:potion, 7:food, 8:scroll, 9:questitem, 10:spellbook,
+     *         11:petitem, 12:other, 13:material, 14:event, 15:sting
      *         </p>
      *         <p>
      *         [weapon]<br>
-     *         1:sword, 2:dagger, 3:tohandsword, 4:bow, 5:spear, 6:blunt, 7:staff, 8:throwingknife, 9:arrow, 10:gauntlet, 11:claw, 12:edoryu, 13:singlebow, 14:singlespear, 15:tohandblunt, 16:tohandstaff, 17:kiringku 18chainsword
+     *         1:sword, 2:dagger, 3:tohandsword, 4:bow, 5:spear, 6:blunt,
+     *         7:staff, 8:throwingknife, 9:arrow, 10:gauntlet, 11:claw,
+     *         12:edoryu, 13:singlebow, 14:singlespear, 15:tohandblunt,
+     *         16:tohandstaff, 17:kiringku 18chainsword
      *         </p>
      *         <p>
      *         [armor]<br>
-     *         1:helm, 2:armor, 3:T, 4:cloak, 5:glove, 6:boots, 7:shield, 8:amulet, 9:ring, 10:belt, 11:ring2, 12:earring
+     *         1:helm, 2:armor, 3:T, 4:cloak, 5:glove, 6:boots, 7:shield,
+     *         8:amulet, 9:ring, 10:belt, 11:ring2, 12:earring
      */
     public int getType() {
         return _type;
@@ -417,10 +428,12 @@ public abstract class L1Item implements Serializable {
     /**
      * アイテムの種類を返す。<br>
      * 
-     * @return
-     *         <p>
+     * @return <p>
      *         [weapon]<br>
-     *         sword:4, dagger:46, tohandsword:50, bow:20, blunt:11, spear:24, staff:40, throwingknife:2922, arrow:66, gauntlet:62, claw:58, edoryu:54, singlebow:20, singlespear:24, tohandblunt:11, tohandstaff:40, kiringku:58, chainsword:24
+     *         sword:4, dagger:46, tohandsword:50, bow:20, blunt:11, spear:24,
+     *         staff:40, throwingknife:2922, arrow:66, gauntlet:62, claw:58,
+     *         edoryu:54, singlebow:20, singlespear:24, tohandblunt:11,
+     *         tohandstaff:40, kiringku:58, chainsword:24
      *         </p>
      */
     public int getType1() {

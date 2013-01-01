@@ -169,8 +169,7 @@ public class L1ItemInstance extends L1Object {
     }
 
     @SuppressWarnings("unused")
-    private static Logger _log = Logger.getLogger(L1ItemInstance.class
-            .getName());
+    private static Logger _log = Logger.getLogger(L1ItemInstance.class.getName());
 
     private static final long serialVersionUID = 1L;
 
@@ -322,12 +321,10 @@ public class L1ItemInstance extends L1Object {
 
     public int getMr() {
         int mr = _item.get_mdef();
-        if (getItemId() == 20011 || getItemId() == 20110
-                || getItemId() == 21108 || getItemId() == 120011) {
+        if (getItemId() == 20011 || getItemId() == 20110 || getItemId() == 21108 || getItemId() == 120011) {
             mr += getEnchantLevel();
         }
-        if (getItemId() == 20056 || getItemId() == 120056
-                || getItemId() == 220056) {
+        if (getItemId() == 20056 || getItemId() == 120056 || getItemId() == 220056) {
             mr += getEnchantLevel() * 2;
         }
         return mr;
@@ -344,54 +341,54 @@ public class L1ItemInstance extends L1Object {
         StringBuilder name = new StringBuilder();
 
         if (isIdentified()) {
-            if (getItem().getType2() == 1) { // 武器
+            if (getItem().getType2() == L1Item.TYPE2_WEAPON) { // 武器
                 int attrEnchantLevel = getAttrEnchantLevel();
                 if (attrEnchantLevel > 0) {
                     String attrStr = null;
                     switch (getAttrEnchantKind()) {
-                        case 1: // 地
-                            if (attrEnchantLevel == 1) {
-                                attrStr = "$6124";
-                            } else if (attrEnchantLevel == 2) {
-                                attrStr = "$6125";
-                            } else if (attrEnchantLevel == 3) {
-                                attrStr = "$6126";
-                            }
-                            break;
-                        case 2: // 火
-                            if (attrEnchantLevel == 1) {
-                                attrStr = "$6115";
-                            } else if (attrEnchantLevel == 2) {
-                                attrStr = "$6116";
-                            } else if (attrEnchantLevel == 3) {
-                                attrStr = "$6117";
-                            }
-                            break;
-                        case 4: // 水
-                            if (attrEnchantLevel == 1) {
-                                attrStr = "$6118";
-                            } else if (attrEnchantLevel == 2) {
-                                attrStr = "$6119";
-                            } else if (attrEnchantLevel == 3) {
-                                attrStr = "$6120";
-                            }
-                            break;
-                        case 8: // 風
-                            if (attrEnchantLevel == 1) {
-                                attrStr = "$6121";
-                            } else if (attrEnchantLevel == 2) {
-                                attrStr = "$6122";
-                            } else if (attrEnchantLevel == 3) {
-                                attrStr = "$6123";
-                            }
-                            break;
-                        default:
-                            break;
+                    case 1: // 地
+                        if (attrEnchantLevel == 1) {
+                            attrStr = "$6124";
+                        } else if (attrEnchantLevel == 2) {
+                            attrStr = "$6125";
+                        } else if (attrEnchantLevel == 3) {
+                            attrStr = "$6126";
+                        }
+                        break;
+                    case 2: // 火
+                        if (attrEnchantLevel == 1) {
+                            attrStr = "$6115";
+                        } else if (attrEnchantLevel == 2) {
+                            attrStr = "$6116";
+                        } else if (attrEnchantLevel == 3) {
+                            attrStr = "$6117";
+                        }
+                        break;
+                    case 4: // 水
+                        if (attrEnchantLevel == 1) {
+                            attrStr = "$6118";
+                        } else if (attrEnchantLevel == 2) {
+                            attrStr = "$6119";
+                        } else if (attrEnchantLevel == 3) {
+                            attrStr = "$6120";
+                        }
+                        break;
+                    case 8: // 風
+                        if (attrEnchantLevel == 1) {
+                            attrStr = "$6121";
+                        } else if (attrEnchantLevel == 2) {
+                            attrStr = "$6122";
+                        } else if (attrEnchantLevel == 3) {
+                            attrStr = "$6123";
+                        }
+                        break;
+                    default:
+                        break;
                     }
                     name.append(attrStr + " ");
                 }
             }
-            if (getItem().getType2() == 1 || getItem().getType2() == 2) { // 武器・防具
+            if (getItem().getType2() == L1Item.TYPE2_WEAPON || getItem().getType2() == L1Item.TYPE2_ARMOR) { // 武器・防具
                 if (getEnchantLevel() >= 0) {
                     name.append("+" + getEnchantLevel() + " ");
                 } else if (getEnchantLevel() < 0) {
@@ -437,12 +434,12 @@ public class L1ItemInstance extends L1Object {
                 L1Npc npc = NpcTable.getInstance().getTemplate(pet.get_npcid());
                 // name.append("[Lv." + pet.get_level() + " "
                 // + npc.get_nameid() + "]");
-                name.append("[Lv." + pet.get_level() + " " + pet.get_name()
-                        + "]HP" + pet.get_hp() + " " + npc.get_nameid());
+                name.append("[Lv." + pet.get_level() + " " + pet.get_name() + "]HP" + pet.get_hp() + " "
+                        + npc.get_nameid());
             }
         }
 
-        if (getItem().getType2() == 0 && getItem().getType() == 2) { // light系アイテム
+        if (getItem().getType2() == L1Item.TYPE2_ETC && getItem().getType() == 2) { // light系アイテム
             if (isNowLighting()) {
                 name.append(" ($10)");
             }
@@ -525,24 +522,24 @@ public class L1ItemInstance extends L1Object {
 
         if (itemType2 == 0) { // etcitem
             switch (getItem().getType()) {
-                case 2: // light
-                    os.writeC(22); // 明るさ
-                    os.writeH(getItem().getLightRange());
-                    break;
-                case 7: // food
-                    os.writeC(21);
-                    // 栄養
-                    os.writeH(getItem().getFoodVolume());
-                    break;
-                case 0: // arrow
-                case 15: // sting
-                    os.writeC(1); // 打撃値
-                    os.writeC(getItem().getDmgSmall());
-                    os.writeC(getItem().getDmgLarge());
-                    break;
-                default:
-                    os.writeC(23); // 材質
-                    break;
+            case 2: // light
+                os.writeC(22); // 明るさ
+                os.writeH(getItem().getLightRange());
+                break;
+            case 7: // food
+                os.writeC(21);
+                // 栄養
+                os.writeH(getItem().getFoodVolume());
+                break;
+            case 0: // arrow
+            case 15: // sting
+                os.writeC(1); // 打撃値
+                os.writeC(getItem().getDmgSmall());
+                os.writeC(getItem().getDmgLarge());
+                break;
+            default:
+                os.writeC(23); // 材質
+                break;
             }
             os.writeC(getItem().getMaterial());
             os.writeD(getWeight());
@@ -946,8 +943,7 @@ public class L1ItemInstance extends L1Object {
         _isRunning = true;
     }
 
-    public void setSkillWeaponEnchant(L1PcInstance pc, int skillId,
-            int skillTime) {
+    public void setSkillWeaponEnchant(L1PcInstance pc, int skillId, int skillTime) {
         if (getItem().getType2() != 1) {
             return;
         }
@@ -961,26 +957,26 @@ public class L1ItemInstance extends L1Object {
         }
 
         switch (skillId) {
-            case HOLY_WEAPON:
-                setHolyDmgByMagic(1);
-                setHitByMagic(1);
-                break;
+        case HOLY_WEAPON:
+            setHolyDmgByMagic(1);
+            setHitByMagic(1);
+            break;
 
-            case ENCHANT_WEAPON:
-                setDmgByMagic(2);
-                break;
+        case ENCHANT_WEAPON:
+            setDmgByMagic(2);
+            break;
 
-            case BLESS_WEAPON:
-                setDmgByMagic(2);
-                setHitByMagic(2);
-                break;
+        case BLESS_WEAPON:
+            setDmgByMagic(2);
+            setHitByMagic(2);
+            break;
 
-            case SHADOW_FANG:
-                setDmgByMagic(5);
-                break;
+        case SHADOW_FANG:
+            setDmgByMagic(5);
+            break;
 
-            default:
-                break;
+        default:
+            break;
         }
 
         _pc = pc;

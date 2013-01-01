@@ -30,8 +30,8 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import l1j.jrwz.configure.Config;
 import l1j.jrwz.L1DatabaseFactory;
+import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.L1Character;
 import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.L1Quest;
@@ -44,6 +44,7 @@ import l1j.jrwz.server.model.Instance.L1SummonInstance;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Drop;
+import l1j.jrwz.server.templates.L1Item;
 import l1j.jrwz.server.utils.SQLUtil;
 
 // Referenced classes of package l1j.jrwz.server.templates:
@@ -147,7 +148,7 @@ public class DropTable {
             item = inventory.getItems().get(0);
             itemId = item.getItemId();
             boolean isGround = false;
-            if (item.getItem().getType2() == 0 && item.getItem().getType() == 2) { // light系アイテム
+            if (item.getItem().getType2() == L1Item.TYPE2_ETC && item.getItem().getType() == 2) { // light系アイテム
                 item.setNowLighting(false);
             }
 

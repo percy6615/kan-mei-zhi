@@ -45,8 +45,7 @@ public class L1PcInventory extends L1Inventory {
 
     private static final long serialVersionUID = 1L;
 
-    private static Logger _log = Logger
-            .getLogger(L1PcInventory.class.getName());
+    private static Logger _log = Logger.getLogger(L1PcInventory.class.getName());
 
     private static final int MAX_SIZE = 180;
 
@@ -137,16 +136,14 @@ public class L1PcInventory extends L1Inventory {
             return -1;
         }
         if (getSize() > MAX_SIZE
-                || (getSize() == MAX_SIZE && (!item.isStackable() || !checkItem(item
-                        .getItem().getItemId())))) { // 容量確認
+                || (getSize() == MAX_SIZE && (!item.isStackable() || !checkItem(item.getItem().getItemId())))) { // 容量確認
             if (message) {
                 sendOverMessage(263); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
             }
             return SIZE_OVER;
         }
 
-        int weight = getWeight() + item.getItem().getWeight() * count / 1000
-                + 1;
+        int weight = getWeight() + item.getItem().getWeight() * count / 1000 + 1;
         if (weight < 0 || (item.getItem().getWeight() * count / 1000) < 0) {
             if (message) {
                 sendOverMessage(82); // アイテムが重すぎて、これ以上持てません。
@@ -163,9 +160,7 @@ public class L1PcInventory extends L1Inventory {
         L1ItemInstance itemExist = findItemId(item.getItemId());
         if (itemExist != null && (itemExist.getCount() + count) > MAX_AMOUNT) {
             if (message) {
-                getOwner().sendPackets(
-                        new S_ServerMessage(166, "所持しているアデナ",
-                                "2,000,000,000を超過しています。")); // \f1%0が%4%1%3%2
+                getOwner().sendPackets(new S_ServerMessage(166, "所持しているアデナ", "2,000,000,000を超過しています。")); // \f1%0が%4%1%3%2
             }
             return AMOUNT_OVER;
         }
@@ -210,8 +205,7 @@ public class L1PcInventory extends L1Inventory {
         _owner.sendPackets(new S_DeleteInventoryItem(item));
         _items.remove(item);
         if (item.getItem().getWeight() != 0) {
-            _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT,
-                    getWeight240()));
+            _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT, getWeight240()));
         }
     }
 
@@ -266,8 +260,7 @@ public class L1PcInventory extends L1Inventory {
         L1ItemInstance equipeitem = null;
         for (Object itemObject : _items) {
             L1ItemInstance item = (L1ItemInstance) itemObject;
-            if (item.getItem().getType2() == type2
-                    && item.getItem().getType() == type && item.isEquipped()) {
+            if (item.getItem().getType2() == type2 && item.getItem().getType() == type && item.isEquipped()) {
                 equipeitem = item;
                 break;
             }
@@ -285,8 +278,7 @@ public class L1PcInventory extends L1Inventory {
         int equipeCount = 0;
         for (Object itemObject : _items) {
             L1ItemInstance item = (L1ItemInstance) itemObject;
-            if (item.getItem().getType2() == 2 && item.getItem().getType() == 9
-                    && item.isEquipped()) {
+            if (item.getItem().getType2() == L1Item.TYPE2_ARMOR && item.getItem().getType() == 9 && item.isEquipped()) {
                 equipeItem[equipeCount] = item;
                 equipeCount++;
                 if (equipeCount == 2) {
@@ -307,8 +299,7 @@ public class L1PcInventory extends L1Inventory {
         int equipeCount = 0;
         for (Object itemObject : _items) {
             L1ItemInstance item = (L1ItemInstance) itemObject;
-            if (item.getItem().getType2() == type2
-                    && item.getItem().getType() == type && item.isEquipped()) {
+            if (item.getItem().getType2() == type2 && item.getItem().getType() == type && item.isEquipped()) {
                 equipeCount++;
             }
         }
@@ -337,8 +328,7 @@ public class L1PcInventory extends L1Inventory {
     public void insertItem(L1ItemInstance item) {
         _owner.sendPackets(new S_AddItem(item));
         if (item.getItem().getWeight() != 0) {
-            _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT,
-                    getWeight240()));
+            _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT, getWeight240()));
         }
         try {
             CharactersItemStorage storage = CharactersItemStorage.create();
@@ -361,8 +351,7 @@ public class L1PcInventory extends L1Inventory {
                     item.setEquipped(false);
                     setEquipped(item, true, true, false);
                 }
-                if (item.getItem().getType2() == 0
-                        && item.getItem().getType() == 2) { // light系アイテム
+                if (item.getItem().getType2() == L1Item.TYPE2_ETC && item.getItem().getType() == 2) { // light系アイテム
                     item.setRemainingTime(item.getItem().getLightFuel());
                 }
                 L1World.getInstance().storeObject(item);
@@ -388,11 +377,9 @@ public class L1PcInventory extends L1Inventory {
      * インベントリ内のアイテムの状態をDBに保存する。
      * 
      * @param item
-     *            -
-     *            更新対象のアイテム
+     *            - 更新対象のアイテム
      * @param column
-     *            -
-     *            更新するステータスの種類
+     *            - 更新するステータスの種類
      */
     public void saveItem(L1ItemInstance item, int column) {
         if (column == 0) {
@@ -468,8 +455,7 @@ public class L1PcInventory extends L1Inventory {
         setEquipped(item, equipped, false, false);
     }
 
-    public void setEquipped(L1ItemInstance item, boolean equipped,
-            boolean loaded, boolean changeWeapon) {
+    public void setEquipped(L1ItemInstance item, boolean equipped, boolean loaded, boolean changeWeapon) {
         if (item.isEquipped() != equipped) { // 設定値と違う場合だけ処理
             L1Item temp = item.getItem();
             if (equipped) { // 装着
@@ -478,8 +464,7 @@ public class L1PcInventory extends L1Inventory {
             } else { // 脱着
                 if (!loaded) {
                     // インビジビリティクローク バルログブラッディクローク装備中でインビジ状態の場合はインビジ状態の解除
-                    if (temp.getItemId() == 20077 || temp.getItemId() == 20062
-                            || temp.getItemId() == 120077) {
+                    if (temp.getItemId() == 20077 || temp.getItemId() == 20062 || temp.getItemId() == 120077) {
                         if (_owner.isInvisble()) {
                             _owner.delInvis();
                             return;
@@ -495,7 +480,7 @@ public class L1PcInventory extends L1Inventory {
                 _owner.setCurrentMp(_owner.getCurrentMp());
                 updateItem(item, COL_EQUIPPED);
                 _owner.sendPackets(new S_OwnCharStatus(_owner));
-                if (temp.getType2() == 1 && changeWeapon == false) { // 武器の場合はビジュアル更新。ただし、武器の持ち替えで武器を脱着する時は更新しない
+                if (temp.getType2() == L1Item.TYPE2_WEAPON && changeWeapon == false) { // 武器の場合はビジュアル更新。ただし、武器の持ち替えで武器を脱着する時は更新しない
                     _owner.sendPackets(new S_CharVisualUpdate(_owner));
                     _owner.broadcastPacket(new S_CharVisualUpdate(_owner));
                 }
@@ -517,8 +502,7 @@ public class L1PcInventory extends L1Inventory {
         // ヘルムからガーダーまでチェックする
         for (int type = 0; type <= 13; type++) {
             // 装備していて、装備不可の場合は外す
-            if (getTypeEquipped(2, type) != 0
-                    && !L1PolyMorph.isEquipableArmor(polyid, type)) {
+            if (getTypeEquipped(2, type) != 0 && !L1PolyMorph.isEquipableArmor(polyid, type)) {
                 if (type == 9) { // リングの場合は、両手分外す
                     armor = getItemEquipped(2, type);
                     if (armor != null) {
@@ -572,11 +556,9 @@ public class L1PcInventory extends L1Inventory {
      * インベントリ内のアイテムの状態を更新する。
      * 
      * @param item
-     *            -
-     *            更新対象のアイテム
+     *            - 更新対象のアイテム
      * @param column
-     *            -
-     *            更新するステータスの種類
+     *            - 更新するステータスの種類
      */
     @Override
     public void updateItem(L1ItemInstance item, int column) {
@@ -603,8 +585,7 @@ public class L1PcInventory extends L1Inventory {
         if (column >= COL_ITEMID) { // 別のアイテムになる場合(便箋を開封したときなど)
             _owner.sendPackets(new S_ItemStatus(item));
             _owner.sendPackets(new S_ItemColor(item));
-            _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT,
-                    getWeight240()));
+            _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT, getWeight240()));
             column -= COL_ITEMID;
         }
         if (column >= COL_DELAY_EFFECT) { // 効果ディレイ
@@ -622,8 +603,7 @@ public class L1PcInventory extends L1Inventory {
             }
             if (item.getItem().getWeight() != 0) {
                 // XXX 240段階のウェイトが変化しない場合は送らなくてよい
-                _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT,
-                        getWeight240()));
+                _owner.sendPackets(new S_PacketBox(S_PacketBox.WEIGHT, getWeight240()));
             }
             column -= COL_COUNT;
         }

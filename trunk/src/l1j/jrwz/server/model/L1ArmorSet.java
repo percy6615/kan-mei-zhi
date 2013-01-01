@@ -13,6 +13,7 @@ import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1ArmorSets;
+import l1j.jrwz.server.templates.L1Item;
 
 /**
  * 套装效果:物理、血、魔、魔防.
@@ -47,8 +48,7 @@ class AcHpMpBonusEffect implements L1ArmorSetEffect {
      * @param mr
      *            - 增加魔防
      */
-    public AcHpMpBonusEffect(int ac, int addHp, int addMp, int regenHp,
-            int regenMp, int addMr) {
+    public AcHpMpBonusEffect(int ac, int addHp, int addMp, int regenHp, int regenMp, int addMr) {
         _ac = ac;
         _addHp = addHp;
         _addMp = addMp;
@@ -103,8 +103,7 @@ class DefenseBonusEffect implements L1ArmorSetEffect {
      * @param earth
      *            - 地属性
      */
-    public DefenseBonusEffect(int defenseWater, int defenseWind,
-            int defenseFire, int defenseEarth) {
+    public DefenseBonusEffect(int defenseWater, int defenseWind, int defenseFire, int defenseEarth) {
         _defenseWater = defenseWater;
         _defenseWind = defenseWind;
         _defenseFire = defenseFire;
@@ -148,16 +147,11 @@ public abstract class L1ArmorSet {
                 if (armorSets.getPolyId() != -1) {
                     impl.addEffect(new PolymorphEffect(armorSets.getPolyId()));
                 }
-                impl.addEffect(new AcHpMpBonusEffect(armorSets.getAc(),
-                        armorSets.getHp(), armorSets.getMp(), armorSets
-                                .getHpr(), armorSets.getMpr(), armorSets
-                                .getMr()));
-                impl.addEffect(new StatBonusEffect(armorSets.getStr(),
-                        armorSets.getDex(), armorSets.getCon(), armorSets
-                                .getWis(), armorSets.getCha(), armorSets
-                                .getIntl()));
-                impl.addEffect(new DefenseBonusEffect(armorSets
-                        .getDefenseWater(), armorSets.getDefenseWind(),
+                impl.addEffect(new AcHpMpBonusEffect(armorSets.getAc(), armorSets.getHp(), armorSets.getMp(), armorSets
+                        .getHpr(), armorSets.getMpr(), armorSets.getMr()));
+                impl.addEffect(new StatBonusEffect(armorSets.getStr(), armorSets.getDex(), armorSets.getCon(),
+                        armorSets.getWis(), armorSets.getCha(), armorSets.getIntl()));
+                impl.addEffect(new DefenseBonusEffect(armorSets.getDefenseWater(), armorSets.getDefenseWind(),
                         armorSets.getDefenseFire(), armorSets.getDefenseWind()));
                 _allSet.add(impl);
             } catch (Exception ex) {
@@ -270,8 +264,7 @@ class L1ArmorSetImpl extends L1ArmorSet {
     /** 套装效果. */
     private final ArrayList<L1ArmorSetEffect> _effects;
     @SuppressWarnings("unused")
-    private static Logger _log = Logger.getLogger(L1ArmorSetImpl.class
-            .getName());
+    private static Logger _log = Logger.getLogger(L1ArmorSetImpl.class.getName());
 
     /**
      * 套装效果入口.
@@ -317,8 +310,7 @@ class L1ArmorSetImpl extends L1ArmorSet {
         // セット装備にリングが含まれているか調べる
         for (int id : _ids) {
             armor = pcInventory.findItemId(id);
-            if (armor.getItem().getType2() == 2
-                    && armor.getItem().getType() == 9) { // ring
+            if (armor.getItem().getType2() == L1Item.TYPE2_ARMOR && armor.getItem().getType() == 9) { // ring
                 isSetContainRing = true;
                 break;
             }
@@ -330,8 +322,7 @@ class L1ArmorSetImpl extends L1ArmorSet {
             if (pcInventory.getTypeEquipped(2, 9) == 2) {
                 L1ItemInstance ring[] = new L1ItemInstance[2];
                 ring = pcInventory.getRingEquipped();
-                if (ring[0].getItem().getItemId() == itemId
-                        && ring[1].getItem().getItemId() == itemId) {
+                if (ring[0].getItem().getItemId() == itemId && ring[1].getItem().getItemId() == itemId) {
                     return true;
                 }
             }
@@ -386,8 +377,7 @@ class PolymorphEffect implements L1ArmorSetEffect {
     @Override
     public void cancelEffect(L1PcInstance pc) {
         int awakeSkillId = pc.getAwakeSkillId();
-        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION
-                || awakeSkillId == AWAKEN_VALAKAS) {
+        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
             pc.sendPackets(new S_ServerMessage(1384)); // 目前状态中无法变身。
             return;
         }
@@ -405,8 +395,7 @@ class PolymorphEffect implements L1ArmorSetEffect {
     @Override
     public void giveEffect(L1PcInstance pc) {
         int awakeSkillId = pc.getAwakeSkillId();
-        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION
-                || awakeSkillId == AWAKEN_VALAKAS) {
+        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
             pc.sendPackets(new S_ServerMessage(1384)); // 目前状态中无法变身。
             return;
         }

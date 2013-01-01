@@ -29,6 +29,7 @@ import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
+import l1j.jrwz.server.templates.L1Item;
 import l1j.jrwz.server.templates.L1PetItem;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -63,7 +64,7 @@ public class C_UsePetItem extends ClientBasePacket {
             return;
         }
 
-        if (item.getItem().getType2() == 0 // 種別：その他のアイテム
+        if (item.getItem().getType2() == L1Item.TYPE2_ETC // 種別：その他のアイテム
                 && item.getItem().getType() == 11) { // petitem
             int itemId = item.getItem().getItemId();
             if (itemId >= 40749 && itemId <= 40752 || itemId >= 40756 && itemId <= 40758) {
