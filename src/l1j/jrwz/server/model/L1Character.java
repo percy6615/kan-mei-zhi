@@ -89,11 +89,11 @@ public class L1Character extends L1Object {
     /** ● 等级. */
     private int _level;
     /** ● 最高血量（1～32767）. */
-    private short _maxHp = 0;
+    private int _maxHp = 0;
     /** ● 真实的最高血量. */
     private int _trueMaxHp = 0;
     /** ● 最高魔量（0～32767）. */
-    private short _maxMp = 0;
+    private int _maxMp = 0;
     /** ● 真实的最高魔量. */
     private int _trueMaxMp = 0;
     /** ● 物理防御（-128～127）. */
@@ -103,27 +103,27 @@ public class L1Character extends L1Object {
     /** ● 力量值（1～127）. */
     private byte _str = 0;
     /** ● 真实的力量值. */
-    private short _trueStr = 0;
+    private int _trueStr = 0;
     /** ● 体质值（1～127）. */
     private byte _con = 0;
     /** ● 真实的体质值. */
-    private short _trueCon = 0;
+    private int _trueCon = 0;
     /** ● 敏捷值（1～127）. */
     private byte _dex = 0;
     /** ● 真实的敏捷值. */
-    private short _trueDex = 0;
+    private int _trueDex = 0;
     /** ● 魅力值（1～127）. */
     private byte _cha = 0;
     /** ● 真实的魅力值. */
-    private short _trueCha = 0;
+    private int _trueCha = 0;
     /** ● 智力值（1～127）. */
     private byte _int = 0;
     /** ● 真实的智力值. */
-    private short _trueInt = 0;
+    private int _trueInt = 0;
     /** ● 精神值（1～127）. */
     private byte _wis = 0;
     /** ● 真实的精神值. */
-    private short _trueWis = 0;
+    private int _trueWis = 0;
     /** ● 风属性防御（-128～127）. */
     private int _wind = 0;
     /** ● 真实的风属性防御. */
@@ -825,11 +825,11 @@ public class L1Character extends L1Object {
         return getLevel() / 4;
     }
 
-    public short getMaxHp() {
+    public int getMaxHp() {
         return _maxHp;
     }
 
-    public short getMaxMp() {
+    public int getMaxMp() {
         return _maxMp;
     }
 
@@ -1286,7 +1286,7 @@ public class L1Character extends L1Object {
     }
 
     public void setCha(int i) {
-        _trueCha = (short) i;
+        _trueCha = i;
         _cha = (byte) IntRange.ensure(i, 1, 127);
     }
 
@@ -1295,7 +1295,7 @@ public class L1Character extends L1Object {
     }
 
     public void setCon(int i) {
-        _trueCon = (short) i;
+        _trueCon = i;
         _con = (byte) IntRange.ensure(i, 1, 127);
     }
 
@@ -1352,7 +1352,7 @@ public class L1Character extends L1Object {
     }
 
     public void setDex(int i) {
-        _trueDex = (short) i;
+        _trueDex = i;
         _dex = (byte) IntRange.ensure(i, 1, 127);
     }
 
@@ -1375,7 +1375,7 @@ public class L1Character extends L1Object {
     }
 
     public void setInt(int i) {
-        _trueInt = (short) i;
+        _trueInt = i;
         _int = (byte) IntRange.ensure(i, 1, 127);
     }
 
@@ -1399,13 +1399,13 @@ public class L1Character extends L1Object {
 
     public void setMaxHp(int hp) {
         _trueMaxHp = hp;
-        _maxHp = (short) IntRange.ensure(_trueMaxHp, 1, 32767);
+        _maxHp = IntRange.ensure(_trueMaxHp, 1, 32767);
         _currentHp = Math.min(_currentHp, _maxHp);
     }
 
     public void setMaxMp(int mp) {
         _trueMaxMp = mp;
-        _maxMp = (short) IntRange.ensure(_trueMaxMp, 0, 32767);
+        _maxMp = IntRange.ensure(_trueMaxMp, 0, 32767);
         _currentMp = Math.min(_currentMp, _maxMp);
     }
 
@@ -1515,7 +1515,7 @@ public class L1Character extends L1Object {
     }
 
     public void setStr(int i) {
-        _trueStr = (short) i;
+        _trueStr = i;
         _str = (byte) IntRange.ensure(i, 1, 127);
     }
 
@@ -1528,7 +1528,7 @@ public class L1Character extends L1Object {
     }
 
     public void setWis(int i) {
-        _trueWis = (short) i;
+        _trueWis = i;
         _wis = (byte) IntRange.ensure(i, 1, 127);
     }
 

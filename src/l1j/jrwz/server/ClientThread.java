@@ -192,7 +192,7 @@ public class ClientThread implements Runnable, PacketOutput {
             int[] loc = Getback.GetBack_Location(pc, true);
             pc.setX(loc[0]);
             pc.setY(loc[1]);
-            pc.setMap((short) loc[2]);
+            pc.setMap(loc[2]);
             pc.setCurrentHp(pc.getLevel());
             pc.set_food(40);
         }

@@ -632,7 +632,7 @@ public class TextMapReader extends MapReader {
             int ySize = info[MAPINFO_END_Y] - info[MAPINFO_START_Y] + 1;
 
             try {
-                L1V1Map map = new L1V1Map((short) mapId, this.read(mapId,
+                L1V1Map map = new L1V1Map(mapId, this.read(mapId,
                         xSize, ySize), info[MAPINFO_START_X],
                         info[MAPINFO_START_Y], MapsTable.getInstance()
                                 .isUnderwater(mapId), MapsTable.getInstance()
@@ -672,7 +672,7 @@ public class TextMapReader extends MapReader {
             int ySize = info[MAPINFO_END_Y] - info[MAPINFO_START_Y] + 1;
 
             if (mapId == id) {
-                L1V1Map map = new L1V1Map((short) mapId, this.read(mapId,
+                L1V1Map map = new L1V1Map(mapId, this.read(mapId,
                         xSize, ySize), info[MAPINFO_START_X],
                         info[MAPINFO_START_Y], MapsTable.getInstance()
                                 .isUnderwater(mapId), MapsTable.getInstance()

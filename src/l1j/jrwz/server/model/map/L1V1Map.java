@@ -496,9 +496,9 @@ public class L1V1Map extends L1Map {
     @Override
     public void setPassable(int x, int y, boolean isPassable) {
         if (isPassable) {
-            setTile(x, y, (short) (accessTile(x, y) & (~BITFLAG_IS_IMPASSABLE)));
+            setTile(x, y, (accessTile(x, y) & (~BITFLAG_IS_IMPASSABLE)));
         } else {
-            setTile(x, y, (short) (accessTile(x, y) | BITFLAG_IS_IMPASSABLE));
+            setTile(x, y, (accessTile(x, y) | BITFLAG_IS_IMPASSABLE));
         }
     }
 

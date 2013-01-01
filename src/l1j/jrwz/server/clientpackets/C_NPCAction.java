@@ -506,7 +506,7 @@ public class C_NPCAction extends ClientBasePacket {
                         } else if (s.equalsIgnoreCase("tel3")) {
                             loc = L1HouseLocation.getHouseTeleportLoc(houseId, 3);
                         }
-                        L1Teleport.teleport(pc, loc[0], loc[1], (short) loc[2], 5, true);
+                        L1Teleport.teleport(pc, loc[0], loc[1], loc[2], 5, true);
                     }
                 }
             }
@@ -555,7 +555,7 @@ public class C_NPCAction extends ClientBasePacket {
                         if (house.isPurchaseBasement()) {
                             int[] loc = new int[3];
                             loc = L1HouseLocation.getBasementLoc(houseId);
-                            L1Teleport.teleport(pc, loc[0], loc[1], (short) (loc[2]), 5, true);
+                            L1Teleport.teleport(pc, loc[0], loc[1], (loc[2]), 5, true);
                         } else {
                             // 地下アジトがないため、テレポートできません。
                             pc.sendPackets(new S_ServerMessage(1098));
@@ -687,7 +687,7 @@ public class C_NPCAction extends ClientBasePacket {
                 l1skilluse.handleCommands(pc, CANCELLATION, pc.getId(), pc.getX(), pc.getY(), null, 0,
                         L1SkillUse.TYPE_LOGIN);
                 pc.getInventory().takeoffEquip(945); // 牛のpolyIdで装備を全部外す。
-                L1Teleport.teleport(pc, 32737, 32789, (short) 997, 4, false);
+                L1Teleport.teleport(pc, 32737, 32789, 997, 4, false);
                 int initStatusPoint = 75 + pc.getElixirStats();
                 int pcStatusPoint = pc.getBaseStr() + pc.getBaseInt() + pc.getBaseWis() + pc.getBaseDex()
                         + pc.getBaseCon() + pc.getBaseCha();
@@ -970,7 +970,7 @@ public class C_NPCAction extends ClientBasePacket {
                         || pc.getInventory().checkItem(40616)) { // 影の神殿3階の鍵
                     htmlid = "";
                 } else {
-                    L1Teleport.teleport(pc, 32683, 32895, (short) 608, 5, true);
+                    L1Teleport.teleport(pc, 32683, 32895, 608, 5, true);
                 }
             }
         }
@@ -1062,7 +1062,7 @@ public class C_NPCAction extends ClientBasePacket {
             // 「中に入る」
             if (s.equalsIgnoreCase("a")) {
                 if (pc.getInventory().checkItem(40921)) { // 元素の支配者
-                    L1Teleport.teleport(pc, 32674, 32832, (short) 603, 2, true);
+                    L1Teleport.teleport(pc, 32674, 32832, 603, 2, true);
                 } else {
                     htmlid = "gpass02";
                 }
@@ -1132,7 +1132,7 @@ public class C_NPCAction extends ClientBasePacket {
                         || pc.getInventory().checkItem(40921)) { // 元素の支配者
                     htmlid = "";
                 } else {
-                    L1Teleport.teleport(pc, 32674, 32832, (short) 602, 2, true);
+                    L1Teleport.teleport(pc, 32674, 32832, 602, 2, true);
                 }
             }
         }
@@ -1778,15 +1778,15 @@ public class C_NPCAction extends ClientBasePacket {
                 htmlid = "kamyla25";
             } else if (s.equalsIgnoreCase("b")) { // カーミラ（フランコの迷宮）
                 if (pc.getQuest().get_step(L1Quest.QUEST_KAMYLA) == 1) {
-                    L1Teleport.teleport(pc, 32679, 32742, (short) 482, 5, true);
+                    L1Teleport.teleport(pc, 32679, 32742, 482, 5, true);
                 }
             } else if (s.equalsIgnoreCase("d")) { // カーミラ（ディエゴの閉ざされた牢）
                 if (pc.getQuest().get_step(L1Quest.QUEST_KAMYLA) == 3) {
-                    L1Teleport.teleport(pc, 32736, 32800, (short) 483, 5, true);
+                    L1Teleport.teleport(pc, 32736, 32800, 483, 5, true);
                 }
             } else if (s.equalsIgnoreCase("f")) { // カーミラ（ホセ地下牢）
                 if (pc.getQuest().get_step(L1Quest.QUEST_KAMYLA) == 4) {
-                    L1Teleport.teleport(pc, 32746, 32807, (short) 484, 5, true);
+                    L1Teleport.teleport(pc, 32746, 32807, 484, 5, true);
                 }
             }
         }
@@ -1827,7 +1827,7 @@ public class C_NPCAction extends ClientBasePacket {
                     pc.getInventory().consumeItem(249, 1);
                     pc.getInventory().consumeItem(40620, 1);
                     pc.getQuest().set_step(L1Quest.QUEST_CRYSTAL, 2);
-                    L1Teleport.teleport(pc, 32801, 32895, (short) 483, 4, true);
+                    L1Teleport.teleport(pc, 32801, 32895, 483, 4, true);
                 }
             } else if (s.equalsIgnoreCase("c")) {
                 if (pc.getInventory().checkEquipped(246) || pc.getInventory().checkEquipped(247)
@@ -1847,7 +1847,7 @@ public class C_NPCAction extends ClientBasePacket {
                     pc.getInventory().consumeItem(249, 1);
                     pc.getInventory().consumeItem(40620, 1);
                     pc.getQuest().set_step(L1Quest.QUEST_CRYSTAL, 0);
-                    L1Teleport.teleport(pc, 32736, 32800, (short) 483, 4, true);
+                    L1Teleport.teleport(pc, 32736, 32800, 483, 4, true);
                 }
             }
         }
@@ -1858,7 +1858,7 @@ public class C_NPCAction extends ClientBasePacket {
                 htmlid = "";
                 pc.getInventory().consumeItem(40654, 1);
                 pc.getQuest().set_step(L1Quest.QUEST_CRYSTAL, L1Quest.QUEST_END);
-                L1Teleport.teleport(pc, 32744, 32927, (short) 483, 4, true);
+                L1Teleport.teleport(pc, 32744, 32927, 483, 4, true);
             }
         }
         // リザードマンの長老(海賊島)
@@ -2142,7 +2142,7 @@ public class C_NPCAction extends ClientBasePacket {
                     createitem = new int[] { 41293 };
                     createcount = new int[] { 1 };
                     L1PolyMorph.undoPoly(pc);
-                    L1Teleport.teleport(pc, 32815, 32809, (short) 5124, 6, true);
+                    L1Teleport.teleport(pc, 32815, 32809, 5124, 6, true);
                 } else {
                     htmlid = "fk_in_0";
                 }
@@ -2154,7 +2154,7 @@ public class C_NPCAction extends ClientBasePacket {
                     createitem = new int[] { 41294 };
                     createcount = new int[] { 1 };
                     L1PolyMorph.undoPoly(pc);
-                    L1Teleport.teleport(pc, 32815, 32809, (short) 5124, 6, true);
+                    L1Teleport.teleport(pc, 32815, 32809, 5124, 6, true);
                 } else {
                     htmlid = "fk_in_0";
                 }
@@ -2167,9 +2167,9 @@ public class C_NPCAction extends ClientBasePacket {
                 if (!pc.getInventory().checkItem(41293, 1) && !pc.getInventory().checkItem(41294, 1)) {
                     htmlid = "fk_out_0";
                 } else if (pc.getInventory().consumeItem(41293, 1)) {
-                    L1Teleport.teleport(pc, 32613, 32781, (short) 4, 4, true);
+                    L1Teleport.teleport(pc, 32613, 32781, 4, 4, true);
                 } else if (pc.getInventory().consumeItem(41294, 1)) {
-                    L1Teleport.teleport(pc, 32613, 32781, (short) 4, 4, true);
+                    L1Teleport.teleport(pc, 32613, 32781, 4, 4, true);
                 }
             }
         }
@@ -2780,7 +2780,7 @@ public class C_NPCAction extends ClientBasePacket {
             // 「異界の魔物がいる場所へ送ってください」
             if (s.equalsIgnoreCase("a")) {
                 if (pc.getInventory().checkItem(41028, 1)) {
-                    L1Teleport.teleport(pc, 32648, 32921, (short) 535, 6, true);
+                    L1Teleport.teleport(pc, 32648, 32921, 535, 6, true);
                     pc.getInventory().consumeItem(41028, 1);
                 }
             }
@@ -2979,7 +2979,7 @@ public class C_NPCAction extends ClientBasePacket {
             } else if (s.equalsIgnoreCase("B")) {
                 if (pc.getInventory().checkItem(49101, 1)) {
                     pc.getInventory().consumeItem(49101, 1);
-                    L1Teleport.teleport(pc, 33966, 33253, (short) 4, 5, true);
+                    L1Teleport.teleport(pc, 33966, 33253, 4, 5, true);
                     htmlid = "";
                 } else {
                     htmlid = "joegolem20";
@@ -2992,7 +2992,7 @@ public class C_NPCAction extends ClientBasePacket {
             if (s.equalsIgnoreCase("e")) {
                 if (pc.getInventory().checkItem(49242, 1)) { // 鍵のチェック(20人限定/時の歪みが現れてから2h30は未実装)
                     pc.getInventory().consumeItem(49242, 1);
-                    L1Teleport.teleport(pc, 32735, 32831, (short) 782, 2, true);
+                    L1Teleport.teleport(pc, 32735, 32831, 782, 2, true);
                     htmlid = "";
                 } else {
                     htmlid = "tebegate3";
@@ -3506,7 +3506,7 @@ public class C_NPCAction extends ClientBasePacket {
         }
 
         L1HauntedHouse.getInstance().addMember(pc); // メンバーに追加
-        L1Teleport.teleport(pc, 32722, 32830, (short) 5140, 2, true);
+        L1Teleport.teleport(pc, 32722, 32830, 5140, 2, true);
         return "";
     }
 
@@ -3559,7 +3559,7 @@ public class C_NPCAction extends ClientBasePacket {
                         && clanPc.getClanid() != pc.getClanid()) {
                     loc = L1HouseLocation.getHouseTeleportLoc(houseId, 0);
                     if (pc != null) {
-                        L1Teleport.teleport(pc, loc[0], loc[1], (short) loc[2], 5, true);
+                        L1Teleport.teleport(pc, loc[0], loc[1], loc[2], 5, true);
                     }
                 }
             }
@@ -4265,7 +4265,7 @@ public class C_NPCAction extends ClientBasePacket {
         if (pc.getInventory().consumeItem(L1ItemId.ADENA, 100)) {
             try {
                 pc.save();
-                pc.beginGhost(loc.getX(), loc.getY(), (short) loc.getMapId(), true);
+                pc.beginGhost(loc.getX(), loc.getY(), loc.getMapId(), true);
             } catch (Exception e) {
                 _log.log(Level.SEVERE, e.getLocalizedMessage(), e);
             }

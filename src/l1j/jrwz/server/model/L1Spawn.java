@@ -187,9 +187,9 @@ public class L1Spawn extends L1GameTimeAdapter {
 
             int npcId = mob.getNpcTemplate().get_npcId();
             if (npcId == 45488 && getMapId() == 9) { // カスパー
-                mob.setMap((short) (getMapId() + _random.nextInt(2)));
+                mob.setMap( (getMapId() + _random.nextInt(2)));
             } else if (npcId == 45601 && getMapId() == 11) { // デスナイト
-                mob.setMap((short) (getMapId() + _random.nextInt(3)));
+                mob.setMap( (getMapId() + _random.nextInt(3)));
             } else {
                 mob.setMap(getMapId());
             }
@@ -294,7 +294,7 @@ public class L1Spawn extends L1GameTimeAdapter {
             if (npcId == 45573 && mob.getMapId() == 2) { // バフォメット
                 for (L1PcInstance pc : L1World.getInstance().getAllPlayers()) {
                     if (pc.getMapId() == 2) {
-                        L1Teleport.teleport(pc, 32664, 32797, (short) 2, 0,
+                        L1Teleport.teleport(pc, 32664, 32797, 2, 0,
                                 true);
                     }
                 }
@@ -304,7 +304,7 @@ public class L1Spawn extends L1GameTimeAdapter {
                     && mob.getMapId() == 74) {
                 for (L1PcInstance pc : L1World.getInstance().getAllPlayers()) {
                     if (pc.getMapId() >= 72 && pc.getMapId() <= 74) {
-                        L1Teleport.teleport(pc, 32840, 32833, (short) 72,
+                        L1Teleport.teleport(pc, 32840, 32833, 72,
                                 pc.getHeading(), true);
                     }
                 }

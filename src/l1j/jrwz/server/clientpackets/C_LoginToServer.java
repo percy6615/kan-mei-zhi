@@ -172,7 +172,7 @@ public class C_LoginToServer extends ClientBasePacket {
             int[] loc = Getback.GetBack_Location(pc, true);
             pc.setX(loc[0]);
             pc.setY(loc[1]);
-            pc.setMap((short) loc[2]);
+            pc.setMap(loc[2]);
         }
 
         // 如果標記是在戰爭期間，如果不是血盟成員回到城堡。
@@ -187,7 +187,7 @@ public class C_LoginToServer extends ClientBasePacket {
                         loc = L1CastleLocation.getGetBackLoc(castle_id);
                         pc.setX(loc[0]);
                         pc.setY(loc[1]);
-                        pc.setMap((short) loc[2]);
+                        pc.setMap( loc[2]);
                     }
                 } else {
                     // 有城堡就回到城堡
@@ -195,7 +195,7 @@ public class C_LoginToServer extends ClientBasePacket {
                     loc = L1CastleLocation.getGetBackLoc(castle_id);
                     pc.setX(loc[0]);
                     pc.setY(loc[1]);
-                    pc.setMap((short) loc[2]);
+                    pc.setMap( loc[2]);
                 }
             }
         }

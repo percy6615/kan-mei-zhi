@@ -44,15 +44,15 @@ public class L1GMRoom implements L1CommandExecutor {
             }
 
             if (i == 1) {
-                L1Teleport.teleport(pc, 32737, 32796, (short) 99, 5, false);
+                L1Teleport.teleport(pc, 32737, 32796, 99, 5, false);
             } else if (i == 2) {
-                L1Teleport.teleport(pc, 32734, 32799, (short) 17100, 5, false); // 17100!?
+                L1Teleport.teleport(pc, 32734, 32799, 17100, 5, false); // 17100!?
             } else if (i == 3) {
-                L1Teleport.teleport(pc, 32644, 32955, (short) 0, 5, false);
+                L1Teleport.teleport(pc, 32644, 32955, 0, 5, false);
             } else if (i == 4) {
-                L1Teleport.teleport(pc, 33429, 32814, (short) 4, 5, false);
+                L1Teleport.teleport(pc, 33429, 32814, 4, 5, false);
             } else if (i == 5) {
-                L1Teleport.teleport(pc, 32894, 32535, (short) 300, 5, false);
+                L1Teleport.teleport(pc, 32894, 32535, 300, 5, false);
             } else {
                 L1Location loc = GMCommandsConfig.ROOMS.get(arg.toLowerCase());
                 if (loc == null) {
@@ -60,7 +60,7 @@ public class L1GMRoom implements L1CommandExecutor {
                     return;
                 }
                 L1Teleport.teleport(pc, loc.getX(), loc.getY(),
-                        (short) loc.getMapId(), 5, false);
+                        loc.getMapId(), 5, false);
             }
         } catch (Exception exception) {
             pc.sendPackets(new S_SystemMessage(

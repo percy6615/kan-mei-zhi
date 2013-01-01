@@ -41,6 +41,6 @@ public class L1TeleportTrap extends L1Trap {
         sendEffect(trapObj);
 
         L1Teleport.teleport(trodFrom, _loc.getX(), _loc.getY(),
-                (short) _loc.getMapId(), 5, true);
+                _loc.getMapId(), 5, true);
     }
 }

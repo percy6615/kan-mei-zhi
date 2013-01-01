@@ -98,7 +98,7 @@ public class FurnitureSpawnTable {
                     furniture.setItemObjId(rs.getInt(1));
                     furniture.setX(rs.getInt(3));
                     furniture.setY(rs.getInt(4));
-                    furniture.setMap((short) rs.getInt(5));
+                    furniture.setMap( rs.getInt(5));
                     furniture.setHomeX(furniture.getX());
                     furniture.setHomeY(furniture.getY());
                     furniture.setHeading(0);

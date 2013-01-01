@@ -53,7 +53,7 @@ public class L1Teleport {
         L1Location newLocation = pc.getLocation().randomLocation(200, true);
         int newX = newLocation.getX();
         int newY = newLocation.getY();
-        int mapId = (short) newLocation.getMapId();
+        int mapId = newLocation.getMapId();
 
         L1Teleport.teleport(pc, newX, newY, mapId, 5, effectable);
     }
@@ -101,13 +101,13 @@ public class L1Teleport {
 
     public static void teleport(L1PcInstance pc, L1Location loc, int head,
             boolean effectable) {
-        teleport(pc, loc.getX(), loc.getY(), (short) loc.getMapId(), head,
+        teleport(pc, loc.getX(), loc.getY(), loc.getMapId(), head,
                 effectable, TELEPORT);
     }
 
     public static void teleport(L1PcInstance pc, L1Location loc, int head,
             boolean effectable, int skillType) {
-        teleport(pc, loc.getX(), loc.getY(), (short) loc.getMapId(), head,
+        teleport(pc, loc.getX(), loc.getY(), loc.getMapId(), head,
                 effectable, skillType);
     }
 

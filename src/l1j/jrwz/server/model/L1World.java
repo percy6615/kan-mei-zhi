@@ -325,7 +325,7 @@ public class L1World {
      * @return 道具的XY坐标与地图ID
      */
     public L1GroundInventory getInventory(L1Location loc) {
-        return getInventory(loc.getX(), loc.getY(), (short) loc.getMap()
+        return getInventory(loc.getX(), loc.getY(), loc.getMap()
                 .getId());
     }
 

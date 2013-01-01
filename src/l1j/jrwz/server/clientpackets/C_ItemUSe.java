@@ -1653,7 +1653,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40079 || itemId == 40095) { // 帰還スクロール
                     if (pc.getMap().isEscapable() || pc.isGm()) {
                         int[] loc = Getback.GetBack_Location(pc, true);
-                        L1Teleport.teleport(pc, loc[0], loc[1], (short) loc[2],
+                        L1Teleport.teleport(pc, loc[0], loc[1], loc[2],
                                 5, true);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
@@ -1680,7 +1680,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 loc = L1CastleLocation.getCastleLoc(castle_id);
                                 int locx = loc[0];
                                 int locy = loc[1];
-                                int mapid = (short) (loc[2]);
+                                int mapid = loc[2];
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5,
                                         true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1693,7 +1693,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 loc = L1HouseLocation.getHouseLoc(house_id);
                                 int locx = loc[0];
                                 int locy = loc[1];
-                                int mapid = (short) (loc[2]);
+                                int mapid = loc[2];
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5,
                                         true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1706,14 +1706,14 @@ public class C_ItemUSe extends ClientBasePacket {
                                         .getHomeTownId());
                                 int locx = loc[0];
                                 int locy = loc[1];
-                                int mapid = (short) (loc[2]);
+                                int mapid = loc[2];
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5,
                                         true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
                                 int[] loc = Getback.GetBack_Location(pc, true);
                                 L1Teleport.teleport(pc, loc[0], loc[1],
-                                        (short) loc[2], 5, true);
+                                        loc[2], 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
                         }
@@ -1758,7 +1758,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                     .randomLocation(200, true);
                             int newX = newLocation.getX();
                             int newY = newLocation.getY();
-                            int mapId = (short) newLocation.getMapId();
+                            int mapId = newLocation.getMapId();
 
                             if (itemId == 40086) { // マステレポートスクロール
                                 for (L1PcInstance member : L1World
@@ -1992,11 +1992,11 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40572) { // アサシンの印
                     if (pc.getX() == 32778 && pc.getY() == 32738
                             && pc.getMapId() == 21) {
-                        L1Teleport.teleport(pc, 32781, 32728, (short) 21, 5,
+                        L1Teleport.teleport(pc, 32781, 32728, 21, 5,
                                 true);
                     } else if (pc.getX() == 32781 && pc.getY() == 32728
                             && pc.getMapId() == 21) {
-                        L1Teleport.teleport(pc, 32778, 32738, (short) 21, 5,
+                        L1Teleport.teleport(pc, 32778, 32738, 21, 5,
                                 true);
                     } else {
                         pc.sendPackets(new S_ServerMessage(79));
@@ -2148,25 +2148,25 @@ public class C_ItemUSe extends ClientBasePacket {
                         || itemId == 49047) {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                     // XXX 食べ物毎の満腹度(100単位で変動)
-                    short foodvolume1 = (short) (l1iteminstance.getItem()
+                    int foodvolume1 = (l1iteminstance.getItem()
                             .getFoodVolume() / 10);
-                    short foodvolume2 = 0;
+                    int foodvolume2 = 0;
                     if (foodvolume1 <= 0) {
                         foodvolume1 = 5;
                     }
                     if (pc.get_food() >= 225) {
                         pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD,
-                                (short) pc.get_food()));
+                                pc.get_food()));
                     } else {
-                        foodvolume2 = (short) (pc.get_food() + foodvolume1);
+                        foodvolume2 = (pc.get_food() + foodvolume1);
                         if (foodvolume2 <= 225) {
                             pc.set_food(foodvolume2);
                             pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD,
-                                    (short) pc.get_food()));
+                                    pc.get_food()));
                         } else {
-                            pc.set_food((short) 225);
+                            pc.set_food(225);
                             pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD,
-                                    (short) pc.get_food()));
+                                    pc.get_food()));
                         }
                     }
                     if (itemId == 40057) { // フローティングアイ肉

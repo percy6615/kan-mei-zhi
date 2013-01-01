@@ -1917,7 +1917,7 @@ public class L1Attack {
                 }
             }
             if (_drainHp > 0) { // HP吸収による回復
-                short newHp = (short) (_pc.getCurrentHp() + _drainHp);
+                int newHp = (_pc.getCurrentHp() + _drainHp);
                 _pc.setCurrentHp(newHp);
             }
             damageNpcWeaponDurability(); // 武器を損傷させる。
@@ -1934,13 +1934,13 @@ public class L1Attack {
                 if (_drainMana > _targetPc.getCurrentMp()) {
                     _drainMana = _targetPc.getCurrentMp();
                 }
-                short newMp = (short) (_targetPc.getCurrentMp() - _drainMana);
+                int newMp = (_targetPc.getCurrentMp() - _drainMana);
                 _targetPc.setCurrentMp(newMp);
-                newMp = (short) (_pc.getCurrentMp() + _drainMana);
+                newMp = (_pc.getCurrentMp() + _drainMana);
                 _pc.setCurrentMp(newMp);
             }
             if (_drainHp > 0) { // HP吸収による回復
-                short newHp = (short) (_pc.getCurrentHp() + _drainHp);
+                int newHp = (_pc.getCurrentHp() + _drainHp);
                 _pc.setCurrentHp(newHp);
             }
             damagePcWeaponDurability(); // 武器を損傷させる。

@@ -242,7 +242,7 @@ public class L1FollowerInstance extends L1NpcInstance {
         }
     }
 
-    public void spawn(int npcId, int X, int Y, int H, short Map) {
+    public void spawn(int npcId, int X, int Y, int H, int Map) {
         L1Npc l1npc = NpcTable.getInstance().getTemplate(npcId);
         if (l1npc != null) {
             L1NpcInstance mob = null;
