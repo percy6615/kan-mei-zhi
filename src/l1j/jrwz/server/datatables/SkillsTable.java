@@ -29,6 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import l1j.jrwz.L1DatabaseFactory;
+import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.templates.L1Skills;
@@ -133,8 +134,7 @@ public class SkillsTable {
         try {
 
             con = L1DatabaseFactory.getInstance().getConnection();
-            pstm = con
-                    .prepareStatement("SELECT * FROM character_skills WHERE char_obj_id=? AND skill_id=?");
+            pstm = con.prepareStatement("SELECT * FROM character_skills WHERE char_obj_id=? AND skill_id=?");
             pstm.setInt(1, playerobjid);
             pstm.setInt(2, skillid);
             rs = pstm.executeQuery();
@@ -155,8 +155,11 @@ public class SkillsTable {
     }
 
     public void spellLost(int playerobjid, int skillid) {
-        L1PcInstance pc = (L1PcInstance) L1World.getInstance().findObject(
-                playerobjid);
+        L1Object obj = L1World.getInstance().findObject(playerobjid);
+        if (!(obj instanceof L1PcInstance)) {
+            return;
+        }
+        L1PcInstance pc = (L1PcInstance) obj;
         if (pc != null) {
             pc.removeSkillMastery(skillid);
         }
@@ -166,8 +169,7 @@ public class SkillsTable {
         try {
 
             con = L1DatabaseFactory.getInstance().getConnection();
-            pstm = con
-                    .prepareStatement("DELETE FROM character_skills WHERE char_obj_id=? AND skill_id=?");
+            pstm = con.prepareStatement("DELETE FROM character_skills WHERE char_obj_id=? AND skill_id=?");
             pstm.setInt(1, playerobjid);
             pstm.setInt(2, skillid);
             pstm.execute();
@@ -180,13 +182,15 @@ public class SkillsTable {
         }
     }
 
-    public void spellMastery(int playerobjid, int skillid, String skillname,
-            int active, int time) {
+    public void spellMastery(int playerobjid, int skillid, String skillname, int active, int time) {
         if (spellCheck(playerobjid, skillid)) {
             return;
         }
-        L1PcInstance pc = (L1PcInstance) L1World.getInstance().findObject(
-                playerobjid);
+        L1Object obj = L1World.getInstance().findObject(playerobjid);
+        if (!(obj instanceof L1PcInstance)) {
+            return;
+        }
+        L1PcInstance pc = (L1PcInstance) obj;
         if (pc != null) {
             pc.setSkillMastery(skillid);
         }

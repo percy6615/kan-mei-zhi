@@ -37,6 +37,7 @@ import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.datatables.CharBuffTable;
 import l1j.jrwz.server.model.Getback;
+import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1Trade;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1DollInstance;
@@ -206,8 +207,9 @@ public class ClientThread implements Runnable, PacketOutput {
         // 終止決鬥
         if (pc.getFightId() != 0) {
             pc.setFightId(0);
-            L1PcInstance fightPc = (L1PcInstance) L1World.getInstance().findObject(pc.getFightId());
-            if (fightPc != null) {
+            L1Object object = L1World.getInstance().findObject(pc.getFightId());
+            if (object instanceof L1PcInstance) {
+                L1PcInstance fightPc = (L1PcInstance) object;
                 fightPc.setFightId(0);
                 fightPc.sendPackets(new S_PacketBox(S_PacketBox.MSG_DUEL, 0, 0));
             }

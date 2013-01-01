@@ -30,9 +30,9 @@ import l1j.jrwz.server.datatables.AuctionBoardTable;
 import l1j.jrwz.server.datatables.HouseTable;
 import l1j.jrwz.server.datatables.ItemTable;
 import l1j.jrwz.server.datatables.NpcActionTable;
+import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
-import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.model.npc.L1NpcHtml;
@@ -52,8 +52,7 @@ import l1j.jrwz.server.templates.L1House;
 public class C_Amount extends ClientBasePacket {
 
     @SuppressWarnings("unused")
-    private static final Logger _log = Logger.getLogger(C_Amount.class
-            .getName());
+    private static final Logger _log = Logger.getLogger(C_Amount.class.getName());
     private static final String C_AMOUNT = "[C] C_Amount";
 
     public C_Amount(byte[] decrypt, ClientThread client) throws Exception {
@@ -65,8 +64,7 @@ public class C_Amount extends ClientBasePacket {
         String s = readS();
 
         L1PcInstance pc = client.getActiveChar();
-        L1NpcInstance npc = (L1NpcInstance) L1World.getInstance().findObject(
-                objectId);
+        L1Object npc = L1World.getInstance().findObject(objectId);
         if (npc == null) {
             return;
         }
@@ -103,20 +101,16 @@ public class C_Amount extends ClientBasePacket {
                     boardTable.updateAuctionBoard(board);
                     if (nowBidderId != 0) {
                         // 將金幣退還給投標者
-                        L1PcInstance bidPc = (L1PcInstance) L1World
-                                .getInstance().findObject(nowBidderId);
+                        L1PcInstance bidPc = (L1PcInstance) L1World.getInstance().findObject(nowBidderId);
                         if (bidPc != null) { // 玩家在線上
-                            bidPc.getInventory().storeItem(L1ItemId.ADENA,
-                                    nowPrice);
-                            // 有人提出比您高的金额，因此无法给你购买权。%n因为您参与拍卖没有得标，所以还给你 %0金币。%n谢谢。%n%n
-                            bidPc.sendPackets(new S_ServerMessage(525, String
-                                    .valueOf(nowPrice)));
+                            bidPc.getInventory().storeItem(L1ItemId.ADENA, nowPrice);
+                            // 有人提出比您高的金额，因此无法给你购买权。%n因为您参与拍卖没有得标，所以还给你
+                            // %0金币。%n谢谢。%n%n
+                            bidPc.sendPackets(new S_ServerMessage(525, String.valueOf(nowPrice)));
                         } else { // 玩家離線中
-                            L1ItemInstance item = ItemTable.getInstance()
-                                    .createItem(L1ItemId.ADENA);
+                            L1ItemInstance item = ItemTable.getInstance().createItem(L1ItemId.ADENA);
                             item.setCount(nowPrice);
-                            CharactersItemStorage storage = CharactersItemStorage
-                                    .create();
+                            CharactersItemStorage storage = CharactersItemStorage.create();
                             storage.storeItem(nowBidderId, item);
                         }
                     }

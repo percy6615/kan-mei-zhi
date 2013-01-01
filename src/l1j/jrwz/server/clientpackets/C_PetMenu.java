@@ -22,6 +22,7 @@ package l1j.jrwz.server.clientpackets;
 import java.util.logging.Logger;
 
 import l1j.jrwz.server.ClientThread;
+import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
@@ -44,12 +45,11 @@ public class C_PetMenu extends ClientBasePacket {
 
         int petId = readD();
 
-        L1PetInstance pet = (L1PetInstance) L1World.getInstance().findObject(
-                petId);
+        L1Object obj = L1World.getInstance().findObject(petId);
         L1PcInstance pc = clientthread.getActiveChar();
 
-        if (pet != null && pc != null) {
-            pc.sendPackets(new S_PetInventory(pet));
+        if (obj instanceof L1PetInstance) {
+             pc.sendPackets(new S_PetInventory((L1PetInstance)obj));
         }
     }
 
