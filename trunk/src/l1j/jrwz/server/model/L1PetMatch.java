@@ -317,7 +317,7 @@ public class L1PetMatch {
                     pet.deleteMe();
                 }
             }
-            L1Teleport.teleport(pc1, 32630, 32744, (short) 4, 4, true);
+            L1Teleport.teleport(pc1, 32630, 32744, 4, 4, true);
         }
         _pc1Name[petMatchNo] = null;
         _pet1[petMatchNo] = null;
@@ -333,7 +333,7 @@ public class L1PetMatch {
                     pet.deleteMe();
                 }
             }
-            L1Teleport.teleport(pc2, 32630, 32744, (short) 4, 4, true);
+            L1Teleport.teleport(pc2, 32630, 32744, 4, 4, true);
         }
         _pc2Name[petMatchNo] = null;
         _pet2[petMatchNo] = null;

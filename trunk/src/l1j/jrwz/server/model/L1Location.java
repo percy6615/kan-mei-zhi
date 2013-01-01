@@ -61,7 +61,7 @@ public class L1Location extends Point {
         int newY = 0;
         int locX = baseLocation.getX();
         int locY = baseLocation.getY();
-        int mapId = (short) baseLocation.getMapId();
+        int mapId =baseLocation.getMapId();
         L1Map map = baseLocation.getMap();
 
         newLocation.setMap(map);
@@ -244,7 +244,7 @@ public class L1Location extends Point {
     }
 
     public void setMap(int mapId) {
-        _map = L1WorldMap.getInstance().getMap((short) mapId);
+        _map = L1WorldMap.getInstance().getMap(mapId);
     }
 
     public void setMap(L1Map map) {

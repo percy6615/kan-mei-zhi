@@ -81,8 +81,8 @@ public class L1Object implements Serializable {
      * 
      * @return 地图ID
      */
-    public short getMapId() {
-        return (short) _loc.getMap().getId();
+    public int getMapId() {
+        return _loc.getMap().getId();
     }
 
     /**

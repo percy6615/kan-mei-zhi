@@ -210,7 +210,7 @@ public class CharacterTable {
             if (!map.isInMap(pc.getX(), pc.getY())) {
                 pc.setX(33087);
                 pc.setY(33396);
-                pc.setMap((short) 4);
+                pc.setMap( 4);
             }
 
             /*

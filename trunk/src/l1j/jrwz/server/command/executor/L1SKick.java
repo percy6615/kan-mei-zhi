@@ -47,7 +47,7 @@ public class L1SKick implements L1CommandExecutor {
                 // SKTへ移動させる
                 target.setX(33080);
                 target.setY(33392);
-                target.setMap((short) 4);
+                target.setMap( 4);
                 target.sendPackets(new S_Disconnect());
                 ClientThread targetClient = target.getNetConnection();
                 targetClient.kick();

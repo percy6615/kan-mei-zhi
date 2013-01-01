@@ -114,7 +114,7 @@ public class WarTimeController implements Runnable {
                             }
                             loc = L1CastleLocation.getGetBackLoc(castleId);
                             L1Teleport.teleport(pc, loc[0], loc[1],
-                                    (short) loc[2], 5, true);
+                                    loc[2], 5, true);
                         }
                     }
                 }

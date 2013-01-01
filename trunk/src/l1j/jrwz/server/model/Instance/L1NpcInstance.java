@@ -441,7 +441,7 @@ public class L1NpcInstance extends L1Character {
 
     // 進みたい方向に障害物がないか確認、ある場合は前方斜め左右も確認後進める方向を返す
     // ※従来あった処理に、バックできない仕様を省いて、目標の反対（左右含む）には進まないようにしたもの
-    public static int checkObject(int x, int y, short m, int d) { // 起点Ｘ 起点Ｙ
+    public static int checkObject(int x, int y, int m, int d) { // 起点Ｘ 起点Ｙ
                                                                   // マップＩＤ
         // 進行方向
         L1Map map = L1WorldMap.getInstance().getMap(m);

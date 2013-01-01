@@ -103,15 +103,15 @@ public class L1TeleporterInstance extends L1NpcInstance {
                         if (otherPc.getClanid() == player.getClanid()
                                 && otherPc.getId() != player.getId()) {
                             L1Teleport.teleport(otherPc, 32740, 32800,
-                                    (short) 217, 5, true);
+                                    217, 5, true);
                         }
                     }
-                    L1Teleport.teleport(player, 32740, 32800, (short) 217, 5,
+                    L1Teleport.teleport(player, 32740, 32800, 217, 5,
                             true);
                 }
                 // 試練のダンジョン（ウィザードLv30クエスト）
                 else if (action.equalsIgnoreCase("teleport mage-quest-dungen")) {
-                    L1Teleport.teleport(player, 32791, 32788, (short) 201, 5,
+                    L1Teleport.teleport(player, 32791, 32788, 201, 5,
                             true);
                 } else if (action.equalsIgnoreCase("teleport 29")) { // ラムダ
                     L1PcInstance kni = null;
@@ -139,19 +139,19 @@ public class L1TeleporterInstance extends L1NpcInstance {
                         }
                     }
                     if (kni != null && elf != null && wiz != null) { // 全クラス揃っている
-                        L1Teleport.teleport(player, 32723, 32850, (short) 2000,
+                        L1Teleport.teleport(player, 32723, 32850, 2000,
                                 2, true);
-                        L1Teleport.teleport(kni, 32750, 32851, (short) 2000, 6,
+                        L1Teleport.teleport(kni, 32750, 32851, 2000, 6,
                                 true);
-                        L1Teleport.teleport(elf, 32878, 32980, (short) 2000, 6,
+                        L1Teleport.teleport(elf, 32878, 32980, 2000, 6,
                                 true);
-                        L1Teleport.teleport(wiz, 32876, 33003, (short) 2000, 0,
+                        L1Teleport.teleport(wiz, 32876, 33003, 2000, 0,
                                 true);
                         TeleportDelyTimer timer = new TeleportDelyTimer();
                         GeneralThreadPool.getInstance().execute(timer);
                     }
                 } else if (action.equalsIgnoreCase("teleport barlog")) { // 古代人（Lv50クエスト古代の空間2F）
-                    L1Teleport.teleport(player, 32755, 32844, (short) 2002, 5,
+                    L1Teleport.teleport(player, 32755, 32844, 2002, 5,
                             true);
                     TeleportDelyTimer timer = new TeleportDelyTimer();
                     GeneralThreadPool.getInstance().execute(timer);

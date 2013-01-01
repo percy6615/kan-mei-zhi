@@ -100,10 +100,10 @@ public class C_CreateChar extends ClientBasePacket {
 
         int initHp = CalcInitHpMp.calcInitHp(pc);
         int initMp = CalcInitHpMp.calcInitMp(pc);
-        pc.addBaseMaxHp((short) initHp);
-        pc.setCurrentHp((short) initHp);
-        pc.addBaseMaxMp((short) initMp);
-        pc.setCurrentMp((short) initMp);
+        pc.addBaseMaxHp(initHp);
+        pc.setCurrentHp(initHp);
+        pc.addBaseMaxMp(initMp);
+        pc.setCurrentMp(initMp);
         pc.resetBaseAc();
         pc.setTitle("");
         pc.setClanid(0);

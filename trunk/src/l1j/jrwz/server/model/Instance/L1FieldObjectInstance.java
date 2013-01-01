@@ -105,7 +105,7 @@ public class L1FieldObjectInstance extends L1NpcInstance {
                     l1skilluse.handleCommands(pc, CANCELLATION, pc.getId(),
                             pc.getX(), pc.getY(), null, 0,
                             L1SkillUse.TYPE_LOGIN);
-                    L1Teleport.teleport(pc, 32624, 32813, (short) 4, 5, true);
+                    L1Teleport.teleport(pc, 32624, 32813, 4, 5, true);
                 }
             }
         }

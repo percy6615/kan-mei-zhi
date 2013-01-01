@@ -61,18 +61,18 @@ public class L1Status implements L1CommandExecutor {
             if (param.equalsIgnoreCase("AC")) {
                 target.addAc((byte) (value - target.getAc()));
             } else if (param.equalsIgnoreCase("MR")) {
-                target.addMr((short) (value - target.getMr()));
+                target.addMr((value - target.getMr()));
             } else if (param.equalsIgnoreCase("HIT")) {
-                target.addHitup((short) (value - target.getHitup()));
+                target.addHitup((value - target.getHitup()));
             } else if (param.equalsIgnoreCase("DMG")) {
-                target.addDmgup((short) (value - target.getDmgup()));
+                target.addDmgup((value - target.getDmgup()));
                 // -- use DB --
             } else {
                 if (param.equalsIgnoreCase("HP")) {
-                    target.addBaseMaxHp((short) (value - target.getBaseMaxHp()));
+                    target.addBaseMaxHp((value - target.getBaseMaxHp()));
                     target.setCurrentHpDirect(target.getMaxHp());
                 } else if (param.equalsIgnoreCase("MP")) {
-                    target.addBaseMaxMp((short) (value - target.getBaseMaxMp()));
+                    target.addBaseMaxMp((value - target.getBaseMaxMp()));
                     target.setCurrentMpDirect(target.getMaxMp());
                 } else if (param.equalsIgnoreCase("LAWFUL")) {
                     target.setLawful(value);

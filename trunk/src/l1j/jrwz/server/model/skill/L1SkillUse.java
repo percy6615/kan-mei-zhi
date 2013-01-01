@@ -2130,7 +2130,7 @@ public class L1SkillUse {
                                         .randomLocation(200, true);
                                 int newX = newLocation.getX();
                                 int newY = newLocation.getY();
-                                int mapId = (short) newLocation.getMapId();
+                                int mapId = newLocation.getMapId();
 
                                 if (_skillId == MASS_TELEPORT) { // マステレポート
                                     List<L1PcInstance> clanMember = L1World
@@ -2160,7 +2160,7 @@ public class L1SkillUse {
                                                                  // マザー
                         L1PcInstance pc = (L1PcInstance) cha;
                         if (pc.getMap().isEscapable() || pc.isGm()) {
-                            L1Teleport.teleport(pc, 33051, 32337, (short) 4, 5,
+                            L1Teleport.teleport(pc, 33051, 32337, 4, 5,
                                     true);
                         } else {
                             pc.sendPackets(new S_ServerMessage(647));

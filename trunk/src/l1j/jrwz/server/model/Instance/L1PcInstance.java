@@ -131,6 +131,7 @@ import l1j.jrwz.server.templates.L1Item;
 import l1j.jrwz.server.templates.L1PrivateShopBuyList;
 import l1j.jrwz.server.templates.L1PrivateShopSellList;
 import l1j.jrwz.server.utils.CalcStat;
+import l1j.jrwz.server.utils.IntRange;
 
 // Referenced classes of package l1j.jrwz.server.model:
 // L1Character, L1DropTable, L1Object, L1ItemInstance,
@@ -393,13 +394,13 @@ public class L1PcInstance extends L1Character {
     public static final int CLASSID_ILLUSIONIST_FEMALE = 6650;
 
     private static Random _random = new Random();
-    private short _hpr = 0;
+    private int _hpr = 0;
 
     private short _trueHpr = 0;
 
-    private short _mpr = 0;
+    private int _mpr = 0;
 
-    private short _trueMpr = 0;
+    private int _trueMpr = 0;
     public short _originalHpr = 0; // ● オリジナルCON HPR
 
     public short _originalMpr = 0; // ● オリジナルWIS MPR
@@ -524,9 +525,9 @@ public class L1PcInstance extends L1Character {
 
     private String _accountName; // ● アカウントネーム
 
-    private short _baseMaxHp = 0; // ● ＭＡＸＨＰベース（1～32767）
+    private int _baseMaxHp = 0; // ● ＭＡＸＨＰベース（1～32767）
 
-    private short _baseMaxMp = 0; // ● ＭＡＸＭＰベース（0～32767）
+    private int _baseMaxMp = 0; // ● ＭＡＸＭＰベース（0～32767）
 
     private int _baseAc = 0; // ● ＡＣベース（-128～127）
 
@@ -651,7 +652,7 @@ public class L1PcInstance extends L1Character {
 
     private int _ghostSaveLocY = 0;
 
-    private short _ghostSaveMapId = 0;
+    private int _ghostSaveMapId = 0;
 
     private int _ghostSaveHeading = 0;
 
@@ -793,24 +794,16 @@ public class L1PcInstance extends L1Character {
         _baseInt = i;
     }
 
-    public void addBaseMaxHp(short i) {
+    public void addBaseMaxHp(int i) {
         i += _baseMaxHp;
-        if (i >= 32767) {
-            i = 32767;
-        } else if (i < 1) {
-            i = 1;
-        }
+        i = IntRange.ensure(i, 1, Integer.MAX_VALUE);
         addMaxHp(i - _baseMaxHp);
         _baseMaxHp = i;
     }
 
-    public void addBaseMaxMp(short i) {
+    public void addBaseMaxMp(int i) {
         i += _baseMaxMp;
-        if (i >= 32767) {
-            i = 32767;
-        } else if (i < 0) {
-            i = 0;
-        }
+        i = IntRange.ensure(i, 0, Integer.MAX_VALUE);
         addMaxMp(i - _baseMaxMp);
         _baseMaxMp = i;
     }
@@ -878,7 +871,7 @@ public class L1PcInstance extends L1Character {
 
     public void addHpr(int i) {
         _trueHpr += i;
-        _hpr = (short) Math.max(0, _trueHpr);
+        _hpr = Math.max(0, _trueHpr);
     }
 
     public void addInvisDelayCounter(int counter) {
@@ -895,7 +888,7 @@ public class L1PcInstance extends L1Character {
 
     public void addMpr(int i) {
         _trueMpr += i;
-        _mpr = (short) Math.max(0, _trueMpr);
+        _mpr = Math.max(0, _trueMpr);
     }
 
     public void addWeightReduction(int i) {
@@ -1154,7 +1147,7 @@ public class L1PcInstance extends L1Character {
         // 地獄から脱出したら火田村へ帰還させる。
         int[] loc = L1TownLocation
                 .getGetBackLoc(L1TownLocation.TOWNID_ORCISH_FOREST);
-        L1Teleport.teleport(this, loc[0], loc[1], (short) loc[2], 5, true);
+        L1Teleport.teleport(this, loc[0], loc[1], loc[2], 5, true);
         try {
             save();
         } catch (Exception ignore) {
@@ -1234,11 +1227,11 @@ public class L1PcInstance extends L1Character {
         return _baseInt;
     }
 
-    public short getBaseMaxHp() {
+    public int getBaseMaxHp() {
         return _baseMaxHp;
     }
 
-    public short getBaseMaxMp() {
+    public int getBaseMaxMp() {
         return _baseMaxMp;
     }
 
@@ -1455,7 +1448,7 @@ public class L1PcInstance extends L1Character {
         return _homeTownId;
     }
 
-    public short getHpr() {
+    public int getHpr() {
         return _hpr;
     }
 
@@ -1532,7 +1525,7 @@ public class L1PcInstance extends L1Character {
         return maxWeight;
     }
 
-    public short getMpr() {
+    public int getMpr() {
         return _mpr;
     }
 
@@ -1949,12 +1942,12 @@ public class L1PcInstance extends L1Character {
 
         for (int i = 0; i > gap; i--) {
             // レベルダウン時はランダム値をそのままマイナスする為に、base値に0を設定
-            short randomHp = CalcStat.calcStatHp(getType(), 0, getBaseCon(),
+            int randomHp = CalcStat.calcStatHp(getType(), 0, getBaseCon(),
                     getOriginalHpup());
-            short randomMp = CalcStat.calcStatMp(getType(), 0, getBaseWis(),
+            int randomMp = CalcStat.calcStatMp(getType(), 0, getBaseWis(),
                     getOriginalMpup());
-            addBaseMaxHp((short) -randomHp);
-            addBaseMaxMp((short) -randomMp);
+            addBaseMaxHp(-randomHp);
+            addBaseMaxMp(-randomMp);
         }
         resetBaseHitup();
         resetBaseDmgup();
@@ -1998,9 +1991,9 @@ public class L1PcInstance extends L1Character {
         }
 
         for (int i = 0; i < gap; i++) {
-            short randomHp = CalcStat.calcStatHp(getType(), getBaseMaxHp(),
+            int randomHp = CalcStat.calcStatHp(getType(), getBaseMaxHp(),
                     getBaseCon(), getOriginalHpup());
-            short randomMp = CalcStat.calcStatMp(getType(), getBaseMaxMp(),
+            int randomMp = CalcStat.calcStatMp(getType(), getBaseMaxMp(),
                     getBaseWis(), getOriginalMpup());
             addBaseMaxHp(randomHp);
             addBaseMaxMp(randomMp);
@@ -2029,9 +2022,9 @@ public class L1PcInstance extends L1Character {
         sendPackets(new S_OwnCharStatus(this));
         if (getLevel() >= 52) { // 指定レベル
             if (getMapId() == 777) { // 見捨てられた者たちの地(影の神殿)
-                L1Teleport.teleport(this, 34043, 32184, (short) 4, 5, true); // 象牙の塔前
+                L1Teleport.teleport(this, 34043, 32184, 4, 5, true); // 象牙の塔前
             } else if (getMapId() == 778 || getMapId() == 779) { // 見捨てられた者たちの地(欲望の洞窟)
-                L1Teleport.teleport(this, 32608, 33178, (short) 4, 5, true); // WB
+                L1Teleport.teleport(this, 32608, 33178, 4, 5, true); // WB
             }
         }
     }

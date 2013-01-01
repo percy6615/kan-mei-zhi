@@ -49,11 +49,11 @@ public class Dungeon {
     private static class NewDungeon {
         int _newX;
         int _newY;
-        short _newMapId;
+        int _newMapId;
         int _heading;
         DungeonType _dungeonType;
 
-        private NewDungeon(int newX, int newY, short newMapId, int heading,
+        private NewDungeon(int newX, int newY, int newMapId, int heading,
                 DungeonType dungeonType) {
             _newX = newX;
             _newY = newY;
@@ -137,7 +137,7 @@ public class Dungeon {
                     dungeonType = DungeonType.SHIP_FOR_TI;
                 }
                 NewDungeon newDungeon = new NewDungeon(newX, newY,
-                        (short) newMapId, heading, dungeonType);
+                        newMapId, heading, dungeonType);
                 if (_dungeonMap.containsKey(key)) {
                     _log.log(Level.WARNING, "Navicat dungeon 传送点重复。key=" + key);
                 }
@@ -160,7 +160,7 @@ public class Dungeon {
                 .append(locY).toString();
         if (_dungeonMap.containsKey(key)) {
             NewDungeon newDungeon = _dungeonMap.get(key);
-            short newMap = newDungeon._newMapId;
+            int newMap = newDungeon._newMapId;
             int newX = newDungeon._newX;
             int newY = newDungeon._newY;
             int heading = newDungeon._heading;
