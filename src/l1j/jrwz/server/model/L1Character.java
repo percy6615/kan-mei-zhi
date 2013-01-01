@@ -43,6 +43,7 @@ import l1j.jrwz.server.serverpackets.S_Light;
 import l1j.jrwz.server.serverpackets.S_Poison;
 import l1j.jrwz.server.serverpackets.S_RemoveObject;
 import l1j.jrwz.server.serverpackets.ServerBasePacket;
+import l1j.jrwz.server.templates.L1Item;
 import l1j.jrwz.server.types.Point;
 import l1j.jrwz.server.utils.IntRange;
 
@@ -57,8 +58,7 @@ public class L1Character extends L1Object {
     private static final long serialVersionUID = 1L;
 
     @SuppressWarnings("unused")
-    private static final Logger _log = Logger.getLogger(L1Character.class
-            .getName());
+    private static final Logger _log = Logger.getLogger(L1Character.class.getName());
 
     private L1Poison _poison = null;
     private boolean _paralyzed;
@@ -529,10 +529,8 @@ public class L1Character extends L1Object {
      * @param packet
      *            送信するパケットを表すServerBasePacketオブジェクト。
      */
-    public void broadcastPacketExceptTargetSight(ServerBasePacket packet,
-            L1Character target) {
-        for (L1PcInstance pc : L1World.getInstance()
-                .getVisiblePlayerExceptTargetSight(this, target)) {
+    public void broadcastPacketExceptTargetSight(ServerBasePacket packet, L1Character target) {
+        for (L1PcInstance pc : L1World.getInstance().getVisiblePlayerExceptTargetSight(this, target)) {
             pc.sendPackets(packet);
         }
     }
@@ -545,8 +543,7 @@ public class L1Character extends L1Object {
      * @param isFindInvis
      *            true : 見破れるプレイヤーにだけパケットを送信する。 false : 見破れないプレイヤーにだけパケットを送信する。
      */
-    public void broadcastPacketForFindInvis(ServerBasePacket packet,
-            boolean isFindInvis) {
+    public void broadcastPacketForFindInvis(ServerBasePacket packet, boolean isFindInvis) {
         for (L1PcInstance pc : L1World.getInstance().getVisiblePlayer(this)) {
             if (isFindInvis) {
                 if (pc.hasSkillEffect(GMSTATUS_FINDINVIS)) {
@@ -984,14 +981,10 @@ public class L1Character extends L1Object {
         int chy = getY();
         int arw = 0;
         for (int i = 0; i < 15; i++) {
-            if ((chx == tx && chy == ty) || (chx + 1 == tx && chy - 1 == ty)
-                    || (chx + 1 == tx && chy == ty)
-                    || (chx + 1 == tx && chy + 1 == ty)
-                    || (chx == tx && chy + 1 == ty)
-                    || (chx - 1 == tx && chy + 1 == ty)
-                    || (chx - 1 == tx && chy == ty)
-                    || (chx - 1 == tx && chy - 1 == ty)
-                    || (chx == tx && chy - 1 == ty)) {
+            if ((chx == tx && chy == ty) || (chx + 1 == tx && chy - 1 == ty) || (chx + 1 == tx && chy == ty)
+                    || (chx + 1 == tx && chy + 1 == ty) || (chx == tx && chy + 1 == ty)
+                    || (chx - 1 == tx && chy + 1 == ty) || (chx - 1 == tx && chy == ty)
+                    || (chx - 1 == tx && chy - 1 == ty) || (chx == tx && chy - 1 == ty)) {
                 break;
 
             } else if (chx < tx && chy == ty) {
@@ -1490,8 +1483,7 @@ public class L1Character extends L1Object {
             int remainingTimeMills = getSkillEffectTimeSec(skillId) * 1000;
 
             // 剩余的时间是有限的、效果时间无限制的情况下则覆盖。
-            if (remainingTimeMills >= 0
-                    && (remainingTimeMills < timeMillis || timeMillis == 0)) {
+            if (remainingTimeMills >= 0 && (remainingTimeMills < timeMillis || timeMillis == 0)) {
                 killSkillEffectTimer(skillId);
                 addSkillEffect(skillId, timeMillis);
             }
@@ -1614,7 +1606,7 @@ public class L1Character extends L1Object {
         }
 
         for (L1ItemInstance item : getInventory().getItems()) {
-            if (item.getItem().getType2() == 0 && item.getItem().getType() == 2) { // light系列道具
+            if (item.getItem().getType2() == L1Item.TYPE2_ETC && item.getItem().getType() == 2) { // light系列道具
                 int itemlightSize = item.getItem().getLightRange();
                 if (itemlightSize != 0 && item.isNowLighting()) {
                     if (itemlightSize > lightSize) {

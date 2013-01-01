@@ -150,8 +150,7 @@ import l1j.jrwz.server.utils.L1SpawnUtil;
 //
 
 /**
- * TODO: 翻譯，太多了= =
- * 處理收到由客戶端傳來使用道具的封包
+ * TODO: 翻譯，太多了= = 處理收到由客戶端傳來使用道具的封包
  */
 public class C_ItemUSe extends ClientBasePacket {
 
@@ -213,66 +212,26 @@ public class C_ItemUSe extends ClientBasePacket {
         int use_type = l1iteminstance.getItem().getUseType();
         if (itemId == 40088 || itemId == 40096 || itemId == 140088) {
             s = readS();
-        } else if (itemId == L1ItemId.SCROLL_OF_ENCHANT_ARMOR
-                || itemId == L1ItemId.SCROLL_OF_ENCHANT_WEAPON
-                || itemId == L1ItemId.SCROLL_OF_ENCHANT_QUEST_WEAPON
-                || itemId == 40077
-                || itemId == 40078
-                || itemId == 40126
-                || itemId == 40098
-                || itemId == 40129
-                || itemId == 40130
-                || itemId == 140129
-                || itemId == 140130
-                || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR
-                || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON
-                || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_ARMOR
+        } else if (itemId == L1ItemId.SCROLL_OF_ENCHANT_ARMOR || itemId == L1ItemId.SCROLL_OF_ENCHANT_WEAPON
+                || itemId == L1ItemId.SCROLL_OF_ENCHANT_QUEST_WEAPON || itemId == 40077 || itemId == 40078
+                || itemId == 40126 || itemId == 40098 || itemId == 40129 || itemId == 40130 || itemId == 140129
+                || itemId == 140130 || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR
+                || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_ARMOR
                 || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_WEAPON
                 || itemId == 41029 // 召喚球の欠片
-                || itemId == 40317
-                || itemId == 41036
-                || itemId == 41245
-                || itemId == 40127
-                || itemId == 40128
-                || itemId == 41048
-                || itemId == 41049
-                || itemId == 41050 // 糊付けされた航海日誌ページ
-                || itemId == 41051
-                || itemId == 41052
-                || itemId == 41053 // 糊付けされた航海日誌ページ
-                || itemId == 41054
-                || itemId == 41055
-                || itemId == 41056 // 糊付けされた航海日誌ページ
+                || itemId == 40317 || itemId == 41036 || itemId == 41245 || itemId == 40127 || itemId == 40128
+                || itemId == 41048 || itemId == 41049 || itemId == 41050 // 糊付けされた航海日誌ページ
+                || itemId == 41051 || itemId == 41052 || itemId == 41053 // 糊付けされた航海日誌ページ
+                || itemId == 41054 || itemId == 41055 || itemId == 41056 // 糊付けされた航海日誌ページ
                 || itemId == 41057 // 糊付けされた航海日誌ページ
-                || itemId == 40925
-                || itemId == 40926
-                || itemId == 40927 // 浄化・ミステリアスポーション
-                || itemId == 40928
-                || itemId == 40929
-                || itemId == 40931
-                || itemId == 40932
-                || itemId == 40933 // 加工されたサファイア
-                || itemId == 40934
-                || itemId == 40935
-                || itemId == 40936
-                || itemId == 40937 // 加工されたエメラルド
-                || itemId == 40938
-                || itemId == 40939
-                || itemId == 40940
-                || itemId == 40941 // 加工されたルビー
-                || itemId == 40942
-                || itemId == 40943
-                || itemId == 40944
-                || itemId == 40945 // 加工された地ダイア
-                || itemId == 40946
-                || itemId == 40947
-                || itemId == 40948
-                || itemId == 40949 // 加工された水ダイア
-                || itemId == 40950 || itemId == 40951
-                || itemId == 40952
-                || itemId == 40953 // 加工された風ダイア
-                || itemId == 40954 || itemId == 40955 || itemId == 40956
-                || itemId == 40957 // 加工された火ダイア
+                || itemId == 40925 || itemId == 40926 || itemId == 40927 // 浄化・ミステリアスポーション
+                || itemId == 40928 || itemId == 40929 || itemId == 40931 || itemId == 40932 || itemId == 40933 // 加工されたサファイア
+                || itemId == 40934 || itemId == 40935 || itemId == 40936 || itemId == 40937 // 加工されたエメラルド
+                || itemId == 40938 || itemId == 40939 || itemId == 40940 || itemId == 40941 // 加工されたルビー
+                || itemId == 40942 || itemId == 40943 || itemId == 40944 || itemId == 40945 // 加工された地ダイア
+                || itemId == 40946 || itemId == 40947 || itemId == 40948 || itemId == 40949 // 加工された水ダイア
+                || itemId == 40950 || itemId == 40951 || itemId == 40952 || itemId == 40953 // 加工された風ダイア
+                || itemId == 40954 || itemId == 40955 || itemId == 40956 || itemId == 40957 // 加工された火ダイア
                 || itemId == 40958 || itemId == 40964 // ダークマジックパウダー
                 || itemId == 49092 // 歪みのコア
                 || itemId == 41426 // 封印スクロール
@@ -283,14 +242,11 @@ public class C_ItemUSe extends ClientBasePacket {
                 || itemId == 41431 // 水の武器強化スクロール
                 || itemId == 41432) { // 火の武器強化スクロール
             l = readD();
-        } else if (itemId == 140100 || itemId == 40100 || itemId == 40099
-                || itemId == 40086 || itemId == 40863) {
+        } else if (itemId == 140100 || itemId == 40100 || itemId == 40099 || itemId == 40086 || itemId == 40863) {
             bmapid = readH();
             btele = readD();
-            pc.sendPackets(new S_Paralysis(S_Paralysis.TYPE_TELEPORT_UNLOCK,
-                    false));
-        } else if (itemId == 40090 || itemId == 40091 || itemId == 40092
-                || itemId == 40093 || itemId == 40094) { // ブランクスクロール(Lv1)～(Lv5)
+            pc.sendPackets(new S_Paralysis(S_Paralysis.TYPE_TELEPORT_UNLOCK, false));
+        } else if (itemId == 40090 || itemId == 40091 || itemId == 40092 || itemId == 40093 || itemId == 40094) { // ブランクスクロール(Lv1)～(Lv5)
             blanksc_skillid = readC();
         } else if (use_type == 30 || itemId == 40870 || itemId == 40879) { // spell_buff
             spellsc_objid = readD();
@@ -300,8 +256,7 @@ public class C_ItemUSe extends ClientBasePacket {
             spellsc_y = readH();
         } else if (itemId == 40089 || itemId == 140089) { // 復活スクロール、祝福された復活スクロール
             resid = readD();
-        } else if (itemId == 40310 || itemId == 40311 || itemId == 40730
-                || itemId == 40731 || itemId == 40732) { // 便箋
+        } else if (itemId == 40310 || itemId == 40311 || itemId == 40730 || itemId == 40731 || itemId == 40732) { // 便箋
             letterCode = readH();
             letterReceiver = readS();
             letterText = readByte();
@@ -317,7 +272,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
         if (pc.getCurrentHp() > 0) {
             int delay_id = 0;
-            if (l1iteminstance.getItem().getType2() == 0) { // 種別：その他のアイテム
+            if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_ETC) { // 種別：その他のアイテム
                 delay_id = ((L1EtcItem) l1iteminstance.getItem()).get_delayid();
             }
             if (delay_id != 0) { // ディレイ設定あり
@@ -328,9 +283,8 @@ public class C_ItemUSe extends ClientBasePacket {
 
             // 再使用チェック
             boolean isDelayEffect = false;
-            if (l1iteminstance.getItem().getType2() == 0) {
-                int delayEffect = ((L1EtcItem) l1iteminstance.getItem())
-                        .get_delayEffect();
+            if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_ETC) {
+                int delayEffect = ((L1EtcItem) l1iteminstance.getItem()).get_delayEffect();
                 if (delayEffect > 0) {
                     isDelayEffect = true;
                     Timestamp lastUsed = l1iteminstance.getLastUsed();
@@ -346,16 +300,12 @@ public class C_ItemUSe extends ClientBasePacket {
             }
 
             L1ItemInstance l1iteminstance1 = pc.getInventory().getItem(l);
-            _log.finest("request item use (obj) = " + itemObjid + " action = "
-                    + l + " value = " + s);
+            _log.finest("request item use (obj) = " + itemObjid + " action = " + l + " value = " + s);
             if (itemId == 40077 || itemId == L1ItemId.SCROLL_OF_ENCHANT_WEAPON
-                    || itemId == L1ItemId.SCROLL_OF_ENCHANT_QUEST_WEAPON
-                    || itemId == 40130 || itemId == 140130
-                    || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON
-                    || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_WEAPON
+                    || itemId == L1ItemId.SCROLL_OF_ENCHANT_QUEST_WEAPON || itemId == 40130 || itemId == 140130
+                    || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_WEAPON
                     || itemId == 40128) { // 武器強化スクロール
-                if (l1iteminstance1 == null
-                        || l1iteminstance1.getItem().getType2() != 1) {
+                if (l1iteminstance1 == null || l1iteminstance1.getItem().getType2() != 1) {
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     return;
                 }
@@ -387,8 +337,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 }
                 int weaponId = l1iteminstance1.getItem().getItemId();
-                if (weaponId == 36 || weaponId == 183 || weaponId >= 250
-                        && weaponId <= 255) { // イリュージョン武器
+                if (weaponId == 36 || weaponId == 183 || weaponId >= 250 && weaponId <= 255) { // イリュージョン武器
                     if (itemId == 40128) { // イリュージョン武器強化スクロール
                     } else {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -396,8 +345,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 }
                 if (itemId == 40128) { // イリュージョン武器強化スクロール
-                    if (weaponId == 36 || weaponId == 183 || weaponId >= 250
-                            && weaponId <= 255) { // イリュージョン武器
+                    if (weaponId == 36 || weaponId == 183 || weaponId >= 250 && weaponId <= 255) { // イリュージョン武器
                     } else {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                         return;
@@ -416,8 +364,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 } else if (enchant_level < safe_enchant) {
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                    SuccessEnchant(pc, l1iteminstance1, client,
-                            RandomELevel(l1iteminstance1, itemId));
+                    SuccessEnchant(pc, l1iteminstance1, client, RandomELevel(l1iteminstance1, itemId));
                 } else {
                     pc.getInventory().removeItem(l1iteminstance, 1);
 
@@ -430,23 +377,17 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
 
                     if (rnd < enchant_chance_wepon) {
-                        int randomEnchantLevel = RandomELevel(l1iteminstance1,
-                                itemId);
-                        SuccessEnchant(pc, l1iteminstance1, client,
-                                randomEnchantLevel);
-                    } else if (enchant_level >= 9
-                            && rnd < (enchant_chance_wepon * 2)) {
+                        int randomEnchantLevel = RandomELevel(l1iteminstance1, itemId);
+                        SuccessEnchant(pc, l1iteminstance1, client, randomEnchantLevel);
+                    } else if (enchant_level >= 9 && rnd < (enchant_chance_wepon * 2)) {
                         // \f1%0が%2と強烈に%1光りましたが、幸い無事にすみました。
-                        pc.sendPackets(new S_ServerMessage(160, l1iteminstance1
-                                .getLogName(), "$245", "$248"));
+                        pc.sendPackets(new S_ServerMessage(160, l1iteminstance1.getLogName(), "$245", "$248"));
                     } else {
                         FailureEnchant(pc, l1iteminstance1, client);
                     }
                 }
-            } else if (itemId == 41429 || itemId == 41430 || itemId == 41431
-                    || itemId == 41432) { // 風の武器強化スクロール～火の武器強化スクロール
-                if (l1iteminstance1 == null
-                        || l1iteminstance1.getItem().getType2() != 1) {
+            } else if (itemId == 41429 || itemId == 41430 || itemId == 41431 || itemId == 41432) { // 風の武器強化スクロール～火の武器強化スクロール
+                if (l1iteminstance1 == null || l1iteminstance1.getItem().getType2() != 1) {
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     return;
                 }
@@ -466,10 +407,8 @@ public class C_ItemUSe extends ClientBasePacket {
                 int oldAttrEnchantLevel = l1iteminstance1.getAttrEnchantLevel();
 
                 boolean isSameAttr = false; // スクロールと強化済みの属性が同一か
-                if (itemId == 41429 && oldAttrEnchantKind == 8
-                        || itemId == 41430 && oldAttrEnchantKind == 1
-                        || itemId == 41431 && oldAttrEnchantKind == 4
-                        || itemId == 41432 && oldAttrEnchantKind == 2) { // 同じ属性
+                if (itemId == 41429 && oldAttrEnchantKind == 8 || itemId == 41430 && oldAttrEnchantKind == 1
+                        || itemId == 41431 && oldAttrEnchantKind == 4 || itemId == 41432 && oldAttrEnchantKind == 2) { // 同じ属性
                     isSameAttr = true;
                 }
                 if (isSameAttr && oldAttrEnchantLevel >= 3) {
@@ -479,8 +418,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
                 int rnd = _random.nextInt(100) + 1;
                 if (Config.ATTR_ENCHANT_CHANCE >= rnd) {
-                    pc.sendPackets(new S_ServerMessage(161, l1iteminstance1
-                            .getLogName(), "$245", "$247")); // \f1%0が%2%1光ります。
+                    pc.sendPackets(new S_ServerMessage(161, l1iteminstance1.getLogName(), "$245", "$247")); // \f1%0が%2%1光ります。
                     int newAttrEnchantKind = 0;
                     int newAttrEnchantLevel = 0;
                     if (isSameAttr) { // 同じ属性なら+1
@@ -498,33 +436,24 @@ public class C_ItemUSe extends ClientBasePacket {
                         newAttrEnchantKind = 2;
                     }
                     l1iteminstance1.setAttrEnchantKind(newAttrEnchantKind);
-                    pc.getInventory().updateItem(l1iteminstance1,
-                            L1PcInventory.COL_ATTR_ENCHANT_KIND);
-                    pc.getInventory().saveItem(l1iteminstance1,
-                            L1PcInventory.COL_ATTR_ENCHANT_KIND);
+                    pc.getInventory().updateItem(l1iteminstance1, L1PcInventory.COL_ATTR_ENCHANT_KIND);
+                    pc.getInventory().saveItem(l1iteminstance1, L1PcInventory.COL_ATTR_ENCHANT_KIND);
                     l1iteminstance1.setAttrEnchantLevel(newAttrEnchantLevel);
-                    pc.getInventory().updateItem(l1iteminstance1,
-                            L1PcInventory.COL_ATTR_ENCHANT_LEVEL);
-                    pc.getInventory().saveItem(l1iteminstance1,
-                            L1PcInventory.COL_ATTR_ENCHANT_LEVEL);
+                    pc.getInventory().updateItem(l1iteminstance1, L1PcInventory.COL_ATTR_ENCHANT_LEVEL);
+                    pc.getInventory().saveItem(l1iteminstance1, L1PcInventory.COL_ATTR_ENCHANT_LEVEL);
                 } else {
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                 }
                 pc.getInventory().removeItem(l1iteminstance, 1);
-            } else if (itemId == 40078
-                    || itemId == L1ItemId.SCROLL_OF_ENCHANT_ARMOR
-                    || itemId == 40129 || itemId == 140129
-                    || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR
-                    || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_ARMOR
-                    || itemId == 40127) { // 防具強化スクロール
-                if (l1iteminstance1 == null
-                        || l1iteminstance1.getItem().getType2() != 2) {
+            } else if (itemId == 40078 || itemId == L1ItemId.SCROLL_OF_ENCHANT_ARMOR || itemId == 40129
+                    || itemId == 140129 || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR
+                    || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_ARMOR || itemId == 40127) { // 防具強化スクロール
+                if (l1iteminstance1 == null || l1iteminstance1.getItem().getType2() != 2) {
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     return;
                 }
 
-                int safe_enchant = ((L1Armor) l1iteminstance1.getItem())
-                        .get_safeenchant();
+                int safe_enchant = ((L1Armor) l1iteminstance1.getItem()).get_safeenchant();
                 if (safe_enchant < 0) { // 強化不可
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     return;
@@ -544,8 +473,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 }
                 if (itemId == 40127) { // イリュージョン防具強化スクロール
-                    if (armorId == 20161 || armorId >= 21035
-                            && armorId <= 21038) { // イリュージョン防具
+                    if (armorId == 20161 || armorId >= 21035 && armorId <= 21038) { // イリュージョン防具
                     } else {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                         return;
@@ -563,8 +491,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 } else if (enchant_level < safe_enchant) {
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                    SuccessEnchant(pc, l1iteminstance1, client,
-                            RandomELevel(l1iteminstance1, itemId));
+                    SuccessEnchant(pc, l1iteminstance1, client, RandomELevel(l1iteminstance1, itemId));
                 } else {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                     int rnd = _random.nextInt(100) + 1;
@@ -576,51 +503,39 @@ public class C_ItemUSe extends ClientBasePacket {
                         enchant_level_tmp = enchant_level;
                     }
                     if (enchant_level >= 9) {
-                        enchant_chance_armor = (100 + enchant_level_tmp
-                                * Config.ENCHANT_CHANCE_ARMOR)
+                        enchant_chance_armor = (100 + enchant_level_tmp * Config.ENCHANT_CHANCE_ARMOR)
                                 / (enchant_level_tmp * 2);
                     } else {
-                        enchant_chance_armor = (100 + enchant_level_tmp
-                                * Config.ENCHANT_CHANCE_ARMOR)
+                        enchant_chance_armor = (100 + enchant_level_tmp * Config.ENCHANT_CHANCE_ARMOR)
                                 / enchant_level_tmp;
                     }
 
                     if (rnd < enchant_chance_armor) {
-                        int randomEnchantLevel = RandomELevel(l1iteminstance1,
-                                itemId);
-                        SuccessEnchant(pc, l1iteminstance1, client,
-                                randomEnchantLevel);
-                    } else if (enchant_level >= 9
-                            && rnd < (enchant_chance_armor * 2)) {
+                        int randomEnchantLevel = RandomELevel(l1iteminstance1, itemId);
+                        SuccessEnchant(pc, l1iteminstance1, client, randomEnchantLevel);
+                    } else if (enchant_level >= 9 && rnd < (enchant_chance_armor * 2)) {
                         String item_name_id = l1iteminstance1.getName();
                         String pm = "";
                         String msg = "";
                         if (enchant_level > 0) {
                             pm = "+";
                         }
-                        msg = (new StringBuilder()).append(pm + enchant_level)
-                                .append(" ").append(item_name_id).toString();
+                        msg = (new StringBuilder()).append(pm + enchant_level).append(" ").append(item_name_id)
+                                .toString();
                         // \f1%0が%2と強烈に%1光りましたが、幸い無事にすみました。
-                        pc.sendPackets(new S_ServerMessage(160, msg, "$252",
-                                "$248"));
+                        pc.sendPackets(new S_ServerMessage(160, msg, "$252", "$248"));
                     } else {
                         FailureEnchant(pc, l1iteminstance1, client);
                     }
                 }
-            } else if (l1iteminstance.getItem().getType2() == 0) { // 種別：その他のアイテム
-                int item_minlvl = ((L1EtcItem) l1iteminstance.getItem())
-                        .getMinLevel();
-                int item_maxlvl = ((L1EtcItem) l1iteminstance.getItem())
-                        .getMaxLevel();
-                if (item_minlvl != 0 && item_minlvl > pc.getLevel()
-                        && !pc.isGm()) {
-                    pc.sendPackets(new S_ServerMessage(318, String
-                            .valueOf(item_minlvl))); // このアイテムは%0レベル以上にならなければ使用できません。
+            } else if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_ETC) { // 種別：その他のアイテム
+                int item_minlvl = ((L1EtcItem) l1iteminstance.getItem()).getMinLevel();
+                int item_maxlvl = ((L1EtcItem) l1iteminstance.getItem()).getMaxLevel();
+                if (item_minlvl != 0 && item_minlvl > pc.getLevel() && !pc.isGm()) {
+                    pc.sendPackets(new S_ServerMessage(318, String.valueOf(item_minlvl))); // このアイテムは%0レベル以上にならなければ使用できません。
                     return;
-                } else if (item_maxlvl != 0 && item_maxlvl < pc.getLevel()
-                        && !pc.isGm()) {
-                    pc.sendPackets(new S_ServerMessage(673, String
-                            .valueOf(item_maxlvl))); // このアイテムは%dレベル以上のみ使用できます。
+                } else if (item_maxlvl != 0 && item_maxlvl < pc.getLevel() && !pc.isGm()) {
+                    pc.sendPackets(new S_ServerMessage(673, String.valueOf(item_maxlvl))); // このアイテムは%dレベル以上のみ使用できます。
                     return;
                 }
 
@@ -632,13 +547,10 @@ public class C_ItemUSe extends ClientBasePacket {
                 }
 
                 if (l1iteminstance.getItem().getType() == 0) { // アロー
-                    pc.getInventory().setArrow(
-                            l1iteminstance.getItem().getItemId());
-                    pc.sendPackets(new S_ServerMessage(452, l1iteminstance
-                            .getLogName())); // %0が選択されました。
+                    pc.getInventory().setArrow(l1iteminstance.getItem().getItemId());
+                    pc.sendPackets(new S_ServerMessage(452, l1iteminstance.getLogName())); // %0が選択されました。
                 } else if (l1iteminstance.getItem().getType() == 15) { // スティング
-                    pc.getInventory().setSting(
-                            l1iteminstance.getItem().getItemId());
+                    pc.getInventory().setSting(l1iteminstance.getItem().getItemId());
                     pc.sendPackets(new S_ServerMessage(452, // %0が選択されました。
                             l1iteminstance.getLogName()));
                 } else if (l1iteminstance.getItem().getType() == 16) { // treasure_box
@@ -646,19 +558,16 @@ public class C_ItemUSe extends ClientBasePacket {
 
                     if (box != null) {
                         if (box.open(pc)) {
-                            L1EtcItem temp = (L1EtcItem) l1iteminstance
-                                    .getItem();
+                            L1EtcItem temp = (L1EtcItem) l1iteminstance.getItem();
                             if (temp.get_delayEffect() > 0) {
                                 isDelayEffect = true;
                             } else {
-                                pc.getInventory().removeItem(
-                                        l1iteminstance.getId(), 1);
+                                pc.getInventory().removeItem(l1iteminstance.getId(), 1);
                             }
                         }
                     }
                 } else if (l1iteminstance.getItem().getType() == 2) { // light系アイテム
-                    if (l1iteminstance.getRemainingTime() <= 0
-                            && itemId != 40004) {
+                    if (l1iteminstance.getRemainingTime() <= 0 && itemId != 40004) {
                         return;
                     }
                     if (l1iteminstance.isNowLighting()) {
@@ -670,11 +579,9 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                     pc.sendPackets(new S_ItemName(l1iteminstance));
                 } else if (itemId == 40003) { // ランタン オイル
-                    for (L1ItemInstance lightItem : pc.getInventory()
-                            .getItems()) {
+                    for (L1ItemInstance lightItem : pc.getInventory().getItems()) {
                         if (lightItem.getItem().getItemId() == 40002) {
-                            lightItem.setRemainingTime(l1iteminstance.getItem()
-                                    .getLightFuel());
+                            lightItem.setRemainingTime(l1iteminstance.getItem().getLightFuel());
                             pc.sendPackets(new S_ItemName(lightItem));
                             pc.sendPackets(new S_ServerMessage(230)); // ランタンにオイルを注ぎました。
                             break;
@@ -761,8 +668,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 }
                 // レッドポーション、濃縮体力回復剤、象牙の塔の体力回復剤
-                else if (itemId == L1ItemId.POTION_OF_HEALING
-                        || itemId == L1ItemId.CONDENSED_POTION_OF_HEALING
+                else if (itemId == L1ItemId.POTION_OF_HEALING || itemId == L1ItemId.CONDENSED_POTION_OF_HEALING
                         || itemId == 40029) {
                     UseHeallingPotion(pc, 15, 189);
                     pc.getInventory().removeItem(l1iteminstance, 1);
@@ -786,8 +692,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40506) { // エントの実
                     UseHeallingPotion(pc, 70, 197);
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                } else if (itemId == 40026 || itemId == 40027
-                        || itemId == 40028) { // ジュース
+                } else if (itemId == 40026 || itemId == 40027 || itemId == 40028) { // ジュース
                     UseHeallingPotion(pc, 25, 189);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40058) { // きつね色のパン
@@ -832,8 +737,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.setDrink(true);
                     pc.sendPackets(new S_Liquor(pc.getId()));
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                } else if (itemId == L1ItemId.POTION_OF_CURE_POISON
-                        || itemId == 40507) { // シアンポーション、エントの枝
+                } else if (itemId == L1ItemId.POTION_OF_CURE_POISON || itemId == 40507) { // シアンポーション、エントの枝
                     if (pc.hasSkillEffect(71) == true) { // ディケイポーションの状態
                         pc.sendPackets(new S_ServerMessage(698)); // 魔力によって何も飲むことができません。
                     } else {
@@ -848,8 +752,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
                         pc.curePoison();
                     }
-                } else if (itemId == L1ItemId.POTION_OF_HASTE_SELF
-                        || itemId == L1ItemId.B_POTION_OF_HASTE_SELF
+                } else if (itemId == L1ItemId.POTION_OF_HASTE_SELF || itemId == L1ItemId.B_POTION_OF_HASTE_SELF
                         || itemId == 40018 // 強化グリーン ポーション
                         || itemId == 140018 // 祝福された強化グリーン ポーション
                         || itemId == 40039 // ワイン
@@ -902,13 +805,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40066 || itemId == 41413) { // お餅、月餅
                     pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
-                    pc.setCurrentMp(pc.getCurrentMp()
-                            + (7 + _random.nextInt(6))); // 7~12
+                    pc.setCurrentMp(pc.getCurrentMp() + (7 + _random.nextInt(6))); // 7~12
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40067 || itemId == 41414) { // よもぎ餅、福餅
                     pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
-                    pc.setCurrentMp(pc.getCurrentMp()
-                            + (15 + _random.nextInt(16))); // 15~30
+                    pc.setCurrentMp(pc.getCurrentMp() + (15 + _random.nextInt(16))); // 15~30
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40735) { // 勇気のコイン
                     pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
@@ -920,16 +821,13 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41404) { // クジャクの霊薬
                     pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
-                    pc.setCurrentMp(pc.getCurrentMp()
-                            + (80 + _random.nextInt(21))); // 80~100
+                    pc.setCurrentMp(pc.getCurrentMp() + (80 + _random.nextInt(21))); // 80~100
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41412) { // 金のチョンズ
                     pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
-                    pc.setCurrentMp(pc.getCurrentMp()
-                            + (5 + _random.nextInt(16))); // 5~20
+                    pc.setCurrentMp(pc.getCurrentMp() + (5 + _random.nextInt(16))); // 5~20
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                } else if (itemId == 40032 || itemId == 40041
-                        || itemId == 41344) { // エヴァの祝福、マーメイドの鱗、水の精粋
+                } else if (itemId == 40032 || itemId == 40041 || itemId == 41344) { // エヴァの祝福、マーメイドの鱗、水の精粋
                     useBlessOfEva(pc, itemId);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == L1ItemId.POTION_OF_MANA // ブルー ポーション
@@ -980,8 +878,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40317) { // 砥石
                     // 武器か防具の場合のみ
-                    if (l1iteminstance1.getItem().getType2() != 0
-                            && l1iteminstance1.get_durability() > 0) {
+                    if (l1iteminstance1.getItem().getType2() != 0 && l1iteminstance1.get_durability() > 0) {
                         String msg0;
                         pc.getInventory().recoveryDamage(l1iteminstance1);
                         msg0 = l1iteminstance1.getLogName();
@@ -994,36 +891,27 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                } else if (itemId == 40097 || itemId == 40119
-                        || itemId == 140119 || itemId == 140329) { // 解呪スクロール、原住民のトーテム
+                } else if (itemId == 40097 || itemId == 40119 || itemId == 140119 || itemId == 140329) { // 解呪スクロール、原住民のトーテム
                     for (L1ItemInstance eachItem : pc.getInventory().getItems()) {
-                        if (eachItem.getItem().getBless() != 2
-                                && eachItem.getItem().getBless() != 130) {
+                        if (eachItem.getItem().getBless() != 2 && eachItem.getItem().getBless() != 130) {
                             continue;
                         }
-                        if (!eachItem.isEquipped()
-                                && (itemId == 40119 || itemId == 40097)) {
+                        if (!eachItem.isEquipped() && (itemId == 40119 || itemId == 40097)) {
                             // n解呪は装備しているものしか解呪しない
                             continue;
                         }
                         int id_normal = eachItem.getItemId() - 200000;
-                        L1Item template = ItemTable.getInstance().getTemplate(
-                                id_normal);
+                        L1Item template = ItemTable.getInstance().getTemplate(id_normal);
                         if (template == null) {
                             continue;
                         }
-                        if (pc.getInventory().checkItem(id_normal)
-                                && template.isStackable()) {
-                            pc.getInventory().storeItem(id_normal,
-                                    eachItem.getCount());
-                            pc.getInventory().removeItem(eachItem,
-                                    eachItem.getCount());
+                        if (pc.getInventory().checkItem(id_normal) && template.isStackable()) {
+                            pc.getInventory().storeItem(id_normal, eachItem.getCount());
+                            pc.getInventory().removeItem(eachItem, eachItem.getCount());
                         } else {
                             eachItem.setItem(template);
-                            pc.getInventory().updateItem(eachItem,
-                                    L1PcInventory.COL_ITEMID);
-                            pc.getInventory().saveItem(eachItem,
-                                    L1PcInventory.COL_ITEMID);
+                            pc.getInventory().updateItem(eachItem, L1PcInventory.COL_ITEMID);
+                            pc.getInventory().saveItem(eachItem, L1PcInventory.COL_ITEMID);
                         }
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1031,8 +919,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40126 || itemId == 40098) { // 確認スクロール
                     if (!l1iteminstance1.isIdentified()) {
                         l1iteminstance1.setIdentified(true);
-                        pc.getInventory().updateItem(l1iteminstance1,
-                                L1PcInventory.COL_IS_ID);
+                        pc.getInventory().updateItem(l1iteminstance1, L1PcInventory.COL_IS_ID);
                     }
                     pc.sendPackets(new S_IdentifyDesc(l1iteminstance1));
                     pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1042,8 +929,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if ((_random.nextInt(99) + 1) <= Config.CREATE_CHANCE_DIARY) {
                             createNewItem(pc, diaryId + 10, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158,
-                                    l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1076,8 +962,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if (_random.nextInt(100) < Config.CREATE_CHANCE_RECOLLECTION) {
                             createNewItem(pc, earingId + 186, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158,
-                                    l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1104,16 +989,13 @@ public class C_ItemUSe extends ClientBasePacket {
                             potion1 = 253;
                             potion2 = 255;
                         }
-                        if (earing2Id >= (itemId + potion1)
-                                && (itemId + potion2) >= earing2Id) {
+                        if (earing2Id >= (itemId + potion1) && (itemId + potion2) >= earing2Id) {
                             if ((_random.nextInt(99) + 1) < Config.CREATE_CHANCE_MYSTERIOUS) {
                                 createNewItem(pc, (earing2Id - 12), 1);
-                                pc.getInventory()
-                                        .removeItem(l1iteminstance1, 1);
+                                pc.getInventory().removeItem(l1iteminstance1, 1);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(160,
-                                        l1iteminstance1.getName()));
+                                pc.sendPackets(new S_ServerMessage(160, l1iteminstance1.getName()));
                                 // \f1%0が%2強烈に%1光りましたが、幸い無事にすみました。
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
@@ -1158,8 +1040,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 }
                                 createNewItem(pc, earinglevel, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(158,
-                                        l1iteminstance1.getName()));
+                                pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName()));
                                 // \f1%0が蒸発してなくなりました。
                             }
                             pc.getInventory().removeItem(l1iteminstance1, 1);
@@ -1178,20 +1059,16 @@ public class C_ItemUSe extends ClientBasePacket {
                     int gmam = 0;
                     if (ringId >= 41185 && 41200 >= ringId) {
                         // 細工されたリング類
-                        if (itemId == 40943 || itemId == 40947
-                                || itemId == 40951 || itemId == 40955) {
+                        if (itemId == 40943 || itemId == 40947 || itemId == 40951 || itemId == 40955) {
                             gmas = 443;
                             gmam = 447;
-                        } else if (itemId == 40944 || itemId == 40948
-                                || itemId == 40952 || itemId == 40956) {
+                        } else if (itemId == 40944 || itemId == 40948 || itemId == 40952 || itemId == 40956) {
                             gmas = 442;
                             gmam = 446;
-                        } else if (itemId == 40945 || itemId == 40949
-                                || itemId == 40953 || itemId == 40957) {
+                        } else if (itemId == 40945 || itemId == 40949 || itemId == 40953 || itemId == 40957) {
                             gmas = 441;
                             gmam = 445;
-                        } else if (itemId == 40946 || itemId == 40950
-                                || itemId == 40954 || itemId == 40958) {
+                        } else if (itemId == 40946 || itemId == 40950 || itemId == 40954 || itemId == 40958) {
                             gmas = 444;
                             gmam = 448;
                         }
@@ -1230,15 +1107,12 @@ public class C_ItemUSe extends ClientBasePacket {
                                 } else if (ringId == 411200) {
                                     ringlevel = 20450;
                                 }
-                                pc.sendPackets(new S_ServerMessage(gmas,
-                                        l1iteminstance1.getName()));
+                                pc.sendPackets(new S_ServerMessage(gmas, l1iteminstance1.getName()));
                                 createNewItem(pc, ringlevel, 1);
-                                pc.getInventory()
-                                        .removeItem(l1iteminstance1, 1);
+                                pc.getInventory().removeItem(l1iteminstance1, 1);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(gmam,
-                                        l1iteminstance.getName()));
+                                pc.sendPackets(new S_ServerMessage(gmam, l1iteminstance.getName()));
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
                         } else {
@@ -1253,8 +1127,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if ((_random.nextInt(99) + 1) < Config.CREATE_CHANCE_DANTES) {
                             createNewItem(pc, dantesId + 1, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158,
-                                    l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1267,17 +1140,15 @@ public class C_ItemUSe extends ClientBasePacket {
                         if ((_random.nextInt(99) + 1) <= Config.CREATE_CHANCE_HISTORY_BOOK) {
                             createNewItem(pc, historybookId + 8, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158,
-                                    l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
-                } else if (itemId == 40090 || itemId == 40091
-                        || itemId == 40092 || itemId == 40093
-                        || itemId == 40094) { // ブランク スクロール(Lv1)～ブランク
+                } else if (itemId == 40090 || itemId == 40091 || itemId == 40092 || itemId == 40093 || itemId == 40094) { // ブランク
+                                                                                                                          // スクロール(Lv1)～ブランク
                     // スクロール(Lv5)
                     if (pc.isWizard()) { // ウィザード
                         if (itemId == 40090 && blanksc_skillid <= 7 || // ブランク
@@ -1290,38 +1161,28 @@ public class C_ItemUSe extends ClientBasePacket {
                                 // スクロール(Lv4)でレベル4以下の魔法
                                 itemId == 40094 && blanksc_skillid <= 39) { // ブランク
                             // スクロール(Lv5)でレベル5以下の魔法
-                            L1ItemInstance spellsc = ItemTable.getInstance()
-                                    .createItem(40859 + blanksc_skillid);
+                            L1ItemInstance spellsc = ItemTable.getInstance().createItem(40859 + blanksc_skillid);
                             if (spellsc != null) {
                                 if (pc.getInventory().checkAddItem(spellsc, 1) == L1Inventory.OK) {
-                                    L1Skills l1skills = SkillsTable
-                                            .getInstance().getTemplate(
-                                                    blanksc_skillid + 1); // blanksc_skillidは0始まり
-                                    if (pc.getCurrentHp() + 1 < l1skills
-                                            .getHpConsume() + 1) {
+                                    L1Skills l1skills = SkillsTable.getInstance().getTemplate(blanksc_skillid + 1); // blanksc_skillidは0始まり
+                                    if (pc.getCurrentHp() + 1 < l1skills.getHpConsume() + 1) {
                                         pc.sendPackets(new S_ServerMessage(279)); // \f1HPが不足していて魔法を使うことができません。
                                         return;
                                     }
-                                    if (pc.getCurrentMp() < l1skills
-                                            .getMpConsume()) {
+                                    if (pc.getCurrentMp() < l1skills.getMpConsume()) {
                                         pc.sendPackets(new S_ServerMessage(278)); // \f1MPが不足していて魔法を使うことができません。
                                         return;
                                     }
                                     if (l1skills.getItemConsumeId() != 0) { // 材料が必要
-                                        if (!pc.getInventory().checkItem(
-                                                l1skills.getItemConsumeId(),
+                                        if (!pc.getInventory().checkItem(l1skills.getItemConsumeId(),
                                                 l1skills.getItemConsumeCount())) { // 必要材料をチェック
-                                            pc.sendPackets(new S_ServerMessage(
-                                                    299)); // \f1魔法を詠唱するための材料が足りません。
+                                            pc.sendPackets(new S_ServerMessage(299)); // \f1魔法を詠唱するための材料が足りません。
                                             return;
                                         }
                                     }
-                                    pc.setCurrentHp(pc.getCurrentHp()
-                                            - l1skills.getHpConsume());
-                                    pc.setCurrentMp(pc.getCurrentMp()
-                                            - l1skills.getMpConsume());
-                                    int lawful = pc.getLawful()
-                                            + l1skills.getLawful();
+                                    pc.setCurrentHp(pc.getCurrentHp() - l1skills.getHpConsume());
+                                    pc.setCurrentMp(pc.getCurrentMp() - l1skills.getMpConsume());
+                                    int lawful = pc.getLawful() + l1skills.getLawful();
                                     if (lawful > 32767) {
                                         lawful = 32767;
                                     }
@@ -1330,12 +1191,10 @@ public class C_ItemUSe extends ClientBasePacket {
                                     }
                                     pc.setLawful(lawful);
                                     if (l1skills.getItemConsumeId() != 0) { // 材料が必要
-                                        pc.getInventory().consumeItem(
-                                                l1skills.getItemConsumeId(),
+                                        pc.getInventory().consumeItem(l1skills.getItemConsumeId(),
                                                 l1skills.getItemConsumeCount());
                                     }
-                                    pc.getInventory().removeItem(
-                                            l1iteminstance, 1);
+                                    pc.getInventory().removeItem(l1iteminstance, 1);
                                     pc.getInventory().storeItem(spellsc);
                                 }
                             }
@@ -1347,17 +1206,14 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
 
                     // スペルスクロール
-                } else if ((itemId >= 40859 && itemId <= 40898)
-                        && itemId != 40863 || itemId >= 49281
+                } else if ((itemId >= 40859 && itemId <= 40898) && itemId != 40863 || itemId >= 49281
                         && itemId <= 49286) { // 40863はテレポートスクロールとして処理される
-                    if (spellsc_objid == pc.getId()
-                            && l1iteminstance.getItem().getUseType() != 30) { // spell_buff
+                    if (spellsc_objid == pc.getId() && l1iteminstance.getItem().getUseType() != 30) { // spell_buff
                         pc.sendPackets(new S_ServerMessage(281)); // \f1魔法が無効になりました。
                         return;
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                    if (spellsc_objid == 0
-                            && l1iteminstance.getItem().getUseType() != 0
+                    if (spellsc_objid == 0 && l1iteminstance.getItem().getUseType() != 0
                             && l1iteminstance.getItem().getUseType() != 26
                             && l1iteminstance.getItem().getUseType() != 27) {
                         return;
@@ -1381,37 +1237,26 @@ public class C_ItemUSe extends ClientBasePacket {
                         skillid = 57;
                     }
                     L1SkillUse l1skilluse = new L1SkillUse();
-                    l1skilluse.handleCommands(client.getActiveChar(), skillid,
-                            spellsc_objid, spellsc_x, spellsc_y, null, 0,
-                            L1SkillUse.TYPE_SPELLSC);
+                    l1skilluse.handleCommands(client.getActiveChar(), skillid, spellsc_objid, spellsc_x, spellsc_y,
+                            null, 0, L1SkillUse.TYPE_SPELLSC);
 
                 } else if (itemId >= 40373 && itemId <= 40382 // 地図各種
                         || itemId >= 40385 && itemId <= 40390) {
-                    pc.sendPackets(new S_UseMap(pc, l1iteminstance.getId(),
-                            l1iteminstance.getItem().getItemId()));
-                } else if (itemId == 40310 || itemId == 40730
-                        || itemId == 40731 || itemId == 40732) { // 便箋(未使用)
-                    if (writeLetter(itemId, pc, letterCode, letterReceiver,
-                            letterText)) {
+                    pc.sendPackets(new S_UseMap(pc, l1iteminstance.getId(), l1iteminstance.getItem().getItemId()));
+                } else if (itemId == 40310 || itemId == 40730 || itemId == 40731 || itemId == 40732) { // 便箋(未使用)
+                    if (writeLetter(itemId, pc, letterCode, letterReceiver, letterText)) {
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     }
                 } else if (itemId == 40311) { // 血盟便箋(未使用)
-                    if (writeClanLetter(itemId, pc, letterCode, letterReceiver,
-                            letterText)) {
+                    if (writeClanLetter(itemId, pc, letterCode, letterReceiver, letterText)) {
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     }
-                } else if (itemId == 49016 || itemId == 49018
-                        || itemId == 49020 || itemId == 49022
-                        || itemId == 49024) { // 便箋(未開封)
+                } else if (itemId == 49016 || itemId == 49018 || itemId == 49020 || itemId == 49022 || itemId == 49024) { // 便箋(未開封)
                     pc.sendPackets(new S_Letter(l1iteminstance));
                     l1iteminstance.setItemId(itemId + 1);
-                    pc.getInventory().updateItem(l1iteminstance,
-                            L1PcInventory.COL_ITEMID);
-                    pc.getInventory().saveItem(l1iteminstance,
-                            L1PcInventory.COL_ITEMID);
-                } else if (itemId == 49017 || itemId == 49019
-                        || itemId == 49021 || itemId == 49023
-                        || itemId == 49025) { // 便箋(開封済み)
+                    pc.getInventory().updateItem(l1iteminstance, L1PcInventory.COL_ITEMID);
+                    pc.getInventory().saveItem(l1iteminstance, L1PcInventory.COL_ITEMID);
+                } else if (itemId == 49017 || itemId == 49019 || itemId == 49021 || itemId == 49023 || itemId == 49025) { // 便箋(開封済み)
                     pc.sendPackets(new S_Letter(l1iteminstance));
                 } else if (itemId == 40314 || itemId == 40316) { // ペットのアミュレット
                     if (pc.getInventory().checkItem(41160)) { // 召喚の笛
@@ -1439,8 +1284,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             L1GuardianInstance guardian = (L1GuardianInstance) visible;
                             if (guardian.getNpcTemplate().get_npcId() == 70850) { // パン
                                 if (createNewItem(pc, 88, 1)) {
-                                    pc.getInventory().removeItem(
-                                            l1iteminstance, 1);
+                                    pc.getInventory().removeItem(l1iteminstance, 1);
                                 }
                             }
                         }
@@ -1483,19 +1327,15 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79));
                     }
                 } else if (itemId == 40089 || itemId == 140089) { // 復活スクロール、祝福された復活スクロール
-                    L1Character resobject = (L1Character) L1World.getInstance()
-                            .findObject(resid);
+                    L1Character resobject = (L1Character) L1World.getInstance().findObject(resid);
                     if (resobject != null) {
                         if (resobject instanceof L1PcInstance) {
                             L1PcInstance target = (L1PcInstance) resobject;
                             if (pc.getId() == target.getId()) {
                                 return;
                             }
-                            if (L1World.getInstance()
-                                    .getVisiblePlayer(target, 0).size() > 0) {
-                                for (L1PcInstance visiblePc : L1World
-                                        .getInstance().getVisiblePlayer(target,
-                                                0)) {
+                            if (L1World.getInstance().getVisiblePlayer(target, 0).size() > 0) {
+                                for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(target, 0)) {
                                     if (!visiblePc.isDead()) {
                                         // \f1その場所に他の人が立っているので復活させることができません。
                                         pc.sendPackets(new S_ServerMessage(592));
@@ -1503,18 +1343,15 @@ public class C_ItemUSe extends ClientBasePacket {
                                     }
                                 }
                             }
-                            if (target.getCurrentHp() == 0
-                                    && target.isDead() == true) {
+                            if (target.getCurrentHp() == 0 && target.isDead() == true) {
                                 if (pc.getMap().isUseResurrection()) {
                                     target.setTempID(pc.getId());
                                     if (itemId == 40089) {
                                         // また復活したいですか？（Y/N）
-                                        target.sendPackets(new S_Message_YN(
-                                                321, ""));
+                                        target.sendPackets(new S_Message_YN(321, ""));
                                     } else if (itemId == 140089) {
                                         // また復活したいですか？（Y/N）
-                                        target.sendPackets(new S_Message_YN(
-                                                322, ""));
+                                        target.sendPackets(new S_Message_YN(322, ""));
                                     }
                                 } else {
                                     return;
@@ -1523,23 +1360,16 @@ public class C_ItemUSe extends ClientBasePacket {
                         } else if (resobject instanceof L1NpcInstance) {
                             if (!(resobject instanceof L1TowerInstance)) {
                                 L1NpcInstance npc = (L1NpcInstance) resobject;
-                                if (npc.getNpcTemplate().isCantResurrect()
-                                        && !(npc instanceof L1PetInstance)) {
-                                    pc.getInventory().removeItem(
-                                            l1iteminstance, 1);
+                                if (npc.getNpcTemplate().isCantResurrect() && !(npc instanceof L1PetInstance)) {
+                                    pc.getInventory().removeItem(l1iteminstance, 1);
                                     return;
                                 }
                                 if (npc instanceof L1PetInstance
-                                        && L1World.getInstance()
-                                                .getVisiblePlayer(npc, 0)
-                                                .size() > 0) {
-                                    for (L1PcInstance visiblePc : L1World
-                                            .getInstance().getVisiblePlayer(
-                                                    npc, 0)) {
+                                        && L1World.getInstance().getVisiblePlayer(npc, 0).size() > 0) {
+                                    for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(npc, 0)) {
                                         if (!visiblePc.isDead()) {
                                             // \f1その場所に他の人が立っているので復活させることができません。
-                                            pc.sendPackets(new S_ServerMessage(
-                                                    592));
+                                            pc.sendPackets(new S_ServerMessage(592));
                                             return;
                                         }
                                     }
@@ -1552,8 +1382,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         }
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                } else if (itemId > 40169 && itemId < 40226 || itemId >= 45000
-                        && itemId <= 45022) { // 魔法書
+                } else if (itemId > 40169 && itemId < 40226 || itemId >= 45000 && itemId <= 45022) { // 魔法書
                     useSpellBook(pc, l1iteminstance, itemId);
                 } else if (itemId > 40225 && itemId < 40232) {
                     if (pc.isCrown() || pc.isGm()) {
@@ -1563,8 +1392,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             SpellBook4(pc, l1iteminstance, client);
                         } else if (itemId == 40227 && pc.getLevel() >= 40) {
                             SpellBook4(pc, l1iteminstance, client);
-                        } else if ((itemId == 40231 || itemId == 40232)
-                                && pc.getLevel() >= 45) {
+                        } else if ((itemId == 40231 || itemId == 40232) && pc.getLevel() >= 45) {
                             SpellBook4(pc, l1iteminstance, client);
                         } else if (itemId == 40230 && pc.getLevel() >= 50) {
                             SpellBook4(pc, l1iteminstance, client);
@@ -1581,14 +1409,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     useElfSpellBook(pc, l1iteminstance, itemId);
                 } else if (itemId > 40264 && itemId < 40280) { // 闇精霊の水晶
                     if (pc.isDarkelf() || pc.isGm()) {
-                        if (itemId >= 40265 && itemId <= 40269
-                                && pc.getLevel() >= 15) {
+                        if (itemId >= 40265 && itemId <= 40269 && pc.getLevel() >= 15) {
                             SpellBook1(pc, l1iteminstance, client);
-                        } else if (itemId >= 40270 && itemId <= 40274
-                                && pc.getLevel() >= 30) {
+                        } else if (itemId >= 40270 && itemId <= 40274 && pc.getLevel() >= 30) {
                             SpellBook1(pc, l1iteminstance, client);
-                        } else if (itemId >= 40275 && itemId <= 40279
-                                && pc.getLevel() >= 45) {
+                        } else if (itemId >= 40275 && itemId <= 40279 && pc.getLevel() >= 45) {
                             SpellBook1(pc, l1iteminstance, client);
                         } else {
                             pc.sendPackets(new S_ServerMessage(312));
@@ -1653,8 +1478,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40079 || itemId == 40095) { // 帰還スクロール
                     if (pc.getMap().isEscapable() || pc.isGm()) {
                         int[] loc = Getback.GetBack_Location(pc, true);
-                        L1Teleport.teleport(pc, loc[0], loc[1], loc[2],
-                                5, true);
+                        L1Teleport.teleport(pc, loc[0], loc[1], loc[2], 5, true);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
                         pc.sendPackets(new S_ServerMessage(647));
@@ -1667,8 +1491,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         int castle_id = 0;
                         int house_id = 0;
                         if (pc.getClanid() != 0) { // クラン所属
-                            L1Clan clan = L1World.getInstance().getClan(
-                                    pc.getClanname());
+                            L1Clan clan = L1World.getInstance().getClan(pc.getClanname());
                             if (clan != null) {
                                 castle_id = clan.getCastleId();
                                 house_id = clan.getHouseId();
@@ -1681,8 +1504,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 int locx = loc[0];
                                 int locy = loc[1];
                                 int mapid = loc[2];
-                                L1Teleport.teleport(pc, locx, locy, mapid, 5,
-                                        true);
+                                L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
                                 pc.sendPackets(new S_ServerMessage(647));
@@ -1694,26 +1516,22 @@ public class C_ItemUSe extends ClientBasePacket {
                                 int locx = loc[0];
                                 int locy = loc[1];
                                 int mapid = loc[2];
-                                L1Teleport.teleport(pc, locx, locy, mapid, 5,
-                                        true);
+                                L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
                                 pc.sendPackets(new S_ServerMessage(647));
                             }
                         } else {
                             if (pc.getHomeTownId() > 0) {
-                                int[] loc = L1TownLocation.getGetBackLoc(pc
-                                        .getHomeTownId());
+                                int[] loc = L1TownLocation.getGetBackLoc(pc.getHomeTownId());
                                 int locx = loc[0];
                                 int locy = loc[1];
                                 int mapid = loc[2];
-                                L1Teleport.teleport(pc, locx, locy, mapid, 5,
-                                        true);
+                                L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
                                 int[] loc = Getback.GetBack_Location(pc, true);
-                                L1Teleport.teleport(pc, loc[0], loc[1],
-                                        loc[2], 5, true);
+                                L1Teleport.teleport(pc, loc[0], loc[1], loc[2], 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
                         }
@@ -1721,8 +1539,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(647));
                     }
                     cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
-                } else if (itemId == 140100 || itemId == 40100
-                        || itemId == 40099 // 祝福されたテレポートスクロール、テレポートスクロール
+                } else if (itemId == 140100 || itemId == 40100 || itemId == 40099 // 祝福されたテレポートスクロール、テレポートスクロール
                         || itemId == 40086 || itemId == 40863) { // スペルスクロール(テレポート)
                     L1BookMark bookm = pc.getBookMark(btele);
                     if (bookm != null) { // ブックマークを取得出来たらテレポート
@@ -1732,70 +1549,54 @@ public class C_ItemUSe extends ClientBasePacket {
                             int mapId = bookm.getMapId();
 
                             if (itemId == 40086) { // マステレポートスクロール
-                                for (L1PcInstance member : L1World
-                                        .getInstance().getVisiblePlayer(pc)) {
-                                    if (pc.getLocation().getTileLineDistance(
-                                            member.getLocation()) <= 3
-                                            && member.getClanid() == pc
-                                                    .getClanid()
-                                            && pc.getClanid() != 0
+                                for (L1PcInstance member : L1World.getInstance().getVisiblePlayer(pc)) {
+                                    if (pc.getLocation().getTileLineDistance(member.getLocation()) <= 3
+                                            && member.getClanid() == pc.getClanid() && pc.getClanid() != 0
                                             && member.getId() != pc.getId()) {
-                                        L1Teleport.teleport(member, newX, newY,
-                                                mapId, 5, true);
+                                        L1Teleport.teleport(member, newX, newY, mapId, 5, true);
                                     }
                                 }
                             }
                             L1Teleport.teleport(pc, newX, newY, mapId, 5, true);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
-                            L1Teleport.teleport(pc, pc.getX(), pc.getY(),
-                                    pc.getMapId(), pc.getHeading(), false);
+                            L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
                             pc.sendPackets(new S_ServerMessage(79));
                         }
                     } else {
                         if (pc.getMap().isTeleportable() || pc.isGm()) {
-                            L1Location newLocation = pc.getLocation()
-                                    .randomLocation(200, true);
+                            L1Location newLocation = pc.getLocation().randomLocation(200, true);
                             int newX = newLocation.getX();
                             int newY = newLocation.getY();
                             int mapId = newLocation.getMapId();
 
                             if (itemId == 40086) { // マステレポートスクロール
-                                for (L1PcInstance member : L1World
-                                        .getInstance().getVisiblePlayer(pc)) {
-                                    if (pc.getLocation().getTileLineDistance(
-                                            member.getLocation()) <= 3
-                                            && member.getClanid() == pc
-                                                    .getClanid()
-                                            && pc.getClanid() != 0
+                                for (L1PcInstance member : L1World.getInstance().getVisiblePlayer(pc)) {
+                                    if (pc.getLocation().getTileLineDistance(member.getLocation()) <= 3
+                                            && member.getClanid() == pc.getClanid() && pc.getClanid() != 0
                                             && member.getId() != pc.getId()) {
-                                        L1Teleport.teleport(member, newX, newY,
-                                                mapId, 5, true);
+                                        L1Teleport.teleport(member, newX, newY, mapId, 5, true);
                                     }
                                 }
                             }
                             L1Teleport.teleport(pc, newX, newY, mapId, 5, true);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
-                            L1Teleport.teleport(pc, pc.getX(), pc.getY(),
-                                    pc.getMapId(), pc.getHeading(), false);
+                            L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
                             pc.sendPackets(new S_ServerMessage(276));
                         }
                     }
                     cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                 } else if (itemId == 240100) { // 呪われたテレポートスクロール(オリジナルアイテム)
-                    L1Teleport.teleport(pc, pc.getX(), pc.getY(),
-                            pc.getMapId(), pc.getHeading(), true);
+                    L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), true);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                     cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                 } else if (itemId >= 40901 && itemId <= 40908) { // 各種エンゲージリング
                     L1PcInstance partner = null;
                     boolean partner_stat = false;
                     if (pc.getPartnerId() != 0) { // 結婚中
-                        partner = (L1PcInstance) L1World.getInstance()
-                                .findObject(pc.getPartnerId());
-                        if (partner != null && partner.getPartnerId() != 0
-                                && pc.getPartnerId() == partner.getId()
+                        partner = (L1PcInstance) L1World.getInstance().findObject(pc.getPartnerId());
+                        if (partner != null && partner.getPartnerId() != 0 && pc.getPartnerId() == partner.getId()
                                 && partner.getPartnerId() == pc.getId()) {
                             partner_stat = true;
                         }
@@ -1805,17 +1606,12 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
 
                     if (partner_stat) {
-                        boolean castle_area = L1CastleLocation
-                                .checkInAllWarArea(
-                                        // いずれかの城エリア
-                                        partner.getX(), partner.getY(),
-                                        partner.getMapId());
-                        if ((partner.getMapId() == 0 || partner.getMapId() == 4 || partner
-                                .getMapId() == 304) && castle_area == false) {
-                            L1Teleport
-                                    .teleport(pc, partner.getX(),
-                                            partner.getY(), partner.getMapId(),
-                                            5, true);
+                        boolean castle_area = L1CastleLocation.checkInAllWarArea(
+                        // いずれかの城エリア
+                                partner.getX(), partner.getY(), partner.getMapId());
+                        if ((partner.getMapId() == 0 || partner.getMapId() == 4 || partner.getMapId() == 304)
+                                && castle_area == false) {
+                            L1Teleport.teleport(pc, partner.getX(), partner.getY(), partner.getMapId(), 5, true);
                         } else {
                             pc.sendPackets(new S_ServerMessage(547)); // \f1あなたのパートナーは今あなたが行けない所でプレイ中です。
                         }
@@ -1823,11 +1619,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(546)); // \f1あなたのパートナーは今プレイをしていません。
                     }
                 } else if (itemId == 40555) { // 秘密の部屋のキー
-                    if (pc.isKnight()
-                            && (pc.getX() >= 32806 && // オリム部屋
-                            pc.getX() <= 32814)
-                            && (pc.getY() >= 32798 && pc.getY() <= 32807)
-                            && pc.getMapId() == 13) {
+                    if (pc.isKnight() && (pc.getX() >= 32806 && // オリム部屋
+                            pc.getX() <= 32814) && (pc.getY() >= 32798 && pc.getY() <= 32807) && pc.getMapId() == 13) {
                         int mapid = 13;
                         L1Teleport.teleport(pc, 32815, 32810, mapid, 5, false);
                     } else {
@@ -1835,9 +1628,8 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 } else if (itemId == 40417) { // ソウルクリスタル
                     if ((pc.getX() >= 32665 && // 海賊島
-                    pc.getX() <= 32674)
-                            && (pc.getY() >= 32976 && pc.getY() <= 32985)
-                            && pc.getMapId() == 440) {
+                            pc.getX() <= 32674)
+                            && (pc.getY() >= 32976 && pc.getY() <= 32985) && pc.getMapId() == 440) {
                         int mapid = 430;
                         L1Teleport.teleport(pc, 32922, 32812, mapid, 5, true);
                     } else {
@@ -1846,9 +1638,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40566) { // ミステリアス シェル
                     if (pc.isElf()
                             && (pc.getX() >= 33971 && // 象牙の塔の村の南にある魔方陣の座標
-                            pc.getX() <= 33975)
-                            && (pc.getY() >= 32324 && pc.getY() <= 32328)
-                            && pc.getMapId() == 4
+                            pc.getX() <= 33975) && (pc.getY() >= 32324 && pc.getY() <= 32328) && pc.getMapId() == 4
                             && !pc.getInventory().checkItem(40548)) { // 亡霊の袋
                         boolean found = false;
                         for (L1Object obj : L1World.getInstance().getObject()) {
@@ -1871,10 +1661,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40557) { // 暗殺リスト(グルーディン)
-                    if (pc.getX() == 32620 && pc.getY() == 32641
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 32620 && pc.getY() == 32641 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45883) {
@@ -1888,10 +1676,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40563) { // 暗殺リスト(火田村)
-                    if (pc.getX() == 32730 && pc.getY() == 32426
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 32730 && pc.getY() == 32426 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45884) {
@@ -1905,10 +1691,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40561) { // 暗殺リスト(ケント)
-                    if (pc.getX() == 33046 && pc.getY() == 32806
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 33046 && pc.getY() == 32806 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45885) {
@@ -1922,10 +1706,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40560) { // 暗殺リスト(ウッドベック)
-                    if (pc.getX() == 32580 && pc.getY() == 33260
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 32580 && pc.getY() == 33260 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45886) {
@@ -1939,10 +1721,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40562) { // 暗殺リスト(ハイネ)
-                    if (pc.getX() == 33447 && pc.getY() == 33476
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 33447 && pc.getY() == 33476 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45887) {
@@ -1956,10 +1736,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40559) { // 暗殺リスト(アデン)
-                    if (pc.getX() == 34215 && pc.getY() == 33195
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 34215 && pc.getY() == 33195 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45888) {
@@ -1973,10 +1751,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40558) { // 暗殺リスト(ギラン)
-                    if (pc.getX() == 33513 && pc.getY() == 32890
-                            && pc.getMapId() == 4) {
-                        for (L1Object object : L1World.getInstance()
-                                .getObject()) {
+                    if (pc.getX() == 33513 && pc.getY() == 32890 && pc.getMapId() == 4) {
+                        for (L1Object object : L1World.getInstance().getObject()) {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45889) {
@@ -1990,22 +1766,16 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40572) { // アサシンの印
-                    if (pc.getX() == 32778 && pc.getY() == 32738
-                            && pc.getMapId() == 21) {
-                        L1Teleport.teleport(pc, 32781, 32728, 21, 5,
-                                true);
-                    } else if (pc.getX() == 32781 && pc.getY() == 32728
-                            && pc.getMapId() == 21) {
-                        L1Teleport.teleport(pc, 32778, 32738, 21, 5,
-                                true);
+                    if (pc.getX() == 32778 && pc.getY() == 32738 && pc.getMapId() == 21) {
+                        L1Teleport.teleport(pc, 32781, 32728, 21, 5, true);
+                    } else if (pc.getX() == 32781 && pc.getY() == 32728 && pc.getMapId() == 21) {
+                        L1Teleport.teleport(pc, 32778, 32738, 21, 5, true);
                     } else {
                         pc.sendPackets(new S_ServerMessage(79));
                     }
-                } else if (itemId == 40006 || itemId == 40412
-                        || itemId == 140006) { // パインワンド
+                } else if (itemId == 40006 || itemId == 40412 || itemId == 140006) { // パインワンド
                     if (pc.getMap().isUsePainwand()) {
-                        S_AttackPacket s_attackPacket = new S_AttackPacket(pc,
-                                0, ActionCodes.ACTION_Wand);
+                        S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0, ActionCodes.ACTION_Wand);
                         pc.sendPackets(s_attackPacket);
                         pc.broadcastPacket(s_attackPacket);
                         int chargeCount = l1iteminstance.getChargeCount();
@@ -2014,10 +1784,8 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.sendPackets(new S_ServerMessage(79));
                             return;
                         }
-                        int[] mobArray = { 45008, 45140, 45016, 45021, 45025,
-                                45033, 45099, 45147, 45123, 45130, 45046,
-                                45092, 45138, 45098, 45127, 45143, 45149,
-                                45171, 45040, 45155, 45192, 45173, 45213,
+                        int[] mobArray = { 45008, 45140, 45016, 45021, 45025, 45033, 45099, 45147, 45123, 45130, 45046,
+                                45092, 45138, 45098, 45127, 45143, 45149, 45171, 45040, 45155, 45192, 45173, 45213,
                                 45079, 45144 };
                         // ゴブリン・ホブコブリン・コボルト・鹿・グレムリン
                         // インプ・インプエルダー・オウルベア・スケルトンアーチャー・スケルトンアックス
@@ -2037,10 +1805,8 @@ public class C_ItemUSe extends ClientBasePacket {
                         int rnd = _random.nextInt(mobArray.length);
                         L1SpawnUtil.spawn(pc, mobArray[rnd], 0, 300000);
                         if (itemId == 40006 || itemId == 140006) {
-                            l1iteminstance.setChargeCount(l1iteminstance
-                                    .getChargeCount() - 1);
-                            pc.getInventory().updateItem(l1iteminstance,
-                                    L1PcInventory.COL_CHARGE_COUNT);
+                            l1iteminstance.setChargeCount(l1iteminstance.getChargeCount() - 1);
+                            pc.getInventory().updateItem(l1iteminstance, L1PcInventory.COL_CHARGE_COUNT);
                         } else {
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         }
@@ -2056,49 +1822,38 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79));
                         return;
                     }
-                    L1Object target = L1World.getInstance().findObject(
-                            spellsc_objid);
-                    pc.sendPackets(new S_UseAttackSkill(pc, spellsc_objid, 10,
-                            spellsc_x, spellsc_y, ActionCodes.ACTION_Wand));
-                    pc.broadcastPacket(new S_UseAttackSkill(pc, spellsc_objid,
-                            10, spellsc_x, spellsc_y, ActionCodes.ACTION_Wand));
+                    L1Object target = L1World.getInstance().findObject(spellsc_objid);
+                    pc.sendPackets(new S_UseAttackSkill(pc, spellsc_objid, 10, spellsc_x, spellsc_y,
+                            ActionCodes.ACTION_Wand));
+                    pc.broadcastPacket(new S_UseAttackSkill(pc, spellsc_objid, 10, spellsc_x, spellsc_y,
+                            ActionCodes.ACTION_Wand));
                     if (target != null) {
                         doWandAction(pc, target);
                     }
-                    l1iteminstance.setChargeCount(l1iteminstance
-                            .getChargeCount() - 1);
-                    pc.getInventory().updateItem(l1iteminstance,
-                            L1PcInventory.COL_CHARGE_COUNT);
-                } else if (itemId == 40008 || itemId == 40410
-                        || itemId == 140008) { // メイプルワンド
-                    if (pc.getMapId() == 63 || pc.getMapId() == 552
-                            || pc.getMapId() == 555 || pc.getMapId() == 557
+                    l1iteminstance.setChargeCount(l1iteminstance.getChargeCount() - 1);
+                    pc.getInventory().updateItem(l1iteminstance, L1PcInventory.COL_CHARGE_COUNT);
+                } else if (itemId == 40008 || itemId == 40410 || itemId == 140008) { // メイプルワンド
+                    if (pc.getMapId() == 63 || pc.getMapId() == 552 || pc.getMapId() == 555 || pc.getMapId() == 557
                             || pc.getMapId() == 558 || pc.getMapId() == 779) { // 水中では使用不可
                         pc.sendPackets(new S_ServerMessage(563)); // \f1ここでは使えません。
                     } else {
-                        pc.sendPackets(new S_AttackPacket(pc, 0,
-                                ActionCodes.ACTION_Wand));
-                        pc.broadcastPacket(new S_AttackPacket(pc, 0,
-                                ActionCodes.ACTION_Wand));
+                        pc.sendPackets(new S_AttackPacket(pc, 0, ActionCodes.ACTION_Wand));
+                        pc.broadcastPacket(new S_AttackPacket(pc, 0, ActionCodes.ACTION_Wand));
                         int chargeCount = l1iteminstance.getChargeCount();
-                        if (chargeCount <= 0 && itemId != 40410
-                                || pc.getTempCharGfx() == 6034
+                        if (chargeCount <= 0 && itemId != 40410 || pc.getTempCharGfx() == 6034
                                 || pc.getTempCharGfx() == 6035) {
                             // \f1何も起きませんでした。
                             pc.sendPackets(new S_ServerMessage(79));
                             return;
                         }
-                        L1Object target = L1World.getInstance().findObject(
-                                spellsc_objid);
+                        L1Object target = L1World.getInstance().findObject(spellsc_objid);
                         if (target != null) {
                             L1Character cha = (L1Character) target;
                             polyAction(pc, cha);
                             cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                             if (itemId == 40008 || itemId == 140008) {
-                                l1iteminstance.setChargeCount(l1iteminstance
-                                        .getChargeCount() - 1);
-                                pc.getInventory().updateItem(l1iteminstance,
-                                        L1PcInventory.COL_CHARGE_COUNT);
+                                l1iteminstance.setChargeCount(l1iteminstance.getChargeCount() - 1);
+                                pc.getInventory().updateItem(l1iteminstance, L1PcInventory.COL_CHARGE_COUNT);
                             } else {
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
@@ -2122,61 +1877,43 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId >= 40280 && itemId <= 40288) {
                     // 封印された傲慢の塔11～91階テレポートアミュレット
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                    L1ItemInstance item = pc.getInventory().storeItem(
-                            itemId + 9, 1);
+                    L1ItemInstance item = pc.getInventory().storeItem(itemId + 9, 1);
                     if (item != null) {
-                        pc.sendPackets(new S_ServerMessage(403, item
-                                .getLogName()));
+                        pc.sendPackets(new S_ServerMessage(403, item.getLogName()));
                     }
                     // 肉類
-                } else if (itemId == 40056 || itemId == 40057
-                        || itemId == 40059 || itemId == 40060
-                        || itemId == 40061 || itemId == 40062
-                        || itemId == 40063 || itemId == 40064
-                        || itemId == 40065 || itemId == 40069
-                        || itemId == 40072 || itemId == 40073
-                        || itemId == 140061 || itemId == 140062
-                        || itemId == 140065 || itemId == 140069
-                        || itemId == 140072 || itemId == 41296
-                        || itemId == 41297 || itemId == 41266
-                        || itemId == 41267 || itemId == 41274
-                        || itemId == 41275 || itemId == 41276
-                        || itemId == 41252 || itemId == 49040
-                        || itemId == 49041 || itemId == 49042
-                        || itemId == 49043 || itemId == 49044
-                        || itemId == 49045 || itemId == 49046
-                        || itemId == 49047) {
+                } else if (itemId == 40056 || itemId == 40057 || itemId == 40059 || itemId == 40060 || itemId == 40061
+                        || itemId == 40062 || itemId == 40063 || itemId == 40064 || itemId == 40065 || itemId == 40069
+                        || itemId == 40072 || itemId == 40073 || itemId == 140061 || itemId == 140062
+                        || itemId == 140065 || itemId == 140069 || itemId == 140072 || itemId == 41296
+                        || itemId == 41297 || itemId == 41266 || itemId == 41267 || itemId == 41274 || itemId == 41275
+                        || itemId == 41276 || itemId == 41252 || itemId == 49040 || itemId == 49041 || itemId == 49042
+                        || itemId == 49043 || itemId == 49044 || itemId == 49045 || itemId == 49046 || itemId == 49047) {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                     // XXX 食べ物毎の満腹度(100単位で変動)
-                    int foodvolume1 = (l1iteminstance.getItem()
-                            .getFoodVolume() / 10);
+                    int foodvolume1 = (l1iteminstance.getItem().getFoodVolume() / 10);
                     int foodvolume2 = 0;
                     if (foodvolume1 <= 0) {
                         foodvolume1 = 5;
                     }
                     if (pc.get_food() >= 225) {
-                        pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD,
-                                pc.get_food()));
+                        pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD, pc.get_food()));
                     } else {
                         foodvolume2 = (pc.get_food() + foodvolume1);
                         if (foodvolume2 <= 225) {
                             pc.set_food(foodvolume2);
-                            pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD,
-                                    pc.get_food()));
+                            pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD, pc.get_food()));
                         } else {
                             pc.set_food(225);
-                            pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD,
-                                    pc.get_food()));
+                            pc.sendPackets(new S_PacketBox(S_PacketBox.FOOD, pc.get_food()));
                         }
                     }
                     if (itemId == 40057) { // フローティングアイ肉
                         pc.setSkillEffect(STATUS_FLOATING_EYE, 0);
                     }
-                    pc.sendPackets(new S_ServerMessage(76, l1iteminstance
-                            .getItem().getIdentifiedNameId()));
+                    pc.sendPackets(new S_ServerMessage(76, l1iteminstance.getItem().getIdentifiedNameId()));
                 } else if (itemId == 40070) { // 進化の実
-                    pc.sendPackets(new S_ServerMessage(76, l1iteminstance
-                            .getLogName()));
+                    pc.sendPackets(new S_ServerMessage(76, l1iteminstance.getLogName()));
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41298) { // ヤングフィッシュ
                     UseHeallingPotion(pc, 4, 189);
@@ -2313,43 +2050,32 @@ public class C_ItemUSe extends ClientBasePacket {
                         soundid = 3198;
                     }
 
-                    S_SkillSound s_skillsound = new S_SkillSound(pc.getId(),
-                            soundid);
+                    S_SkillSound s_skillsound = new S_SkillSound(pc.getId(), soundid);
                     pc.sendPackets(s_skillsound);
                     pc.broadcastPacket(s_skillsound);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId >= 41357 && itemId <= 41382) { // アルファベット花火
                     int soundid = itemId - 34946;
-                    S_SkillSound s_skillsound = new S_SkillSound(pc.getId(),
-                            soundid);
+                    S_SkillSound s_skillsound = new S_SkillSound(pc.getId(), soundid);
                     pc.sendPackets(s_skillsound);
                     pc.broadcastPacket(s_skillsound);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40615) { // 影の神殿2階の鍵
-                    if ((pc.getX() >= 32701 && pc.getX() <= 32705)
-                            && (pc.getY() >= 32894 && pc.getY() <= 32898)
+                    if ((pc.getX() >= 32701 && pc.getX() <= 32705) && (pc.getY() >= 32894 && pc.getY() <= 32898)
                             && pc.getMapId() == 522) { // 影の神殿1F
-                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance
-                                .getItem()).get_locx(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_locy(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_mapid(), 5, true);
+                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance.getItem()).get_locx(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_locy(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
                         pc.sendPackets(new S_ServerMessage(79));
                     }
-                } else if (itemId == 40616 || itemId == 40782
-                        || itemId == 40783) { // 影の神殿3階の鍵
-                    if ((pc.getX() >= 32698 && pc.getX() <= 32702)
-                            && (pc.getY() >= 32894 && pc.getY() <= 32898)
+                } else if (itemId == 40616 || itemId == 40782 || itemId == 40783) { // 影の神殿3階の鍵
+                    if ((pc.getX() >= 32698 && pc.getX() <= 32702) && (pc.getY() >= 32894 && pc.getY() <= 32898)
                             && pc.getMapId() == 523) { // 影の神殿2階
-                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance
-                                .getItem()).get_locx(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_locy(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_mapid(), 5, true);
+                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance.getItem()).get_locx(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_locy(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
                         pc.sendPackets(new S_ServerMessage(79));
@@ -2358,15 +2084,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     if (pc.getInventory().checkItem(40621)) {
                         // \f1何も起きませんでした。
                         pc.sendPackets(new S_ServerMessage(79));
-                    } else if ((pc.getX() >= 32856 && pc.getX() <= 32858)
-                            && (pc.getY() >= 32857 && pc.getY() <= 32858)
+                    } else if ((pc.getX() >= 32856 && pc.getX() <= 32858) && (pc.getY() >= 32857 && pc.getY() <= 32858)
                             && pc.getMapId() == 443) { // 海賊島のダンジョン３階
-                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance
-                                .getItem()).get_locx(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_locy(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_mapid(), 5, true);
+                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance.getItem()).get_locx(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_locy(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
                         pc.sendPackets(new S_ServerMessage(79));
@@ -2376,68 +2098,38 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40641) { // トーキングスクロール
                     if (Config.ALT_TALKINGSCROLLQUEST == true) {
                         if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 0) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrolla"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 1) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollb"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 2) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollc"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 3) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrolld"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 4) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrolle"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 5) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollf"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 6) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollg"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 7) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollh"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 8) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrolli"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 9) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollj"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 10) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollk"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 11) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrolll"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 12) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollm"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 13) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrolln"));
-                        } else if (pc.getQuest().get_step(
-                                L1Quest.QUEST_TOSCROLL) == 255) {
-                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                    "tscrollo"));
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrolla"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 1) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollb"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 2) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollc"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 3) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrolld"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 4) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrolle"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 5) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollf"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 6) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollg"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 7) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollh"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 8) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrolli"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 9) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollj"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 10) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollk"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 11) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrolll"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 12) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollm"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 13) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrolln"));
+                        } else if (pc.getQuest().get_step(L1Quest.QUEST_TOSCROLL) == 255) {
+                            pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollo"));
                         }
                     } else {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "tscrollp"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "tscrollp"));
                     }
                 } else if (itemId == 40383) { // 地図：歌う島
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "ei035"));
@@ -2511,35 +2203,25 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "rparum3"));
                 } else if (itemId == 40701) { // 小さな宝の地図
                     if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 1) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "firsttmap"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "firsttmap"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 2) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "secondtmapa"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "secondtmapa"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 3) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "secondtmapb"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "secondtmapb"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 4) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "secondtmapc"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "secondtmapc"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 5) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "thirdtmapd"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "thirdtmapd"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 6) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "thirdtmape"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "thirdtmape"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 7) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "thirdtmapf"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "thirdtmapf"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 8) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "thirdtmapg"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "thirdtmapg"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 9) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "thirdtmaph"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "thirdtmaph"));
                     } else if (pc.getQuest().get_step(L1Quest.QUEST_LUKEIN1) == 10) {
-                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                                "thirdtmapi"));
+                        pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "thirdtmapi"));
                     }
                 } else if (itemId == 40663) { // 息子の手紙
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "sonsletter"));
@@ -2554,52 +2236,37 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 41329) { // 剥製の製作依頼書
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "anirequest"));
                 } else if (itemId == 41346) { // ロビンフッドのメモ1
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "robinscroll"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "robinscroll"));
                 } else if (itemId == 41347) { // ロビンフッドのメモ2
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "robinscroll2"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "robinscroll2"));
                 } else if (itemId == 41348) { // ロビンフッドの紹介状
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "robinhood"));
                 } else if (itemId == 41007) { // イリスの命令書：霊魂の安息
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "erisscroll"));
                 } else if (itemId == 41009) { // イリスの命令書：同盟の意志
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "erisscroll2"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "erisscroll2"));
                 } else if (itemId == 41019) { // ラスタバド歴史書１章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory1"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory1"));
                 } else if (itemId == 41020) { // ラスタバド歴史書２章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory2"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory2"));
                 } else if (itemId == 41021) { // ラスタバド歴史書３章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory3"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory3"));
                 } else if (itemId == 41022) { // ラスタバド歴史書４章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory4"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory4"));
                 } else if (itemId == 41023) { // ラスタバド歴史書５章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory5"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory5"));
                 } else if (itemId == 41024) { // ラスタバド歴史書６章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory6"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory6"));
                 } else if (itemId == 41025) { // ラスタバド歴史書７章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory7"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory7"));
                 } else if (itemId == 41026) { // ラスタバド歴史書８章
-                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(),
-                            "lashistory8"));
+                    pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "lashistory8"));
                 } else if (itemId == 41208) { // 散りゆく魂
-                    if ((pc.getX() >= 32844 && pc.getX() <= 32845)
-                            && (pc.getY() >= 32693 && pc.getY() <= 32694)
+                    if ((pc.getX() >= 32844 && pc.getX() <= 32845) && (pc.getY() >= 32693 && pc.getY() <= 32694)
                             && pc.getMapId() == 550) { // 船の墓場:地上層
-                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance
-                                .getItem()).get_locx(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_locy(),
-                                ((L1EtcItem) l1iteminstance.getItem())
-                                        .get_mapid(), 5, true);
+                        L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance.getItem()).get_locx(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_locy(),
+                                ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
                         pc.sendPackets(new S_ServerMessage(79));
@@ -2607,8 +2274,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40700) { // シルバーフルート
                     pc.sendPackets(new S_Sound(10));
                     pc.broadcastPacket(new S_Sound(10));
-                    if ((pc.getX() >= 32619 && pc.getX() <= 32623)
-                            && (pc.getY() >= 33120 && pc.getY() <= 33124)
+                    if ((pc.getX() >= 32619 && pc.getX() <= 32623) && (pc.getY() >= 33120 && pc.getY() <= 33124)
                             && pc.getMapId() == 440) { // 海賊島前半魔方陣座標
                         boolean found = false;
                         for (L1Object obj : L1World.getInstance().getObject()) {
@@ -2648,30 +2314,25 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                     pc.setCurrentMp(pc.getCurrentMp() - 10);
                     // pc.sendPackets(new S_CantMove()); // テレポート後に移動不可能になる場合がある
-                    L1Teleport.teleport(pc, spellsc_x, spellsc_y,
-                            pc.getMapId(), pc.getHeading(), true,
+                    L1Teleport.teleport(pc, spellsc_x, spellsc_y, pc.getMapId(), pc.getHeading(), true,
                             L1Teleport.CHANGE_POSITION);
                 } else if (itemId == 41293 || itemId == 41294) { // 釣り竿
                     startFishing(pc, itemId, fishX, fishY);
                 } else if (itemId == 41245) { // 溶解剤
                     useResolvent(pc, l1iteminstance1, l1iteminstance);
-                } else if (itemId == 41248 || itemId == 41249
-                        || itemId == 41250 || itemId == 49037
-                        || itemId == 49038 || itemId == 49039) { // マジックドール
+                } else if (itemId == 41248 || itemId == 41249 || itemId == 41250 || itemId == 49037 || itemId == 49038
+                        || itemId == 49039) { // マジックドール
                     useMagicDoll(pc, itemId, itemObjid);
                 } else if (itemId >= 41255 && itemId <= 41259) { // 料理の本
                     if (cookStatus == 0) {
-                        pc.sendPackets(new S_PacketBox(S_PacketBox.COOK_WINDOW,
-                                (itemId - 41255)));
+                        pc.sendPackets(new S_PacketBox(S_PacketBox.COOK_WINDOW, (itemId - 41255)));
                     } else {
                         makeCooking(pc, cookNo);
                     }
                 } else if (itemId == 41260) { // 薪
-                    for (L1Object object : L1World.getInstance()
-                            .getVisibleObjects(pc, 3)) {
+                    for (L1Object object : L1World.getInstance().getVisibleObjects(pc, 3)) {
                         if (object instanceof L1EffectInstance) {
-                            if (((L1NpcInstance) object).getNpcTemplate()
-                                    .get_npcId() == 81170) {
+                            if (((L1NpcInstance) object).getNpcTemplate().get_npcId() == 81170) {
                                 // すでに周囲に焚き火があります。
                                 pc.sendPackets(new S_ServerMessage(1162));
                                 return;
@@ -2680,12 +2341,10 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                     int[] loc = new int[2];
                     loc = pc.getFrontLoc();
-                    L1EffectSpawn.getInstance().spawnEffect(81170, 600000,
-                            loc[0], loc[1], pc.getMapId());
+                    L1EffectSpawn.getInstance().spawnEffect(81170, 600000, loc[0], loc[1], pc.getMapId());
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                } else if (itemId >= 41277 && itemId <= 41292
-                        || itemId >= 49049 && itemId <= 49064
-                        || itemId >= 49244 && itemId <= 49259) { // 料理
+                } else if (itemId >= 41277 && itemId <= 41292 || itemId >= 49049 && itemId <= 49064 || itemId >= 49244
+                        && itemId <= 49259) { // 料理
                     L1Cooking.useCookingItem(pc, l1iteminstance);
                 } else if (itemId >= 41383 && itemId <= 41400) { // 家具
                     useFurnitureItem(pc, itemId, itemObjid);
@@ -2724,8 +2383,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_ServerMessage(1142));
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41354) { // 神聖なエヴァの水
-                    if (pc.hasSkillEffect(STATUS_HOLY_WATER)
-                            || pc.hasSkillEffect(STATUS_HOLY_MITHRIL_POWDER)) {
+                    if (pc.hasSkillEffect(STATUS_HOLY_WATER) || pc.hasSkillEffect(STATUS_HOLY_MITHRIL_POWDER)) {
                         pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                         return;
                     }
@@ -2779,34 +2437,29 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 41426) { // 封印スクロール
                     L1ItemInstance lockItem = pc.getInventory().getItem(l);
                     // int lockItemId = lockItem.getItem().getItemId();
-                    if (lockItem != null && lockItem.getItem().getType2() == 1
-                            || lockItem.getItem().getType2() == 2
-                            || lockItem.getItem().getType2() == 0
-                            && lockItem.getItem().isCanSeal()) {
-                        if (lockItem.getBless() == 0
-                                || lockItem.getBless() == 1
-                                || lockItem.getBless() == 2
+                    if (lockItem != null && lockItem.getItem().getType2() == L1Item.TYPE2_WEAPON
+                            || lockItem.getItem().getType2() == L1Item.TYPE2_ARMOR
+                            || lockItem.getItem().getType2() == L1Item.TYPE2_ETC && lockItem.getItem().isCanSeal()) {
+                        if (lockItem.getBless() == 0 || lockItem.getBless() == 1 || lockItem.getBless() == 2
                                 || lockItem.getBless() == 3) {
                             int bless = 1;
                             switch (lockItem.getBless()) {
-                                case 0:
-                                    bless = 128;
-                                    break;
-                                case 1:
-                                    bless = 129;
-                                    break;
-                                case 2:
-                                    bless = 130;
-                                    break;
-                                case 3:
-                                    bless = 131;
-                                    break;
+                            case 0:
+                                bless = 128;
+                                break;
+                            case 1:
+                                bless = 129;
+                                break;
+                            case 2:
+                                bless = 130;
+                                break;
+                            case 3:
+                                bless = 131;
+                                break;
                             }
                             lockItem.setBless(bless);
-                            pc.getInventory().updateItem(lockItem,
-                                    L1PcInventory.COL_BLESS);
-                            pc.getInventory().saveItem(lockItem,
-                                    L1PcInventory.COL_BLESS);
+                            pc.getInventory().updateItem(lockItem, L1PcInventory.COL_BLESS);
+                            pc.getInventory().saveItem(lockItem, L1PcInventory.COL_BLESS);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
                             pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -2817,34 +2470,29 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 41427) { // 封印解除スクロール
                     L1ItemInstance lockItem = pc.getInventory().getItem(l);
                     // int lockItemId = lockItem.getItem().getItemId();
-                    if (lockItem != null && lockItem.getItem().getType2() == 1
-                            || lockItem.getItem().getType2() == 2
-                            || lockItem.getItem().getType2() == 0
-                            && lockItem.getItem().isCanSeal()) {
-                        if (lockItem.getBless() == 128
-                                || lockItem.getBless() == 129
-                                || lockItem.getBless() == 130
+                    if (lockItem != null && lockItem.getItem().getType2() == L1Item.TYPE2_WEAPON
+                            || lockItem.getItem().getType2() == L1Item.TYPE2_ARMOR
+                            || lockItem.getItem().getType2() == L1Item.TYPE2_ETC && lockItem.getItem().isCanSeal()) {
+                        if (lockItem.getBless() == 128 || lockItem.getBless() == 129 || lockItem.getBless() == 130
                                 || lockItem.getBless() == 131) {
                             int bless = 1;
                             switch (lockItem.getBless()) {
-                                case 128:
-                                    bless = 0;
-                                    break;
-                                case 129:
-                                    bless = 1;
-                                    break;
-                                case 130:
-                                    bless = 2;
-                                    break;
-                                case 131:
-                                    bless = 3;
-                                    break;
+                            case 128:
+                                bless = 0;
+                                break;
+                            case 129:
+                                bless = 1;
+                                break;
+                            case 130:
+                                bless = 2;
+                                break;
+                            case 131:
+                                bless = 3;
+                                break;
                             }
                             lockItem.setBless(bless);
-                            pc.getInventory().updateItem(lockItem,
-                                    L1PcInventory.COL_BLESS);
-                            pc.getInventory().saveItem(lockItem,
-                                    L1PcInventory.COL_BLESS);
+                            pc.getInventory().updateItem(lockItem, L1PcInventory.COL_BLESS);
+                            pc.getInventory().saveItem(lockItem, L1PcInventory.COL_BLESS);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
                             pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -2860,8 +2508,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             return;
                         }
                         int characterSlot = account.getCharacterSlot();
-                        int maxAmount = Config.DEFAULT_CHARACTER_SLOT
-                                + characterSlot;
+                        int maxAmount = Config.DEFAULT_CHARACTER_SLOT + characterSlot;
                         if (maxAmount >= 8) {
                             pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
                             return;
@@ -2878,33 +2525,33 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(79));
                     }
                 } else if (itemId == 40075) { // 防具破壊スクロール
-                    if (l1iteminstance1.getItem().getType2() == 2) {
+                    if (l1iteminstance1.getItem().getType2() == L1Item.TYPE2_ARMOR) {
                         int msg = 0;
                         switch (l1iteminstance1.getItem().getType()) {
-                            case 1: // helm
-                                msg = 171; // \f1ヘルムが塵になり、風に飛んでいきます。
-                                break;
-                            case 2: // armor
-                                msg = 169; // \f1アーマーが壊れ、下に落ちました。
-                                break;
-                            case 3: // T
-                                msg = 170; // \f1シャツが細かい糸になり、破けて落ちました。
-                                break;
-                            case 4: // cloak
-                                msg = 168; // \f1マントが破れ、塵になりました。
-                                break;
-                            case 5: // glove
-                                msg = 172; // \f1グローブが消えました。
-                                break;
-                            case 6: // boots
-                                msg = 173; // \f1靴がバラバラになりました。
-                                break;
-                            case 7: // shield
-                                msg = 174; // \f1シールドが壊れました。
-                                break;
-                            default:
-                                msg = 167; // \f1肌がムズムズします。
-                                break;
+                        case 1: // helm
+                            msg = 171; // \f1ヘルムが塵になり、風に飛んでいきます。
+                            break;
+                        case 2: // armor
+                            msg = 169; // \f1アーマーが壊れ、下に落ちました。
+                            break;
+                        case 3: // T
+                            msg = 170; // \f1シャツが細かい糸になり、破けて落ちました。
+                            break;
+                        case 4: // cloak
+                            msg = 168; // \f1マントが破れ、塵になりました。
+                            break;
+                        case 5: // glove
+                            msg = 172; // \f1グローブが消えました。
+                            break;
+                        case 6: // boots
+                            msg = 173; // \f1靴がバラバラになりました。
+                            break;
+                        case 7: // shield
+                            msg = 174; // \f1シールドが壊れました。
+                            break;
+                        default:
+                            msg = 167; // \f1肌がムズムズします。
+                            break;
                         }
                         pc.sendPackets(new S_ServerMessage(msg));
                         pc.getInventory().removeItem(l1iteminstance1, 1);
@@ -2945,16 +2592,12 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
 
                 } else {
-                    int locX = ((L1EtcItem) l1iteminstance.getItem())
-                            .get_locx();
-                    int locY = ((L1EtcItem) l1iteminstance.getItem())
-                            .get_locy();
-                    int mapId = ((L1EtcItem) l1iteminstance.getItem())
-                            .get_mapid();
+                    int locX = ((L1EtcItem) l1iteminstance.getItem()).get_locx();
+                    int locY = ((L1EtcItem) l1iteminstance.getItem()).get_locy();
+                    int mapId = ((L1EtcItem) l1iteminstance.getItem()).get_mapid();
                     if (locX != 0 && locY != 0) { // 各種テレポートスクロール
                         if (pc.getMap().isEscapable() || pc.isGm()) {
-                            L1Teleport.teleport(pc, locX, locY, mapId,
-                                    pc.getHeading(), true);
+                            L1Teleport.teleport(pc, locX, locY, mapId, pc.getHeading(), true);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
                             pc.sendPackets(new S_ServerMessage(647));
@@ -2962,16 +2605,14 @@ public class C_ItemUSe extends ClientBasePacket {
                         cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                     } else {
                         if (l1iteminstance.getCount() < 1) { // あり得ない？
-                            pc.sendPackets(new S_ServerMessage(329,
-                                    l1iteminstance.getLogName())); // \f1%0を持っていません。
+                            pc.sendPackets(new S_ServerMessage(329, l1iteminstance.getLogName())); // \f1%0を持っていません。
                         } else {
-                            pc.sendPackets(new S_ServerMessage(74,
-                                    l1iteminstance.getLogName())); // \f1%0は使用できません。
+                            pc.sendPackets(new S_ServerMessage(74, l1iteminstance.getLogName())); // \f1%0は使用できません。
                         }
                     }
                 }
 
-            } else if (l1iteminstance.getItem().getType2() == 1) {
+            } else if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_WEAPON) {
                 // 種別：武器
                 int min = l1iteminstance.getItem().getMinLevel();
                 int max = l1iteminstance.getItem().getMaxLevel();
@@ -2982,25 +2623,17 @@ public class C_ItemUSe extends ClientBasePacket {
                     // このアイテムは%dレベル以下のみ使用できます。
                     // S_ServerMessageでは引数が表示されない
                     if (max < 50) {
-                        pc.sendPackets(new S_PacketBox(
-                                S_PacketBox.MSG_LEVEL_OVER, max));
+                        pc.sendPackets(new S_PacketBox(S_PacketBox.MSG_LEVEL_OVER, max));
                     } else {
-                        pc.sendPackets(new S_SystemMessage("このアイテムは" + max
-                                + "レベル以下のみ使用できます。"));
+                        pc.sendPackets(new S_SystemMessage("このアイテムは" + max + "レベル以下のみ使用できます。"));
                     }
                 } else {
-                    if (pc.isCrown() && l1iteminstance.getItem().isUseRoyal()
-                            || pc.isKnight()
-                            && l1iteminstance.getItem().isUseKnight()
-                            || pc.isElf()
-                            && l1iteminstance.getItem().isUseElf()
-                            || pc.isWizard()
-                            && l1iteminstance.getItem().isUseMage()
-                            || pc.isDarkelf()
-                            && l1iteminstance.getItem().isUseDarkelf()
-                            || pc.isDragonKnight()
-                            && l1iteminstance.getItem().isUseDragonknight()
-                            || pc.isIllusionist()
+                    if (pc.isCrown() && l1iteminstance.getItem().isUseRoyal() || pc.isKnight()
+                            && l1iteminstance.getItem().isUseKnight() || pc.isElf()
+                            && l1iteminstance.getItem().isUseElf() || pc.isWizard()
+                            && l1iteminstance.getItem().isUseMage() || pc.isDarkelf()
+                            && l1iteminstance.getItem().isUseDarkelf() || pc.isDragonKnight()
+                            && l1iteminstance.getItem().isUseDragonknight() || pc.isIllusionist()
                             && l1iteminstance.getItem().isUseIllusionist()) {
                         UseWeapon(pc, l1iteminstance);
                     } else {
@@ -3008,36 +2641,26 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.sendPackets(new S_ServerMessage(264));
                     }
                 }
-            } else if (l1iteminstance.getItem().getType2() == 2) { // 種別：防具
-                if (pc.isCrown() && l1iteminstance.getItem().isUseRoyal()
-                        || pc.isKnight()
-                        && l1iteminstance.getItem().isUseKnight() || pc.isElf()
-                        && l1iteminstance.getItem().isUseElf() || pc.isWizard()
-                        && l1iteminstance.getItem().isUseMage()
-                        || pc.isDarkelf()
-                        && l1iteminstance.getItem().isUseDarkelf()
-                        || pc.isDragonKnight()
-                        && l1iteminstance.getItem().isUseDragonknight()
-                        || pc.isIllusionist()
+            } else if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_ARMOR) { // 種別：防具
+                if (pc.isCrown() && l1iteminstance.getItem().isUseRoyal() || pc.isKnight()
+                        && l1iteminstance.getItem().isUseKnight() || pc.isElf() && l1iteminstance.getItem().isUseElf()
+                        || pc.isWizard() && l1iteminstance.getItem().isUseMage() || pc.isDarkelf()
+                        && l1iteminstance.getItem().isUseDarkelf() || pc.isDragonKnight()
+                        && l1iteminstance.getItem().isUseDragonknight() || pc.isIllusionist()
                         && l1iteminstance.getItem().isUseIllusionist()) {
 
-                    int min = ((L1Armor) l1iteminstance.getItem())
-                            .getMinLevel();
-                    int max = ((L1Armor) l1iteminstance.getItem())
-                            .getMaxLevel();
+                    int min = ((L1Armor) l1iteminstance.getItem()).getMinLevel();
+                    int max = ((L1Armor) l1iteminstance.getItem()).getMaxLevel();
                     if (min != 0 && min > pc.getLevel()) {
                         // このアイテムは%0レベル以上にならなければ使用できません。
-                        pc.sendPackets(new S_ServerMessage(318, String
-                                .valueOf(min)));
+                        pc.sendPackets(new S_ServerMessage(318, String.valueOf(min)));
                     } else if (max != 0 && max < pc.getLevel()) {
                         // このアイテムは%dレベル以下のみ使用できます。
                         // S_ServerMessageでは引数が表示されない
                         if (max < 50) {
-                            pc.sendPackets(new S_PacketBox(
-                                    S_PacketBox.MSG_LEVEL_OVER, max));
+                            pc.sendPackets(new S_PacketBox(S_PacketBox.MSG_LEVEL_OVER, max));
                         } else {
-                            pc.sendPackets(new S_SystemMessage("このアイテムは" + max
-                                    + "レベル以下のみ使用できます。"));
+                            pc.sendPackets(new S_SystemMessage("このアイテムは" + max + "レベル以下のみ使用できます。"));
                         }
                     } else {
                         UseArmor(pc, l1iteminstance);
@@ -3052,10 +2675,8 @@ public class C_ItemUSe extends ClientBasePacket {
             if (isDelayEffect) {
                 Timestamp ts = new Timestamp(System.currentTimeMillis());
                 l1iteminstance.setLastUsed(ts);
-                pc.getInventory().updateItem(l1iteminstance,
-                        L1PcInventory.COL_DELAY_EFFECT);
-                pc.getInventory().saveItem(l1iteminstance,
-                        L1PcInventory.COL_DELAY_EFFECT);
+                pc.getInventory().updateItem(l1iteminstance, L1PcInventory.COL_DELAY_EFFECT);
+                pc.getInventory().saveItem(l1iteminstance, L1PcInventory.COL_DELAY_EFFECT);
             }
 
             L1ItemDelay.onItemUse(client, l1iteminstance); // アイテムディレイ開始
@@ -3077,9 +2698,7 @@ public class C_ItemUSe extends ClientBasePacket {
         if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) {
             pc.getInventory().storeItem(item);
         } else { // 持てない場合は地面に落とす 処理のキャンセルはしない（不正防止）
-            L1World.getInstance()
-                    .getInventory(pc.getX(), pc.getY(), pc.getMapId())
-                    .storeItem(item);
+            L1World.getInstance().getInventory(pc.getX(), pc.getY(), pc.getMapId()).storeItem(item);
         }
         pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // 获得%0%o 。
         return true;
@@ -3099,13 +2718,11 @@ public class C_ItemUSe extends ClientBasePacket {
 
         if (target instanceof L1PcInstance) {
             L1PcInstance pc = (L1PcInstance) target;
-            if (pc.getMap().isSafetyZone(pc.getLocation())
-                    || user.checkNonPvP(user, pc)) {
+            if (pc.getMap().isSafetyZone(pc.getLocation()) || user.checkNonPvP(user, pc)) {
                 // 攻撃できないゾーン
                 return;
             }
-            if (pc.hasSkillEffect(50) == true || pc.hasSkillEffect(78) == true
-                    || pc.hasSkillEffect(157) == true) {
+            if (pc.hasSkillEffect(50) == true || pc.hasSkillEffect(78) == true || pc.hasSkillEffect(157) == true) {
                 // ターゲットがアイス ランス、アブソルート、バリア アース バインド状態
                 return;
             }
@@ -3130,100 +2747,99 @@ public class C_ItemUSe extends ClientBasePacket {
     private int EnchantChance(L1ItemInstance l1iteminstance) {
         byte byte0 = 0;
         int i = l1iteminstance.getEnchantLevel();
-        if (l1iteminstance.getItem().getType2() == 1) {
+        if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_WEAPON) {
             switch (i) {
-                case 0: // '\0'
-                    byte0 = 50;
-                    break;
+            case 0: // '\0'
+                byte0 = 50;
+                break;
 
-                case 1: // '\001'
-                    byte0 = 33;
-                    break;
+            case 1: // '\001'
+                byte0 = 33;
+                break;
 
-                case 2: // '\002'
-                    byte0 = 25;
-                    break;
+            case 2: // '\002'
+                byte0 = 25;
+                break;
 
-                case 3: // '\003'
-                    byte0 = 25;
-                    break;
+            case 3: // '\003'
+                byte0 = 25;
+                break;
 
-                case 4: // '\004'
-                    byte0 = 25;
-                    break;
+            case 4: // '\004'
+                byte0 = 25;
+                break;
 
-                case 5: // '\005'
-                    byte0 = 20;
-                    break;
+            case 5: // '\005'
+                byte0 = 20;
+                break;
 
-                case 6: // '\006'
-                    byte0 = 33;
-                    break;
+            case 6: // '\006'
+                byte0 = 33;
+                break;
 
-                case 7: // '\007'
-                    byte0 = 33;
-                    break;
+            case 7: // '\007'
+                byte0 = 33;
+                break;
 
-                case 8: // '\b'
-                    byte0 = 33;
-                    break;
+            case 8: // '\b'
+                byte0 = 33;
+                break;
 
-                case 9: // '\t'
-                    byte0 = 25;
-                    break;
+            case 9: // '\t'
+                byte0 = 25;
+                break;
 
-                case 10: // '\n'
-                    byte0 = 20;
-                    break;
+            case 10: // '\n'
+                byte0 = 20;
+                break;
             }
-        } else if (l1iteminstance.getItem().getType2() == 2) {
+        } else if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_ARMOR) {
             switch (i) {
-                case 0: // '\0'
-                    byte0 = 50;
-                    break;
+            case 0: // '\0'
+                byte0 = 50;
+                break;
 
-                case 1: // '\001'
-                    byte0 = 33;
-                    break;
+            case 1: // '\001'
+                byte0 = 33;
+                break;
 
-                case 2: // '\002'
-                    byte0 = 25;
-                    break;
+            case 2: // '\002'
+                byte0 = 25;
+                break;
 
-                case 3: // '\003'
-                    byte0 = 25;
-                    break;
+            case 3: // '\003'
+                byte0 = 25;
+                break;
 
-                case 4: // '\004'
-                    byte0 = 25;
-                    break;
+            case 4: // '\004'
+                byte0 = 25;
+                break;
 
-                case 5: // '\005'
-                    byte0 = 20;
-                    break;
+            case 5: // '\005'
+                byte0 = 20;
+                break;
 
-                case 6: // '\006'
-                    byte0 = 17;
-                    break;
+            case 6: // '\006'
+                byte0 = 17;
+                break;
 
-                case 7: // '\007'
-                    byte0 = 14;
-                    break;
+            case 7: // '\007'
+                byte0 = 14;
+                break;
 
-                case 8: // '\b'
-                    byte0 = 12;
-                    break;
+            case 8: // '\b'
+                byte0 = 12;
+                break;
 
-                case 9: // '\t'
-                    byte0 = 11;
-                    break;
+            case 9: // '\t'
+                byte0 = 11;
+                break;
             }
         }
         return byte0;
     }
 
-    private void FailureEnchant(L1PcInstance pc, L1ItemInstance item,
-            ClientThread client) {
+    private void FailureEnchant(L1PcInstance pc, L1ItemInstance item, ClientThread client) {
         String s = "";
         String sa = "";
         int itemType = item.getItem().getType2();
@@ -3237,8 +2853,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (item.getEnchantLevel() > 0) {
                     pm = "+";
                 }
-                s = (new StringBuilder()).append(pm + item.getEnchantLevel())
-                        .append(" ").append(nameId).toString(); // \f1%0が強烈に%1光ったあと、蒸発してなくなります。
+                s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(nameId).toString(); // \f1%0が強烈に%1光ったあと、蒸発してなくなります。
                 sa = "$245";
             }
         } else if (itemType == 2) { // 防具
@@ -3249,8 +2864,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (item.getEnchantLevel() > 0) {
                     pm = "+";
                 }
-                s = (new StringBuilder()).append(pm + item.getEnchantLevel())
-                        .append(" ").append(nameId).toString(); // \f1%0が強烈に%1光ったあと、蒸発してなくなります。
+                s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(nameId).toString(); // \f1%0が強烈に%1光ったあと、蒸発してなくなります。
                 sa = " $252";
             }
         }
@@ -3267,11 +2881,8 @@ public class C_ItemUSe extends ClientBasePacket {
         int pcX = pc.getX();
         int pcY = pc.getY();
         int pcMapId = pc.getMapId();
-        if (pcX >= 32786 && pcX <= 32797 && pcY >= 32842
-                && pcY <= 32859
-                && pcMapId == 75 // 象牙の塔
-                || pc.getLocation().isInScreen(new Point(33055, 32336))
-                && pcMapId == 4) { // マザーツリー
+        if (pcX >= 32786 && pcX <= 32797 && pcY >= 32842 && pcY <= 32859 && pcMapId == 75 // 象牙の塔
+                || pc.getLocation().isInScreen(new Point(33055, 32336)) && pcMapId == 4) { // マザーツリー
             return true;
         }
         return false;
@@ -3337,8 +2948,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 2) { // ナッツ餅
-            if (pc.getInventory().checkItem(41263, 1)
-                    && pc.getInventory().checkItem(41265, 1)) {
+            if (pc.getInventory().checkItem(41263, 1) && pc.getInventory().checkItem(41265, 1)) {
                 pc.getInventory().consumeItem(41263, 1);
                 pc.getInventory().consumeItem(41265, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3356,8 +2966,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 3) { // 蟻脚のチーズ焼き
-            if (pc.getInventory().checkItem(41274, 1)
-                    && pc.getInventory().checkItem(41267, 1)) {
+            if (pc.getInventory().checkItem(41274, 1) && pc.getInventory().checkItem(41267, 1)) {
                 pc.getInventory().consumeItem(41274, 1);
                 pc.getInventory().consumeItem(41267, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3375,8 +2984,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 4) { // フルーツサラダ
-            if (pc.getInventory().checkItem(40062, 1)
-                    && pc.getInventory().checkItem(40069, 1)
+            if (pc.getInventory().checkItem(40062, 1) && pc.getInventory().checkItem(40069, 1)
                     && pc.getInventory().checkItem(40064, 1)) {
                 pc.getInventory().consumeItem(40062, 1);
                 pc.getInventory().consumeItem(40069, 1);
@@ -3396,8 +3004,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 5) { // フルーツ甘酢あんかけ
-            if (pc.getInventory().checkItem(40056, 1)
-                    && pc.getInventory().checkItem(40060, 1)
+            if (pc.getInventory().checkItem(40056, 1) && pc.getInventory().checkItem(40060, 1)
                     && pc.getInventory().checkItem(40061, 1)) {
                 pc.getInventory().consumeItem(40056, 1);
                 pc.getInventory().consumeItem(40060, 1);
@@ -3434,8 +3041,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 7) { // キノコスープ
-            if (pc.getInventory().checkItem(40499, 1)
-                    && pc.getInventory().checkItem(40060, 1)) {
+            if (pc.getInventory().checkItem(40499, 1) && pc.getInventory().checkItem(40060, 1)) {
                 pc.getInventory().consumeItem(40499, 1);
                 pc.getInventory().consumeItem(40060, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3453,8 +3059,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 8) { // キャビアカナッペ
-            if (pc.getInventory().checkItem(49040, 1)
-                    && pc.getInventory().checkItem(49048, 1)) {
+            if (pc.getInventory().checkItem(49040, 1) && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49040, 1);
                 pc.getInventory().consumeItem(49048, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3472,8 +3077,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 9) { // アリゲーターステーキ
-            if (pc.getInventory().checkItem(49041, 1)
-                    && pc.getInventory().checkItem(49048, 1)) {
+            if (pc.getInventory().checkItem(49041, 1) && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49041, 1);
                 pc.getInventory().consumeItem(49048, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3491,8 +3095,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 10) { // タートルドラゴンの菓子
-            if (pc.getInventory().checkItem(49042, 1)
-                    && pc.getInventory().checkItem(41265, 1)
+            if (pc.getInventory().checkItem(49042, 1) && pc.getInventory().checkItem(41265, 1)
                     && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49042, 1);
                 pc.getInventory().consumeItem(41265, 1);
@@ -3512,8 +3115,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 11) { // キウィパロット焼き
-            if (pc.getInventory().checkItem(49043, 1)
-                    && pc.getInventory().checkItem(49048, 1)) {
+            if (pc.getInventory().checkItem(49043, 1) && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49043, 1);
                 pc.getInventory().consumeItem(49048, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3531,8 +3133,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 12) { // スコーピオン焼き
-            if (pc.getInventory().checkItem(49044, 1)
-                    && pc.getInventory().checkItem(49048, 1)) {
+            if (pc.getInventory().checkItem(49044, 1) && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49044, 1);
                 pc.getInventory().consumeItem(49048, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3550,8 +3151,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 13) { // イレッカドムシチュー
-            if (pc.getInventory().checkItem(49045, 1)
-                    && pc.getInventory().checkItem(49048, 1)) {
+            if (pc.getInventory().checkItem(49045, 1) && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49045, 1);
                 pc.getInventory().consumeItem(49048, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3569,8 +3169,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 14) { // クモ脚の串焼き
-            if (pc.getInventory().checkItem(49046, 1)
-                    && pc.getInventory().checkItem(49048, 1)) {
+            if (pc.getInventory().checkItem(49046, 1) && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49046, 1);
                 pc.getInventory().consumeItem(49048, 1);
                 if (chance >= 1 && chance <= 90) {
@@ -3588,8 +3187,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 15) { // クラブスープ
-            if (pc.getInventory().checkItem(49047, 1)
-                    && pc.getInventory().checkItem(40499, 1)
+            if (pc.getInventory().checkItem(49047, 1) && pc.getInventory().checkItem(40499, 1)
                     && pc.getInventory().checkItem(49048, 1)) {
                 pc.getInventory().consumeItem(49047, 1);
                 pc.getInventory().consumeItem(40499, 1);
@@ -3609,8 +3207,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 16) { // クラスタシアンのハサミ焼き
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49260, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3630,8 +3227,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 17) { // グリフォン焼き
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49261, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3651,8 +3247,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 18) { // コカトリスステーキ
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49262, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3672,8 +3267,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 19) { // タートルドラゴン焼き
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49263, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3693,8 +3287,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 20) { // レッサードラゴンの手羽先
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49264, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3714,8 +3307,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 21) { // ドレイク焼き
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49265, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3735,8 +3327,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 22) { // 深海魚のシチュー
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49266, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3756,8 +3347,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 23) { // バシリスクの卵スープ
-            if (pc.getInventory().checkItem(49048, 1)
-                    && pc.getInventory().checkItem(49243, 1)
+            if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
                     && pc.getInventory().checkItem(49267, 1)) {
                 pc.getInventory().consumeItem(49048, 1);
                 pc.getInventory().consumeItem(49243, 1);
@@ -3788,18 +3378,15 @@ public class C_ItemUSe extends ClientBasePacket {
             }
         }
         if (attacker.getId() != cha.getId() && !isSameClan) { // 自分以外と違うクラン
-            int probability = 3 * (attacker.getLevel() - cha.getLevel()) + 100
-                    - cha.getMr();
+            int probability = 3 * (attacker.getLevel() - cha.getLevel()) + 100 - cha.getMr();
             int rnd = _random.nextInt(100) + 1;
             if (rnd > probability) {
                 return;
             }
         }
 
-        int[] polyArray = { 29, 945, 947, 979, 1037, 1039, 3860, 3861, 3862,
-                3863, 3864, 3865, 3904, 3906, 95, 146, 2374, 2376, 2377, 2378,
-                3866, 3867, 3868, 3869, 3870, 3871, 3872, 3873, 3874, 3875,
-                3876 };
+        int[] polyArray = { 29, 945, 947, 979, 1037, 1039, 3860, 3861, 3862, 3863, 3864, 3865, 3904, 3906, 95, 146,
+                2374, 2376, 2377, 2378, 3866, 3867, 3868, 3869, 3870, 3871, 3872, 3873, 3874, 3875, 3876 };
 
         int pid = _random.nextInt(polyArray.length);
         int polyId = polyArray[pid];
@@ -3807,9 +3394,7 @@ public class C_ItemUSe extends ClientBasePacket {
         if (cha instanceof L1PcInstance) {
             L1PcInstance pc = (L1PcInstance) cha;
             int awakeSkillId = pc.getAwakeSkillId();
-            if (awakeSkillId == AWAKEN_ANTHARAS
-                    || awakeSkillId == AWAKEN_FAFURION
-                    || awakeSkillId == AWAKEN_VALAKAS) {
+            if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
                 pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
                 return;
             }
@@ -3823,11 +3408,9 @@ public class C_ItemUSe extends ClientBasePacket {
                 // 魔法の力によって保護されます。
                 // 変身の際のメッセージは、他人が自分を変身させた時に出るメッセージと、レベルが足りない時に出るメッセージ以外はありません。
             } else {
-                L1Skills skillTemp = SkillsTable.getInstance().getTemplate(
-                        SHAPE_CHANGE);
+                L1Skills skillTemp = SkillsTable.getInstance().getTemplate(SHAPE_CHANGE);
 
-                L1PolyMorph.doPoly(pc, polyId, skillTemp.getBuffDuration(),
-                        L1PolyMorph.MORPH_BY_ITEMMAGIC);
+                L1PolyMorph.doPoly(pc, polyId, skillTemp.getBuffDuration(), L1PolyMorph.MORPH_BY_ITEMMAGIC);
                 if (attacker.getId() != pc.getId()) {
                     pc.sendPackets(new S_ServerMessage(241, attacker.getName())); // %0があなたを変身させました。
                 }
@@ -3840,19 +3423,15 @@ public class C_ItemUSe extends ClientBasePacket {
                         && npcId != 45464 && npcId != 45473 && npcId != 45488 // セマ、バルタザール、カスパー
                         && npcId != 45497 && npcId != 45516 && npcId != 45529 // メルキオール、イフリート、ドレイク(DV)
                         && npcId != 45458) { // ドレイク(船長)
-                    L1Skills skillTemp = SkillsTable.getInstance().getTemplate(
-                            SHAPE_CHANGE);
-                    L1PolyMorph.doPoly(mob, polyId,
-                            skillTemp.getBuffDuration(),
-                            L1PolyMorph.MORPH_BY_ITEMMAGIC);
+                    L1Skills skillTemp = SkillsTable.getInstance().getTemplate(SHAPE_CHANGE);
+                    L1PolyMorph.doPoly(mob, polyId, skillTemp.getBuffDuration(), L1PolyMorph.MORPH_BY_ITEMMAGIC);
                 }
             }
         }
     }
 
     private int RandomELevel(L1ItemInstance item, int itemId) {
-        if (itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR
-                || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON
+        if (itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON
                 || itemId == 140129 || itemId == 140130) {
             if (item.getEnchantLevel() <= 2) {
                 int j = _random.nextInt(100) + 1;
@@ -3863,8 +3442,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (j >= 77 && j <= 100) {
                     return 3;
                 }
-            } else if (item.getEnchantLevel() >= 3
-                    && item.getEnchantLevel() <= 5) {
+            } else if (item.getEnchantLevel() >= 3 && item.getEnchantLevel() <= 5) {
                 int j = _random.nextInt(100) + 1;
                 if (j < 50) {
                     return 2;
@@ -3879,8 +3457,7 @@ public class C_ItemUSe extends ClientBasePacket {
         return 1;
     }
 
-    private void saveLetter(int itemObjectId, int code, String sender,
-            String receiver, byte[] text) {
+    private void saveLetter(int itemObjectId, int code, String sender, String receiver, byte[] text) {
         // 日付を取得する
         SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
         TimeZone tz = TimeZone.getTimeZone(Config.TIME_ZONE);
@@ -3910,12 +3487,10 @@ public class C_ItemUSe extends ClientBasePacket {
         byte[] content = new byte[contentLength];
         System.arraycopy(text, 0, subject, 0, subjectLength);
         System.arraycopy(text, subjectLength, content, 0, contentLength);
-        LetterTable.getInstance().writeLetter(itemObjectId, code, sender,
-                receiver, date, 0, subject, content);
+        LetterTable.getInstance().writeLetter(itemObjectId, code, sender, receiver, date, 0, subject, content);
     }
 
-    private boolean sendLetter(L1PcInstance pc, String name,
-            L1ItemInstance item, boolean isFailureMessage) {
+    private boolean sendLetter(L1PcInstance pc, String name, L1ItemInstance item, boolean isFailureMessage) {
         L1PcInstance target = L1World.getInstance().getPlayer(name);
         if (target != null) {
             if (target.getInventory().checkAddItem(item, 1) == L1Inventory.OK) {
@@ -3932,10 +3507,8 @@ public class C_ItemUSe extends ClientBasePacket {
         } else {
             if (CharacterTable.doesCharNameExist(name)) {
                 try {
-                    int targetId = CharacterTable.getInstance()
-                            .restoreCharacter(name).getId();
-                    CharactersItemStorage storage = CharactersItemStorage
-                            .create();
+                    int targetId = CharacterTable.getInstance().restoreCharacter(name).getId();
+                    CharactersItemStorage storage = CharactersItemStorage.create();
                     if (storage.getItemCount(targetId) < 180) {
                         storage.storeItem(targetId, item);
                     } else {
@@ -3958,8 +3531,7 @@ public class C_ItemUSe extends ClientBasePacket {
         return true;
     }
 
-    private void SpellBook(L1PcInstance pc, L1ItemInstance item,
-            boolean isLawful) {
+    private void SpellBook(L1PcInstance pc, L1ItemInstance item, boolean isLawful) {
         String s = "";
         int i = 0;
         int level1 = 0;
@@ -3990,11 +3562,9 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Skills l1skills = SkillsTable.getInstance().getTemplate(skillId);
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("魔法書(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("魔法書(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("魔法书(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("魔法书(").append(l1skills.getName()).append(")").toString();
             }
             if (item.getItem().getName().equalsIgnoreCase(s1)) {
                 int skillLevel = l1skills.getSkillLevel();
@@ -4002,119 +3572,116 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (skillLevel) {
-                    case 1: // '\001'
-                        level1 = i7;
-                        break;
+                case 1: // '\001'
+                    level1 = i7;
+                    break;
 
-                    case 2: // '\002'
-                        level2 = i7;
-                        break;
+                case 2: // '\002'
+                    level2 = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
                 }
             }
         }
 
         int objid = pc.getId();
-        pc.sendPackets(new S_AddSkill(level1, level2, l, i1, j1, k1, l1, i2,
-                j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6,
-                0, 0, 0, 0));
-        S_SkillSound s_skillSound = new S_SkillSound(objid, isLawful ? 224
-                : 231);
+        pc.sendPackets(new S_AddSkill(level1, level2, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4,
+                l4, i5, j5, k5, l5, i6, 0, 0, 0, 0));
+        S_SkillSound s_skillSound = new S_SkillSound(objid, isLawful ? 224 : 231);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
         SkillsTable.getInstance().spellMastery(objid, i, s, 0, 0);
         pc.getInventory().removeItem(item, 1);
     }
 
-    private void SpellBook1(L1PcInstance pc, L1ItemInstance l1iteminstance,
-            ClientThread clientthread) {
+    private void SpellBook1(L1PcInstance pc, L1ItemInstance l1iteminstance, ClientThread clientthread) {
         String s = "";
         int i = 0;
         int j = 0;
@@ -4145,11 +3712,9 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Skills l1skills = SkillsTable.getInstance().getTemplate(j6);
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("黑暗精靈水晶(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("黑暗精靈水晶(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("黑暗精灵水晶(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("黑暗精灵水晶(").append(l1skills.getName()).append(")").toString();
             }
             if (l1iteminstance.getItem().getName().equalsIgnoreCase(s1)) {
                 int l6 = l1skills.getSkillLevel();
@@ -4157,108 +3722,108 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (l6) {
-                    case 1: // '\001'
-                        j = i7;
-                        break;
+                case 1: // '\001'
+                    j = i7;
+                    break;
 
-                    case 2: // '\002'
-                        k = i7;
-                        break;
+                case 2: // '\002'
+                    k = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
                 }
             }
         }
 
         int k6 = pc.getId();
-        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2,
-                i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6, 0, 0, 0, 0));
+        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5,
+                k5, l5, i6, 0, 0, 0, 0));
         S_SkillSound s_skillSound = new S_SkillSound(k6, 231);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
@@ -4297,17 +3862,13 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Skills l1skills = SkillsTable.getInstance().getTemplate(j6);
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("精靈水晶(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("精靈水晶(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("精灵水晶(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("精灵水晶(").append(l1skills.getName()).append(")").toString();
             }
             if (l1iteminstance.getItem().getName().equalsIgnoreCase(s1)) {
-                if (!pc.isGm() && l1skills.getAttr() != 0
-                        && pc.getElfAttr() != l1skills.getAttr()) {
-                    if (pc.getElfAttr() == 0 || pc.getElfAttr() == 1
-                            || pc.getElfAttr() == 2 || pc.getElfAttr() == 4
+                if (!pc.isGm() && l1skills.getAttr() != 0 && pc.getElfAttr() != l1skills.getAttr()) {
+                    if (pc.getElfAttr() == 0 || pc.getElfAttr() == 1 || pc.getElfAttr() == 2 || pc.getElfAttr() == 4
                             || pc.getElfAttr() == 8) { // 属性値が異常な場合は全属性を覚えられるようにしておく
                         pc.sendPackets(new S_ServerMessage(79));
                         return;
@@ -4318,108 +3879,108 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (l6) {
-                    case 1: // '\001'
-                        j = i7;
-                        break;
+                case 1: // '\001'
+                    j = i7;
+                    break;
 
-                    case 2: // '\002'
-                        k = i7;
-                        break;
+                case 2: // '\002'
+                    k = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
                 }
             }
         }
 
         int k6 = pc.getId();
-        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2,
-                i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6, 0, 0, 0, 0));
+        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5,
+                k5, l5, i6, 0, 0, 0, 0));
         S_SkillSound s_skillSound = new S_SkillSound(k6, 224);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
@@ -4427,8 +3988,7 @@ public class C_ItemUSe extends ClientBasePacket {
         pc.getInventory().removeItem(l1iteminstance, 1);
     }
 
-    private void SpellBook3(L1PcInstance pc, L1ItemInstance l1iteminstance,
-            ClientThread clientthread) {
+    private void SpellBook3(L1PcInstance pc, L1ItemInstance l1iteminstance, ClientThread clientthread) {
         String s = "";
         int i = 0;
         int j = 0;
@@ -4460,11 +4020,9 @@ public class C_ItemUSe extends ClientBasePacket {
 
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("技術書(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("技術書(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("技术书(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("技术书(").append(l1skills.getName()).append(")").toString();
             }
             if (l1iteminstance.getItem().getName().equalsIgnoreCase(s1)) {
                 int l6 = l1skills.getSkillLevel();
@@ -4472,108 +4030,108 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (l6) {
-                    case 1: // '\001'
-                        j = i7;
-                        break;
+                case 1: // '\001'
+                    j = i7;
+                    break;
 
-                    case 2: // '\002'
-                        k = i7;
-                        break;
+                case 2: // '\002'
+                    k = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
                 }
             }
         }
 
         int k6 = pc.getId();
-        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2,
-                i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6, 0, 0, 0, 0));
+        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5,
+                k5, l5, i6, 0, 0, 0, 0));
         S_SkillSound s_skillSound = new S_SkillSound(k6, 224);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
@@ -4581,8 +4139,7 @@ public class C_ItemUSe extends ClientBasePacket {
         pc.getInventory().removeItem(l1iteminstance, 1);
     }
 
-    private void SpellBook4(L1PcInstance pc, L1ItemInstance l1iteminstance,
-            ClientThread clientthread) {
+    private void SpellBook4(L1PcInstance pc, L1ItemInstance l1iteminstance, ClientThread clientthread) {
         String s = "";
         int i = 0;
         int j = 0;
@@ -4613,11 +4170,9 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Skills l1skills = SkillsTable.getInstance().getTemplate(j6);
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("魔法書(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("魔法書(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("魔法书(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("魔法书(").append(l1skills.getName()).append(")").toString();
             }
             if (l1iteminstance.getItem().getName().equalsIgnoreCase(s1)) {
                 int l6 = l1skills.getSkillLevel();
@@ -4625,108 +4180,108 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (l6) {
-                    case 1: // '\001'
-                        j = i7;
-                        break;
+                case 1: // '\001'
+                    j = i7;
+                    break;
 
-                    case 2: // '\002'
-                        k = i7;
-                        break;
+                case 2: // '\002'
+                    k = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
                 }
             }
         }
 
         int k6 = pc.getId();
-        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2,
-                i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6, 0, 0, 0, 0));
+        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5,
+                k5, l5, i6, 0, 0, 0, 0));
         S_SkillSound s_skillSound = new S_SkillSound(k6, 224);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
@@ -4734,8 +4289,7 @@ public class C_ItemUSe extends ClientBasePacket {
         pc.getInventory().removeItem(l1iteminstance, 1);
     }
 
-    private void SpellBook5(L1PcInstance pc, L1ItemInstance l1iteminstance,
-            ClientThread clientthread) {
+    private void SpellBook5(L1PcInstance pc, L1ItemInstance l1iteminstance, ClientThread clientthread) {
         String s = "";
         int i = 0;
         int j = 0;
@@ -4770,11 +4324,9 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Skills l1skills = SkillsTable.getInstance().getTemplate(j6);
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("龍騎士書板(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("龍騎士書板(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("龙骑士书板(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("龙骑士书板(").append(l1skills.getName()).append(")").toString();
             }
             if (l1iteminstance.getItem().getName().equalsIgnoreCase(s1)) {
                 int l6 = l1skills.getSkillLevel();
@@ -4782,124 +4334,123 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (l6) {
-                    case 1: // '\001'
-                        j = i7;
-                        break;
+                case 1: // '\001'
+                    j = i7;
+                    break;
 
-                    case 2: // '\002'
-                        k = i7;
-                        break;
+                case 2: // '\002'
+                    k = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
 
-                    case 25: // '\031'
-                        j8 = i7;
-                        break;
+                case 25: // '\031'
+                    j8 = i7;
+                    break;
 
-                    case 26: // '\032'
-                        k8 = i7;
-                        break;
+                case 26: // '\032'
+                    k8 = i7;
+                    break;
 
-                    case 27: // '\033'
-                        l8 = i7;
-                        break;
-                    case 28: // '\034'
-                        i8 = i7;
-                        break;
+                case 27: // '\033'
+                    l8 = i7;
+                    break;
+                case 28: // '\034'
+                    i8 = i7;
+                    break;
                 }
             }
         }
 
         int k6 = pc.getId();
-        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2,
-                i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6, j8, k8, l8,
-                i8));
+        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5,
+                k5, l5, i6, j8, k8, l8, i8));
         S_SkillSound s_skillSound = new S_SkillSound(k6, 224);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
@@ -4907,8 +4458,7 @@ public class C_ItemUSe extends ClientBasePacket {
         pc.getInventory().removeItem(l1iteminstance, 1);
     }
 
-    private void SpellBook6(L1PcInstance pc, L1ItemInstance l1iteminstance,
-            ClientThread clientthread) {
+    private void SpellBook6(L1PcInstance pc, L1ItemInstance l1iteminstance, ClientThread clientthread) {
         String s = "";
         int i = 0;
         int j = 0;
@@ -4943,11 +4493,9 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Skills l1skills = SkillsTable.getInstance().getTemplate(j6);
             String s1 = null;
             if (Config.CLIENT_LANGUAGE == 3) {
-                s1 = (new StringBuilder()).append("記憶水晶(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("記憶水晶(").append(l1skills.getName()).append(")").toString();
             } else {
-                s1 = (new StringBuilder()).append("记忆水晶(")
-                        .append(l1skills.getName()).append(")").toString();
+                s1 = (new StringBuilder()).append("记忆水晶(").append(l1skills.getName()).append(")").toString();
             }
             if (l1iteminstance.getItem().getName().equalsIgnoreCase(s1)) {
                 int l6 = l1skills.getSkillLevel();
@@ -4955,124 +4503,123 @@ public class C_ItemUSe extends ClientBasePacket {
                 s = l1skills.getName();
                 i = l1skills.getSkillId();
                 switch (l6) {
-                    case 1: // '\001'
-                        j = i7;
-                        break;
+                case 1: // '\001'
+                    j = i7;
+                    break;
 
-                    case 2: // '\002'
-                        k = i7;
-                        break;
+                case 2: // '\002'
+                    k = i7;
+                    break;
 
-                    case 3: // '\003'
-                        l = i7;
-                        break;
+                case 3: // '\003'
+                    l = i7;
+                    break;
 
-                    case 4: // '\004'
-                        i1 = i7;
-                        break;
+                case 4: // '\004'
+                    i1 = i7;
+                    break;
 
-                    case 5: // '\005'
-                        j1 = i7;
-                        break;
+                case 5: // '\005'
+                    j1 = i7;
+                    break;
 
-                    case 6: // '\006'
-                        k1 = i7;
-                        break;
+                case 6: // '\006'
+                    k1 = i7;
+                    break;
 
-                    case 7: // '\007'
-                        l1 = i7;
-                        break;
+                case 7: // '\007'
+                    l1 = i7;
+                    break;
 
-                    case 8: // '\b'
-                        i2 = i7;
-                        break;
+                case 8: // '\b'
+                    i2 = i7;
+                    break;
 
-                    case 9: // '\t'
-                        j2 = i7;
-                        break;
+                case 9: // '\t'
+                    j2 = i7;
+                    break;
 
-                    case 10: // '\n'
-                        k2 = i7;
-                        break;
+                case 10: // '\n'
+                    k2 = i7;
+                    break;
 
-                    case 11: // '\013'
-                        l2 = i7;
-                        break;
+                case 11: // '\013'
+                    l2 = i7;
+                    break;
 
-                    case 12: // '\f'
-                        i3 = i7;
-                        break;
+                case 12: // '\f'
+                    i3 = i7;
+                    break;
 
-                    case 13: // '\r'
-                        j3 = i7;
-                        break;
+                case 13: // '\r'
+                    j3 = i7;
+                    break;
 
-                    case 14: // '\016'
-                        k3 = i7;
-                        break;
+                case 14: // '\016'
+                    k3 = i7;
+                    break;
 
-                    case 15: // '\017'
-                        l3 = i7;
-                        break;
+                case 15: // '\017'
+                    l3 = i7;
+                    break;
 
-                    case 16: // '\020'
-                        i4 = i7;
-                        break;
+                case 16: // '\020'
+                    i4 = i7;
+                    break;
 
-                    case 17: // '\021'
-                        j4 = i7;
-                        break;
+                case 17: // '\021'
+                    j4 = i7;
+                    break;
 
-                    case 18: // '\022'
-                        k4 = i7;
-                        break;
+                case 18: // '\022'
+                    k4 = i7;
+                    break;
 
-                    case 19: // '\023'
-                        l4 = i7;
-                        break;
+                case 19: // '\023'
+                    l4 = i7;
+                    break;
 
-                    case 20: // '\024'
-                        i5 = i7;
-                        break;
+                case 20: // '\024'
+                    i5 = i7;
+                    break;
 
-                    case 21: // '\025'
-                        j5 = i7;
-                        break;
+                case 21: // '\025'
+                    j5 = i7;
+                    break;
 
-                    case 22: // '\026'
-                        k5 = i7;
-                        break;
+                case 22: // '\026'
+                    k5 = i7;
+                    break;
 
-                    case 23: // '\027'
-                        l5 = i7;
-                        break;
+                case 23: // '\027'
+                    l5 = i7;
+                    break;
 
-                    case 24: // '\030'
-                        i6 = i7;
-                        break;
+                case 24: // '\030'
+                    i6 = i7;
+                    break;
 
-                    case 25: // '\031'
-                        j8 = i7;
-                        break;
+                case 25: // '\031'
+                    j8 = i7;
+                    break;
 
-                    case 26: // '\032'
-                        k8 = i7;
-                        break;
+                case 26: // '\032'
+                    k8 = i7;
+                    break;
 
-                    case 27: // '\033'
-                        l8 = i7;
-                        break;
-                    case 28: // '\034'
-                        i8 = i7;
-                        break;
+                case 27: // '\033'
+                    l8 = i7;
+                    break;
+                case 28: // '\034'
+                    i8 = i7;
+                    break;
                 }
             }
         }
 
         int k6 = pc.getId();
-        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2,
-                i3, j3, k3, l3, i4, j4, k4, l4, i5, j5, k5, l5, i6, j8, k8, l8,
-                i8));
+        pc.sendPackets(new S_AddSkill(j, k, l, i1, j1, k1, l1, i2, j2, k2, l2, i3, j3, k3, l3, i4, j4, k4, l4, i5, j5,
+                k5, l5, i6, j8, k8, l8, i8));
         S_SkillSound s_skillSound = new S_SkillSound(k6, 224);
         pc.sendPackets(s_skillSound);
         pc.broadcastPacket(s_skillSound);
@@ -5081,8 +4628,7 @@ public class C_ItemUSe extends ClientBasePacket {
     }
 
     private void startFishing(L1PcInstance pc, int itemId, int fishX, int fishY) {
-        if (pc.getMapId() != 5124 || fishX <= 32789 || fishX >= 32813
-                || fishY <= 32786 || fishY >= 32812) {
+        if (pc.getMapId() != 5124 || fishX <= 32789 || fishX >= 32813 || fishY <= 32786 || fishY >= 32812) {
             // ここに釣り竿を投げることはできません。
             pc.sendPackets(new S_ServerMessage(1138));
             return;
@@ -5095,26 +4641,19 @@ public class C_ItemUSe extends ClientBasePacket {
             rodLength = 3;
         }
         if (pc.getMap().isFishingZone(fishX, fishY)) {
-            if (pc.getMap().isFishingZone(fishX + 1, fishY)
-                    && pc.getMap().isFishingZone(fishX - 1, fishY)
-                    && pc.getMap().isFishingZone(fishX, fishY + 1)
-                    && pc.getMap().isFishingZone(fishX, fishY - 1)) {
-                if (fishX > pc.getX() + rodLength
-                        || fishX < pc.getX() - rodLength) {
+            if (pc.getMap().isFishingZone(fishX + 1, fishY) && pc.getMap().isFishingZone(fishX - 1, fishY)
+                    && pc.getMap().isFishingZone(fishX, fishY + 1) && pc.getMap().isFishingZone(fishX, fishY - 1)) {
+                if (fishX > pc.getX() + rodLength || fishX < pc.getX() - rodLength) {
                     // ここに釣り竿を投げることはできません。
                     pc.sendPackets(new S_ServerMessage(1138));
-                } else if (fishY > pc.getY() + rodLength
-                        || fishY < pc.getY() - rodLength) {
+                } else if (fishY > pc.getY() + rodLength || fishY < pc.getY() - rodLength) {
                     // ここに釣り竿を投げることはできません。
                     pc.sendPackets(new S_ServerMessage(1138));
                 } else if (pc.getInventory().consumeItem(41295, 1)) { // エサ
-                    pc.sendPackets(new S_Fishing(pc.getId(),
-                            ActionCodes.ACTION_Fishing, fishX, fishY));
-                    pc.broadcastPacket(new S_Fishing(pc.getId(),
-                            ActionCodes.ACTION_Fishing, fishX, fishY));
+                    pc.sendPackets(new S_Fishing(pc.getId(), ActionCodes.ACTION_Fishing, fishX, fishY));
+                    pc.broadcastPacket(new S_Fishing(pc.getId(), ActionCodes.ACTION_Fishing, fishX, fishY));
                     pc.setFishing(true);
-                    long time = System.currentTimeMillis() + 10000
-                            + _random.nextInt(5) * 1000;
+                    long time = System.currentTimeMillis() + 10000 + _random.nextInt(5) * 1000;
                     pc.setFishingTime(time);
                     FishingTimeController.getInstance().addMember(pc);
                 } else {
@@ -5131,8 +4670,7 @@ public class C_ItemUSe extends ClientBasePacket {
         }
     }
 
-    private void SuccessEnchant(L1PcInstance pc, L1ItemInstance item,
-            ClientThread client, int i) {
+    private void SuccessEnchant(L1PcInstance pc, L1ItemInstance item, ClientThread client, int i) {
         String s = "";
         String sa = "";
         String sb = "";
@@ -5141,128 +4679,112 @@ public class C_ItemUSe extends ClientBasePacket {
         if (item.getEnchantLevel() > 0) {
             pm = "+";
         }
-        if (item.getItem().getType2() == 1) {
+        if (item.getItem().getType2() == L1Item.TYPE2_WEAPON) {
             if (!item.isIdentified() || item.getEnchantLevel() == 0) {
                 switch (i) {
-                    case -1:
-                        s = s1;
-                        sa = "$246";
-                        sb = "$247";
-                        break;
+                case -1:
+                    s = s1;
+                    sa = "$246";
+                    sb = "$247";
+                    break;
 
-                    case 1: // '\001'
-                        s = s1;
-                        sa = "$245";
-                        sb = "$247";
-                        break;
+                case 1: // '\001'
+                    s = s1;
+                    sa = "$245";
+                    sb = "$247";
+                    break;
 
-                    case 2: // '\002'
-                        s = s1;
-                        sa = "$245";
-                        sb = "$248";
-                        break;
+                case 2: // '\002'
+                    s = s1;
+                    sa = "$245";
+                    sb = "$248";
+                    break;
 
-                    case 3: // '\003'
-                        s = s1;
-                        sa = "$245";
-                        sb = "$248";
-                        break;
+                case 3: // '\003'
+                    s = s1;
+                    sa = "$245";
+                    sb = "$248";
+                    break;
                 }
             } else {
                 switch (i) {
-                    case -1:
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$246";
-                        sb = "$247";
-                        break;
+                case -1:
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$246";
+                    sb = "$247";
+                    break;
 
-                    case 1: // '\001'
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$245";
-                        sb = "$247";
-                        break;
+                case 1: // '\001'
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$245";
+                    sb = "$247";
+                    break;
 
-                    case 2: // '\002'
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$245";
-                        sb = "$248";
-                        break;
+                case 2: // '\002'
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$245";
+                    sb = "$248";
+                    break;
 
-                    case 3: // '\003'
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$245";
-                        sb = "$248";
-                        break;
+                case 3: // '\003'
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$245";
+                    sb = "$248";
+                    break;
                 }
             }
-        } else if (item.getItem().getType2() == 2) {
+        } else if (item.getItem().getType2() == L1Item.TYPE2_ARMOR) {
             if (!item.isIdentified() || item.getEnchantLevel() == 0) {
                 switch (i) {
-                    case -1:
-                        s = s1;
-                        sa = "$246";
-                        sb = "$247";
-                        break;
+                case -1:
+                    s = s1;
+                    sa = "$246";
+                    sb = "$247";
+                    break;
 
-                    case 1: // '\001'
-                        s = s1;
-                        sa = "$252";
-                        sb = "$247 ";
-                        break;
+                case 1: // '\001'
+                    s = s1;
+                    sa = "$252";
+                    sb = "$247 ";
+                    break;
 
-                    case 2: // '\002'
-                        s = s1;
-                        sa = "$252";
-                        sb = "$248 ";
-                        break;
+                case 2: // '\002'
+                    s = s1;
+                    sa = "$252";
+                    sb = "$248 ";
+                    break;
 
-                    case 3: // '\003'
-                        s = s1;
-                        sa = "$252";
-                        sb = "$248 ";
-                        break;
+                case 3: // '\003'
+                    s = s1;
+                    sa = "$252";
+                    sb = "$248 ";
+                    break;
                 }
             } else {
                 switch (i) {
-                    case -1:
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$246";
-                        sb = "$247";
-                        break;
+                case -1:
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$246";
+                    sb = "$247";
+                    break;
 
-                    case 1: // '\001'
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$252";
-                        sb = "$247 ";
-                        break;
+                case 1: // '\001'
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$252";
+                    sb = "$247 ";
+                    break;
 
-                    case 2: // '\002'
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$252";
-                        sb = "$248 ";
-                        break;
+                case 2: // '\002'
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$252";
+                    sb = "$248 ";
+                    break;
 
-                    case 3: // '\003'
-                        s = (new StringBuilder())
-                                .append(pm + item.getEnchantLevel())
-                                .append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
-                        sa = "$252";
-                        sb = "$248 ";
-                        break;
+                case 3: // '\003'
+                    s = (new StringBuilder()).append(pm + item.getEnchantLevel()).append(" ").append(s1).toString(); // \f1%0が%2%1光ります。
+                    sa = "$252";
+                    sb = "$248 ";
+                    break;
                 }
             }
         }
@@ -5271,31 +4793,24 @@ public class C_ItemUSe extends ClientBasePacket {
         int newEnchantLvl = item.getEnchantLevel() + i;
         int safe_enchant = item.getItem().get_safeenchant();
         item.setEnchantLevel(newEnchantLvl);
-        client.getActiveChar().getInventory()
-                .updateItem(item, L1PcInventory.COL_ENCHANTLVL);
+        client.getActiveChar().getInventory().updateItem(item, L1PcInventory.COL_ENCHANTLVL);
         if (newEnchantLvl > safe_enchant) {
-            client.getActiveChar().getInventory()
-                    .saveItem(item, L1PcInventory.COL_ENCHANTLVL);
+            client.getActiveChar().getInventory().saveItem(item, L1PcInventory.COL_ENCHANTLVL);
         }
-        if (item.getItem().getType2() == 1
-                && Config.LOGGING_WEAPON_ENCHANT != 0) {
-            if (safe_enchant == 0
-                    || newEnchantLvl >= Config.LOGGING_WEAPON_ENCHANT) {
+        if (item.getItem().getType2() == L1Item.TYPE2_WEAPON && Config.LOGGING_WEAPON_ENCHANT != 0) {
+            if (safe_enchant == 0 || newEnchantLvl >= Config.LOGGING_WEAPON_ENCHANT) {
                 LogEnchantTable logenchant = new LogEnchantTable();
-                logenchant.storeLogEnchant(pc.getId(), item.getId(),
-                        oldEnchantLvl, newEnchantLvl);
+                logenchant.storeLogEnchant(pc.getId(), item.getId(), oldEnchantLvl, newEnchantLvl);
             }
         }
-        if (item.getItem().getType2() == 2 && Config.LOGGING_ARMOR_ENCHANT != 0) {
-            if (safe_enchant == 0
-                    || newEnchantLvl >= Config.LOGGING_ARMOR_ENCHANT) {
+        if (item.getItem().getType2() == L1Item.TYPE2_ARMOR && Config.LOGGING_ARMOR_ENCHANT != 0) {
+            if (safe_enchant == 0 || newEnchantLvl >= Config.LOGGING_ARMOR_ENCHANT) {
                 LogEnchantTable logenchant = new LogEnchantTable();
-                logenchant.storeLogEnchant(pc.getId(), item.getId(),
-                        oldEnchantLvl, newEnchantLvl);
+                logenchant.storeLogEnchant(pc.getId(), item.getId(), oldEnchantLvl, newEnchantLvl);
             }
         }
 
-        if (item.getItem().getType2() == 2) {
+        if (item.getItem().getType2() == L1Item.TYPE2_ARMOR) {
             if (item.isEquipped()) {
                 pc.addAc(-i);
                 int i2 = item.getItem().getItemId();
@@ -5330,8 +4845,8 @@ public class C_ItemUSe extends ClientBasePacket {
                 return;
             }
 
-            if (type == 13 && pcInventory.getTypeEquipped(2, 7) >= 1
-                    || type == 7 && pcInventory.getTypeEquipped(2, 13) >= 1) { // シールド、ガーダー同時裝備不可
+            if (type == 13 && pcInventory.getTypeEquipped(2, 7) >= 1 || type == 7
+                    && pcInventory.getTypeEquipped(2, 13) >= 1) { // シールド、ガーダー同時裝備不可
                 activeChar.sendPackets(new S_ServerMessage(124)); // \f1すでに何かを装備しています。
                 return;
             }
@@ -5343,16 +4858,13 @@ public class C_ItemUSe extends ClientBasePacket {
             }
 
             if (type == 3 && pcInventory.getTypeEquipped(2, 4) >= 1) { // シャツの場合、マントを着てないか確認
-                activeChar
-                        .sendPackets(new S_ServerMessage(126, "$224", "$225")); // \f1%1上に%0を着ることはできません。
+                activeChar.sendPackets(new S_ServerMessage(126, "$224", "$225")); // \f1%1上に%0を着ることはできません。
                 return;
             } else if ((type == 3) && pcInventory.getTypeEquipped(2, 2) >= 1) { // シャツの場合、メイルを着てないか確認
-                activeChar
-                        .sendPackets(new S_ServerMessage(126, "$224", "$226")); // \f1%1上に%0を着ることはできません。
+                activeChar.sendPackets(new S_ServerMessage(126, "$224", "$226")); // \f1%1上に%0を着ることはできません。
                 return;
             } else if ((type == 2) && pcInventory.getTypeEquipped(2, 4) >= 1) { // メイルの場合、マントを着てないか確認
-                activeChar
-                        .sendPackets(new S_ServerMessage(126, "$226", "$225")); // \f1%1上に%0を着ることはできません。
+                activeChar.sendPackets(new S_ServerMessage(126, "$226", "$225")); // \f1%1上に%0を着ることはできません。
                 return;
             }
 
@@ -5367,8 +4879,7 @@ public class C_ItemUSe extends ClientBasePacket {
             if (type == 3 && pcInventory.getTypeEquipped(2, 2) >= 1) { // シャツの場合、メイルを着てないか確認
                 activeChar.sendPackets(new S_ServerMessage(127)); // \f1それは脱ぐことができません。
                 return;
-            } else if ((type == 2 || type == 3)
-                    && pcInventory.getTypeEquipped(2, 4) >= 1) { // シャツとメイルの場合、マントを着てないか確認
+            } else if ((type == 2 || type == 3) && pcInventory.getTypeEquipped(2, 4) >= 1) { // シャツとメイルの場合、マントを着てないか確認
                 activeChar.sendPackets(new S_ServerMessage(127)); // \f1それは脱ぐことができません。
                 return;
             }
@@ -5589,8 +5100,7 @@ public class C_ItemUSe extends ClientBasePacket {
         pc.setBraveSpeed(1);
     }
 
-    private void useElfSpellBook(L1PcInstance pc, L1ItemInstance item,
-            int itemId) {
+    private void useElfSpellBook(L1PcInstance pc, L1ItemInstance item, int itemId) {
         int level = pc.getLevel();
         if ((pc.isElf() || pc.isGm()) && isLearnElfMagic(pc)) {
             if (itemId >= 40232 && itemId <= 40234 && level >= 10) {
@@ -5707,12 +5217,10 @@ public class C_ItemUSe extends ClientBasePacket {
                     // Object obj = null;
                     try {
                         String s = l1npc.getImpl();
-                        Constructor<?> constructor = Class.forName(
-                                "l1j.jrwz.server.model.Instance." + s
-                                        + "Instance").getConstructors()[0];
+                        Constructor<?> constructor = Class.forName("l1j.jrwz.server.model.Instance." + s + "Instance")
+                                .getConstructors()[0];
                         Object aobj[] = { l1npc };
-                        furniture = (L1FurnitureInstance) constructor
-                                .newInstance(aobj);
+                        furniture = (L1FurnitureInstance) constructor.newInstance(aobj);
                         furniture.setId(IdFactory.getInstance().nextId());
                         furniture.setMap(pc.getMapId());
                         if (pc.getHeading() == 0) {
@@ -5729,8 +5237,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
                         L1World.getInstance().storeObject(furniture);
                         L1World.getInstance().addVisibleObject(furniture);
-                        FurnitureSpawnTable.getInstance().insertFurniture(
-                                furniture);
+                        FurnitureSpawnTable.getInstance().insertFurniture(furniture);
                     } catch (Exception e) {
                         _log.log(Level.SEVERE, e.getLocalizedMessage(), e);
                     }
@@ -5743,10 +5250,8 @@ public class C_ItemUSe extends ClientBasePacket {
         }
     }
 
-    private void useFurnitureRemovalWand(L1PcInstance pc, int targetId,
-            L1ItemInstance item) {
-        S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0,
-                ActionCodes.ACTION_Wand);
+    private void useFurnitureRemovalWand(L1PcInstance pc, int targetId, L1ItemInstance item) {
+        S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0, ActionCodes.ACTION_Wand);
         pc.sendPackets(s_attackPacket);
         pc.broadcastPacket(s_attackPacket);
         int chargeCount = item.getChargeCount();
@@ -5789,9 +5294,8 @@ public class C_ItemUSe extends ClientBasePacket {
             time = 900;
         } else if (itemId == 40030) { // 象牙の塔のヘイスト ポーション
             time = 300;
-        } else if (itemId == 41261 || itemId == 41262 || itemId == 41268
-                || itemId == 41269 || itemId == 41271 || itemId == 41272
-                || itemId == 41273) {
+        } else if (itemId == 41261 || itemId == 41262 || itemId == 41268 || itemId == 41269 || itemId == 41271
+                || itemId == 41272 || itemId == 41273) {
             time = 30;
         }
 
@@ -5923,8 +5427,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void usePolyPotion(L1PcInstance pc, int itemId) {
         int awakeSkillId = pc.getAwakeSkillId();
-        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION
-                || awakeSkillId == AWAKEN_VALAKAS) {
+        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
             pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
             return;
         }
@@ -6138,8 +5641,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void usePolyScale(L1PcInstance pc, int itemId) {
         int awakeSkillId = pc.getAwakeSkillId();
-        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION
-                || awakeSkillId == AWAKEN_VALAKAS) {
+        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
             pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
             return;
         }
@@ -6161,8 +5663,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private boolean usePolyScroll(L1PcInstance pc, int item_id, String s) {
         int awakeSkillId = pc.getAwakeSkillId();
-        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION
-                || awakeSkillId == AWAKEN_VALAKAS) {
+        if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
             pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
             return false;
         }
@@ -6184,8 +5685,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     return true;
                 }
             } else if (poly.getMinLevel() <= pc.getLevel() || pc.isGm()) {
-                L1PolyMorph.doPoly(pc, poly.getPolyId(), time,
-                        L1PolyMorph.MORPH_BY_ITEMMAGIC);
+                L1PolyMorph.doPoly(pc, poly.getPolyId(), time, L1PolyMorph.MORPH_BY_ITEMMAGIC);
                 return true;
             } else {
                 return false;
@@ -6195,13 +5695,12 @@ public class C_ItemUSe extends ClientBasePacket {
         }
     }
 
-    private void useResolvent(L1PcInstance pc, L1ItemInstance item,
-            L1ItemInstance resolvent) {
+    private void useResolvent(L1PcInstance pc, L1ItemInstance item, L1ItemInstance resolvent) {
         if (item == null || resolvent == null) {
             pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
             return;
         }
-        if (item.getItem().getType2() == 1 || item.getItem().getType2() == 2) { // 武器・防具
+        if (item.getItem().getType2() == L1Item.TYPE2_WEAPON || item.getItem().getType2() == L1Item.TYPE2_ARMOR) { // 武器・防具
             if (item.getEnchantLevel() != 0) { // 強化済み
                 pc.sendPackets(new S_ServerMessage(1161)); // 溶解できません。
                 return;
@@ -6211,8 +5710,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 return;
             }
         }
-        int crystalCount = ResolventTable.getInstance().getCrystalCount(
-                item.getItem().getItemId());
+        int crystalCount = ResolventTable.getInstance().getCrystalCount(item.getItem().getItemId());
         if (crystalCount == 0) {
             pc.sendPackets(new S_ServerMessage(1161)); // 溶解できません。
             return;
@@ -6235,9 +5733,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 pc.getInventory().storeItem(crystal);
                 pc.sendPackets(new S_ServerMessage(403, crystal.getLogName())); // %0を手に入れました。
             } else { // 持てない場合は地面に落とす 處理のキャンセルはしない（不正防止）
-                L1World.getInstance()
-                        .getInventory(pc.getX(), pc.getY(), pc.getMapId())
-                        .storeItem(crystal);
+                L1World.getInstance().getInventory(pc.getX(), pc.getY(), pc.getMapId()).storeItem(crystal);
             }
         }
         pc.getInventory().removeItem(item, 1);
@@ -6252,32 +5748,26 @@ public class C_ItemUSe extends ClientBasePacket {
         int pcY = pc.getY();
         int mapId = pc.getMapId();
         int level = pc.getLevel();
-        if (itemId == 45000 || itemId == 45008 || itemId == 45018
-                || itemId == 45021 || itemId == 40171 || itemId == 40179
-                || itemId == 40180 || itemId == 40182 || itemId == 40194
-                || itemId == 40197 || itemId == 40202 || itemId == 40206
-                || itemId == 40213 || itemId == 40220 || itemId == 40222) {
+        if (itemId == 45000 || itemId == 45008 || itemId == 45018 || itemId == 45021 || itemId == 40171
+                || itemId == 40179 || itemId == 40180 || itemId == 40182 || itemId == 40194 || itemId == 40197
+                || itemId == 40202 || itemId == 40206 || itemId == 40213 || itemId == 40220 || itemId == 40222) {
             itemAttr = 1;
         }
-        if (itemId == 45009 || itemId == 45010 || itemId == 45019
-                || itemId == 40172 || itemId == 40173 || itemId == 40178
-                || itemId == 40185 || itemId == 40186 || itemId == 40192
-                || itemId == 40196 || itemId == 40201 || itemId == 40204
-                || itemId == 40211 || itemId == 40221 || itemId == 40225) {
+        if (itemId == 45009 || itemId == 45010 || itemId == 45019 || itemId == 40172 || itemId == 40173
+                || itemId == 40178 || itemId == 40185 || itemId == 40186 || itemId == 40192 || itemId == 40196
+                || itemId == 40201 || itemId == 40204 || itemId == 40211 || itemId == 40221 || itemId == 40225) {
             itemAttr = 2;
         }
         // ロウフルテンプル
-        if (pcX > 33116 && pcX < 33128 && pcY > 32930 && pcY < 32942
-                && mapId == 4 || pcX > 33135 && pcX < 33147 && pcY > 32235
-                && pcY < 32247 && mapId == 4 || pcX >= 32783 && pcX <= 32803
-                && pcY >= 32831 && pcY <= 32851 && mapId == 77) {
+        if (pcX > 33116 && pcX < 33128 && pcY > 32930 && pcY < 32942 && mapId == 4 || pcX > 33135 && pcX < 33147
+                && pcY > 32235 && pcY < 32247 && mapId == 4 || pcX >= 32783 && pcX <= 32803 && pcY >= 32831
+                && pcY <= 32851 && mapId == 77) {
             locAttr = 1;
             isLawful = true;
         }
         // カオティックテンプル
-        if (pcX > 32880 && pcX < 32892 && pcY > 32646 && pcY < 32658
-                && mapId == 4 || pcX > 32662 && pcX < 32674 && pcY > 32297
-                && pcY < 32309 && mapId == 4) {
+        if (pcX > 32880 && pcX < 32892 && pcY > 32646 && pcY < 32658 && mapId == 4 || pcX > 32662 && pcX < 32674
+                && pcY > 32297 && pcY < 32309 && mapId == 4) {
             locAttr = 2;
             isLawful = false;
         }
@@ -6297,8 +5787,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     SpellBook(pc, item, isLawful);
                 } else if (itemId >= 45008 && itemId <= 45015 && level >= 20) {
                     SpellBook(pc, item, isLawful);
-                } else if (itemId >= 45008 && itemId <= 45015
-                        || itemId >= 45000 && itemId <= 45007) {
+                } else if (itemId >= 45008 && itemId <= 45015 || itemId >= 45000 && itemId <= 45007) {
                     pc.sendPackets(new S_ServerMessage(312)); // レベルが低くてその魔法を覚えることができません。
                 } else {
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -6316,8 +5805,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     SpellBook(pc, item, isLawful);
                 } else if (itemId >= 40186 && itemId <= 40193 && level >= 48) {
                     SpellBook(pc, item, isLawful);
-                } else if (itemId >= 45000 && itemId <= 45022
-                        || itemId >= 40170 && itemId <= 40193) {
+                } else if (itemId >= 45000 && itemId <= 45022 || itemId >= 40170 && itemId <= 40193) {
                     pc.sendPackets(new S_ServerMessage(312)); // レベルが低くてその魔法を覚えることができません。
                 } else {
                     pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
@@ -6364,39 +5852,38 @@ public class C_ItemUSe extends ClientBasePacket {
         }
     }
 
-    private void useToiTeleportAmulet(L1PcInstance pc, int itemId,
-            L1ItemInstance item) {
+    private void useToiTeleportAmulet(L1PcInstance pc, int itemId, L1ItemInstance item) {
         boolean isTeleport = false;
         if (itemId == 40289 || itemId == 40293) { // 11,51Famulet
-            if (pc.getX() >= 32816 && pc.getX() <= 32821 && pc.getY() >= 32778
-                    && pc.getY() <= 32783 && pc.getMapId() == 101) {
+            if (pc.getX() >= 32816 && pc.getX() <= 32821 && pc.getY() >= 32778 && pc.getY() <= 32783
+                    && pc.getMapId() == 101) {
                 isTeleport = true;
             }
         } else if (itemId == 40290 || itemId == 40294) { // 21,61Famulet
-            if (pc.getX() >= 32815 && pc.getX() <= 32820 && pc.getY() >= 32815
-                    && pc.getY() <= 32820 && pc.getMapId() == 101) {
+            if (pc.getX() >= 32815 && pc.getX() <= 32820 && pc.getY() >= 32815 && pc.getY() <= 32820
+                    && pc.getMapId() == 101) {
                 isTeleport = true;
             }
         } else if (itemId == 40291 || itemId == 40295) { // 31,71Famulet
-            if (pc.getX() >= 32779 && pc.getX() <= 32784 && pc.getY() >= 32778
-                    && pc.getY() <= 32783 && pc.getMapId() == 101) {
+            if (pc.getX() >= 32779 && pc.getX() <= 32784 && pc.getY() >= 32778 && pc.getY() <= 32783
+                    && pc.getMapId() == 101) {
                 isTeleport = true;
             }
         } else if (itemId == 40292 || itemId == 40296) { // 41,81Famulet
-            if (pc.getX() >= 32779 && pc.getX() <= 32784 && pc.getY() >= 32815
-                    && pc.getY() <= 32820 && pc.getMapId() == 101) {
+            if (pc.getX() >= 32779 && pc.getX() <= 32784 && pc.getY() >= 32815 && pc.getY() <= 32820
+                    && pc.getMapId() == 101) {
                 isTeleport = true;
             }
         } else if (itemId == 40297) { // 91Famulet
-            if (pc.getX() >= 32706 && pc.getX() <= 32710 && pc.getY() >= 32909
-                    && pc.getY() <= 32913 && pc.getMapId() == 190) {
+            if (pc.getX() >= 32706 && pc.getX() <= 32710 && pc.getY() >= 32909 && pc.getY() <= 32913
+                    && pc.getMapId() == 190) {
                 isTeleport = true;
             }
         }
 
         if (isTeleport) {
-            L1Teleport.teleport(pc, item.getItem().get_locx(), item.getItem()
-                    .get_locy(), item.getItem().get_mapid(), 5, true);
+            L1Teleport.teleport(pc, item.getItem().get_locx(), item.getItem().get_locy(), item.getItem().get_mapid(),
+                    5, true);
         } else {
             pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
         }
@@ -6404,16 +5891,14 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void UseWeapon(L1PcInstance activeChar, L1ItemInstance weapon) {
         L1PcInventory pcInventory = activeChar.getInventory();
-        if (activeChar.getWeapon() == null
-                || !activeChar.getWeapon().equals(weapon)) { // 指定された武器が装備している武器と違う場合、装備できるか確認
+        if (activeChar.getWeapon() == null || !activeChar.getWeapon().equals(weapon)) { // 指定された武器が装備している武器と違う場合、装備できるか確認
             int weapon_type = weapon.getItem().getType();
             int polyid = activeChar.getTempCharGfx();
 
             if (!L1PolyMorph.isEquipableWeapon(polyid, weapon_type)) { // その変身では装備不可
                 return;
             }
-            if (weapon.getItem().isTwohandedWeapon()
-                    && pcInventory.getTypeEquipped(2, 7) >= 1) { // 両手武器の場合、シールド装備の確認
+            if (weapon.getItem().isTwohandedWeapon() && pcInventory.getTypeEquipped(2, 7) >= 1) { // 両手武器の場合、シールド装備の確認
                 activeChar.sendPackets(new S_ServerMessage(128)); // \f1シールドを装備している時は両手で持つ武器を使うことはできません。
                 return;
             }
@@ -6428,18 +5913,15 @@ public class C_ItemUSe extends ClientBasePacket {
             }
             if (activeChar.getWeapon().equals(weapon)) {
                 // 装備交換ではなく外すだけ
-                pcInventory.setEquipped(activeChar.getWeapon(), false, false,
-                        false);
+                pcInventory.setEquipped(activeChar.getWeapon(), false, false, false);
                 return;
             } else {
-                pcInventory.setEquipped(activeChar.getWeapon(), false, false,
-                        true);
+                pcInventory.setEquipped(activeChar.getWeapon(), false, false, true);
             }
         }
 
         if (weapon.getItemId() == 200002) { // 呪われたダイスダガー
-            activeChar
-                    .sendPackets(new S_ServerMessage(149, weapon.getLogName())); // \f1%0が手にくっつきました。
+            activeChar.sendPackets(new S_ServerMessage(149, weapon.getLogName())); // \f1%0が手にくっつきました。
         }
         pcInventory.setEquipped(weapon, true, false, false);
     }
@@ -6511,20 +5993,18 @@ public class C_ItemUSe extends ClientBasePacket {
 
         L1Pet l1pet = PetTable.getInstance().getTemplate(itemObjectId);
         if (l1pet != null) {
-            L1Npc npcTemp = NpcTable.getInstance().getTemplate(
-                    l1pet.get_npcid());
+            L1Npc npcTemp = NpcTable.getInstance().getTemplate(l1pet.get_npcid());
             L1PetInstance pet = new L1PetInstance(npcTemp, pc, l1pet);
             pet.setPetcost(6);
         }
         return true;
     }
 
-    private boolean writeClanLetter(int itemId, L1PcInstance pc,
-            int letterCode, String letterReceiver, byte[] letterText) {
+    private boolean writeClanLetter(int itemId, L1PcInstance pc, int letterCode, String letterReceiver,
+            byte[] letterText) {
         L1Clan targetClan = null;
         for (L1Clan clan : L1World.getInstance().getAllClans()) {
-            if (clan.getClanName().toLowerCase()
-                    .equals(letterReceiver.toLowerCase())) {
+            if (clan.getClanName().toLowerCase().equals(letterReceiver.toLowerCase())) {
                 targetClan = clan;
                 break;
             }
@@ -6539,15 +6019,13 @@ public class C_ItemUSe extends ClientBasePacket {
             L1ItemInstance item = ItemTable.getInstance().createItem(49016);
             item.setCount(1);
             if (sendLetter(pc, element, item, false)) {
-                saveLetter(item.getId(), letterCode, pc.getName(), element,
-                        letterText);
+                saveLetter(item.getId(), letterCode, pc.getName(), element, letterText);
             }
         }
         return true;
     }
 
-    private boolean writeLetter(int itemId, L1PcInstance pc, int letterCode,
-            String letterReceiver, byte[] letterText) {
+    private boolean writeLetter(int itemId, L1PcInstance pc, int letterCode, String letterReceiver, byte[] letterText) {
 
         int newItemId = 0;
         if (itemId == 40310) {
@@ -6562,8 +6040,7 @@ public class C_ItemUSe extends ClientBasePacket {
         L1ItemInstance item = ItemTable.getInstance().createItem(newItemId);
         item.setCount(1);
         if (sendLetter(pc, letterReceiver, item, true)) {
-            saveLetter(item.getId(), letterCode, pc.getName(), letterReceiver,
-                    letterText);
+            saveLetter(item.getId(), letterCode, pc.getName(), letterReceiver, letterText);
         } else {
             return false;
         }

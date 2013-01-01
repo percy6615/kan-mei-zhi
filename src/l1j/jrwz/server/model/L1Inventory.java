@@ -39,8 +39,9 @@ import l1j.jrwz.server.templates.L1Item;
 public class L1Inventory extends L1Object {
 
     public class DataComparator implements java.util.Comparator<L1ItemInstance> {
-        /* 
+        /*
          * 按强化等级由低到高排序
+         * 
          * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
          */
         @Override
@@ -86,13 +87,11 @@ public class L1Inventory extends L1Object {
             return -1;
         }
         if (getSize() > Config.MAX_NPC_ITEM
-                || (getSize() == Config.MAX_NPC_ITEM && (!item.isStackable() || !checkItem(item
-                        .getItem().getItemId())))) { // 容量確認
+                || (getSize() == Config.MAX_NPC_ITEM && (!item.isStackable() || !checkItem(item.getItem().getItemId())))) { // 容量確認
             return SIZE_OVER;
         }
 
-        int weight = getWeight() + item.getItem().getWeight() * count / 1000
-                + 1;
+        int weight = getWeight() + item.getItem().getWeight() * count / 1000 + 1;
         if (weight < 0 || (item.getItem().getWeight() * count / 1000) < 0) {
             return WEIGHT_OVER;
         }
@@ -123,8 +122,7 @@ public class L1Inventory extends L1Object {
             maxSize = Config.MAX_CLAN_WAREHOUSE_ITEM;
         }
         if (getSize() > maxSize
-                || (getSize() == maxSize && (!item.isStackable() || !checkItem(item
-                        .getItem().getItemId())))) { // 容量確認
+                || (getSize() == maxSize && (!item.isStackable() || !checkItem(item.getItem().getItemId())))) { // 容量確認
             return SIZE_OVER;
         }
 
@@ -229,11 +227,9 @@ public class L1Inventory extends L1Object {
      * がある場合はremoveItemの方を使用するのがよい。 （こちらは矢とか魔石とか特定のアイテムを消費させるときに使う）
      * 
      * @param itemid
-     *            -
-     *            削除するアイテムのitemid(objidではない)
+     *            - 削除するアイテムのitemid(objidではない)
      * @param count
-     *            -
-     *            削除する個数
+     *            - 削除する個数
      * @return 実際に削除された場合はtrueを返す。
      */
     public boolean consumeItem(int itemid, int count) {
@@ -458,8 +454,7 @@ public class L1Inventory extends L1Object {
                     if (l1object instanceof L1FurnitureInstance) {
                         L1FurnitureInstance furniture = (L1FurnitureInstance) l1object;
                         if (furniture.getItemObjId() == item.getId()) { // 既に引き出している家具
-                            FurnitureSpawnTable.getInstance().deleteFurniture(
-                                    furniture);
+                            FurnitureSpawnTable.getInstance().deleteFurniture(furniture);
                         }
                     }
                 }
@@ -529,8 +524,8 @@ public class L1Inventory extends L1Object {
         item.setY(getY());
         item.setMap(getMapId());
         int chargeCount = item.getItem().getMaxChargeCount();
-        if (itemId == 40006 || itemId == 40007 || itemId == 40008
-                || itemId == 140006 || itemId == 140008 || itemId == 41401) {
+        if (itemId == 40006 || itemId == 40007 || itemId == 40008 || itemId == 140006 || itemId == 140008
+                || itemId == 41401) {
             Random random = new Random();
             chargeCount -= random.nextInt(5);
         }
@@ -538,7 +533,7 @@ public class L1Inventory extends L1Object {
             chargeCount = 50;
         }
         item.setChargeCount(chargeCount);
-        if (item.getItem().getType2() == 0 && item.getItem().getType() == 2) { // light系アイテム
+        if (item.getItem().getType2() == L1Item.TYPE2_ETC && item.getItem().getType() == 2) { // light系アイテム
             item.setRemainingTime(item.getItem().getLightFuel());
         } else {
             item.setRemainingTime(item.getItem().getMaxUseTime());
@@ -568,14 +563,12 @@ public class L1Inventory extends L1Object {
     }
 
     // 引数のインベントリにアイテムを移譲
-    public synchronized L1ItemInstance tradeItem(int objectId, int count,
-            L1Inventory inventory) {
+    public synchronized L1ItemInstance tradeItem(int objectId, int count, L1Inventory inventory) {
         L1ItemInstance item = getItem(objectId);
         return tradeItem(item, count, inventory);
     }
 
-    public synchronized L1ItemInstance tradeItem(L1ItemInstance item,
-            int count, L1Inventory inventory) {
+    public synchronized L1ItemInstance tradeItem(L1ItemInstance item, int count, L1Inventory inventory) {
         if (item == null) {
             return null;
         }
@@ -595,8 +588,7 @@ public class L1Inventory extends L1Object {
         } else {
             item.setCount(item.getCount() - count);
             updateItem(item);
-            carryItem = ItemTable.getInstance().createItem(
-                    item.getItem().getItemId());
+            carryItem = ItemTable.getInstance().createItem(item.getItem().getItemId());
             carryItem.setCount(count);
             carryItem.setEnchantLevel(item.getEnchantLevel());
             carryItem.setIdentified(item.isIdentified());
