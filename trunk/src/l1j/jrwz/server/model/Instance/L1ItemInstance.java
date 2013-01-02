@@ -35,6 +35,7 @@ import l1j.jrwz.server.model.L1EquipmentTimer;
 import l1j.jrwz.server.model.L1ItemOwnerTimer;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1PcInventory;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_OwnCharStatus;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Armor;
@@ -68,7 +69,7 @@ public class L1ItemInstance extends L1Object {
                 setDmgByMagic(0);
                 setHolyDmgByMagic(0);
                 setHitByMagic(0);
-                _pc.sendPackets(new S_ServerMessage(308, getLogName()));
+                _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$308, getLogName()));
                 _isRunning = false;
                 _timer = null;
             } catch (Exception e) {

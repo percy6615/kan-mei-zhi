@@ -25,6 +25,7 @@ import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 /**
@@ -51,7 +52,7 @@ public class C_DropItem extends ClientBasePacket {
         if (item != null) {
             if (!item.getItem().isTradable()) {
                 // \f1%0%d是不可轉移的…
-                pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                         .getName()));
                 return;
             }
@@ -62,7 +63,7 @@ public class C_DropItem extends ClientBasePacket {
                     L1PetInstance pet = (L1PetInstance) petObject;
                     if (item.getId() == pet.getItemObjId()) {
                         // \f1%0%d是不可轉移的…
-                        pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                                 .getName()));
                         return;
                     }
@@ -71,12 +72,12 @@ public class C_DropItem extends ClientBasePacket {
 
             if (item.isEquipped()) {
                 // \f1你不能夠放棄此樣物品。
-                pc.sendPackets(new S_ServerMessage(125));
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$125));
                 return;
             }
             if (item.getBless() >= 128) { // 封印的裝備
                 // \f1%0%d是不可轉移的…
-                pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                         .getName()));
                 return;
             }

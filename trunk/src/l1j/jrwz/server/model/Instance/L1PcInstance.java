@@ -97,6 +97,7 @@ import l1j.jrwz.server.model.MpRegeneration;
 import l1j.jrwz.server.model.MpRegenerationByDoll;
 import l1j.jrwz.server.model.classes.L1ClassFeature;
 import l1j.jrwz.server.model.gametime.L1GameTimeCarrier;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.monitor.L1PcAutoUpdate;
 import l1j.jrwz.server.model.monitor.L1PcExpMonitor;
 import l1j.jrwz.server.model.monitor.L1PcGhostMonitor;
@@ -972,7 +973,7 @@ public class L1PcInstance extends L1Character {
                         item.isStackable() ? item.getCount() : 1,
                         L1World.getInstance().getInventory(getX(), getY(),
                                 getMapId()));
-                sendPackets(new S_ServerMessage(638, item.getLogName())); // %0を失いました。
+                sendPackets(new S_ServerMessage(L1SystemMessageId.$638, item.getLogName())); // %0を失いました。
             } else {
             }
         }
@@ -1022,7 +1023,7 @@ public class L1PcInstance extends L1Character {
             if (_chatCount >= 3) {
                 setSkillEffect(STATUS_CHAT_PROHIBITED, 120 * 1000);
                 sendPackets(new S_SkillIconGFX(36, 120));
-                sendPackets(new S_ServerMessage(153)); // \f3迷惑なチャット流しをしたので、今後2分間チャットを行うことはできません。
+                sendPackets(new S_ServerMessage(L1SystemMessageId.$153)); // \f3迷惑なチャット流しをしたので、今後2分間チャットを行うことはできません。
                 _chatCount = 0;
                 _oldChatTimeInMillis = 0;
             }
@@ -1955,7 +1956,7 @@ public class L1PcInstance extends L1Character {
         resetBaseMr();
         if (Config.LEVEL_DOWN_RANGE != 0) {
             if (getHighLevel() - getLevel() >= Config.LEVEL_DOWN_RANGE) {
-                sendPackets(new S_ServerMessage(64)); // ワールドとの接続が切断されました。
+                sendPackets(new S_ServerMessage(L1SystemMessageId.$64)); // ワールドとの接続が切断されました。
                 sendPackets(new S_Disconnect());
                 _log.info(String.format("レベルダウンの許容範囲を超えたため%sを強制切断しました。",
                         getName()));
@@ -1980,7 +1981,7 @@ public class L1PcInstance extends L1Character {
                 L1Item l1item = ItemTable.getInstance().getTemplate(43000);
                 if (l1item != null) {
                     getInventory().storeItem(43000, 1);
-                    sendPackets(new S_ServerMessage(403, l1item.getName()));
+                    sendPackets(new S_ServerMessage(L1SystemMessageId.$403, l1item.getName()));
                 } else {
                     sendPackets(new S_SystemMessage("復活のポーションの入手に失敗しました。"));
                 }

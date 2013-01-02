@@ -27,6 +27,7 @@ import l1j.jrwz.server.datatables.BuddyTable;
 import l1j.jrwz.server.datatables.CharacterTable;
 import l1j.jrwz.server.model.L1Buddy;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1CharName;
 
@@ -52,7 +53,7 @@ public class C_AddBuddy extends ClientBasePacket {
         if (charName.equalsIgnoreCase(pc.getName())) {
             return;
         } else if (buddyList.containsName(charName)) {
-            pc.sendPackets(new S_ServerMessage(1052, charName)); // %s 已注册。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1052, charName)); // %s 已注册。
             return;
         }
 
@@ -65,7 +66,7 @@ public class C_AddBuddy extends ClientBasePacket {
                 return;
             }
         }
-        pc.sendPackets(new S_ServerMessage(109, charName)); // 没有叫%0 的人。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, charName)); // 没有叫%0 的人。
     }
 
     @Override

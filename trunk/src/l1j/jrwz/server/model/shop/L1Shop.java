@@ -33,6 +33,7 @@ import l1j.jrwz.server.model.L1TownLocation;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Castle;
@@ -117,21 +118,21 @@ public class L1Shop {
         // オーバーフローチェック
         if (!IntRange.includes(price, 0, 2000000000)) {
             // 総販売価格は%dアデナを超過できません。
-            pc.sendPackets(new S_ServerMessage(904, "2000000000"));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$904, "2000000000"));
             return false;
         }
         // 購入できるかチェック
         if (!pc.getInventory().checkItem(L1ItemId.ADENA, price)) {
             System.out.println(price);
             // \f1アデナが不足しています。
-            pc.sendPackets(new S_ServerMessage(189));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189));
             return false;
         }
         // 重量チェック
         int currentWeight = pc.getInventory().getWeight() * 1000;
         if (currentWeight + orderList.getTotalWeight() > pc.getMaxWeight() * 1000) {
             // アイテムが重すぎて、これ以上持てません。
-            pc.sendPackets(new S_ServerMessage(82));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$82));
             return false;
         }
         // 個数チェック
@@ -148,7 +149,7 @@ public class L1Shop {
         }
         if (totalCount > 180) {
             // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
-            pc.sendPackets(new S_ServerMessage(263));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$263));
             return false;
         }
         return true;

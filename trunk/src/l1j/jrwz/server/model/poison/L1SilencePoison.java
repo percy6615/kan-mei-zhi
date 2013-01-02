@@ -20,6 +20,7 @@ package l1j.jrwz.server.model.poison;
 
 import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_POISON_SILENCE;
 import l1j.jrwz.server.model.L1Character;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 
 public class L1SilencePoison extends L1Poison {
     public static boolean doInfection(L1Character cha) {
@@ -42,7 +43,7 @@ public class L1SilencePoison extends L1Poison {
     @Override
     public void cure() {
         _target.setPoisonEffect(0);
-        sendMessageIfPlayer(_target, 311);
+        sendMessageIfPlayer(_target, L1SystemMessageId.$311);
 
         _target.killSkillEffectTimer(STATUS_POISON_SILENCE);
         _target.setPoison(null);

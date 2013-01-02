@@ -23,6 +23,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_POISON_PARALYZING;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.model.L1Character;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Paralysis;
 
 public class L1ParalysisPoison extends L1Poison {
@@ -120,7 +121,7 @@ public class L1ParalysisPoison extends L1Poison {
     }
 
     private void doInfection() {
-        sendMessageIfPlayer(_target, 212);
+        sendMessageIfPlayer(_target, L1SystemMessageId.$212);
         _target.setPoisonEffect(1);
 
         if (_target instanceof L1PcInstance) {

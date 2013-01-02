@@ -39,6 +39,7 @@ import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1Teleport;
 import l1j.jrwz.server.model.L1UltimateBattle;
 import l1j.jrwz.server.model.L1World;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;
 import l1j.jrwz.server.serverpackets.S_NPCPack;
 import l1j.jrwz.server.serverpackets.S_NPCTalkReturn;
@@ -236,7 +237,7 @@ public class L1MonsterInstance extends L1NpcInstance {
                     if (pc != null && !pc.isDead() && !pc.isGhost()) {
                         L1ItemInstance item = pc.getInventory().storeItem(
                                 41402, getUbSealCount());
-                        pc.sendPackets(new S_ServerMessage(403, item
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item
                                 .getLogName())); // %0を手に入れました。
                     }
                 }

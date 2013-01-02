@@ -38,6 +38,7 @@ import l1j.jrwz.server.datatables.SkillsTable;
 import l1j.jrwz.server.model.AcceleratorChecker;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.skill.L1SkillUse;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -68,7 +69,7 @@ public class C_UseSkill extends ClientBasePacket {
             return;
         }
         if (!pc.getMap().isUsableSkill()) {
-            pc.sendPackets(new S_ServerMessage(563)); // \f1你无法在这个地方使用。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$563)); // \f1你无法在这个地方使用。
             return;
         }
         if (!pc.isSkillMastery(skillId)) {
@@ -135,11 +136,11 @@ public class C_UseSkill extends ClientBasePacket {
 
                 if (target == null) {
                     // メッセージが正確であるか未調査
-                    pc.sendPackets(new S_ServerMessage(73, charName)); // \f1%0はゲームをしていません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$73, charName)); // \f1%0はゲームをしていません。
                     return;
                 }
                 if (pc.getClanid() != target.getClanid()) {
-                    pc.sendPackets(new S_ServerMessage(414)); // 同じ血盟員ではありません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$414)); // 同じ血盟員ではありません。
                     return;
                 }
                 targetId = target.getId();

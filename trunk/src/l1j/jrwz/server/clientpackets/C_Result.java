@@ -32,6 +32,7 @@ import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.model.shop.L1Shop;
 import l1j.jrwz.server.model.shop.L1ShopBuyOrderList;
@@ -109,7 +110,7 @@ public class C_Result extends ClientBasePacket {
                 L1ItemInstance item = (L1ItemInstance) object;
                 if (!item.getItem().isTradable()) {
                     tradable = false;
-                    pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                             .getName())); // \f1%0%d 是不可丢弃或转移的
                 }
                 Object[] petlist = pc.getPetList().values().toArray();
@@ -119,7 +120,7 @@ public class C_Result extends ClientBasePacket {
                         if (item.getId() == pet.getItemObjId()) {
                             tradable = false;
                             // \f1%0%d 是不可丢弃或转移的
-                            pc.sendPackets(new S_ServerMessage(210, item
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item
                                     .getItem().getName()));
                             break;
                         }
@@ -131,14 +132,14 @@ public class C_Result extends ClientBasePacket {
                         L1DollInstance doll = (L1DollInstance) dollObject;
                         if (item.getId() == doll.getItemObjId()) {
                             tradable = false;
-                            pc.sendPackets(new S_ServerMessage(1181)); // 这个魔法娃娃目前正在使用中。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1181)); // 这个魔法娃娃目前正在使用中。
                             break;
                         }
                     }
                 }
                 if (pc.getDwarfInventory().checkAddItemToWarehouse(item, count,
                         L1Inventory.WAREHOUSE_TYPE_PERSONAL) == L1Inventory.SIZE_OVER) {
-                    pc.sendPackets(new S_ServerMessage(75)); // \f1存放物品的空间不足。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$75)); // \f1存放物品的空间不足。
                     break;
                 }
                 if (tradable) {
@@ -161,11 +162,11 @@ public class C_Result extends ClientBasePacket {
                         pc.getDwarfInventory().tradeItem(item, count,
                                 pc.getInventory());
                     } else {
-                        pc.sendPackets(new S_ServerMessage(189)); // \f1金币不足。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189)); // \f1金币不足。
                         break;
                     }
                 } else {
-                    pc.sendPackets(new S_ServerMessage(270)); // \f1当你负担过重时不能交易。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$270)); // \f1当你负担过重时不能交易。
                     break;
                 }
             }
@@ -184,12 +185,12 @@ public class C_Result extends ClientBasePacket {
                     if (clan != null) {
                         if (!item.getItem().isTradable()) {
                             tradable = false;
-                            pc.sendPackets(new S_ServerMessage(210, item
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item
                                     .getItem().getName())); // \f1%0%d 是不可丢弃或转移的
                         }
                         if (item.getBless() >= 128) { // 被封印的裝備
                             tradable = false;
-                            pc.sendPackets(new S_ServerMessage(210, item
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item
                                     .getItem().getName())); // \f1%0%d 是不可丢弃或转移的
                         }
                         Object[] petlist = pc.getPetList().values().toArray();
@@ -199,7 +200,7 @@ public class C_Result extends ClientBasePacket {
                                 if (item.getId() == pet.getItemObjId()) {
                                     tradable = false;
                                     // \f1%0%d 是不可丢弃或转移的
-                                    pc.sendPackets(new S_ServerMessage(210,
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210,
                                             item.getItem().getName()));
                                     break;
                                 }
@@ -211,7 +212,7 @@ public class C_Result extends ClientBasePacket {
                                 L1DollInstance doll = (L1DollInstance) dollObject;
                                 if (item.getId() == doll.getItemObjId()) {
                                     tradable = false;
-                                    pc.sendPackets(new S_ServerMessage(1181)); // 这个魔法娃娃目前正在使用中。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1181)); // 这个魔法娃娃目前正在使用中。
                                     break;
                                 }
                             }
@@ -219,7 +220,7 @@ public class C_Result extends ClientBasePacket {
                         if (clan.getDwarfForClanInventory()
                                 .checkAddItemToWarehouse(item, count,
                                         L1Inventory.WAREHOUSE_TYPE_CLAN) == L1Inventory.SIZE_OVER) {
-                            pc.sendPackets(new S_ServerMessage(75)); // \f1存放物品的空间不足。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$75)); // \f1存放物品的空间不足。
                             break;
                         }
                         if (tradable) {
@@ -230,7 +231,7 @@ public class C_Result extends ClientBasePacket {
                     }
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(208)); // \f1若想使用血盟仓库，必须加入血盟。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$208)); // \f1若想使用血盟仓库，必须加入血盟。
             }
         } else if (resultType == 5 && size != 0
                 && npcImpl.equalsIgnoreCase("L1Dwarf") && level >= 5) { // 從克萊因倉庫中取出道具
@@ -248,11 +249,11 @@ public class C_Result extends ClientBasePacket {
                             clan.getDwarfForClanInventory().tradeItem(item,
                                     count, pc.getInventory());
                         } else {
-                            pc.sendPackets(new S_ServerMessage(189)); // \f1金币不足。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189)); // \f1金币不足。
                             break;
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(270)); // \f1当你负担过重时不能交易。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$270)); // \f1当你负担过重时不能交易。
                         break;
                     }
                 }
@@ -276,7 +277,7 @@ public class C_Result extends ClientBasePacket {
                 L1ItemInstance item = (L1ItemInstance) object;
                 if (!item.getItem().isTradable()) {
                     tradable = false;
-                    pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                             .getName())); // \f1%0%d 是不可丢弃或转移的
                 }
                 Object[] petlist = pc.getPetList().values().toArray();
@@ -286,7 +287,7 @@ public class C_Result extends ClientBasePacket {
                         if (item.getId() == pet.getItemObjId()) {
                             tradable = false;
                             // \f1%0%d 是不可丢弃或转移的
-                            pc.sendPackets(new S_ServerMessage(210, item
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item
                                     .getItem().getName()));
                             break;
                         }
@@ -298,14 +299,14 @@ public class C_Result extends ClientBasePacket {
                         L1DollInstance doll = (L1DollInstance) dollObject;
                         if (item.getId() == doll.getItemObjId()) {
                             tradable = false;
-                            pc.sendPackets(new S_ServerMessage(1181)); // 这个魔法娃娃目前正在使用中。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1181)); // 这个魔法娃娃目前正在使用中。
                             break;
                         }
                     }
                 }
                 if (pc.getDwarfForElfInventory().checkAddItemToWarehouse(item,
                         count, L1Inventory.WAREHOUSE_TYPE_PERSONAL) == L1Inventory.SIZE_OVER) {
-                    pc.sendPackets(new S_ServerMessage(75)); // \f1存放物品的空间不足。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$75)); // \f1存放物品的空间不足。
                     break;
                 }
                 if (tradable) {
@@ -328,11 +329,11 @@ public class C_Result extends ClientBasePacket {
                         pc.getDwarfForElfInventory().tradeItem(item, count,
                                 pc.getInventory());
                     } else {
-                        pc.sendPackets(new S_ServerMessage(337, "$767")); // \f1缺少%0%s。纯粹的米索莉块
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$337, "$767")); // \f1缺少%0%s。纯粹的米索莉块
                         break;
                     }
                 } else {
-                    pc.sendPackets(new S_ServerMessage(270)); // \f1当你负担过重时不能交易。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$270)); // \f1当你负担过重时不能交易。
                     break;
                 }
             }
@@ -386,7 +387,7 @@ public class C_Result extends ClientBasePacket {
                     if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) { // 容量重量確認及びメッセージ送信
                         for (int j = 0; j < count; j++) { // オーバーフローをチェック
                             if (sellPrice * j > 2000000000) {
-                                pc.sendPackets(new S_ServerMessage(904, // 总共贩卖价格无法超过 %d金币。
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$904, // 总共贩卖价格无法超过 %d金币。
                                         "2000000000"));
                                 targetPc.setTradingInPrivateShop(false);
                                 return;
@@ -406,7 +407,7 @@ public class C_Result extends ClientBasePacket {
                                         targetPc.getInventory());
                                 String message = item.getItem().getName()
                                         + " (" + String.valueOf(count) + ")";
-                                targetPc.sendPackets(new S_ServerMessage(877, // 将 %1%o 卖给 %0。
+                                targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$877, // 将 %1%o 卖给 %0。
                                         pc.getName(), message));
                                 pssl.setSellCount(count + sellCount);
                                 sellList.set(order, pssl);
@@ -416,11 +417,11 @@ public class C_Result extends ClientBasePacket {
                                 }
                             }
                         } else {
-                            pc.sendPackets(new S_ServerMessage(189)); // \f1金币不足。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189)); // \f1金币不足。
                             break;
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(270)); // \f1当你负担过重时不能交易。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$270)); // \f1当你负担过重时不能交易。
                         break;
                     }
                 }
@@ -471,14 +472,14 @@ public class C_Result extends ClientBasePacket {
                     count = buyTotalCount - buyCount;
                 }
                 if (item.isEquipped()) {
-                    pc.sendPackets(new S_ServerMessage(905)); // 无法贩卖装备中的道具。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$905)); // 无法贩卖装备中的道具。
                     continue;
                 }
 
                 if (targetPc.getInventory().checkAddItem(item, count) == L1Inventory.OK) { // 容量重量確認及びメッセージ送信
                     for (int j = 0; j < count; j++) { // オーバーフローをチェック
                         if (buyPrice * j > 2000000000) {
-                            targetPc.sendPackets(new S_ServerMessage(904, // 总共贩卖价格无法超过 %d金币。
+                            targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$904, // 总共贩卖价格无法超过 %d金币。
                                     "2000000000"));
                             return;
                         }
@@ -499,11 +500,11 @@ public class C_Result extends ClientBasePacket {
                             }
                         }
                     } else {
-                        targetPc.sendPackets(new S_ServerMessage(189)); // \f1金币不足。
+                        targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189)); // \f1金币不足。
                         break;
                     }
                 } else {
-                    pc.sendPackets(new S_ServerMessage(271)); // \f1对方携带的物品过重，无法交易。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$271)); // \f1对方携带的物品过重，无法交易。
                     break;
                 }
             }

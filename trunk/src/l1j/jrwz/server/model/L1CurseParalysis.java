@@ -23,6 +23,7 @@ import static l1j.jrwz.server.model.skill.L1SkillId.STATUS_CURSE_PARALYZING;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.model.Instance.L1MonsterInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Paralysis;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -121,7 +122,7 @@ public class L1CurseParalysis extends L1Paralysis {
     private void curse() {
         if (_target instanceof L1PcInstance) {
             L1PcInstance player = (L1PcInstance) _target;
-            player.sendPackets(new S_ServerMessage(212));
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$212));
         }
 
         _target.setPoisonEffect(2);

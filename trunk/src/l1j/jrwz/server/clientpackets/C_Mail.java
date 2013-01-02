@@ -29,6 +29,7 @@ import l1j.jrwz.server.datatables.MailTable;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Mail;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Mail;
@@ -95,7 +96,7 @@ public class C_Mail extends ClientBasePacket {
                         MailTable.getInstance().writeMail(TYPE_NORMAL_MAIL,
                                 receiverName, pc, text);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(109, receiverName)); // 没有叫%0 的人。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, receiverName)); // 没有叫%0 的人。
                     }
                 } catch (Exception e) {
                     _log.log(Level.SEVERE, e.getLocalizedMessage(), e);

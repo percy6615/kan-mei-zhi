@@ -62,6 +62,7 @@ import l1j.jrwz.server.model.L1War;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.skill.L1SkillUse;
 import l1j.jrwz.server.serverpackets.S_ActiveSpells;
 import l1j.jrwz.server.serverpackets.S_AddSkill;
@@ -263,7 +264,7 @@ public class C_LoginToServer extends ClientBasePacket {
                     L1PcInstance[] clanMembers = clan.getOnlineClanMember();
                     for (L1PcInstance clanMember : clanMembers) {
                         if (clanMember.getId() != pc.getId()) {
-                            clanMember.sendPackets(new S_ServerMessage(843, pc
+                            clanMember.sendPackets(new S_ServerMessage(L1SystemMessageId.$843, pc
                                     .getName())); // 只今、血盟員の%0%sがゲームに接続しました。
                         }
                     }
@@ -297,8 +298,8 @@ public class C_LoginToServer extends ClientBasePacket {
             if (partner != null && partner.getPartnerId() != 0) {
                 if (pc.getPartnerId() == partner.getId()
                         && partner.getPartnerId() == pc.getId()) {
-                    pc.sendPackets(new S_ServerMessage(548)); // 你的情人目前正在线上。
-                    partner.sendPackets(new S_ServerMessage(549)); // 你的情人上线了!!
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$548)); // 你的情人目前正在线上。
+                    partner.sendPackets(new S_ServerMessage(L1SystemMessageId.$549)); // 你的情人上线了!!
                 }
             }
         }

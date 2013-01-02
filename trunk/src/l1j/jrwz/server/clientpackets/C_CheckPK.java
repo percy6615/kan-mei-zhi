@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -41,7 +42,7 @@ public class C_CheckPK extends ClientBasePacket {
         super(abyte0);
 
         L1PcInstance player = clientthread.getActiveChar();
-        player.sendPackets(new S_ServerMessage(562, String.valueOf(player
+        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$562, String.valueOf(player
                 .get_PKcount()))); // 你的PK次數為%0次。
     }
 

@@ -30,6 +30,7 @@ import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1Quest;
 import l1j.jrwz.server.model.L1World;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_FollowerPack;
 import l1j.jrwz.server.serverpackets.S_NPCTalkReturn;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -80,7 +81,7 @@ public class L1FollowerInstance extends L1NpcInstance {
                         .getInventory(pc.getX(), pc.getY(), pc.getMapId())
                         .storeItem(item);
             }
-            pc.sendPackets(new S_ServerMessage(403, item.getLogName()));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item.getLogName()));
         }
     }
 

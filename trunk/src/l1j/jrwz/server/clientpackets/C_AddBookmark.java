@@ -25,6 +25,7 @@ import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1CastleLocation;
 import l1j.jrwz.server.model.L1HouseLocation;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1BookMark;
 
@@ -55,12 +56,12 @@ public class C_AddBookmark extends ClientBasePacket {
                     pc.getMapId()) || L1HouseLocation.isInHouse(pc.getX(),
                     pc.getY(), pc.getMapId()))
                     && !pc.isGm()) {
-                pc.sendPackets(new S_ServerMessage(214)); // \f1这个地点不能够标记。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$214)); // \f1这个地点不能够标记。
             } else {
                 L1BookMark.addBookmark(pc, s);
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(214)); // \f1这个地点不能够标记。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$214)); // \f1这个地点不能够标记。
         }
     }
 

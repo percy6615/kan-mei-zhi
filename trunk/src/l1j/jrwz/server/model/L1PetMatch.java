@@ -29,6 +29,7 @@ import l1j.jrwz.server.datatables.PetTable;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Npc;
 import l1j.jrwz.server.templates.L1Pet;
@@ -282,14 +283,14 @@ public class L1PetMatch {
             return;
         }
         if (isWin) {
-            pc.sendPackets(new S_ServerMessage(1166, pc.getName())); // %0%s 从宠物战获得胜利。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1166, pc.getName())); // %0%s 从宠物战获得胜利。
             L1ItemInstance item = ItemTable.getInstance().createItem(41309);
             int count = 3;
             if (item != null) {
                 if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) {
                     item.setCount(count);
                     pc.getInventory().storeItem(item);
-                    pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // 获得%0%o 。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item.getLogName())); // 获得%0%o 。
                 }
             }
         } else {
@@ -299,7 +300,7 @@ public class L1PetMatch {
                 if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) {
                     item.setCount(count);
                     pc.getInventory().storeItem(item);
-                    pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // 获得%0%o 。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item.getLogName())); // 获得%0%o 。
                 }
             }
         }

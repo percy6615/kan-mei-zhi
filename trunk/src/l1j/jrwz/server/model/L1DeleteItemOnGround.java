@@ -25,6 +25,7 @@ import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.GeneralThreadPool;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.model:
@@ -46,7 +47,7 @@ public class L1DeleteItemOnGround {
                     break;
                 }
                 L1World.getInstance().broadcastPacketToAll(
-                        new S_ServerMessage(166, "地上的物品", "10秒后删除。")); // \f1%0%s %4%1%3 %2.
+                        new S_ServerMessage(L1SystemMessageId.$166, "地上的物品", "10秒后删除。")); // \f1%0%s %4%1%3 %2.
                 try {
                     Thread.sleep(10000);
                 } catch (Exception exception) {
@@ -55,7 +56,7 @@ public class L1DeleteItemOnGround {
                 }
                 deleteItem();
                 L1World.getInstance().broadcastPacketToAll(
-                        new S_ServerMessage(166, "地上的物品", "被删除了。")); // \f1%0%s %4%1%3 %2.
+                        new S_ServerMessage(L1SystemMessageId.$166, "地上的物品", "被删除了。")); // \f1%0%s %4%1%3 %2.
             }
         }
     }

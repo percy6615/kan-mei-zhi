@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Message_YN;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.utils.FaceToFace;
@@ -50,10 +51,10 @@ public class C_Fight extends ClientBasePacket {
         if (target != null) {
             if (!target.isParalyzed()) {
                 if (pc.getFightId() != 0) {
-                    pc.sendPackets(new S_ServerMessage(633)); // \f1你已經與其他人決鬥中。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$633)); // \f1你已經與其他人決鬥中。
                     return;
                 } else if (target.getFightId() != 0) {
-                    target.sendPackets(new S_ServerMessage(634)); // \f11對方已經與其他人決鬥中。
+                    target.sendPackets(new S_ServerMessage(L1SystemMessageId.$634)); // \f11對方已經與其他人決鬥中。
                     return;
                 }
                 pc.setFightId(target.getId());

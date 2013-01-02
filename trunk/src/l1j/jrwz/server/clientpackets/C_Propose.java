@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Message_YN;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.utils.FaceToFace;
@@ -51,15 +52,15 @@ public class C_Propose extends ClientBasePacket {
             L1PcInstance target = FaceToFace.faceToFace(pc);
             if (target != null) {
                 if (pc.getPartnerId() != 0) {
-                    pc.sendPackets(new S_ServerMessage(657)); // \f1你己经结婚。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$657)); // \f1你己经结婚。
                     return;
                 }
                 if (target.getPartnerId() != 0) {
-                    pc.sendPackets(new S_ServerMessage(658)); // \f1你的对象已经结婚了。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$658)); // \f1你的对象已经结婚了。
                     return;
                 }
                 if (pc.get_sex() == target.get_sex()) {
-                    pc.sendPackets(new S_ServerMessage(661)); // \f1结婚对象性别必须和您不同。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$661)); // \f1结婚对象性别必须和您不同。
                     return;
                 }
                 if (pc.getX() >= 33974 && pc.getX() <= 33976
@@ -73,7 +74,7 @@ public class C_Propose extends ClientBasePacket {
             }
         } else if (c == 1) { // /divorce（/離婚）
             if (pc.getPartnerId() == 0) {
-                pc.sendPackets(new S_ServerMessage(662)); // \f1你目前未婚。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$662)); // \f1你目前未婚。
                 return;
             }
             pc.sendPackets(new S_Message_YN(653, "")); // 若你离婚，你的结婚戒指将会消失。你决定要离婚吗？(Y/N)

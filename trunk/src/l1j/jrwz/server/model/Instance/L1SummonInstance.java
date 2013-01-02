@@ -17,6 +17,7 @@ import l1j.jrwz.server.model.L1Attack;
 import l1j.jrwz.server.model.L1Character;
 import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.L1World;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;
 import l1j.jrwz.server.serverpackets.S_HPMeter;
 import l1j.jrwz.server.serverpackets.S_PetMenuPacket;
@@ -188,8 +189,7 @@ public class L1SummonInstance extends L1NpcInstance {
                     _inventory
                             .tradeItem(item, item.getCount(), targetInventory);
                     // \f1%0が%1をくれました。
-                    ((L1PcInstance) _master).sendPackets(new S_ServerMessage(
-                            143, getName(), item.getLogName()));
+                    ((L1PcInstance) _master).sendPackets(new S_ServerMessage(L1SystemMessageId.$143, getName(), item.getLogName()));
                 } else { // 持てないので足元に落とす
                     targetInventory = L1World.getInstance().getInventory(
                             getX(), getY(), getMapId());
@@ -471,8 +471,7 @@ public class L1SummonInstance extends L1NpcInstance {
                     _inventory
                             .tradeItem(item, item.getCount(), targetInventory);
                     // \f1%0が%1をくれました。
-                    ((L1PcInstance) _master).sendPackets(new S_ServerMessage(
-                            143, getName(), item.getLogName()));
+                    ((L1PcInstance) _master).sendPackets(new S_ServerMessage(L1SystemMessageId.$143, getName(), item.getLogName()));
                 } else { // 持てないので足元に落とす
                     targetInventory = L1World.getInstance().getInventory(
                             getX(), getY(), getMapId());

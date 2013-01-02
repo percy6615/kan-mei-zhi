@@ -26,6 +26,7 @@ import l1j.jrwz.server.datatables.ClanTable;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -54,7 +55,7 @@ public class C_CreateClan extends ClientBasePacket {
                 for (L1Clan clan : L1World.getInstance().getAllClans()) { // 检查是否有同名的血盟
                     if (clan.getClanName().toLowerCase()
                             .equals(s.toLowerCase())) {
-                        l1pcinstance.sendPackets(new S_ServerMessage(99)); // \f1那个血盟名称已经存在。
+                        l1pcinstance.sendPackets(new S_ServerMessage(L1SystemMessageId.$99)); // \f1那个血盟名称已经存在。
                         return;
                     }
                 }
@@ -63,13 +64,13 @@ public class C_CreateClan extends ClientBasePacket {
                 if (clan != null) {
                     // l1pcinstance.setClanid(clan.getClanId());
                     // l1pcinstance.setClanname(clan.getClanName());
-                    l1pcinstance.sendPackets(new S_ServerMessage(84, s)); // 创立\f1%0 血盟。
+                    l1pcinstance.sendPackets(new S_ServerMessage(L1SystemMessageId.$84, s)); // 创立\f1%0 血盟。
                 }
             } else {
-                l1pcinstance.sendPackets(new S_ServerMessage(86)); // \f1已经创立血盟。
+                l1pcinstance.sendPackets(new S_ServerMessage(L1SystemMessageId.$86)); // \f1已经创立血盟。
             }
         } else {
-            l1pcinstance.sendPackets(new S_ServerMessage(85)); // \f1王子和公主才可创立血盟。
+            l1pcinstance.sendPackets(new S_ServerMessage(L1SystemMessageId.$85)); // \f1王子和公主才可创立血盟。
         }
     }
 

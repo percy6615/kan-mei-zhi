@@ -40,6 +40,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.skill.L1SkillUse;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;
 import l1j.jrwz.server.serverpackets.S_EffectLocation;
@@ -237,7 +238,7 @@ public class L1WeaponSkill {
                 dmg = 0;
             }
             String msg = weapon.getLogName();
-            pc.sendPackets(new S_ServerMessage(158, msg));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, msg));
             // \f1%0が蒸発してなくなりました。
             pc.getInventory().removeItem(weapon, 1);
         }

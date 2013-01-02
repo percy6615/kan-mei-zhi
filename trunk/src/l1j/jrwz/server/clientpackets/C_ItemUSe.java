@@ -102,6 +102,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1TowerInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.model.item.L1TreasureBox;
 import l1j.jrwz.server.model.poison.L1DamagePoison;
@@ -170,7 +171,7 @@ public class C_ItemUSe extends ClientBasePacket {
         L1ItemInstance l1iteminstance = pc.getInventory().getItem(itemObjid);
 
         if (l1iteminstance.getItem().getUseType() == -1) { // none:不能使用的道具
-            pc.sendPackets(new S_ServerMessage(74, l1iteminstance.getLogName())); // \f1%0は使用できません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$74, l1iteminstance.getLogName())); // \f1%0は使用できません。
             return;
         }
         int pcObjid = pc.getId();
@@ -181,7 +182,7 @@ public class C_ItemUSe extends ClientBasePacket {
             return;
         }
         if (!pc.getMap().isUsableItem()) {
-            pc.sendPackets(new S_ServerMessage(563)); // \f1你无法在这个地方使用。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$563)); // \f1你无法在这个地方使用。
             return;
         }
         int itemId;
@@ -292,7 +293,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         Calendar cal = Calendar.getInstance();
                         if ((cal.getTimeInMillis() - lastUsed.getTime()) / 1000 <= delayEffect) {
                             // \f1何も起きませんでした。
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             return;
                         }
                     }
@@ -306,18 +307,18 @@ public class C_ItemUSe extends ClientBasePacket {
                     || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_WEAPON || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_WEAPON
                     || itemId == 40128) { // 武器強化スクロール
                 if (l1iteminstance1 == null || l1iteminstance1.getItem().getType2() != 1) {
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
                 int safe_enchant = l1iteminstance1.getItem().get_safeenchant();
                 if (safe_enchant < 0) { // 強化不可
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
                 if (l1iteminstance1.getBless() >= 128) { // 封印された装備強化不可
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
@@ -325,14 +326,14 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (quest_weapon >= 246 && quest_weapon <= 249) { // 強化不可
                     if (itemId == L1ItemId.SCROLL_OF_ENCHANT_QUEST_WEAPON) { // 試練のスクロール
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 }
                 if (itemId == L1ItemId.SCROLL_OF_ENCHANT_QUEST_WEAPON) { // 試練のスクロール
                     if (quest_weapon >= 246 && quest_weapon <= 249) { // 強化不可
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 }
@@ -340,14 +341,14 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (weaponId == 36 || weaponId == 183 || weaponId >= 250 && weaponId <= 255) { // イリュージョン武器
                     if (itemId == 40128) { // イリュージョン武器強化スクロール
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 }
                 if (itemId == 40128) { // イリュージョン武器強化スクロール
                     if (weaponId == 36 || weaponId == 183 || weaponId >= 250 && weaponId <= 255) { // イリュージョン武器
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 }
@@ -381,24 +382,24 @@ public class C_ItemUSe extends ClientBasePacket {
                         SuccessEnchant(pc, l1iteminstance1, client, randomEnchantLevel);
                     } else if (enchant_level >= 9 && rnd < (enchant_chance_wepon * 2)) {
                         // \f1%0が%2と強烈に%1光りましたが、幸い無事にすみました。
-                        pc.sendPackets(new S_ServerMessage(160, l1iteminstance1.getLogName(), "$245", "$248"));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$160, l1iteminstance1.getLogName(), "$245", "$248"));
                     } else {
                         FailureEnchant(pc, l1iteminstance1, client);
                     }
                 }
             } else if (itemId == 41429 || itemId == 41430 || itemId == 41431 || itemId == 41432) { // 風の武器強化スクロール～火の武器強化スクロール
                 if (l1iteminstance1 == null || l1iteminstance1.getItem().getType2() != 1) {
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
                 int safeEnchant = l1iteminstance1.getItem().get_safeenchant();
                 if (safeEnchant < 0) { // 強化不可
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
                 if (l1iteminstance1.getBless() >= 128) { // 封印された装備強化不可
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
@@ -412,13 +413,13 @@ public class C_ItemUSe extends ClientBasePacket {
                     isSameAttr = true;
                 }
                 if (isSameAttr && oldAttrEnchantLevel >= 3) {
-                    pc.sendPackets(new S_ServerMessage(1453)); // これ以上は強化できません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1453)); // これ以上は強化できません。
                     return;
                 }
 
                 int rnd = _random.nextInt(100) + 1;
                 if (Config.ATTR_ENCHANT_CHANCE >= rnd) {
-                    pc.sendPackets(new S_ServerMessage(161, l1iteminstance1.getLogName(), "$245", "$247")); // \f1%0が%2%1光ります。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$161, l1iteminstance1.getLogName(), "$245", "$247")); // \f1%0が%2%1光ります。
                     int newAttrEnchantKind = 0;
                     int newAttrEnchantLevel = 0;
                     if (isSameAttr) { // 同じ属性なら+1
@@ -442,25 +443,25 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().updateItem(l1iteminstance1, L1PcInventory.COL_ATTR_ENCHANT_LEVEL);
                     pc.getInventory().saveItem(l1iteminstance1, L1PcInventory.COL_ATTR_ENCHANT_LEVEL);
                 } else {
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                 }
                 pc.getInventory().removeItem(l1iteminstance, 1);
             } else if (itemId == 40078 || itemId == L1ItemId.SCROLL_OF_ENCHANT_ARMOR || itemId == 40129
                     || itemId == 140129 || itemId == L1ItemId.B_SCROLL_OF_ENCHANT_ARMOR
                     || itemId == L1ItemId.C_SCROLL_OF_ENCHANT_ARMOR || itemId == 40127) { // 防具強化スクロール
                 if (l1iteminstance1 == null || l1iteminstance1.getItem().getType2() != 2) {
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
                 int safe_enchant = ((L1Armor) l1iteminstance1.getItem()).get_safeenchant();
                 if (safe_enchant < 0) { // 強化不可
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
                 if (l1iteminstance1.getBless() >= 128) { // 封印された装備強化不可
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     return;
                 }
 
@@ -468,14 +469,14 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (armorId == 20161 || armorId >= 21035 && armorId <= 21038) { // イリュージョン防具
                     if (itemId == 40127) { // イリュージョン防具強化スクロール
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 }
                 if (itemId == 40127) { // イリュージョン防具強化スクロール
                     if (armorId == 20161 || armorId >= 21035 && armorId <= 21038) { // イリュージョン防具
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 }
@@ -523,7 +524,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         msg = (new StringBuilder()).append(pm + enchant_level).append(" ").append(item_name_id)
                                 .toString();
                         // \f1%0が%2と強烈に%1光りましたが、幸い無事にすみました。
-                        pc.sendPackets(new S_ServerMessage(160, msg, "$252", "$248"));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$160, msg, "$252", "$248"));
                     } else {
                         FailureEnchant(pc, l1iteminstance1, client);
                     }
@@ -532,26 +533,26 @@ public class C_ItemUSe extends ClientBasePacket {
                 int item_minlvl = ((L1EtcItem) l1iteminstance.getItem()).getMinLevel();
                 int item_maxlvl = ((L1EtcItem) l1iteminstance.getItem()).getMaxLevel();
                 if (item_minlvl != 0 && item_minlvl > pc.getLevel() && !pc.isGm()) {
-                    pc.sendPackets(new S_ServerMessage(318, String.valueOf(item_minlvl))); // このアイテムは%0レベル以上にならなければ使用できません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$318, String.valueOf(item_minlvl))); // このアイテムは%0レベル以上にならなければ使用できません。
                     return;
                 } else if (item_maxlvl != 0 && item_maxlvl < pc.getLevel() && !pc.isGm()) {
-                    pc.sendPackets(new S_ServerMessage(673, String.valueOf(item_maxlvl))); // このアイテムは%dレベル以上のみ使用できます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$673, String.valueOf(item_maxlvl))); // このアイテムは%dレベル以上のみ使用できます。
                     return;
                 }
 
                 if ((itemId == 40576 && !pc.isElf()) // 魂の結晶の破片（白）
                         || (itemId == 40577 && !pc.isWizard()) // 魂の結晶の破片（黒）
                         || (itemId == 40578 && !pc.isKnight())) { // 魂の結晶の破片（赤）
-                    pc.sendPackets(new S_ServerMessage(264)); // \f1あなたのクラスではこのアイテムは使用できません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$264)); // \f1あなたのクラスではこのアイテムは使用できません。
                     return;
                 }
 
                 if (l1iteminstance.getItem().getType() == 0) { // アロー
                     pc.getInventory().setArrow(l1iteminstance.getItem().getItemId());
-                    pc.sendPackets(new S_ServerMessage(452, l1iteminstance.getLogName())); // %0が選択されました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$452, l1iteminstance.getLogName())); // %0が選択されました。
                 } else if (l1iteminstance.getItem().getType() == 15) { // スティング
                     pc.getInventory().setSting(l1iteminstance.getItem().getItemId());
-                    pc.sendPackets(new S_ServerMessage(452, // %0が選択されました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$452, // %0が選択されました。
                             l1iteminstance.getLogName()));
                 } else if (l1iteminstance.getItem().getType() == 16) { // treasure_box
                     L1TreasureBox box = L1TreasureBox.get(itemId);
@@ -583,7 +584,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if (lightItem.getItem().getItemId() == 40002) {
                             lightItem.setRemainingTime(l1iteminstance.getItem().getLightFuel());
                             pc.sendPackets(new S_ItemName(lightItem));
-                            pc.sendPackets(new S_ServerMessage(230)); // ランタンにオイルを注ぎました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$230)); // ランタンにオイルを注ぎました。
                             break;
                         }
                     }
@@ -596,7 +597,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.broadcastPacket(new S_SkillSound(pcObjid, 191));
                     pc.sendPackets(new S_OwnCharStatus(pc));
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                    pc.sendPackets(new S_ServerMessage(822)); // 独自アイテムですので、メッセージは適当です。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$822)); // 独自アイテムですので、メッセージは適当です。
                     pc.save(); // DBにキャラクター情報を書き込む
                 } else if (itemId == 40033) { // エリクサー:腕力
                     if (pc.getBaseStr() < 35 && pc.getElixirStats() < 5) {
@@ -607,7 +608,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.save();
                         ; // DBにキャラクター情報を書き込む
                     } else {
-                        pc.sendPackets(new S_ServerMessage(481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
                     }
                 } else if (itemId == 40034) { // エリクサー:体力
                     if (pc.getBaseCon() < 35 && pc.getElixirStats() < 5) {
@@ -618,7 +619,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.save();
                         ; // DBにキャラクター情報を書き込む
                     } else {
-                        pc.sendPackets(new S_ServerMessage(481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
                     }
                 } else if (itemId == 40035) { // エリクサー:機敏
                     if (pc.getBaseDex() < 35 && pc.getElixirStats() < 5) {
@@ -630,7 +631,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.save();
                         ; // DBにキャラクター情報を書き込む
                     } else {
-                        pc.sendPackets(new S_ServerMessage(481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
                     }
                 } else if (itemId == 40036) { // エリクサー:知力
                     if (pc.getBaseInt() < 35 && pc.getElixirStats() < 5) {
@@ -641,7 +642,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.save();
                         ; // DBにキャラクター情報を書き込む
                     } else {
-                        pc.sendPackets(new S_ServerMessage(481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
                     }
                 } else if (itemId == 40037) { // エリクサー:精神
                     if (pc.getBaseWis() < 35 && pc.getElixirStats() < 5) {
@@ -653,7 +654,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.save();
                         ; // DBにキャラクター情報を書き込む
                     } else {
-                        pc.sendPackets(new S_ServerMessage(481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
                     }
                 } else if (itemId == 40038) { // エリクサー:魅力
                     if (pc.getBaseCha() < 35 && pc.getElixirStats() < 5) {
@@ -664,7 +665,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.save();
                         ; // DBにキャラクター情報を書き込む
                     } else {
-                        pc.sendPackets(new S_ServerMessage(481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$481)); // \f1一つの能力値の最大値は25です。他の能力値を選択してください。
                     }
                 }
                 // レッドポーション、濃縮体力回復剤、象牙の塔の体力回復剤
@@ -739,7 +740,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == L1ItemId.POTION_OF_CURE_POISON || itemId == 40507) { // シアンポーション、エントの枝
                     if (pc.hasSkillEffect(71) == true) { // ディケイポーションの状態
-                        pc.sendPackets(new S_ServerMessage(698)); // 魔力によって何も飲むことができません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // 魔力によって何も飲むことができません。
                     } else {
                         cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                         pc.sendPackets(new S_SkillSound(pc.getId(), 192));
@@ -775,14 +776,14 @@ public class C_ItemUSe extends ClientBasePacket {
                     if (pc.isKnight()) {
                         useBravePotion(pc, itemId);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 49158) { // ユグドラの実
                     if (pc.isDragonKnight() || pc.isIllusionist()) {
                         useBravePotion(pc, itemId);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40068 // エルヴン ワッフル
@@ -790,41 +791,41 @@ public class C_ItemUSe extends ClientBasePacket {
                     if (pc.isElf()) {
                         useBravePotion(pc, itemId);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40031) { // イビル ブラッド
                     if (pc.isCrown()) {
                         useBravePotion(pc, itemId);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40733) { // 名誉のコイン
                     useBravePotion(pc, itemId);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40066 || itemId == 41413) { // お餅、月餅
-                    pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$338, "$1084")); // あなたの%0が回復していきます。
                     pc.setCurrentMp(pc.getCurrentMp() + (7 + _random.nextInt(6))); // 7~12
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40067 || itemId == 41414) { // よもぎ餅、福餅
-                    pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$338, "$1084")); // あなたの%0が回復していきます。
                     pc.setCurrentMp(pc.getCurrentMp() + (15 + _random.nextInt(16))); // 15~30
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40735) { // 勇気のコイン
-                    pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$338, "$1084")); // あなたの%0が回復していきます。
                     pc.setCurrentMp(pc.getCurrentMp() + 60);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40042) { // スピリットポーション
-                    pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$338, "$1084")); // あなたの%0が回復していきます。
                     pc.setCurrentMp(pc.getCurrentMp() + 50);
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41404) { // クジャクの霊薬
-                    pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$338, "$1084")); // あなたの%0が回復していきます。
                     pc.setCurrentMp(pc.getCurrentMp() + (80 + _random.nextInt(21))); // 80~100
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41412) { // 金のチョンズ
-                    pc.sendPackets(new S_ServerMessage(338, "$1084")); // あなたの%0が回復していきます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$338, "$1084")); // あなたの%0が回復していきます。
                     pc.setCurrentMp(pc.getCurrentMp() + (5 + _random.nextInt(16))); // 5~20
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40032 || itemId == 40041 || itemId == 41344) { // エヴァの祝福、マーメイドの鱗、水の精粋
@@ -843,7 +844,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     if (pc.isWizard()) {
                         useWisdomPotion(pc, itemId);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == L1ItemId.POTION_OF_BLINDNESS) { // オペイクポーション
@@ -855,7 +856,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     if (usePolyScroll(pc, itemId, s)) {
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(181)); // \f1そのようなモンスターには変身できません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$181)); // \f1そのようなモンスターには変身できません。
                     }
                 } else if (itemId == 41154 // 闇の鱗
                         || itemId == 41155 // 烈火の鱗
@@ -883,12 +884,12 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().recoveryDamage(l1iteminstance1);
                         msg0 = l1iteminstance1.getLogName();
                         if (l1iteminstance1.get_durability() == 0) {
-                            pc.sendPackets(new S_ServerMessage(464, msg0)); // %0%sは新品同様の状態になりました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$464, msg0)); // %0%sは新品同様の状態になりました。
                         } else {
-                            pc.sendPackets(new S_ServerMessage(463, msg0)); // %0の状態が良くなりました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$463, msg0)); // %0の状態が良くなりました。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 40097 || itemId == 40119 || itemId == 140119 || itemId == 140329) { // 解呪スクロール、原住民のトーテム
@@ -915,7 +916,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         }
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
-                    pc.sendPackets(new S_ServerMessage(155)); // \f1誰かが助けてくれたようです。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$155)); // \f1誰かが助けてくれたようです。
                 } else if (itemId == 40126 || itemId == 40098) { // 確認スクロール
                     if (!l1iteminstance1.isIdentified()) {
                         l1iteminstance1.setIdentified(true);
@@ -929,12 +930,12 @@ public class C_ItemUSe extends ClientBasePacket {
                         if ((_random.nextInt(99) + 1) <= Config.CREATE_CHANCE_DIARY) {
                             createNewItem(pc, diaryId + 10, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId >= 41048 && 41055 >= itemId) {
                     // 糊付けされた航海日誌ページ：１～８ページ
@@ -944,7 +945,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 41056 || itemId == 41057) {
                     // 糊付けされた航海日誌ページ：９，１０ページ
@@ -954,7 +955,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40925) { // 浄化のポーション
                     int earingId = l1iteminstance1.getItem().getItemId();
@@ -962,12 +963,12 @@ public class C_ItemUSe extends ClientBasePacket {
                         if (_random.nextInt(100) < Config.CREATE_CHANCE_RECOLLECTION) {
                             createNewItem(pc, earingId + 186, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId >= 40926 && 40929 >= itemId) {
                     // ミステリアスポーション（１～４段階）
@@ -995,15 +996,15 @@ public class C_ItemUSe extends ClientBasePacket {
                                 pc.getInventory().removeItem(l1iteminstance1, 1);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(160, l1iteminstance1.getName()));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$160, l1iteminstance1.getName()));
                                 // \f1%0が%2強烈に%1光りましたが、幸い無事にすみました。
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId >= 40931 && 40942 >= itemId) {
                     // 加工された宝石類（サファイア・ルビー・エメラルド）
@@ -1040,16 +1041,16 @@ public class C_ItemUSe extends ClientBasePacket {
                                 }
                                 createNewItem(pc, earinglevel, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName()));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, l1iteminstance1.getName()));
                                 // \f1%0が蒸発してなくなりました。
                             }
                             pc.getInventory().removeItem(l1iteminstance1, 1);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId >= 40943 && 40958 >= itemId) {
                     // 加工されたダイアモンド（ウォータ・アース・ファイアー・ウインド）
@@ -1116,10 +1117,10 @@ public class C_ItemUSe extends ClientBasePacket {
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 41029) { // 召喚球の欠片
                     int dantesId = l1iteminstance1.getItem().getItemId();
@@ -1127,12 +1128,12 @@ public class C_ItemUSe extends ClientBasePacket {
                         if ((_random.nextInt(99) + 1) < Config.CREATE_CHANCE_DANTES) {
                             createNewItem(pc, dantesId + 1, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40964) { // ダークマジックパウダー
                     int historybookId = l1iteminstance1.getItem().getItemId();
@@ -1140,12 +1141,12 @@ public class C_ItemUSe extends ClientBasePacket {
                         if ((_random.nextInt(99) + 1) <= Config.CREATE_CHANCE_HISTORY_BOOK) {
                             createNewItem(pc, historybookId + 8, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, l1iteminstance1.getName())); // \f1%0が蒸発してなくなりました。
                         }
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40090 || itemId == 40091 || itemId == 40092 || itemId == 40093 || itemId == 40094) { // ブランク
                                                                                                                           // スクロール(Lv1)～ブランク
@@ -1166,17 +1167,17 @@ public class C_ItemUSe extends ClientBasePacket {
                                 if (pc.getInventory().checkAddItem(spellsc, 1) == L1Inventory.OK) {
                                     L1Skills l1skills = SkillsTable.getInstance().getTemplate(blanksc_skillid + 1); // blanksc_skillidは0始まり
                                     if (pc.getCurrentHp() + 1 < l1skills.getHpConsume() + 1) {
-                                        pc.sendPackets(new S_ServerMessage(279)); // \f1HPが不足していて魔法を使うことができません。
+                                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$279)); // \f1HPが不足していて魔法を使うことができません。
                                         return;
                                     }
                                     if (pc.getCurrentMp() < l1skills.getMpConsume()) {
-                                        pc.sendPackets(new S_ServerMessage(278)); // \f1MPが不足していて魔法を使うことができません。
+                                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$278)); // \f1MPが不足していて魔法を使うことができません。
                                         return;
                                     }
                                     if (l1skills.getItemConsumeId() != 0) { // 材料が必要
                                         if (!pc.getInventory().checkItem(l1skills.getItemConsumeId(),
                                                 l1skills.getItemConsumeCount())) { // 必要材料をチェック
-                                            pc.sendPackets(new S_ServerMessage(299)); // \f1魔法を詠唱するための材料が足りません。
+                                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$299)); // \f1魔法を詠唱するための材料が足りません。
                                             return;
                                         }
                                     }
@@ -1199,17 +1200,17 @@ public class C_ItemUSe extends ClientBasePacket {
                                 }
                             }
                         } else {
-                            pc.sendPackets(new S_ServerMessage(591)); // \f1スクロールがそんな強い魔法を記録するにはあまりに弱いです。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$591)); // \f1スクロールがそんな強い魔法を記録するにはあまりに弱いです。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(264)); // \f1あなたのクラスではこのアイテムは使用できません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$264)); // \f1あなたのクラスではこのアイテムは使用できません。
                     }
 
                     // スペルスクロール
                 } else if ((itemId >= 40859 && itemId <= 40898) && itemId != 40863 || itemId >= 49281
                         && itemId <= 49286) { // 40863はテレポートスクロールとして処理される
                     if (spellsc_objid == pc.getId() && l1iteminstance.getItem().getUseType() != 30) { // spell_buff
-                        pc.sendPackets(new S_ServerMessage(281)); // \f1魔法が無効になりました。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$281)); // \f1魔法が無効になりました。
                         return;
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
@@ -1264,7 +1265,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.getInventory().consumeItem(41160, 1);
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40315) { // ペットの笛
                     pc.sendPackets(new S_Sound(437));
@@ -1296,7 +1297,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.broadcastPacket(new S_SkillSound(pc.getId(), gfxid));
                         pc.getInventory().consumeItem(40318, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40326) { // 3方向ルーレット
                     if (pc.getInventory().checkItem(40318, 1)) {
@@ -1305,7 +1306,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.broadcastPacket(new S_SkillSound(pc.getId(), gfxid));
                         pc.getInventory().consumeItem(40318, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40327) { // 4方向ルーレット
                     if (pc.getInventory().checkItem(40318, 1)) {
@@ -1314,7 +1315,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.broadcastPacket(new S_SkillSound(pc.getId(), gfxid));
                         pc.getInventory().consumeItem(40318, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40328) { // 6面ダイス
                     if (pc.getInventory().checkItem(40318, 1)) {
@@ -1324,7 +1325,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().consumeItem(40318, 1);
                     } else {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40089 || itemId == 140089) { // 復活スクロール、祝福された復活スクロール
                     L1Character resobject = (L1Character) L1World.getInstance().findObject(resid);
@@ -1338,7 +1339,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(target, 0)) {
                                     if (!visiblePc.isDead()) {
                                         // \f1その場所に他の人が立っているので復活させることができません。
-                                        pc.sendPackets(new S_ServerMessage(592));
+                                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$592));
                                         return;
                                     }
                                 }
@@ -1369,7 +1370,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                     for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(npc, 0)) {
                                         if (!visiblePc.isDead()) {
                                             // \f1その場所に他の人が立っているので復活させることができません。
-                                            pc.sendPackets(new S_ServerMessage(592));
+                                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$592));
                                             return;
                                         }
                                     }
@@ -1399,10 +1400,10 @@ public class C_ItemUSe extends ClientBasePacket {
                         } else if (itemId == 40229 && pc.getLevel() >= 55) {
                             SpellBook4(pc, l1iteminstance, client);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(312)); // LVが低くて
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312)); // LVが低くて
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId >= 40232 && itemId <= 40264 // 精霊の水晶
                         || itemId >= 41149 && itemId <= 41153) {
@@ -1416,10 +1417,10 @@ public class C_ItemUSe extends ClientBasePacket {
                         } else if (itemId >= 40275 && itemId <= 40279 && pc.getLevel() >= 45) {
                             SpellBook1(pc, l1iteminstance, client);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(312));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312));
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // (原文:闇精霊の水晶はダークエルフのみが習得できます。)
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // (原文:闇精霊の水晶はダークエルフのみが習得できます。)
                     }
                 } else if (itemId >= 40164 && itemId <= 40166 // 技術書
                         || itemId >= 41147 && itemId <= 41148) {
@@ -1433,10 +1434,10 @@ public class C_ItemUSe extends ClientBasePacket {
                         } else if (itemId == 40166 && pc.getLevel() >= 60) { // バウンスアタック
                             SpellBook3(pc, l1iteminstance, client);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(312));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312));
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId >= 49102 && itemId <= 49116) { // ドラゴンナイトの書板
                     if (pc.isDragonKnight() || pc.isGm()) {
@@ -1450,10 +1451,10 @@ public class C_ItemUSe extends ClientBasePacket {
                                 && pc.getLevel() >= 45) {
                             SpellBook5(pc, l1iteminstance, client);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(312));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312));
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId >= 49117 && itemId <= 49136) { // 記憶の水晶
                     if (pc.isIllusionist() || pc.isGm()) {
@@ -1470,10 +1471,10 @@ public class C_ItemUSe extends ClientBasePacket {
                                 && pc.getLevel() >= 40) {
                             SpellBook6(pc, l1iteminstance, client);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(312));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312));
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40079 || itemId == 40095) { // 帰還スクロール
                     if (pc.getMap().isEscapable() || pc.isGm()) {
@@ -1481,7 +1482,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         L1Teleport.teleport(pc, loc[0], loc[1], loc[2], 5, true);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(647));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                         // pc.sendPackets(new
                         // S_CharVisualUpdate(pc));
                     }
@@ -1507,7 +1508,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(647));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                             }
                         } else if (house_id != 0) { // アジト所有クラン員
                             if (pc.getMap().isEscapable() || pc.isGm()) {
@@ -1519,7 +1520,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 L1Teleport.teleport(pc, locx, locy, mapid, 5, true);
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(647));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                             }
                         } else {
                             if (pc.getHomeTownId() > 0) {
@@ -1536,7 +1537,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             }
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(647));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                     }
                     cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                 } else if (itemId == 140100 || itemId == 40100 || itemId == 40099 // 祝福されたテレポートスクロール、テレポートスクロール
@@ -1561,7 +1562,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
                             L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         }
                     } else {
                         if (pc.getMap().isTeleportable() || pc.isGm()) {
@@ -1583,7 +1584,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
                             L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
-                            pc.sendPackets(new S_ServerMessage(276));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$276));
                         }
                     }
                     cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
@@ -1601,7 +1602,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             partner_stat = true;
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(662)); // \f1あなたは結婚していません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$662)); // \f1あなたは結婚していません。
                         return;
                     }
 
@@ -1613,10 +1614,10 @@ public class C_ItemUSe extends ClientBasePacket {
                                 && castle_area == false) {
                             L1Teleport.teleport(pc, partner.getX(), partner.getY(), partner.getMapId(), 5, true);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(547)); // \f1あなたのパートナーは今あなたが行けない所でプレイ中です。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$547)); // \f1あなたのパートナーは今あなたが行けない所でプレイ中です。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(546)); // \f1あなたのパートナーは今プレイをしていません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$546)); // \f1あなたのパートナーは今プレイをしていません。
                     }
                 } else if (itemId == 40555) { // 秘密の部屋のキー
                     if (pc.isKnight() && (pc.getX() >= 32806 && // オリム部屋
@@ -1624,7 +1625,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         int mapid = 13;
                         L1Teleport.teleport(pc, 32815, 32810, mapid, 5, false);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40417) { // ソウルクリスタル
                     if ((pc.getX() >= 32665 && // 海賊島
@@ -1633,7 +1634,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         int mapid = 430;
                         L1Teleport.teleport(pc, 32922, 32812, mapid, 5, true);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40566) { // ミステリアス シェル
                     if (pc.isElf()
@@ -1653,12 +1654,12 @@ public class C_ItemUSe extends ClientBasePacket {
                             }
                         }
                         if (found) {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         } else {
                             L1SpawnUtil.spawn(pc, 45300, 0, 0); // 古代人の亡霊
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40557) { // 暗殺リスト(グルーディン)
                     if (pc.getX() == 32620 && pc.getY() == 32641 && pc.getMapId() == 4) {
@@ -1666,14 +1667,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45883) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45883, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40563) { // 暗殺リスト(火田村)
                     if (pc.getX() == 32730 && pc.getY() == 32426 && pc.getMapId() == 4) {
@@ -1681,14 +1682,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45884) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45884, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40561) { // 暗殺リスト(ケント)
                     if (pc.getX() == 33046 && pc.getY() == 32806 && pc.getMapId() == 4) {
@@ -1696,14 +1697,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45885) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45885, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40560) { // 暗殺リスト(ウッドベック)
                     if (pc.getX() == 32580 && pc.getY() == 33260 && pc.getMapId() == 4) {
@@ -1711,14 +1712,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45886) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45886, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40562) { // 暗殺リスト(ハイネ)
                     if (pc.getX() == 33447 && pc.getY() == 33476 && pc.getMapId() == 4) {
@@ -1726,14 +1727,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45887) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45887, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40559) { // 暗殺リスト(アデン)
                     if (pc.getX() == 34215 && pc.getY() == 33195 && pc.getMapId() == 4) {
@@ -1741,14 +1742,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45888) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45888, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40558) { // 暗殺リスト(ギラン)
                     if (pc.getX() == 33513 && pc.getY() == 32890 && pc.getMapId() == 4) {
@@ -1756,14 +1757,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             if (object instanceof L1NpcInstance) {
                                 L1NpcInstance npc = (L1NpcInstance) object;
                                 if (npc.getNpcTemplate().get_npcId() == 45889) {
-                                    pc.sendPackets(new S_ServerMessage(79));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                     return;
                                 }
                             }
                         }
                         L1SpawnUtil.spawn(pc, 45889, 0, 300000);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 40572) { // アサシンの印
                     if (pc.getX() == 32778 && pc.getY() == 32738 && pc.getMapId() == 21) {
@@ -1771,7 +1772,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     } else if (pc.getX() == 32781 && pc.getY() == 32728 && pc.getMapId() == 21) {
                         L1Teleport.teleport(pc, 32778, 32738, 21, 5, true);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40006 || itemId == 40412 || itemId == 140006) { // パインワンド
                     if (pc.getMap().isUsePainwand()) {
@@ -1781,7 +1782,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         int chargeCount = l1iteminstance.getChargeCount();
                         if (chargeCount <= 0 && itemId != 40412) {
                             // \f1何も起きませんでした。
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             return;
                         }
                         int[] mobArray = { 45008, 45140, 45016, 45021, 45025, 45033, 45099, 45147, 45123, 45130, 45046,
@@ -1812,14 +1813,14 @@ public class C_ItemUSe extends ClientBasePacket {
                         }
                     } else {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40007) { // エボニー ワンド
                     cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                     int chargeCount = l1iteminstance.getChargeCount();
                     if (chargeCount <= 0) {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         return;
                     }
                     L1Object target = L1World.getInstance().findObject(spellsc_objid);
@@ -1835,7 +1836,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 40008 || itemId == 40410 || itemId == 140008) { // メイプルワンド
                     if (pc.getMapId() == 63 || pc.getMapId() == 552 || pc.getMapId() == 555 || pc.getMapId() == 557
                             || pc.getMapId() == 558 || pc.getMapId() == 779) { // 水中では使用不可
-                        pc.sendPackets(new S_ServerMessage(563)); // \f1ここでは使えません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$563)); // \f1ここでは使えません。
                     } else {
                         pc.sendPackets(new S_AttackPacket(pc, 0, ActionCodes.ACTION_Wand));
                         pc.broadcastPacket(new S_AttackPacket(pc, 0, ActionCodes.ACTION_Wand));
@@ -1843,7 +1844,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if (chargeCount <= 0 && itemId != 40410 || pc.getTempCharGfx() == 6034
                                 || pc.getTempCharGfx() == 6035) {
                             // \f1何も起きませんでした。
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             return;
                         }
                         L1Object target = L1World.getInstance().findObject(spellsc_objid);
@@ -1858,7 +1859,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 pc.getInventory().removeItem(l1iteminstance, 1);
                             }
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         }
                     }
                     // if (pc.getId() == target.getId()) { // ターゲットが自分
@@ -1879,7 +1880,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                     L1ItemInstance item = pc.getInventory().storeItem(itemId + 9, 1);
                     if (item != null) {
-                        pc.sendPackets(new S_ServerMessage(403, item.getLogName()));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item.getLogName()));
                     }
                     // 肉類
                 } else if (itemId == 40056 || itemId == 40057 || itemId == 40059 || itemId == 40060 || itemId == 40061
@@ -1911,9 +1912,9 @@ public class C_ItemUSe extends ClientBasePacket {
                     if (itemId == 40057) { // フローティングアイ肉
                         pc.setSkillEffect(STATUS_FLOATING_EYE, 0);
                     }
-                    pc.sendPackets(new S_ServerMessage(76, l1iteminstance.getItem().getIdentifiedNameId()));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$76, l1iteminstance.getItem().getIdentifiedNameId()));
                 } else if (itemId == 40070) { // 進化の実
-                    pc.sendPackets(new S_ServerMessage(76, l1iteminstance.getLogName()));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$76, l1iteminstance.getLogName()));
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41298) { // ヤングフィッシュ
                     UseHeallingPotion(pc, 4, 189);
@@ -2068,7 +2069,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40616 || itemId == 40782 || itemId == 40783) { // 影の神殿3階の鍵
                     if ((pc.getX() >= 32698 && pc.getX() <= 32702) && (pc.getY() >= 32894 && pc.getY() <= 32898)
@@ -2078,12 +2079,12 @@ public class C_ItemUSe extends ClientBasePacket {
                                 ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40692) { // 完成された宝の地図
                     if (pc.getInventory().checkItem(40621)) {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     } else if ((pc.getX() >= 32856 && pc.getX() <= 32858) && (pc.getY() >= 32857 && pc.getY() <= 32858)
                             && pc.getMapId() == 443) { // 海賊島のダンジョン３階
                         L1Teleport.teleport(pc, ((L1EtcItem) l1iteminstance.getItem()).get_locx(),
@@ -2091,7 +2092,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 41146) { // ドロモンドの招待状
                     pc.sendPackets(new S_NPCTalkReturn(pc.getId(), "ei001"));
@@ -2269,7 +2270,7 @@ public class C_ItemUSe extends ClientBasePacket {
                                 ((L1EtcItem) l1iteminstance.getItem()).get_mapid(), 5, true);
                     } else {
                         // \f1何も起きませんでした。
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40700) { // シルバーフルート
                     pc.sendPackets(new S_Sound(10));
@@ -2296,20 +2297,20 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId == 41121) { // カヘルの契約書
                     if (pc.getQuest().get_step(L1Quest.QUEST_SHADOWS) == L1Quest.QUEST_END
                             || pc.getInventory().checkItem(41122, 1)) {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     } else {
                         createNewItem(pc, 41122, 1);
                     }
                 } else if (itemId == 41130) { // 血痕の契約書
                     if (pc.getQuest().get_step(L1Quest.QUEST_DESIRE) == L1Quest.QUEST_END
                             || pc.getInventory().checkItem(41131, 1)) {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     } else {
                         createNewItem(pc, 41131, 1);
                     }
                 } else if (itemId == 42501) { // ストームウォーク
                     if (pc.getCurrentMp() < 10) {
-                        pc.sendPackets(new S_ServerMessage(278)); // \f1MPが不足していて魔法を使うことができません。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$278)); // \f1MPが不足していて魔法を使うことができません。
                         return;
                     }
                     pc.setCurrentMp(pc.getCurrentMp() - 10);
@@ -2334,7 +2335,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         if (object instanceof L1EffectInstance) {
                             if (((L1NpcInstance) object).getNpcTemplate().get_npcId() == 81170) {
                                 // すでに周囲に焚き火があります。
-                                pc.sendPackets(new S_ServerMessage(1162));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1162));
                                 return;
                             }
                         }
@@ -2358,7 +2359,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41315) { // 聖水
                     if (pc.hasSkillEffect(STATUS_HOLY_WATER_OF_EVA)) {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                     if (pc.hasSkillEffect(STATUS_HOLY_MITHRIL_POWDER)) {
@@ -2367,11 +2368,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.setSkillEffect(STATUS_HOLY_WATER, 900 * 1000);
                     pc.sendPackets(new S_SkillSound(pc.getId(), 190));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 190));
-                    pc.sendPackets(new S_ServerMessage(1141));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1141));
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41316) { // 神聖なミスリル パウダー
                     if (pc.hasSkillEffect(STATUS_HOLY_WATER_OF_EVA)) {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                     if (pc.hasSkillEffect(STATUS_HOLY_WATER)) {
@@ -2380,17 +2381,17 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.setSkillEffect(STATUS_HOLY_MITHRIL_POWDER, 900 * 1000);
                     pc.sendPackets(new S_SkillSound(pc.getId(), 190));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 190));
-                    pc.sendPackets(new S_ServerMessage(1142));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1142));
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 41354) { // 神聖なエヴァの水
                     if (pc.hasSkillEffect(STATUS_HOLY_WATER) || pc.hasSkillEffect(STATUS_HOLY_MITHRIL_POWDER)) {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                     pc.setSkillEffect(STATUS_HOLY_WATER_OF_EVA, 900 * 1000);
                     pc.sendPackets(new S_SkillSound(pc.getId(), 190));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 190));
-                    pc.sendPackets(new S_ServerMessage(1140));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1140));
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 49092) { // 歪みのコア
                     int targetItemId = l1iteminstance1.getItem().getItemId();
@@ -2399,7 +2400,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().consumeItem(targetItemId, 1);
                         pc.getInventory().consumeItem(49092, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         return;
                     }
                 } else if (itemId == 49093) { // 下級オシリスの宝箱の欠片：上
@@ -2408,7 +2409,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().consumeItem(49094, 1);
                         createNewItem(pc, 49095, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 49094) { // 下級オシリスの宝箱の欠片：下
                     if (pc.getInventory().checkItem(49093, 1)) {
@@ -2416,7 +2417,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().consumeItem(49094, 1);
                         createNewItem(pc, 49095, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 49097) { // 上級オシリスの宝箱の欠片：上
                     if (pc.getInventory().checkItem(49098, 1)) {
@@ -2424,7 +2425,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().consumeItem(49098, 1);
                         createNewItem(pc, 49099, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 49098) { // 上級オシリスの宝箱の欠片：下
                     if (pc.getInventory().checkItem(49097, 1)) {
@@ -2432,7 +2433,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         pc.getInventory().consumeItem(49098, 1);
                         createNewItem(pc, 49099, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 41426) { // 封印スクロール
                     L1ItemInstance lockItem = pc.getInventory().getItem(l);
@@ -2462,10 +2463,10 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.getInventory().saveItem(lockItem, L1PcInventory.COL_BLESS);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 41427) { // 封印解除スクロール
                     L1ItemInstance lockItem = pc.getInventory().getItem(l);
@@ -2495,22 +2496,22 @@ public class C_ItemUSe extends ClientBasePacket {
                             pc.getInventory().saveItem(lockItem, L1PcInventory.COL_BLESS);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         }
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                     }
                 } else if (itemId == 41428) { // 太古の玉爾
                     if (pc != null && l1iteminstance != null) {
                         Account account = Account.load(pc.getAccountName());
                         if (account == null) {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                             return;
                         }
                         int characterSlot = account.getCharacterSlot();
                         int maxAmount = Config.DEFAULT_CHARACTER_SLOT + characterSlot;
                         if (maxAmount >= 8) {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                             return;
                         }
                         if (characterSlot < 0) {
@@ -2522,41 +2523,41 @@ public class C_ItemUSe extends ClientBasePacket {
                         Account.updateCharacterSlot(account);
                         pc.getInventory().removeItem(l1iteminstance, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                     }
                 } else if (itemId == 40075) { // 防具破壊スクロール
                     if (l1iteminstance1.getItem().getType2() == L1Item.TYPE2_ARMOR) {
                         int msg = 0;
                         switch (l1iteminstance1.getItem().getType()) {
                         case 1: // helm
-                            msg = 171; // \f1ヘルムが塵になり、風に飛んでいきます。
+                            msg = L1SystemMessageId.$171; // \f1ヘルムが塵になり、風に飛んでいきます。
                             break;
                         case 2: // armor
-                            msg = 169; // \f1アーマーが壊れ、下に落ちました。
+                            msg = L1SystemMessageId.$169; // \f1アーマーが壊れ、下に落ちました。
                             break;
                         case 3: // T
-                            msg = 170; // \f1シャツが細かい糸になり、破けて落ちました。
+                            msg = L1SystemMessageId.$170; // \f1シャツが細かい糸になり、破けて落ちました。
                             break;
                         case 4: // cloak
-                            msg = 168; // \f1マントが破れ、塵になりました。
+                            msg = L1SystemMessageId.$168; // \f1マントが破れ、塵になりました。
                             break;
                         case 5: // glove
-                            msg = 172; // \f1グローブが消えました。
+                            msg = L1SystemMessageId.$172; // \f1グローブが消えました。
                             break;
                         case 6: // boots
-                            msg = 173; // \f1靴がバラバラになりました。
+                            msg = L1SystemMessageId.$173; // \f1靴がバラバラになりました。
                             break;
                         case 7: // shield
-                            msg = 174; // \f1シールドが壊れました。
+                            msg = L1SystemMessageId.$174; // \f1シールドが壊れました。
                             break;
                         default:
-                            msg = 167; // \f1肌がムズムズします。
+                            msg = L1SystemMessageId.$167; // \f1肌がムズムズします。
                             break;
                         }
                         pc.sendPackets(new S_ServerMessage(msg));
                         pc.getInventory().removeItem(l1iteminstance1, 1);
                     } else {
-                        pc.sendPackets(new S_ServerMessage(154)); // \f1スクロールが散らばります。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$154)); // \f1スクロールが散らばります。
                     }
                     pc.getInventory().removeItem(l1iteminstance, 1);
                 } else if (itemId == 49210) { // プロケルの1番目の指令書
@@ -2584,7 +2585,7 @@ public class C_ItemUSe extends ClientBasePacket {
                             }
                         }
                         if (found) {
-                            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                         } else {
                             L1SpawnUtil.spawn(pc, 46161, 0, 0); // オーク 密使リーダー
                         }
@@ -2600,14 +2601,14 @@ public class C_ItemUSe extends ClientBasePacket {
                             L1Teleport.teleport(pc, locX, locY, mapId, pc.getHeading(), true);
                             pc.getInventory().removeItem(l1iteminstance, 1);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(647));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                         }
                         cancelAbsoluteBarrier(pc); // アブソルート バリアの解除
                     } else {
                         if (l1iteminstance.getCount() < 1) { // あり得ない？
-                            pc.sendPackets(new S_ServerMessage(329, l1iteminstance.getLogName())); // \f1%0を持っていません。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$329, l1iteminstance.getLogName())); // \f1%0を持っていません。
                         } else {
-                            pc.sendPackets(new S_ServerMessage(74, l1iteminstance.getLogName())); // \f1%0は使用できません。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$74, l1iteminstance.getLogName())); // \f1%0は使用できません。
                         }
                     }
                 }
@@ -2618,7 +2619,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 int max = l1iteminstance.getItem().getMaxLevel();
                 if (min != 0 && min > pc.getLevel()) {
                     // このアイテムは%0レベル以上にならなければ使用できません。
-                    pc.sendPackets(new S_ServerMessage(318, String.valueOf(min)));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$318, String.valueOf(min)));
                 } else if (max != 0 && max < pc.getLevel()) {
                     // このアイテムは%dレベル以下のみ使用できます。
                     // S_ServerMessageでは引数が表示されない
@@ -2638,7 +2639,7 @@ public class C_ItemUSe extends ClientBasePacket {
                         UseWeapon(pc, l1iteminstance);
                     } else {
                         // \f1あなたのクラスではこのアイテムは使用できません。
-                        pc.sendPackets(new S_ServerMessage(264));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$264));
                     }
                 }
             } else if (l1iteminstance.getItem().getType2() == L1Item.TYPE2_ARMOR) { // 種別：防具
@@ -2653,7 +2654,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     int max = ((L1Armor) l1iteminstance.getItem()).getMaxLevel();
                     if (min != 0 && min > pc.getLevel()) {
                         // このアイテムは%0レベル以上にならなければ使用できません。
-                        pc.sendPackets(new S_ServerMessage(318, String.valueOf(min)));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$318, String.valueOf(min)));
                     } else if (max != 0 && max < pc.getLevel()) {
                         // このアイテムは%dレベル以下のみ使用できます。
                         // S_ServerMessageでは引数が表示されない
@@ -2667,7 +2668,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     }
                 } else {
                     // \f1あなたのクラスではこのアイテムは使用できません。
-                    pc.sendPackets(new S_ServerMessage(264));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$264));
                 }
             }
 
@@ -2700,7 +2701,7 @@ public class C_ItemUSe extends ClientBasePacket {
         } else { // 持てない場合は地面に落とす 処理のキャンセルはしない（不正防止）
             L1World.getInstance().getInventory(pc.getX(), pc.getY(), pc.getMapId()).storeItem(item);
         }
-        pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // 获得%0%o 。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item.getLogName())); // 获得%0%o 。
         return true;
     }
 
@@ -2868,7 +2869,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 sa = " $252";
             }
         }
-        pc.sendPackets(new S_ServerMessage(164, s, sa));
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$164, s, sa));
         pc.getInventory().removeItem(item, item.getCount());
     }
 
@@ -2900,11 +2901,11 @@ public class C_ItemUSe extends ClientBasePacket {
             }
         }
         if (!isNearFire) {
-            pc.sendPackets(new S_ServerMessage(1160)); // 料理には焚き火が必要です。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1160)); // 料理には焚き火が必要です。
             return;
         }
         if (pc.getMaxWeight() <= pc.getInventory().getWeight()) {
-            pc.sendPackets(new S_ServerMessage(1103)); // アイテムが重すぎて、料理できません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1103)); // アイテムが重すぎて、料理できません。
             return;
         }
         if (pc.hasSkillEffect(COOKING_NOW)) {
@@ -2924,11 +2925,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 1) { // ベアーステーキ
             if (pc.getInventory().checkItem(41275, 1)) {
@@ -2941,11 +2942,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 2) { // ナッツ餅
             if (pc.getInventory().checkItem(41263, 1) && pc.getInventory().checkItem(41265, 1)) {
@@ -2959,11 +2960,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 3) { // 蟻脚のチーズ焼き
             if (pc.getInventory().checkItem(41274, 1) && pc.getInventory().checkItem(41267, 1)) {
@@ -2977,11 +2978,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 4) { // フルーツサラダ
             if (pc.getInventory().checkItem(40062, 1) && pc.getInventory().checkItem(40069, 1)
@@ -2997,11 +2998,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 5) { // フルーツ甘酢あんかけ
             if (pc.getInventory().checkItem(40056, 1) && pc.getInventory().checkItem(40060, 1)
@@ -3017,11 +3018,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 6) { // 猪肉の串焼き
             if (pc.getInventory().checkItem(41276, 1)) {
@@ -3034,11 +3035,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 7) { // キノコスープ
             if (pc.getInventory().checkItem(40499, 1) && pc.getInventory().checkItem(40060, 1)) {
@@ -3052,11 +3053,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 8) { // キャビアカナッペ
             if (pc.getInventory().checkItem(49040, 1) && pc.getInventory().checkItem(49048, 1)) {
@@ -3070,11 +3071,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 9) { // アリゲーターステーキ
             if (pc.getInventory().checkItem(49041, 1) && pc.getInventory().checkItem(49048, 1)) {
@@ -3088,11 +3089,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 10) { // タートルドラゴンの菓子
             if (pc.getInventory().checkItem(49042, 1) && pc.getInventory().checkItem(41265, 1)
@@ -3108,11 +3109,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 11) { // キウィパロット焼き
             if (pc.getInventory().checkItem(49043, 1) && pc.getInventory().checkItem(49048, 1)) {
@@ -3126,11 +3127,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 12) { // スコーピオン焼き
             if (pc.getInventory().checkItem(49044, 1) && pc.getInventory().checkItem(49048, 1)) {
@@ -3144,11 +3145,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 13) { // イレッカドムシチュー
             if (pc.getInventory().checkItem(49045, 1) && pc.getInventory().checkItem(49048, 1)) {
@@ -3162,11 +3163,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 14) { // クモ脚の串焼き
             if (pc.getInventory().checkItem(49046, 1) && pc.getInventory().checkItem(49048, 1)) {
@@ -3180,11 +3181,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 15) { // クラブスープ
             if (pc.getInventory().checkItem(49047, 1) && pc.getInventory().checkItem(40499, 1)
@@ -3200,11 +3201,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 16) { // クラスタシアンのハサミ焼き
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3220,11 +3221,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 17) { // グリフォン焼き
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3240,11 +3241,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 18) { // コカトリスステーキ
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3260,11 +3261,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 19) { // タートルドラゴン焼き
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3280,11 +3281,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 20) { // レッサードラゴンの手羽先
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3300,11 +3301,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 21) { // ドレイク焼き
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3320,11 +3321,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 22) { // 深海魚のシチュー
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3340,11 +3341,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         } else if (cookNo == 23) { // バシリスクの卵スープ
             if (pc.getInventory().checkItem(49048, 1) && pc.getInventory().checkItem(49243, 1)
@@ -3360,11 +3361,11 @@ public class C_ItemUSe extends ClientBasePacket {
                     pc.sendPackets(new S_SkillSound(pc.getId(), 6390));
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6390));
                 } else if (chance >= 96 && chance <= 100) {
-                    pc.sendPackets(new S_ServerMessage(1101)); // 料理が失敗しました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1101)); // 料理が失敗しました。
                     pc.broadcastPacket(new S_SkillSound(pc.getId(), 6394));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(1102)); // 料理の材料が足りません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1102)); // 料理の材料が足りません。
             }
         }
     }
@@ -3395,7 +3396,7 @@ public class C_ItemUSe extends ClientBasePacket {
             L1PcInstance pc = (L1PcInstance) cha;
             int awakeSkillId = pc.getAwakeSkillId();
             if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
-                pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1384)); // 現在の状態では変身できません。
                 return;
             }
 
@@ -3404,7 +3405,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (!pc.isShapeChange()) {
                     pc.setShapeChange(true);
                 }
-                pc.sendPackets(new S_ServerMessage(966)); // string-j.tbl:968行目
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$966)); // string-j.tbl:968行目
                 // 魔法の力によって保護されます。
                 // 変身の際のメッセージは、他人が自分を変身させた時に出るメッセージと、レベルが足りない時に出るメッセージ以外はありません。
             } else {
@@ -3412,7 +3413,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
                 L1PolyMorph.doPoly(pc, polyId, skillTemp.getBuffDuration(), L1PolyMorph.MORPH_BY_ITEMMAGIC);
                 if (attacker.getId() != pc.getId()) {
-                    pc.sendPackets(new S_ServerMessage(241, attacker.getName())); // %0があなたを変身させました。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$241, attacker.getName())); // %0があなたを変身させました。
                 }
             }
         } else if (cha instanceof L1MonsterInstance) {
@@ -3496,11 +3497,11 @@ public class C_ItemUSe extends ClientBasePacket {
             if (target.getInventory().checkAddItem(item, 1) == L1Inventory.OK) {
                 target.getInventory().storeItem(item);
                 target.sendPackets(new S_SkillSound(target.getId(), 1091));
-                target.sendPackets(new S_ServerMessage(428)); // 手紙が届きました。
+                target.sendPackets(new S_ServerMessage(L1SystemMessageId.$428)); // 手紙が届きました。
             } else {
                 if (isFailureMessage) {
                     // 相手のアイテムが重すぎるため、これ以上あげられません。
-                    pc.sendPackets(new S_ServerMessage(942));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$942));
                 }
                 return false;
             }
@@ -3514,7 +3515,7 @@ public class C_ItemUSe extends ClientBasePacket {
                     } else {
                         if (isFailureMessage) {
                             // 相手のアイテムが重すぎるため、これ以上あげられません。
-                            pc.sendPackets(new S_ServerMessage(942));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$942));
                         }
                         return false;
                     }
@@ -3523,7 +3524,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 }
             } else {
                 if (isFailureMessage) {
-                    pc.sendPackets(new S_ServerMessage(109, name)); // %0という名前の人はいません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, name)); // %0という名前の人はいません。
                 }
                 return false;
             }
@@ -3870,7 +3871,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (!pc.isGm() && l1skills.getAttr() != 0 && pc.getElfAttr() != l1skills.getAttr()) {
                     if (pc.getElfAttr() == 0 || pc.getElfAttr() == 1 || pc.getElfAttr() == 2 || pc.getElfAttr() == 4
                             || pc.getElfAttr() == 8) { // 属性値が異常な場合は全属性を覚えられるようにしておく
-                        pc.sendPackets(new S_ServerMessage(79));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         return;
                     }
                 }
@@ -4630,7 +4631,7 @@ public class C_ItemUSe extends ClientBasePacket {
     private void startFishing(L1PcInstance pc, int itemId, int fishX, int fishY) {
         if (pc.getMapId() != 5124 || fishX <= 32789 || fishX >= 32813 || fishY <= 32786 || fishY >= 32812) {
             // ここに釣り竿を投げることはできません。
-            pc.sendPackets(new S_ServerMessage(1138));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1138));
             return;
         }
 
@@ -4645,10 +4646,10 @@ public class C_ItemUSe extends ClientBasePacket {
                     && pc.getMap().isFishingZone(fishX, fishY + 1) && pc.getMap().isFishingZone(fishX, fishY - 1)) {
                 if (fishX > pc.getX() + rodLength || fishX < pc.getX() - rodLength) {
                     // ここに釣り竿を投げることはできません。
-                    pc.sendPackets(new S_ServerMessage(1138));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1138));
                 } else if (fishY > pc.getY() + rodLength || fishY < pc.getY() - rodLength) {
                     // ここに釣り竿を投げることはできません。
-                    pc.sendPackets(new S_ServerMessage(1138));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1138));
                 } else if (pc.getInventory().consumeItem(41295, 1)) { // エサ
                     pc.sendPackets(new S_Fishing(pc.getId(), ActionCodes.ACTION_Fishing, fishX, fishY));
                     pc.broadcastPacket(new S_Fishing(pc.getId(), ActionCodes.ACTION_Fishing, fishX, fishY));
@@ -4658,15 +4659,15 @@ public class C_ItemUSe extends ClientBasePacket {
                     FishingTimeController.getInstance().addMember(pc);
                 } else {
                     // 釣りをするためにはエサが必要です。
-                    pc.sendPackets(new S_ServerMessage(1137));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1137));
                 }
             } else {
                 // ここに釣り竿を投げることはできません。
-                pc.sendPackets(new S_ServerMessage(1138));
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1138));
             }
         } else {
             // ここに釣り竿を投げることはできません。
-            pc.sendPackets(new S_ServerMessage(1138));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1138));
         }
     }
 
@@ -4788,7 +4789,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 }
             }
         }
-        pc.sendPackets(new S_ServerMessage(161, s, sa, sb));
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$161, s, sa, sb));
         int oldEnchantLvl = item.getEnchantLevel();
         int newEnchantLvl = item.getEnchantLevel() + i;
         int safe_enchant = item.getItem().get_safeenchant();
@@ -4847,24 +4848,24 @@ public class C_ItemUSe extends ClientBasePacket {
 
             if (type == 13 && pcInventory.getTypeEquipped(2, 7) >= 1 || type == 7
                     && pcInventory.getTypeEquipped(2, 13) >= 1) { // シールド、ガーダー同時裝備不可
-                activeChar.sendPackets(new S_ServerMessage(124)); // \f1すでに何かを装備しています。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$124)); // \f1すでに何かを装備しています。
                 return;
             }
             if (type == 7 && activeChar.getWeapon() != null) { // シールドの場合、武器を装備していたら両手武器チェック
                 if (activeChar.getWeapon().getItem().isTwohandedWeapon()) { // 両手武器
-                    activeChar.sendPackets(new S_ServerMessage(129)); // \f1両手の武器を武装したままシールドを着用することはできません。
+                    activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$129)); // \f1両手の武器を武装したままシールドを着用することはできません。
                     return;
                 }
             }
 
             if (type == 3 && pcInventory.getTypeEquipped(2, 4) >= 1) { // シャツの場合、マントを着てないか確認
-                activeChar.sendPackets(new S_ServerMessage(126, "$224", "$225")); // \f1%1上に%0を着ることはできません。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$126, "$224", "$225")); // \f1%1上に%0を着ることはできません。
                 return;
             } else if ((type == 3) && pcInventory.getTypeEquipped(2, 2) >= 1) { // シャツの場合、メイルを着てないか確認
-                activeChar.sendPackets(new S_ServerMessage(126, "$224", "$226")); // \f1%1上に%0を着ることはできません。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$126, "$224", "$226")); // \f1%1上に%0を着ることはできません。
                 return;
             } else if ((type == 2) && pcInventory.getTypeEquipped(2, 4) >= 1) { // メイルの場合、マントを着てないか確認
-                activeChar.sendPackets(new S_ServerMessage(126, "$226", "$225")); // \f1%1上に%0を着ることはできません。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$126, "$226", "$225")); // \f1%1上に%0を着ることはできません。
                 return;
             }
 
@@ -4873,14 +4874,14 @@ public class C_ItemUSe extends ClientBasePacket {
             pcInventory.setEquipped(armor, true);
         } else if (armor.isEquipped()) { // 使用した防具を装備していた場合（脱着を試みる）
             if (armor.getItem().getBless() == 2) { // 呪われていた場合
-                activeChar.sendPackets(new S_ServerMessage(150)); // \f1はずすことができません。呪いをかけられているようです。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$150)); // \f1はずすことができません。呪いをかけられているようです。
                 return;
             }
             if (type == 3 && pcInventory.getTypeEquipped(2, 2) >= 1) { // シャツの場合、メイルを着てないか確認
-                activeChar.sendPackets(new S_ServerMessage(127)); // \f1それは脱ぐことができません。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$127)); // \f1それは脱ぐことができません。
                 return;
             } else if ((type == 2 || type == 3) && pcInventory.getTypeEquipped(2, 4) >= 1) { // シャツとメイルの場合、マントを着てないか確認
-                activeChar.sendPackets(new S_ServerMessage(127)); // \f1それは脱ぐことができません。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$127)); // \f1それは脱ぐことができません。
                 return;
             }
             if (type == 7) { // シールドの場合、ソリッドキャリッジの効果消失
@@ -4890,7 +4891,7 @@ public class C_ItemUSe extends ClientBasePacket {
             }
             pcInventory.setEquipped(armor, false);
         } else {
-            activeChar.sendPackets(new S_ServerMessage(124)); // \f1すでに何かを装備しています。
+            activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$124)); // \f1すでに何かを装備しています。
         }
         // セット装備用HP、MP、MR更新
         activeChar.setCurrentHp(activeChar.getCurrentHp());
@@ -4902,7 +4903,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void useBlessOfEva(L1PcInstance pc, int item_id) {
         if (pc.hasSkillEffect(71) == true) { // ディケイポーションの状態
-            pc.sendPackets(new S_ServerMessage(698)); // \f1魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // \f1魔力によって何も飲むことができません。
             return;
         }
 
@@ -4935,7 +4936,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void useBlindPotion(L1PcInstance pc) {
         if (pc.hasSkillEffect(DECAY_POTION)) {
-            pc.sendPackets(new S_ServerMessage(698)); // \f1魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // \f1魔力によって何も飲むことができません。
             return;
         }
 
@@ -4960,7 +4961,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void useBluePotion(L1PcInstance pc, int item_id) {
         if (pc.hasSkillEffect(DECAY_POTION)) { // ディケイポーションの状態
-            pc.sendPackets(new S_ServerMessage(698)); // \f1魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // \f1魔力によって何も飲むことができません。
             return;
         }
 
@@ -4982,12 +4983,12 @@ public class C_ItemUSe extends ClientBasePacket {
 
         pc.setSkillEffect(STATUS_BLUE_POTION, time * 1000);
 
-        pc.sendPackets(new S_ServerMessage(1007)); // MPの回復速度が速まります。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1007)); // MPの回復速度が速まります。
     }
 
     private void useBravePotion(L1PcInstance pc, int item_id) {
         if (pc.hasSkillEffect(71) == true) { // ディケイポーションの状態
-            pc.sendPackets(new S_ServerMessage(698)); // \f1魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // \f1魔力によって何も飲むことができません。
             return;
         }
 
@@ -5146,13 +5147,13 @@ public class C_ItemUSe extends ClientBasePacket {
                 SpellBook2(pc, item);
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(79)); // (原文:精霊の水晶はエルフのみが習得できます。)
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // (原文:精霊の水晶はエルフのみが習得できます。)
         }
     }
 
     private void useFurnitureItem(L1PcInstance pc, int itemId, int itemObjectId) {
         if (!L1HouseLocation.isInHouse(pc.getX(), pc.getY(), pc.getMapId())) {
-            pc.sendPackets(new S_ServerMessage(563)); // \f1ここでは使えません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$563)); // \f1ここでは使えません。
             return;
         }
 
@@ -5271,7 +5272,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void useGreenPotion(L1PcInstance pc, int itemId) {
         if (pc.hasSkillEffect(71) == true) { // ディケイポーションの状態
-            pc.sendPackets(new S_ServerMessage(698)); // \f1魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // \f1魔力によって何も飲むことができません。
             return;
         }
 
@@ -5349,7 +5350,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void UseHeallingPotion(L1PcInstance pc, int healHp, int gfxid) {
         if (pc.hasSkillEffect(71) == true) { // ディケイ ポーションの状態
-            pc.sendPackets(new S_ServerMessage(698)); // 魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // 魔力によって何も飲むことができません。
             return;
         }
 
@@ -5358,7 +5359,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
         pc.sendPackets(new S_SkillSound(pc.getId(), gfxid));
         pc.broadcastPacket(new S_SkillSound(pc.getId(), gfxid));
-        pc.sendPackets(new S_ServerMessage(77)); // \f1気分が良くなりました。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$77)); // \f1気分が良くなりました。
         healHp *= (_random.nextGaussian() / 5.0D) + 1.0D;
         if (pc.hasSkillEffect(POLLUTE_WATER)) { // ポルートウォーター中は回復量1/2倍
             healHp /= 2;
@@ -5380,12 +5381,12 @@ public class C_ItemUSe extends ClientBasePacket {
 
         if (isAppear) {
             if (!pc.getInventory().checkItem(41246, 50)) {
-                pc.sendPackets(new S_ServerMessage(337, "$5240")); // \f1%0が不足しています。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$337, "$5240")); // \f1%0が不足しています。
                 return;
             }
             if (dollList.length >= Config.MAX_DOLL_COUNT) {
                 // \f1これ以上のモンスターを操ることはできません。
-                pc.sendPackets(new S_ServerMessage(319));
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$319));
                 return;
             }
             int npcId = 0;
@@ -5428,7 +5429,7 @@ public class C_ItemUSe extends ClientBasePacket {
     private void usePolyPotion(L1PcInstance pc, int itemId) {
         int awakeSkillId = pc.getAwakeSkillId();
         if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
-            pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1384)); // 現在の状態では変身できません。
             return;
         }
 
@@ -5642,7 +5643,7 @@ public class C_ItemUSe extends ClientBasePacket {
     private void usePolyScale(L1PcInstance pc, int itemId) {
         int awakeSkillId = pc.getAwakeSkillId();
         if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
-            pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1384)); // 現在の状態では変身できません。
             return;
         }
 
@@ -5661,10 +5662,17 @@ public class C_ItemUSe extends ClientBasePacket {
         L1PolyMorph.doPoly(pc, polyId, 600, L1PolyMorph.MORPH_BY_ITEMMAGIC);
     }
 
+    /**
+     * 使用变身卷轴
+     * @param pc 使用者
+     * @param item_id 物品ID
+     * @param s
+     * @return
+     */
     private boolean usePolyScroll(L1PcInstance pc, int item_id, String s) {
         int awakeSkillId = pc.getAwakeSkillId();
         if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
-            pc.sendPackets(new S_ServerMessage(1384)); // 現在の状態では変身できません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1384)); // 現在の状態では変身できません。
             return false;
         }
 
@@ -5697,29 +5705,29 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private void useResolvent(L1PcInstance pc, L1ItemInstance item, L1ItemInstance resolvent) {
         if (item == null || resolvent == null) {
-            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
             return;
         }
         if (item.getItem().getType2() == L1Item.TYPE2_WEAPON || item.getItem().getType2() == L1Item.TYPE2_ARMOR) { // 武器・防具
             if (item.getEnchantLevel() != 0) { // 強化済み
-                pc.sendPackets(new S_ServerMessage(1161)); // 溶解できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1161)); // 溶解できません。
                 return;
             }
             if (item.isEquipped()) { // 装備中
-                pc.sendPackets(new S_ServerMessage(1161)); // 溶解できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1161)); // 溶解できません。
                 return;
             }
         }
         int crystalCount = ResolventTable.getInstance().getCrystalCount(item.getItem().getItemId());
         if (crystalCount == 0) {
-            pc.sendPackets(new S_ServerMessage(1161)); // 溶解できません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1161)); // 溶解できません。
             return;
         }
 
         int rnd = _random.nextInt(100) + 1;
         if (rnd >= 1 && rnd <= 50) {
             crystalCount = 0;
-            pc.sendPackets(new S_ServerMessage(158, item.getName())); // \f1%0が蒸発してなくなりました。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$158, item.getName())); // \f1%0が蒸発してなくなりました。
         } else if (rnd >= 51 && rnd <= 90) {
             crystalCount *= 1;
         } else if (rnd >= 91 && rnd <= 100) {
@@ -5731,7 +5739,7 @@ public class C_ItemUSe extends ClientBasePacket {
             crystal.setCount(crystalCount);
             if (pc.getInventory().checkAddItem(crystal, 1) == L1Inventory.OK) {
                 pc.getInventory().storeItem(crystal);
-                pc.sendPackets(new S_ServerMessage(403, crystal.getLogName())); // %0を手に入れました。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, crystal.getLogName())); // %0を手に入れました。
             } else { // 持てない場合は地面に落とす 處理のキャンセルはしない（不正防止）
                 L1World.getInstance().getInventory(pc.getX(), pc.getY(), pc.getMapId()).storeItem(crystal);
             }
@@ -5778,9 +5786,9 @@ public class C_ItemUSe extends ClientBasePacket {
                 if (itemId >= 45000 && itemId <= 45007 && level >= 50) {
                     SpellBook(pc, item, isLawful);
                 } else if (itemId >= 45000 && itemId <= 45007) {
-                    pc.sendPackets(new S_ServerMessage(312));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312));
                 } else {
-                    pc.sendPackets(new S_ServerMessage(79));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                 }
             } else if (pc.isCrown() || pc.isDarkelf()) {
                 if (itemId >= 45000 && itemId <= 45007 && level >= 10) {
@@ -5788,9 +5796,9 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId >= 45008 && itemId <= 45015 && level >= 20) {
                     SpellBook(pc, item, isLawful);
                 } else if (itemId >= 45008 && itemId <= 45015 || itemId >= 45000 && itemId <= 45007) {
-                    pc.sendPackets(new S_ServerMessage(312)); // レベルが低くてその魔法を覚えることができません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312)); // レベルが低くてその魔法を覚えることができません。
                 } else {
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                 }
             } else if (pc.isElf()) {
                 if (itemId >= 45000 && itemId <= 45007 && level >= 8) {
@@ -5806,9 +5814,9 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId >= 40186 && itemId <= 40193 && level >= 48) {
                     SpellBook(pc, item, isLawful);
                 } else if (itemId >= 45000 && itemId <= 45022 || itemId >= 40170 && itemId <= 40193) {
-                    pc.sendPackets(new S_ServerMessage(312)); // レベルが低くてその魔法を覚えることができません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312)); // レベルが低くてその魔法を覚えることができません。
                 } else {
-                    pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
                 }
             } else if (pc.isWizard()) {
                 if (itemId >= 45000 && itemId <= 45007 && level >= 4) {
@@ -5832,12 +5840,12 @@ public class C_ItemUSe extends ClientBasePacket {
                 } else if (itemId >= 40218 && itemId <= 40225 && level >= 40) {
                     SpellBook(pc, item, isLawful);
                 } else {
-                    pc.sendPackets(new S_ServerMessage(312)); // レベルが低くてその魔法を覚えることができません。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$312)); // レベルが低くてその魔法を覚えることができません。
                 }
             }
         } else if (itemAttr != locAttr && itemAttr != 0 && locAttr != 0) {
             // 間違ったテンプルで読んだ場合雷が落ちる
-            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
             S_SkillSound effect = new S_SkillSound(pc.getId(), 10);
             pc.sendPackets(effect);
             pc.broadcastPacket(effect);
@@ -5848,7 +5856,7 @@ public class C_ItemUSe extends ClientBasePacket {
             }
             pc.getInventory().removeItem(item, 1);
         } else {
-            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
         }
     }
 
@@ -5885,7 +5893,7 @@ public class C_ItemUSe extends ClientBasePacket {
             L1Teleport.teleport(pc, item.getItem().get_locx(), item.getItem().get_locy(), item.getItem().get_mapid(),
                     5, true);
         } else {
-            pc.sendPackets(new S_ServerMessage(79)); // \f1何も起きませんでした。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1何も起きませんでした。
         }
     }
 
@@ -5899,7 +5907,7 @@ public class C_ItemUSe extends ClientBasePacket {
                 return;
             }
             if (weapon.getItem().isTwohandedWeapon() && pcInventory.getTypeEquipped(2, 7) >= 1) { // 両手武器の場合、シールド装備の確認
-                activeChar.sendPackets(new S_ServerMessage(128)); // \f1シールドを装備している時は両手で持つ武器を使うことはできません。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$128)); // \f1シールドを装備している時は両手で持つ武器を使うことはできません。
                 return;
             }
         }
@@ -5908,7 +5916,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
         if (activeChar.getWeapon() != null) { // 既に何かを装備している場合、前の装備をはずす
             if (activeChar.getWeapon().getItem().getBless() == 2) { // 呪われていた場合
-                activeChar.sendPackets(new S_ServerMessage(150)); // \f1はずすことができません。呪いをかけられているようです。
+                activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$150)); // \f1はずすことができません。呪いをかけられているようです。
                 return;
             }
             if (activeChar.getWeapon().equals(weapon)) {
@@ -5921,14 +5929,14 @@ public class C_ItemUSe extends ClientBasePacket {
         }
 
         if (weapon.getItemId() == 200002) { // 呪われたダイスダガー
-            activeChar.sendPackets(new S_ServerMessage(149, weapon.getLogName())); // \f1%0が手にくっつきました。
+            activeChar.sendPackets(new S_ServerMessage(L1SystemMessageId.$149, weapon.getLogName())); // \f1%0が手にくっつきました。
         }
         pcInventory.setEquipped(weapon, true, false, false);
     }
 
     private void useWisdomPotion(L1PcInstance pc, int item_id) {
         if (pc.hasSkillEffect(71) == true) { // ディケイポーションの状態
-            pc.sendPackets(new S_ServerMessage(698)); // \f1魔力によって何も飲むことができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$698)); // \f1魔力によって何も飲むことができません。
             return;
         }
 
@@ -5956,7 +5964,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
     private boolean withdrawPet(L1PcInstance pc, int itemObjectId) {
         if (!pc.getMap().isTakePets()) {
-            pc.sendPackets(new S_ServerMessage(563)); // \f1ここでは使えません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$563)); // \f1ここでは使えません。
             return false;
         }
 
@@ -5987,7 +5995,7 @@ public class C_ItemUSe extends ClientBasePacket {
         charisma -= petCost;
         int petCount = charisma / 6;
         if (petCount <= 0) {
-            pc.sendPackets(new S_ServerMessage(489)); // 引き取ろうとするペットが多すぎます。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$489)); // 引き取ろうとするペットが多すぎます。
             return false;
         }
 
@@ -6010,7 +6018,7 @@ public class C_ItemUSe extends ClientBasePacket {
             }
         }
         if (targetClan == null) {
-            pc.sendPackets(new S_ServerMessage(434)); // 没有收信者。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$434)); // 没有收信者。
             return false;
         }
 

@@ -39,6 +39,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_PetPack;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Pet;
@@ -119,7 +120,7 @@ public class CalcExp {
             petTemplate.set_hp(pet.getMaxHp());
             petTemplate.set_mp(pet.getMaxMp());
             PetTable.getInstance().storePet(petTemplate); // 存入DB
-            pc.sendPackets(new S_ServerMessage(320, pet.getName())); // \f1%0升级了。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$320, pet.getName())); // \f1%0升级了。
         }
     }
 

@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.datatables.SkillsTable;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_AddSkill;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -423,7 +424,7 @@ public class C_SkillBuyOK extends ClientBasePacket {
                         skill_name, 0, 0);
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(189)); // \f1金币不足。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189)); // \f1金币不足。
         }
     }
 

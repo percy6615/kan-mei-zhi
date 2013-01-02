@@ -27,6 +27,7 @@ import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_CharTitle;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -49,7 +50,7 @@ public class C_Title extends ClientBasePacket {
 
         if (charName.isEmpty() || title.isEmpty()) {
             // \f1请以如下的格式输入: "/title+空格+角色名称+要赋予的称号"
-            pc.sendPackets(new S_ServerMessage(196));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$196));
             return;
         }
         L1PcInstance target = L1World.getInstance().getPlayer(charName);
@@ -66,19 +67,19 @@ public class C_Title extends ClientBasePacket {
             if (pc.getId() == target.getId()) { // 自己
                 if (pc.getLevel() < 10) {
                     // \f1加入血盟之后等级10以上才可使用称号。
-                    pc.sendPackets(new S_ServerMessage(197));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$197));
                     return;
                 }
                 changeTitle(pc, title);
             } else { // 他人
                 if (pc.getClanid() != target.getClanid()) {
                     // \f1除了王族以外的人，不能够授与头衔给其他人。
-                    pc.sendPackets(new S_ServerMessage(199));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$199));
                     return;
                 }
                 if (target.getLevel() < 10) {
                     // \f1%0的等级还不到10级，因此无法封称号。
-                    pc.sendPackets(new S_ServerMessage(202, charName));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$202, charName));
                     return;
                 }
                 changeTitle(target, title);
@@ -86,7 +87,7 @@ public class C_Title extends ClientBasePacket {
                 if (clan != null) {
                     for (L1PcInstance clanPc : clan.getOnlineClanMember()) {
                         // \f1%0%s 赋予%1 '%2'称号。
-                        clanPc.sendPackets(new S_ServerMessage(203, pc
+                        clanPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$203, pc
                                 .getName(), charName, title));
                     }
                 }
@@ -95,12 +96,12 @@ public class C_Title extends ClientBasePacket {
             if (pc.getId() == target.getId()) { // 自分
                 if (pc.getClanid() != 0 && !Config.CHANGE_TITLE_BY_ONESELF) {
                     // \f1王子或公主才可给血盟员封称号。
-                    pc.sendPackets(new S_ServerMessage(198));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$198));
                     return;
                 }
                 if (target.getLevel() < 40) {
                     // \f1若等级40以上，没有加入血盟也可拥有称号。
-                    pc.sendPackets(new S_ServerMessage(200));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$200));
                     return;
                 }
                 changeTitle(pc, title);
@@ -108,7 +109,7 @@ public class C_Title extends ClientBasePacket {
                 if (pc.isCrown()) { // 連合に所属した君主
                     if (pc.getClanid() == target.getClanid()) {
                         // \f1%0%d 不是你的血盟成员。
-                        pc.sendPackets(new S_ServerMessage(201, pc
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$201, pc
                                 .getClanname()));
                         return;
                     }

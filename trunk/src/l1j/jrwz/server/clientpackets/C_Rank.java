@@ -27,6 +27,7 @@ import l1j.jrwz.server.datatables.CharacterTable;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -62,17 +63,17 @@ public class C_Rank extends ClientBasePacket {
 
         if (rank < 1 && 3 < rank) {
             // 请输入想要变更阶级的人的名称与阶级。[阶级 = 守护骑士、一般、见习]
-            pc.sendPackets(new S_ServerMessage(781));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$781));
             return;
         }
 
         if (pc.isCrown()) { // 君主
             if (pc.getId() != clan.getLeaderId()) { // 血盟主
-                pc.sendPackets(new S_ServerMessage(785)); // 你不再是君主了
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$785)); // 你不再是君主了
                 return;
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(518)); // 血盟君主才可使用此命令。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$518)); // 血盟君主才可使用此命令。
             return;
         }
 
@@ -89,12 +90,12 @@ public class C_Rank extends ClientBasePacket {
                     } else if (rank == L1Clan.CLAN_RANK_GUARDIAN) {
                         rankString = "$772";
                     }
-                    targetPc.sendPackets(new S_ServerMessage(784, rankString)); // 你的阶级变更为%s
+                    targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$784, rankString)); // 你的阶级变更为%s
                 } catch (Exception e) {
                     _log.log(Level.SEVERE, e.getLocalizedMessage(), e);
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(414)); // 您只能邀请您血盟中的成员。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$414)); // 您只能邀请您血盟中的成员。
                 return;
             }
         } else { // オフライン中
@@ -108,7 +109,7 @@ public class C_Rank extends ClientBasePacket {
                     _log.log(Level.SEVERE, e.getLocalizedMessage(), e);
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(109, name)); // 没有叫%0 的人。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, name)); // 没有叫%0 的人。
                 return;
             }
         }

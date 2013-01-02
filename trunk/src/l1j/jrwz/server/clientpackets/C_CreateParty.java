@@ -25,6 +25,7 @@ import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Message_YN;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -57,7 +58,7 @@ public class C_CreateParty extends ClientBasePacket {
                 }
                 if (targetPc.isInParty()) {
                     // 您無法邀請已經參加其他隊伍的人。
-                    pc.sendPackets(new S_ServerMessage(415));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$415));
                     return;
                 }
 
@@ -68,7 +69,7 @@ public class C_CreateParty extends ClientBasePacket {
                         targetPc.sendPackets(new S_Message_YN(953, pc.getName()));
                     } else {
                         // 只有領導者才能邀請其他的成員。
-                        pc.sendPackets(new S_ServerMessage(416));
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$416));
                     }
                 } else {
                     targetPc.setPartyID(pc.getId());
@@ -81,7 +82,7 @@ public class C_CreateParty extends ClientBasePacket {
             L1PcInstance targetPc = L1World.getInstance().getPlayer(name);
             if (targetPc == null) {
                 // 沒有叫%0的人。
-                pc.sendPackets(new S_ServerMessage(109));
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109));
                 return;
             }
             if (pc.getId() == targetPc.getId()) {
@@ -89,7 +90,7 @@ public class C_CreateParty extends ClientBasePacket {
             }
             if (targetPc.isInChatParty()) {
                 // 您無法邀請已經參加其他隊伍的人。
-                pc.sendPackets(new S_ServerMessage(415));
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$415));
                 return;
             }
 
@@ -100,7 +101,7 @@ public class C_CreateParty extends ClientBasePacket {
                     targetPc.sendPackets(new S_Message_YN(951, pc.getName()));
                 } else {
                     // 只有領導者才能邀請其他的成員。
-                    pc.sendPackets(new S_ServerMessage(416));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$416));
                 }
             } else {
                 targetPc.setPartyID(pc.getId());

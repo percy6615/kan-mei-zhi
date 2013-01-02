@@ -28,6 +28,7 @@ import l1j.jrwz.server.model.L1PcInventory;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.npc.L1NpcHtml;
 import l1j.jrwz.server.serverpackets.S_HowManyMake;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -131,7 +132,7 @@ public class L1NpcMakeItemAction extends L1NpcXmlAction {
                     material.getAmount() * amount)) {
                 L1Item temp = ItemTable.getInstance().getTemplate(
                         material.getObject());
-                pc.sendPackets(new S_ServerMessage(337, temp.getName()
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$337, temp.getName()
                         + "("
                         + ((material.getAmount() * amount) - pc.getInventory()
                                 .countItems(temp.getItemId())) + ")")); // \f1%0が不足しています。
@@ -161,12 +162,12 @@ public class L1NpcMakeItemAction extends L1NpcXmlAction {
         }
         // 容量確認
         if (pc.getInventory().getSize() + countToCreate > 180) {
-            pc.sendPackets(new S_ServerMessage(263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
             return false;
         }
         // 重量確認
         if (pc.getMaxWeight() < pc.getInventory().getWeight() + weight) {
-            pc.sendPackets(new S_ServerMessage(82)); // アイテムが重すぎて、これ以上持てません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$82)); // アイテムが重すぎて、これ以上持てません。
             return false;
         }
 
@@ -186,7 +187,7 @@ public class L1NpcMakeItemAction extends L1NpcXmlAction {
                     itemName = itemName + " (" + makingItem.getAmount()
                             * amount + ")";
                 }
-                pc.sendPackets(new S_ServerMessage(143, npcName, itemName)); // \f1%0が%1をくれました。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, npcName, itemName)); // \f1%0が%1をくれました。
             }
         }
         return true;

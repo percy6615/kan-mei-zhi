@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -44,7 +45,7 @@ public class C_BanParty extends ClientBasePacket {
         L1PcInstance player = client.getActiveChar();
         if (!player.getParty().isLeader(player)) {
             // 是組對對長
-            player.sendPackets(new S_ServerMessage(427)); // 只有領導者才有驅逐隊伍成員的權力。
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$427)); // 只有領導者才有驅逐隊伍成員的權力。
             return;
         }
 
@@ -55,7 +56,7 @@ public class C_BanParty extends ClientBasePacket {
             }
         }
 
-        player.sendPackets(new S_ServerMessage(426, s)); // %0%d 不屬於任何隊伍。
+        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$426, s)); // %0%d 不屬於任何隊伍。
     }
 
     @Override

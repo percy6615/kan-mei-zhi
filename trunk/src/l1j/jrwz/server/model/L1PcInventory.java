@@ -27,6 +27,7 @@ import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_AddItem;
 import l1j.jrwz.server.serverpackets.S_CharVisualUpdate;
@@ -138,7 +139,7 @@ public class L1PcInventory extends L1Inventory {
         if (getSize() > MAX_SIZE
                 || (getSize() == MAX_SIZE && (!item.isStackable() || !checkItem(item.getItem().getItemId())))) { // 容量確認
             if (message) {
-                sendOverMessage(263); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
+                sendOverMessage(L1SystemMessageId.$263); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
             }
             return SIZE_OVER;
         }
@@ -146,13 +147,13 @@ public class L1PcInventory extends L1Inventory {
         int weight = getWeight() + item.getItem().getWeight() * count / 1000 + 1;
         if (weight < 0 || (item.getItem().getWeight() * count / 1000) < 0) {
             if (message) {
-                sendOverMessage(82); // アイテムが重すぎて、これ以上持てません。
+                sendOverMessage(L1SystemMessageId.$82); // アイテムが重すぎて、これ以上持てません。
             }
             return WEIGHT_OVER;
         }
         if (calcWeight240(weight) >= 240) {
             if (message) {
-                sendOverMessage(82); // アイテムが重すぎて、これ以上持てません。
+                sendOverMessage(L1SystemMessageId.$82); // アイテムが重すぎて、これ以上持てません。
             }
             return WEIGHT_OVER;
         }
@@ -160,7 +161,7 @@ public class L1PcInventory extends L1Inventory {
         L1ItemInstance itemExist = findItemId(item.getItemId());
         if (itemExist != null && (itemExist.getCount() + count) > MAX_AMOUNT) {
             if (message) {
-                getOwner().sendPackets(new S_ServerMessage(166, "所持しているアデナ", "2,000,000,000を超過しています。")); // \f1%0が%4%1%3%2
+                getOwner().sendPackets(new S_ServerMessage(L1SystemMessageId.$166, "所持しているアデナ", "2,000,000,000を超過しています。")); // \f1%0が%4%1%3%2
             }
             return AMOUNT_OVER;
         }

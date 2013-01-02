@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.server.datatables.ArmorSetTable;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1ArmorSets;
 import l1j.jrwz.server.templates.L1Item;
@@ -378,7 +379,7 @@ class PolymorphEffect implements L1ArmorSetEffect {
     public void cancelEffect(L1PcInstance pc) {
         int awakeSkillId = pc.getAwakeSkillId();
         if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
-            pc.sendPackets(new S_ServerMessage(1384)); // 目前状态中无法变身。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1384)); // 目前状态中无法变身。
             return;
         }
         if (_gfxId == 6080) {
@@ -396,7 +397,7 @@ class PolymorphEffect implements L1ArmorSetEffect {
     public void giveEffect(L1PcInstance pc) {
         int awakeSkillId = pc.getAwakeSkillId();
         if (awakeSkillId == AWAKEN_ANTHARAS || awakeSkillId == AWAKEN_FAFURION || awakeSkillId == AWAKEN_VALAKAS) {
-            pc.sendPackets(new S_ServerMessage(1384)); // 目前状态中无法变身。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1384)); // 目前状态中无法变身。
             return;
         }
         if (_gfxId == 6080 || _gfxId == 6094) {

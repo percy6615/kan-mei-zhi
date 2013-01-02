@@ -28,6 +28,7 @@ import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Item;
 import l1j.jrwz.server.templates.L1PetItem;
@@ -72,10 +73,10 @@ public class C_UsePetItem extends ClientBasePacket {
             } else if (itemId >= 40761 && itemId <= 40766) {
                 usePetArmor(pc, pet, item);
             } else {
-                pc.sendPackets(new S_ServerMessage(79)); // \f1没有任何事情发生。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1没有任何事情发生。
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(79)); // \f1没有任何事情发生。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79)); // \f1没有任何事情发生。
         }
     }
 

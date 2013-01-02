@@ -35,6 +35,7 @@ import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_AttackPacket;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_UseArrowSkill;
@@ -72,7 +73,7 @@ public class C_Attack extends ClientBasePacket {
 
         // 確認是否可以攻擊
         if (pc.getInventory().getWeight240() >= 197) { // 是否超重
-            pc.sendPackets(new S_ServerMessage(110)); // \f1因负重过重，无法战斗。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$110)); // \f1因负重过重，无法战斗。
             return;
         }
 

@@ -25,6 +25,7 @@ import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 
 public class S_RetrievePledgeList extends ServerBasePacket {
     public S_RetrievePledgeList(int objid, L1PcInstance pc) {
@@ -36,7 +37,7 @@ public class S_RetrievePledgeList extends ServerBasePacket {
         if (clan.getWarehouseUsingChar() != 0
                 && clan.getWarehouseUsingChar() != pc.getId()) // 自キャラ以外がクラン倉庫使用中
         {
-            pc.sendPackets(new S_ServerMessage(209)); // \f1他の血盟員が倉庫を使用中です。しばらく経ってから利用してください。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$209)); // \f1他の血盟員が倉庫を使用中です。しばらく経ってから利用してください。
             return;
         }
 
@@ -61,7 +62,7 @@ public class S_RetrievePledgeList extends ServerBasePacket {
                 }
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
         }
     }
 

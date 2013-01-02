@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Party;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Party;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -50,7 +51,7 @@ public class C_Party extends ClientBasePacket {
             pc.sendPackets(new S_Party("party", pc.getId(), party.getLeader()
                     .getName(), party.getMembersNameList()));
         } else {
-            pc.sendPackets(new S_ServerMessage(425)); // 您并没有参加任何队伍。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$425)); // 您并没有参加任何队伍。
             // pc.sendPackets(new S_Party("party", pc
             // .getId()));
         }

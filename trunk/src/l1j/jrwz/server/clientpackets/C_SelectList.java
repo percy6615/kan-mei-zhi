@@ -31,6 +31,7 @@ import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Npc;
@@ -112,7 +113,7 @@ public class C_SelectList extends ClientBasePacket {
                 }
                 petCount = charisma / divisor;
                 if (petCount <= 0) {
-                    pc.sendPackets(new S_ServerMessage(489)); // 引き取ろうとするペットが多すぎます。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$489)); // 引き取ろうとするペットが多すぎます。
                     return;
                 }
                 L1Npc npcTemp = NpcTable.getInstance().getTemplate(npcId);

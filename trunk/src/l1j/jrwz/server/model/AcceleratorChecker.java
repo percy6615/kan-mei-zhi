@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.datatables.SprTable;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Disconnect;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_SystemMessage;
@@ -127,7 +128,7 @@ public class AcceleratorChecker {
 
     private void doDisconnect() {
         if (!_pc.isGm()) {
-            _pc.sendPackets(new S_ServerMessage(945)); // 发现插件因此强制中断游戏
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$945)); // 发现插件因此强制中断游戏
             _pc.sendPackets(new S_Disconnect());
             _log.info(String.format("加速器检测到 %s 强制切断其连线。", _pc.getName()));
         } else {

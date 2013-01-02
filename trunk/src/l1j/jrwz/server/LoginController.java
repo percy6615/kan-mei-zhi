@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 public class LoginController {
@@ -67,7 +68,7 @@ public class LoginController {
             public void run() {
                 if (client.getActiveChar() != null) {
                     client.getActiveChar()
-                            .sendPackets(new S_ServerMessage(357));
+                            .sendPackets(new S_ServerMessage(L1SystemMessageId.$357));
                 }
 
                 try {

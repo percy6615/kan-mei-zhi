@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.server.command.L1Commands;
 import l1j.jrwz.server.command.executor.L1CommandExecutor;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_SystemMessage;
 import l1j.jrwz.server.templates.L1Command;
@@ -72,7 +73,7 @@ public class GMCommands {
                 return false;
             }
             if (pc.getAccessLevel() < command.getLevel()) {
-                pc.sendPackets(new S_ServerMessage(74, "指令" + name)); // \f1%0は使用できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$74, "指令" + name)); // \f1%0は使用できません。
                 return true;
             }
 
@@ -109,7 +110,7 @@ public class GMCommands {
         }
         if (cmd.equalsIgnoreCase("r")) {
             if (!_lastCommands.containsKey(gm.getId())) {
-                gm.sendPackets(new S_ServerMessage(74, "指令" + cmd)); // \f1%0は使用できません。
+                gm.sendPackets(new S_ServerMessage(L1SystemMessageId.$74, "指令" + cmd)); // \f1%0は使用できません。
                 return;
             }
             redo(gm, param);

@@ -71,6 +71,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_HPUpdate;
 import l1j.jrwz.server.serverpackets.S_MPUpdate;
 import l1j.jrwz.server.serverpackets.S_OwnCharAttrDef;
@@ -214,7 +215,7 @@ public class L1Cooking {
         if (itemId == 41284 || itemId == 41292 || itemId == 49056
                 || itemId == 49064 || itemId == 49251 || itemId == 49259) { // デザート
             if (pc.get_food() != 225) {
-                pc.sendPackets(new S_ServerMessage(74, item.getNumberedName(1))); // \f1%0は使用できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$74, item.getNumberedName(1))); // \f1%0は使用できません。
                 return;
             }
         }
@@ -410,7 +411,7 @@ public class L1Cooking {
             }
             eatCooking(pc, cookingId, time);
         }
-        pc.sendPackets(new S_ServerMessage(76, item.getNumberedName(1))); // \f1吃%0%o 。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$76, item.getNumberedName(1))); // \f1吃%0%o 。
         pc.getInventory().removeItem(item, 1);
     }
 

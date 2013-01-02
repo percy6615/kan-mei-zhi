@@ -67,6 +67,7 @@ import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
 import l1j.jrwz.server.model.Instance.L1TeleporterInstance;
 import l1j.jrwz.server.model.Instance.L1TowerInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.poison.L1DamagePoison;
 import l1j.jrwz.server.model.trap.L1WorldTraps;
 import l1j.jrwz.server.serverpackets.S_ChangeHeading;
@@ -562,12 +563,12 @@ public class L1SkillUse {
 
         if (currentHp < _hpConsume + 1) {
             if (_user instanceof L1PcInstance) {
-                _player.sendPackets(new S_ServerMessage(279));
+                _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$279));
             }
             return false;
         } else if (currentMp < _mpConsume) {
             if (_user instanceof L1PcInstance) {
-                _player.sendPackets(new S_ServerMessage(278));
+                _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$278));
             }
             return false;
         }
@@ -619,14 +620,14 @@ public class L1SkillUse {
                 return false;
             }
             if (pc.getInventory().getWeight240() >= 197) { // 重量オーバーならスキルを使用できない
-                pc.sendPackets(new S_ServerMessage(316));
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$316));
                 return false;
             }
             int polyId = pc.getTempCharGfx();
             L1PolyMorph poly = PolyTable.getInstance().getTemplate(polyId);
             // 魔法が使えない変身
             if (poly != null && !poly.canUseSkill()) {
-                pc.sendPackets(new S_ServerMessage(285)); // \f1その状態では魔法を使えません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$285)); // \f1その状態では魔法を使えません。
                 return false;
             }
 
@@ -635,7 +636,7 @@ public class L1SkillUse {
             }
 
             if (_skillId == ELEMENTAL_PROTECTION && pc.getElfAttr() == 0) {
-                pc.sendPackets(new S_ServerMessage(280)); // \f1魔法が失敗しました。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$280)); // \f1魔法が失敗しました。
                 return false;
             }
 
@@ -647,14 +648,14 @@ public class L1SkillUse {
             // サイレンス状態では使用不可
             if (pc.hasSkillEffect(SILENCE) || pc.hasSkillEffect(AREA_OF_SILENCE)
                     || pc.hasSkillEffect(STATUS_POISON_SILENCE)) {
-                pc.sendPackets(new S_ServerMessage(285)); // \f1その状態では魔法を使えません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$285)); // \f1その状態では魔法を使えません。
                 return false;
             }
 
             // DIGはロウフルでのみ使用可
             if (_skillId == DISINTEGRATE && pc.getLawful() < 500) {
                 // このメッセージであってるか未確認
-                pc.sendPackets(new S_ServerMessage(352, "$967")); // この魔法を利用するには性向値が%0でなければなりません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$352, "$967")); // この魔法を利用するには性向値が%0でなければなりません。
                 return false;
             }
 
@@ -675,7 +676,7 @@ public class L1SkillUse {
                     }
                 }
                 if (isNearSameCube) {
-                    pc.sendPackets(new S_ServerMessage(1412)); // すでに床にキューブが召喚されています。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1412)); // すでに床にキューブが召喚されています。
                     return false;
                 }
             }
@@ -687,12 +688,12 @@ public class L1SkillUse {
                     && _skillId != FREEZING_BREATH || pc.getAwakeSkillId() == AWAKEN_VALAKAS
                     && _skillId != AWAKEN_VALAKAS && _skillId != MAGMA_BREATH && _skillId != SHOCK_SKIN
                     && _skillId != FREEZING_BREATH) {
-                pc.sendPackets(new S_ServerMessage(1385)); // 現在の状態では覚醒魔法が使えません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1385)); // 現在の状態では覚醒魔法が使えません。
                 return false;
             }
 
             if (isItemConsume() == false && !_player.isGm()) { // 消費アイテムはあるか
-                _player.sendPackets(new S_ServerMessage(299)); // 詠唱する材料がありません。
+                _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$299)); // 詠唱する材料がありません。
                 return false;
             }
         }
@@ -1330,7 +1331,7 @@ public class L1SkillUse {
                     } else { // 失敗した場合、リストから削除
                         if (_skillId == FOG_OF_SLEEPING && cha instanceof L1PcInstance) {
                             L1PcInstance pc = (L1PcInstance) cha;
-                            pc.sendPackets(new S_ServerMessage(297)); // 軽いめまいを覚えました。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$297)); // 軽いめまいを覚えました。
                         }
                         iter.remove();
                         continue;
@@ -1401,7 +1402,7 @@ public class L1SkillUse {
                                 for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(pc, 0)) {
                                     if (!visiblePc.isDead()) {
                                         // \f1その場所に他の人が立っているので復活させることができません。
-                                        _player.sendPackets(new S_ServerMessage(592));
+                                        _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$592));
                                         return;
                                     }
                                 }
@@ -1430,7 +1431,7 @@ public class L1SkillUse {
                                 for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(npc, 0)) {
                                     if (!visiblePc.isDead()) {
                                         // \f1その場所に他の人が立っているので復活させることができません。
-                                        _player.sendPackets(new S_ServerMessage(592));
+                                        _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$592));
                                         return;
                                     }
                                 }
@@ -1449,7 +1450,7 @@ public class L1SkillUse {
                                 for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(pc, 0)) {
                                     if (!visiblePc.isDead()) {
                                         // \f1その場所に他の人が立っているので復活させることができません。
-                                        _player.sendPackets(new S_ServerMessage(592));
+                                        _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$592));
                                         return;
                                     }
                                 }
@@ -1471,7 +1472,7 @@ public class L1SkillUse {
                                 for (L1PcInstance visiblePc : L1World.getInstance().getVisiblePlayer(npc, 0)) {
                                     if (!visiblePc.isDead()) {
                                         // \f1その場所に他の人が立っているので復活させることができません。
-                                        _player.sendPackets(new S_ServerMessage(592));
+                                        _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$592));
                                         return;
                                     }
                                 }
@@ -1522,7 +1523,7 @@ public class L1SkillUse {
                             L1PcInstance pc = (L1PcInstance) cha;
                             switch (playerAttr) {
                             case 0:
-                                _player.sendPackets(new S_ServerMessage(79));
+                                _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                 break;
                             case 1:
                                 pc.addEarth(i);
@@ -1547,7 +1548,7 @@ public class L1SkillUse {
                             L1MonsterInstance mob = (L1MonsterInstance) cha;
                             switch (playerAttr) {
                             case 0:
-                                _player.sendPackets(new S_ServerMessage(79));
+                                _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                                 break;
                             case 1:
                                 mob.addEarth(i);
@@ -1887,7 +1888,7 @@ public class L1SkillUse {
                                 Random random = new Random();
                                 int weaponDamage = random.nextInt(_user.getInt() / 3) + 1;
                                 // \f1あなたの%0が損傷しました。
-                                pc.sendPackets(new S_ServerMessage(268, weapon.getLogName()));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$268, weapon.getLogName()));
                                 pc.getInventory().receiveDamage(weapon, weaponDamage);
                             }
                         }
@@ -1943,7 +1944,7 @@ public class L1SkillUse {
                                 L1Teleport.teleport(pc, newX, newY, mapId, 5, true);
                             } else { // テレポート不可マップへの移動制限
                                 L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
-                                pc.sendPackets(new S_ServerMessage(79));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             }
                         } else { // ブックマークが取得出来なかった、あるいは「任意の場所」を選択した場合の処理
                             if (pc.getMap().isTeleportable() || pc.isGm()) {
@@ -1964,7 +1965,7 @@ public class L1SkillUse {
                                 }
                                 L1Teleport.teleport(pc, newX, newY, mapId, 5, true);
                             } else {
-                                pc.sendPackets(new S_ServerMessage(276));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$276));
                                 L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
                             }
                         }
@@ -1974,7 +1975,7 @@ public class L1SkillUse {
                         if (pc.getMap().isEscapable() || pc.isGm()) {
                             L1Teleport.teleport(pc, 33051, 32337, 4, 5, true);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(647));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                             L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
                         }
                     } else if (_skillId == CALL_CLAN) { // コールクラン
@@ -1997,11 +1998,11 @@ public class L1SkillUse {
                                     L1Teleport.teleport(pc, clanPc.getX(), clanPc.getY(), clanPc.getMapId(), 5, true);
                                 } else {
                                     // \f1あなたのパートナーは今あなたが行けない所でプレイ中です。
-                                    pc.sendPackets(new S_ServerMessage(547));
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$547));
                                 }
                             } else {
                                 // 周辺のエネルギーがテレポートを妨害しています。そのため、ここでテレポートは使用できません。
-                                pc.sendPackets(new S_ServerMessage(647));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$647));
                                 L1Teleport.teleport(pc, pc.getX(), pc.getY(), pc.getMapId(), pc.getHeading(), false);
                             }
                         }
@@ -2016,28 +2017,28 @@ public class L1SkillUse {
                             String item_name = item.getName();
                             if (safe_enchant < 0) { // 強化不可
                                 pc.sendPackets( // \f1何も起きませんでした。
-                                new S_ServerMessage(79));
+                                new S_ServerMessage(L1SystemMessageId.$79));
                             } else if (safe_enchant == 0) { // 安全圏+0
                                 pc.sendPackets( // \f1何も起きませんでした。
-                                new S_ServerMessage(79));
+                                new S_ServerMessage(L1SystemMessageId.$79));
                             } else if (item_type == 1 && enchant_level == 0) {
                                 if (!item.isIdentified()) {// 未鑑定
                                     pc.sendPackets( // \f1%0が%2%1光ります。
-                                    new S_ServerMessage(161, item_name, "$245", "$247"));
+                                    new S_ServerMessage(L1SystemMessageId.$161, item_name, "$245", "$247"));
                                 } else {
                                     item_name = "+0 " + item_name;
                                     pc.sendPackets( // \f1%0が%2%1光ります。
-                                    new S_ServerMessage(161, "+0 " + item_name, "$245", "$247"));
+                                    new S_ServerMessage(L1SystemMessageId.$161, "+0 " + item_name, "$245", "$247"));
                                 }
                                 item.setEnchantLevel(1);
                                 pc.getInventory().updateItem(item, L1PcInventory.COL_ENCHANTLVL);
                             } else {
                                 pc.sendPackets( // \f1何も起きませんでした。
-                                new S_ServerMessage(79));
+                                new S_ServerMessage(L1SystemMessageId.$79));
                             }
                         } else {
                             pc.sendPackets( // \f1何も起きませんでした。
-                            new S_ServerMessage(79));
+                            new S_ServerMessage(L1SystemMessageId.$79));
                         }
                     } else if (_skillId == BRING_STONE) { // ブリング ストーン
                         L1PcInstance pc = (L1PcInstance) cha;
@@ -2053,33 +2054,33 @@ public class L1SkillUse {
                                 pc.getInventory().removeItem(item, 1);
                                 if (dark >= chance) {
                                     pc.getInventory().storeItem(40321, 1);
-                                    pc.sendPackets(new S_ServerMessage(403, "$2475")); // %0を手に入れました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, "$2475")); // %0を手に入れました。
                                 } else {
-                                    pc.sendPackets(new S_ServerMessage(280)); // \f1魔法が失敗しました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$280)); // \f1魔法が失敗しました。
                                 }
                             } else if (item.getItem().getItemId() == 40321) {
                                 pc.getInventory().removeItem(item, 1);
                                 if (brave >= chance) {
                                     pc.getInventory().storeItem(40322, 1);
-                                    pc.sendPackets(new S_ServerMessage(403, "$2476")); // %0を手に入れました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, "$2476")); // %0を手に入れました。
                                 } else {
-                                    pc.sendPackets(new S_ServerMessage(280)); // \f1魔法が失敗しました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$280)); // \f1魔法が失敗しました。
                                 }
                             } else if (item.getItem().getItemId() == 40322) {
                                 pc.getInventory().removeItem(item, 1);
                                 if (wise >= chance) {
                                     pc.getInventory().storeItem(40323, 1);
-                                    pc.sendPackets(new S_ServerMessage(403, "$2477")); // %0を手に入れました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, "$2477")); // %0を手に入れました。
                                 } else {
-                                    pc.sendPackets(new S_ServerMessage(280)); // \f1魔法が失敗しました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$280)); // \f1魔法が失敗しました。
                                 }
                             } else if (item.getItem().getItemId() == 40323) {
                                 pc.getInventory().removeItem(item, 1);
                                 if (kayser >= chance) {
                                     pc.getInventory().storeItem(40324, 1);
-                                    pc.sendPackets(new S_ServerMessage(403, "$2478")); // %0を手に入れました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, "$2478")); // %0を手に入れました。
                                 } else {
-                                    pc.sendPackets(new S_ServerMessage(280)); // \f1魔法が失敗しました。
+                                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$280)); // \f1魔法が失敗しました。
                                 }
                             }
                         }
@@ -2132,7 +2133,7 @@ public class L1SkillUse {
                             }
                         } else {
                             // \f1何も起きませんでした。
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         }
                     } else if (_skillId == LESSER_ELEMENTAL || _skillId == GREATER_ELEMENTAL) { // レッサーエレメンタル、グレーターエレメンタル
                         L1PcInstance pc = (L1PcInstance) cha;
@@ -2176,7 +2177,7 @@ public class L1SkillUse {
                                 }
                             } else {
                                 // \f1何も起きませんでした。
-                                pc.sendPackets(new S_ServerMessage(79));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             }
                         }
                     } else if (_skillId == ABSOLUTE_BARRIER) { // アブソルート バリア
@@ -2226,16 +2227,16 @@ public class L1SkillUse {
                         if (item != null && item.getItem().getType2() == L1Item.TYPE2_WEAPON) {
                             item.setSkillWeaponEnchant(pc, _skillId, _skill.getBuffDuration() * 1000);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         }
                     } else if (_skillId == ENCHANT_WEAPON) { // エンチャント ウェポン
                         L1PcInstance pc = (L1PcInstance) cha;
                         L1ItemInstance item = pc.getInventory().getItem(_itemobjid);
                         if (item != null && item.getItem().getType2() == L1Item.TYPE2_WEAPON) {
-                            pc.sendPackets(new S_ServerMessage(161, item.getLogName(), "$245", "$247"));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$161, item.getLogName(), "$245", "$247"));
                             item.setSkillWeaponEnchant(pc, _skillId, _skill.getBuffDuration() * 1000);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         }
                     } else if (_skillId == HOLY_WEAPON // ホーリー ウェポン
                             || _skillId == BLESS_WEAPON) { // ブレス ウェポン
@@ -2244,12 +2245,12 @@ public class L1SkillUse {
                         }
                         L1PcInstance pc = (L1PcInstance) cha;
                         if (pc.getWeapon() == null) {
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             return;
                         }
                         for (L1ItemInstance item : pc.getInventory().getItems()) {
                             if (pc.getWeapon().equals(item)) {
-                                pc.sendPackets(new S_ServerMessage(161, item.getLogName(), "$245", "$247"));
+                                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$161, item.getLogName(), "$245", "$247"));
                                 item.setSkillWeaponEnchant(pc, _skillId, _skill.getBuffDuration() * 1000);
                                 return;
                             }
@@ -2259,10 +2260,10 @@ public class L1SkillUse {
                         L1ItemInstance item = pc.getInventory().getItem(_itemobjid);
                         if (item != null && item.getItem().getType2() == L1Item.TYPE2_ARMOR
                                 && item.getItem().getType() == 2) {
-                            pc.sendPackets(new S_ServerMessage(161, item.getLogName(), "$245", "$247"));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$161, item.getLogName(), "$245", "$247"));
                             item.setSkillArmorEnchant(pc, _skillId, _skill.getBuffDuration() * 1000);
                         } else {
-                            pc.sendPackets(new S_ServerMessage(79));
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                         }
                     } else if (_skillId == EARTH_BLESS) { // アース ブレス
                         L1PcInstance pc = (L1PcInstance) cha;
@@ -2470,7 +2471,7 @@ public class L1SkillUse {
                             L1SummonInstance summon = new L1SummonInstance(_targetNpc, _user, false);
                             _target = summon; // ターゲット入替え
                         } else {
-                            _player.sendPackets(new S_ServerMessage(319)); // \f1これ以上のモンスターを操ることはできません。
+                            _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$319)); // \f1これ以上のモンスターを操ることはできません。
                         }
                     } else if (_skillId == CREATE_ZOMBIE) { // クリエイトゾンビ
                         int petcost = 0;
@@ -2496,7 +2497,7 @@ public class L1SkillUse {
                             L1SummonInstance summon = new L1SummonInstance(_targetNpc, _user, true);
                             _target = summon; // ターゲット入替え
                         } else {
-                            _player.sendPackets(new S_ServerMessage(319)); // \f1これ以上のモンスターを操ることはできません。
+                            _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$319)); // \f1これ以上のモンスターを操ることはできません。
                         }
                     } else if (_skillId == WEAK_ELEMENTAL) { // ウィーク エレメンタル
                         if (cha instanceof L1MonsterInstance) {
@@ -2522,7 +2523,7 @@ public class L1SkillUse {
                             summon.returnToNature();
                         } else {
                             if (_user instanceof L1PcInstance) {
-                                _player.sendPackets(new S_ServerMessage(79));
+                                _player.sendPackets(new S_ServerMessage(L1SystemMessageId.$79));
                             }
                         }
                     }

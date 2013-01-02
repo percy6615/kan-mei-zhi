@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_HPMeter;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -64,7 +65,7 @@ public class L1Party {
 
         for (L1PcInstance member : members) {
             removeMember(member);
-            member.sendPackets(new S_ServerMessage(418)); // 您解散您的队伍了!!
+            member.sendPackets(new S_ServerMessage(L1SystemMessageId.$418)); // 您解散您的队伍了!!
         }
     }
 
@@ -136,7 +137,7 @@ public class L1Party {
             // 残りのパーティーメンバーが２人以上いる
             removeMember(pc);
         }
-        pc.sendPackets(new S_ServerMessage(419)); // 您从队伍中被驱逐了。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$419)); // 您从队伍中被驱逐了。
     }
 
     public void leaveMember(L1PcInstance pc) {
@@ -178,7 +179,7 @@ public class L1Party {
     }
 
     private void sendLeftMessage(L1PcInstance sendTo, L1PcInstance left) {
-        sendTo.sendPackets(new S_ServerMessage(420, left.getName())); // %0%s 离开了队伍。
+        sendTo.sendPackets(new S_ServerMessage(L1SystemMessageId.$420, left.getName())); // %0%s 离开了队伍。
     }
 
     private void setLeader(L1PcInstance pc) {

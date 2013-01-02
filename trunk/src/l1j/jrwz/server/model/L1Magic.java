@@ -101,6 +101,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_SkillSound;
@@ -959,11 +960,11 @@ public class L1Magic {
         }
 
         if (_calcType == PC_PC || _calcType == PC_NPC) { // アタッカーがＰＣの場合
-            _pc.sendPackets(new S_ServerMessage(166, msg0, msg1, msg2, msg3,
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, msg0, msg1, msg2, msg3,
                     msg4)); // \f1%0が%4%1%3 %2
         }
         if (_calcType == NPC_PC || _calcType == PC_PC) { // ターゲットがＰＣの場合
-            _targetPc.sendPackets(new S_ServerMessage(166, msg0, msg1, msg2,
+            _targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, msg0, msg1, msg2,
                     msg3, msg4)); // \f1%0が%4%1%3 %2
         }
 
@@ -1038,11 +1039,11 @@ public class L1Magic {
         msg3 = damage + "与えた";
 
         if (_calcType == PC_PC || _calcType == PC_NPC) { // アタッカーがＰＣの場合
-            _pc.sendPackets(new S_ServerMessage(166, msg0, msg1, msg2, msg3,
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, msg0, msg1, msg2, msg3,
                     msg4)); // \f1%0が%4%1%3 %2
         }
         if (_calcType == NPC_PC || _calcType == PC_PC) { // ターゲットがＰＣの場合
-            _targetPc.sendPackets(new S_ServerMessage(166, msg0, msg1, msg2,
+            _targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, msg0, msg1, msg2,
                     msg3, msg4)); // \f1%0が%4%1%3 %2
         }
     }

@@ -22,6 +22,7 @@ import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.utils.PerformanceTimer;
 
@@ -123,7 +124,7 @@ public class L1TreasureBox {
             inventory = L1World.getInstance().getInventory(pc.getLocation());
         }
         inventory.storeItem(item);
-        pc.sendPackets(new S_ServerMessage(403, item.getLogName())); // %0を手に入れました。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, item.getLogName())); // %0を手に入れました。
     }
 
     @XmlAttribute(name = "ItemId")

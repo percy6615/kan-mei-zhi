@@ -33,6 +33,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_CurseBlind;
 import l1j.jrwz.server.serverpackets.S_Dexup;
 import l1j.jrwz.server.serverpackets.S_HPUpdate;
@@ -540,7 +541,7 @@ class L1SkillStop {
         } else if (skillId == STATUS_CHAT_PROHIBITED) { // チャット禁止
             if (cha instanceof L1PcInstance) {
                 L1PcInstance pc = (L1PcInstance) cha;
-                pc.sendPackets(new S_ServerMessage(288)); // チャットができるようになりました。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$288)); // チャットができるようになりました。
             }
         }
 

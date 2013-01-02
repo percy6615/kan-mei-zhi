@@ -30,6 +30,7 @@ import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1War;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_CharTitle;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -64,12 +65,12 @@ public class C_LeaveClan extends ClientBasePacket {
                 int castleId = clan.getCastleId();
                 int houseId = clan.getHouseId();
                 if (castleId != 0 || houseId != 0) {
-                    player.sendPackets(new S_ServerMessage(665)); // \f1拥有城堡与血盟小屋的状态下无法解散血盟。
+                    player.sendPackets(new S_ServerMessage(L1SystemMessageId.$665)); // \f1拥有城堡与血盟小屋的状态下无法解散血盟。
                     return;
                 }
                 for (L1War war : L1World.getInstance().getWarList()) {
                     if (war.CheckClanInWar(clan_name)) {
-                        player.sendPackets(new S_ServerMessage(302)); // \f1无法解散。
+                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$302)); // \f1无法解散。
                         return;
                     }
                 }
@@ -87,7 +88,7 @@ public class C_LeaveClan extends ClientBasePacket {
                         online_pc.broadcastPacket(new S_CharTitle(online_pc
                                 .getId(), ""));
                         online_pc.save(); // 儲存玩家資料到資料庫中
-                        online_pc.sendPackets(new S_ServerMessage(269,
+                        online_pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$269,
                                 player_name, clan_name)); // %1血盟的盟主解散了 %0%s 血盟。
                     } else { // 非線上的血盟成員
                         try {
@@ -111,7 +112,7 @@ public class C_LeaveClan extends ClientBasePacket {
             } else { // 除了聯盟主之外
                 L1PcInstance clanMember[] = clan.getOnlineClanMember();
                 for (i = 0; i < clanMember.length; i++) {
-                    clanMember[i].sendPackets(new S_ServerMessage(178,
+                    clanMember[i].sendPackets(new S_ServerMessage(L1SystemMessageId.$178,
                             player_name, clan_name)); // \f1%0%s退出 %1 血盟了。
                 }
                 if (clan.getWarehouseUsingChar() == player.getId()) { // 血盟成員使用血盟倉庫中
@@ -134,7 +135,7 @@ public class C_LeaveClan extends ClientBasePacket {
             player.sendPackets(new S_CharTitle(player.getId(), ""));
             player.broadcastPacket(new S_CharTitle(player.getId(), ""));
             player.save(); // 儲存玩家資料到資料庫中
-            player.sendPackets(new S_ServerMessage(178, player_name, clan_name)); // \f1%0%s退出 %1 血盟了。
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$178, player_name, clan_name)); // \f1%0%s退出 %1 血盟了。
         }
     }
 

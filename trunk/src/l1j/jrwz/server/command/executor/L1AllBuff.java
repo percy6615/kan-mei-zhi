@@ -56,6 +56,7 @@ import l1j.jrwz.server.datatables.SkillsTable;
 import l1j.jrwz.server.model.L1PolyMorph;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.skill.L1BuffUtil;
 import l1j.jrwz.server.model.skill.L1SkillUse;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -90,7 +91,7 @@ public class L1AllBuff implements L1CommandExecutor {
             String name = st.nextToken();
             L1PcInstance target = L1World.getInstance().getPlayer(name);
             if (target == null) {
-                pc.sendPackets(new S_ServerMessage(73, name)); // \f1%0はゲームをしていません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$73, name)); // \f1%0はゲームをしていません。
                 return;
             }
 

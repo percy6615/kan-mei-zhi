@@ -29,6 +29,7 @@ import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Castle;
@@ -73,7 +74,7 @@ public class C_Drawal extends ClientBasePacket {
                                         pc.getMapId())
                                 .storeItem(L1ItemId.ADENA, j);
                     }
-                    pc.sendPackets(new S_ServerMessage(143, "$457", "$4" + " ("
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, "$457", "$4" + " ("
                             + j + ")")); // \f1%0%s 給你 %1%o 。
                 }
             }

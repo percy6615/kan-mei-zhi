@@ -87,6 +87,7 @@ import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
 import l1j.jrwz.server.model.gametime.L1GameTimeClock;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.poison.L1DamagePoison;
 import l1j.jrwz.server.model.poison.L1ParalysisPoison;
 import l1j.jrwz.server.model.poison.L1SilencePoison;
@@ -1880,11 +1881,11 @@ public class L1Attack {
         msg3 = _isHit ? _damage + "与えた" : "ミスしました";
 
         if (_calcType == PC_PC || _calcType == PC_NPC) { // アタッカーがＰＣの場合
-            _pc.sendPackets(new S_ServerMessage(166, msg0, msg1, msg2, msg3,
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, msg0, msg1, msg2, msg3,
                     msg4)); // \f1%0が%4%1%3 %2
         }
         if (_calcType == NPC_PC || _calcType == PC_PC) { // ターゲットがＰＣの場合
-            _targetPc.sendPackets(new S_ServerMessage(166, msg0, msg1, msg2,
+            _targetPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, msg0, msg1, msg2,
                     msg3, msg4)); // \f1%0が%4%1%3 %2
         }
     }
@@ -1970,13 +1971,13 @@ public class L1Attack {
         if ((_weaponBless == 1 || _weaponBless == 2)
                 && ((_random.nextInt(100) + 1) < chance)) {
             // \f1あなたの%0が損傷しました。
-            _pc.sendPackets(new S_ServerMessage(268, weapon.getLogName()));
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$268, weapon.getLogName()));
             _pc.getInventory().receiveDamage(weapon);
         }
         // 祝福された武器
         if (_weaponBless == 0 && ((_random.nextInt(100) + 1) < bchance)) {
             // \f1あなたの%0が損傷しました。
-            _pc.sendPackets(new S_ServerMessage(268, weapon.getLogName()));
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$268, weapon.getLogName()));
             _pc.getInventory().receiveDamage(weapon);
         }
     }
@@ -2018,7 +2019,7 @@ public class L1Attack {
 
         if (_random.nextInt(100) + 1 <= 10) {
             // \f1あなたの%0が損傷しました。
-            _pc.sendPackets(new S_ServerMessage(268, weapon.getLogName()));
+            _pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$268, weapon.getLogName()));
             _pc.getInventory().receiveDamage(weapon);
         }
     }

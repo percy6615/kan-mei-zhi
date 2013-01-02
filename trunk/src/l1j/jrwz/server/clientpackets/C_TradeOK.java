@@ -25,6 +25,7 @@ import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Trade;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -58,8 +59,8 @@ public class C_TradeOK extends ClientBasePacket {
                     trade.TradeOK(player);
                 } else // お互いのアイテムを手元に戻す
                 {
-                    player.sendPackets(new S_ServerMessage(263)); // \f1一个角色最多可携带180个道具。
-                    trading_partner.sendPackets(new S_ServerMessage(263)); // \f1一个角色最多可携带180个道具。
+                    player.sendPackets(new S_ServerMessage(L1SystemMessageId.$263)); // \f1一个角色最多可携带180个道具。
+                    trading_partner.sendPackets(new S_ServerMessage(L1SystemMessageId.$263)); // \f1一个角色最多可携带180个道具。
                     L1Trade trade = new L1Trade();
                     trade.TradeCancel(player);
                 }
