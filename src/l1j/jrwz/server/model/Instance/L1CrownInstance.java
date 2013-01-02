@@ -30,6 +30,7 @@ import l1j.jrwz.server.model.L1Teleport;
 import l1j.jrwz.server.model.L1War;
 import l1j.jrwz.server.model.L1WarSpawn;
 import l1j.jrwz.server.model.L1World;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_CastleMaster;
 import l1j.jrwz.server.serverpackets.S_RemoveObject;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -97,7 +98,7 @@ public class L1CrownInstance extends L1NpcInstance {
         if (clan.getCastleId() != 0) {
             // 城主クラン
             // あなたはすでに城を所有しているので、他の城を取ることは出来ません。
-            player.sendPackets(new S_ServerMessage(474));
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$474));
             return;
         }
 
@@ -176,7 +177,7 @@ public class L1CrownInstance extends L1NpcInstance {
 
         if (clanMember.length > 0) {
             // 城を占拠しました。
-            S_ServerMessage s_serverMessage = new S_ServerMessage(643);
+            S_ServerMessage s_serverMessage = new S_ServerMessage(L1SystemMessageId.$643);
             for (L1PcInstance pc : clanMember) {
                 pc.sendPackets(s_serverMessage);
             }

@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.model.Instance.L1DoorInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.skill.L1SkillUse;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 

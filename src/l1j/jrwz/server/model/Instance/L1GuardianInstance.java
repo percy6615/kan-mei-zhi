@@ -37,6 +37,7 @@ import l1j.jrwz.server.model.L1Character;
 import l1j.jrwz.server.model.L1NpcTalkData;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ChangeHeading;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;
 import l1j.jrwz.server.serverpackets.S_NPCTalkReturn;
@@ -147,15 +148,15 @@ public class L1GuardianInstance extends L1NpcInstance {
                     int chance = _random.nextInt(100) + 1;
                     if (chance <= 10) {
                         player.getInventory().storeItem(40506, 1);
-                        player.sendPackets(new S_ServerMessage(143, "$755",
+                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, "$755",
                                 "$794")); // \f1%0が%1をくれました。
                     } else if (chance <= 60 && chance > 10) {
                         player.getInventory().storeItem(40507, 1);
-                        player.sendPackets(new S_ServerMessage(143, "$755",
+                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, "$755",
                                 "$763")); // \f1%0が%1をくれました。
                     } else if (chance <= 70 && chance > 60) {
                         player.getInventory().storeItem(40505, 1);
-                        player.sendPackets(new S_ServerMessage(143, "$755",
+                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, "$755",
                                 "$770")); // \f1%0が%1をくれました。
                     }
                 }
@@ -163,7 +164,7 @@ public class L1GuardianInstance extends L1NpcInstance {
                     int chance = _random.nextInt(100) + 1;
                     if (chance <= 30) {
                         player.getInventory().storeItem(40519, 5);
-                        player.sendPackets(new S_ServerMessage(143, "$753",
+                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, "$753",
                                 "$760" + " (" + 5 + ")")); // \f1%0が%1をくれました。
                     }
                 }
@@ -171,7 +172,7 @@ public class L1GuardianInstance extends L1NpcInstance {
                     int chance = _random.nextInt(100) + 1;
                     if (chance <= 30) {
                         player.getInventory().storeItem(40503, 1);
-                        player.sendPackets(new S_ServerMessage(143, "$752",
+                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, "$752",
                                 "$769")); // \f1%0が%1をくれました。
                     }
                 }

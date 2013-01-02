@@ -38,6 +38,7 @@ import l1j.jrwz.server.datatables.UBSpawnTable;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1MonsterInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Item;
@@ -55,8 +56,8 @@ public class L1UltimateBattle {
          */
         private void countDown() throws InterruptedException {
             // XXX - ID非正确
-            final int MSGID_COUNT = 637;
-            final int MSGID_START = 632; // 与%0开始决斗。
+            final int MSGID_COUNT = L1SystemMessageId.$637;
+            final int MSGID_START = L1SystemMessageId.$632; // 与%0开始决斗。
 
             for (int loop = 0; loop < BEFORE_MINUTE * 60 - 10; loop++) { // 開始10秒前まで待つ
                 Thread.sleep(1000);
@@ -523,7 +524,7 @@ public class L1UltimateBattle {
      */
     private void sendRoundMessage(int curRound) {
         // XXX - このIDは間違っている
-        final int MSGID_ROUND_TABLE[] = { 893, 894, 895, 896 };
+        final int MSGID_ROUND_TABLE[] = { L1SystemMessageId.$893, L1SystemMessageId.$894, L1SystemMessageId.$895, L1SystemMessageId.$896 };
 
         sendMessage(MSGID_ROUND_TABLE[curRound - 1], "");
     }

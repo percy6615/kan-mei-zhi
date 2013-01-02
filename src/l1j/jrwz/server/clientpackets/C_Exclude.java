@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1ExcludingList;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_PacketBox;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -52,7 +53,7 @@ public class C_Exclude extends ClientBasePacket {
         try {
             L1ExcludingList exList = pc.getExcludingList();
             if (exList.isFull()) {
-                pc.sendPackets(new S_ServerMessage(472)); // \f1被拒绝的玩家太多。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$472)); // \f1被拒绝的玩家太多。
                 return;
             }
             if (exList.contains(name)) {

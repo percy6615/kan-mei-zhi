@@ -41,6 +41,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Drop;
@@ -106,8 +107,7 @@ public class DropTable {
     }
 
     // ドロップを分配
-    public void dropShare(L1NpcInstance npc, ArrayList<L1Character> acquisitorList,
-            ArrayList<Integer> hateList) {
+    public void dropShare(L1NpcInstance npc, ArrayList<L1Character> acquisitorList, ArrayList<Integer> hateList) {
         L1Inventory inventory = npc.getInventory();
         if (inventory.getSize() == 0) {
             return;
@@ -124,10 +124,8 @@ public class DropTable {
                     && (acquisitor instanceof L1SummonInstance || acquisitor instanceof L1PetInstance)) {
                 acquisitorList.remove(i);
                 hateList.remove(i);
-            } else if (acquisitor != null
-                    && acquisitor.getMapId() == npc.getMapId()
-                    && acquisitor.getLocation().getTileLineDistance(
-                            npc.getLocation()) <= Config.LOOTING_RANGE) {
+            } else if (acquisitor != null && acquisitor.getMapId() == npc.getMapId()
+                    && acquisitor.getLocation().getTileLineDistance(npc.getLocation()) <= Config.LOOTING_RANGE) {
                 totalHate += (Integer) hateList.get(i);
             } else { // nullだったり死んでたり遠かったら排除
                 acquisitorList.remove(i);
@@ -152,8 +150,7 @@ public class DropTable {
                 item.setNowLighting(false);
             }
 
-            if (((Config.AUTO_LOOT != 0) || itemId == L1ItemId.ADENA)
-                    && totalHate > 0) { // オートルーティングかアデナで取得者がいる場合
+            if (((Config.AUTO_LOOT != 0) || itemId == L1ItemId.ADENA) && totalHate > 0) { // オートルーティングかアデナで取得者がいる場合
                 randomInt = random.nextInt(totalHate);
                 chanceHate = 0;
                 for (int j = hateList.size() - 1; j >= 0; j--) {
@@ -161,8 +158,7 @@ public class DropTable {
                     if (chanceHate > randomInt) {
                         acquisitor = (L1Character) acquisitorList.get(j);
                         if (itemId >= 40131 && itemId <= 40135) {
-                            if (!(acquisitor instanceof L1PcInstance)
-                                    || hateList.size() > 1) {
+                            if (!(acquisitor instanceof L1PcInstance) || hateList.size() > 1) {
                                 targetInventory = null;
                                 break;
                             }
@@ -172,46 +168,34 @@ public class DropTable {
                                 break;
                             }
                         }
-                        if (acquisitor.getInventory().checkAddItem(item,
-                                item.getCount()) == L1Inventory.OK) {
+                        if (acquisitor.getInventory().checkAddItem(item, item.getCount()) == L1Inventory.OK) {
                             targetInventory = acquisitor.getInventory();
                             if (acquisitor instanceof L1PcInstance) {
                                 player = (L1PcInstance) acquisitor;
-                                L1ItemInstance l1iteminstance = player
-                                        .getInventory().findItemId(
-                                                L1ItemId.ADENA); // 所持アデナをチェック
-                                if (l1iteminstance != null
-                                        && l1iteminstance.getCount() > 2000000000) {
-                                    targetInventory = L1World.getInstance()
-                                            .getInventory(acquisitor.getX(),
-                                                    acquisitor.getY(),
-                                                    acquisitor.getMapId()); // 持てないので足元に落とす
+                                L1ItemInstance l1iteminstance = player.getInventory().findItemId(L1ItemId.ADENA); // 所持アデナをチェック
+                                if (l1iteminstance != null && l1iteminstance.getCount() > 2000000000) {
+                                    targetInventory = L1World.getInstance().getInventory(acquisitor.getX(),
+                                            acquisitor.getY(), acquisitor.getMapId()); // 持てないので足元に落とす
                                     isGround = true;
-                                    player.sendPackets(new S_ServerMessage(166,
-                                            "所持有的金币超过", "2,000,000,000")); // \f1%0が%4%1%3%2
+                                    player.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, "所持有的金币超过",
+                                            "2,000,000,000")); // \f1%0が%4%1%3%2
                                 } else {
                                     if (player.isInParty()) { // パーティの場合
-                                        partyMember = player.getParty()
-                                                .getMembers();
+                                        partyMember = player.getParty().getMembers();
                                         for (L1PcInstance element : partyMember) {
-                                            element.sendPackets(new S_ServerMessage(
-                                                    813, npc.getName(), item
-                                                            .getLogName(),
-                                                    player.getName()));
+                                            element.sendPackets(new S_ServerMessage(L1SystemMessageId.$813, npc
+                                                    .getName(), item.getLogName(), player.getName()));
                                         }
                                     } else {
                                         // ソロの場合
-                                        player.sendPackets(new S_ServerMessage(
-                                                143, npc.getName(), item
-                                                        .getLogName())); // \f1%0が%1をくれました。
+                                        player.sendPackets(new S_ServerMessage(L1SystemMessageId.$143, npc.getName(),
+                                                item.getLogName())); // \f1%0が%1をくれました。
                                     }
                                 }
                             }
                         } else {
-                            targetInventory = L1World.getInstance()
-                                    .getInventory(acquisitor.getX(),
-                                            acquisitor.getY(),
-                                            acquisitor.getMapId()); // 持てないので足元に落とす
+                            targetInventory = L1World.getInstance().getInventory(acquisitor.getX(), acquisitor.getY(),
+                                    acquisitor.getMapId()); // 持てないので足元に落とす
                             isGround = true;
                         }
                         break;
@@ -235,42 +219,41 @@ public class DropTable {
                     dir = dirList.get(randomInt);
                     dirList.remove(randomInt);
                     switch (dir) {
-                        case 0:
-                            x = 0;
-                            y = -1;
-                            break;
-                        case 1:
-                            x = 1;
-                            y = -1;
-                            break;
-                        case 2:
-                            x = 1;
-                            y = 0;
-                            break;
-                        case 3:
-                            x = 1;
-                            y = 1;
-                            break;
-                        case 4:
-                            x = 0;
-                            y = 1;
-                            break;
-                        case 5:
-                            x = -1;
-                            y = 1;
-                            break;
-                        case 6:
-                            x = -1;
-                            y = 0;
-                            break;
-                        case 7:
-                            x = -1;
-                            y = -1;
-                            break;
+                    case 0:
+                        x = 0;
+                        y = -1;
+                        break;
+                    case 1:
+                        x = 1;
+                        y = -1;
+                        break;
+                    case 2:
+                        x = 1;
+                        y = 0;
+                        break;
+                    case 3:
+                        x = 1;
+                        y = 1;
+                        break;
+                    case 4:
+                        x = 0;
+                        y = 1;
+                        break;
+                    case 5:
+                        x = -1;
+                        y = 1;
+                        break;
+                    case 6:
+                        x = -1;
+                        y = 0;
+                        break;
+                    case 7:
+                        x = -1;
+                        y = -1;
+                        break;
                     }
                 } while (!npc.getMap().isPassable(npc.getX(), npc.getY(), dir));
-                targetInventory = L1World.getInstance().getInventory(
-                        npc.getX() + x, npc.getY() + y, npc.getMapId());
+                targetInventory = L1World.getInstance().getInventory(npc.getX() + x, npc.getY() + y, npc.getMapId());
                 isGround = true;
             }
             if (itemId >= 40131 && itemId <= 40135) {
@@ -322,11 +305,9 @@ public class DropTable {
 
             // ドロップチャンス判定
             randomChance = random.nextInt(0xf4240) + 1;
-            double rateOfMapId = MapsTable.getInstance().getDropRate(
-                    npc.getMapId());
+            double rateOfMapId = MapsTable.getInstance().getDropRate(npc.getMapId());
             double rateOfItem = DropItemTable.getInstance().getDropRate(itemId);
-            if (droprate == 0
-                    || drop.getChance() * droprate * rateOfMapId * rateOfItem < randomChance) {
+            if (droprate == 0 || drop.getChance() * droprate * rateOfMapId * rateOfItem < randomChance) {
                 continue;
             }
 

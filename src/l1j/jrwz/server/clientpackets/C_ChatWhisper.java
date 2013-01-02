@@ -27,6 +27,7 @@ import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.datatables.ChatLogTable;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ChatPacket;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -50,19 +51,19 @@ public class C_ChatWhisper extends ClientBasePacket {
         L1PcInstance whisperFrom = client.getActiveChar();
         // 被魔封
         if (whisperFrom.hasSkillEffect(1005)) {
-            whisperFrom.sendPackets(new S_ServerMessage(242)); // 你從現在被禁止閒談。
+            whisperFrom.sendPackets(new S_ServerMessage(L1SystemMessageId.$242)); // 你從現在被禁止閒談。
             return;
         }
         // 等級不夠
         if (whisperFrom.getLevel() < Config.WHISPER_CHAT_LEVEL) {
-            whisperFrom.sendPackets(new S_ServerMessage(404, String
+            whisperFrom.sendPackets(new S_ServerMessage(L1SystemMessageId.$404, String
                     .valueOf(Config.WHISPER_CHAT_LEVEL))); // 等級 %0 以下無法使用密談。
             return;
         }
         L1PcInstance whisperTo = L1World.getInstance().getPlayer(targetName);
         // 密語對象不存在
         if (whisperTo == null) {
-            whisperFrom.sendPackets(new S_ServerMessage(73, targetName)); // \f1%0%d 不在線上。
+            whisperFrom.sendPackets(new S_ServerMessage(L1SystemMessageId.$73, targetName)); // \f1%0%d 不在線上。
             return;
         }
         // 自己跟自己說話
@@ -71,13 +72,13 @@ public class C_ChatWhisper extends ClientBasePacket {
         }
         // 斷絕密語
         if (whisperTo.getExcludingList().contains(whisperFrom.getName())) {
-            whisperFrom.sendPackets(new S_ServerMessage(117, whisperTo
+            whisperFrom.sendPackets(new S_ServerMessage(L1SystemMessageId.$117, whisperTo
                     .getName())); // %0%s 斷絕你的密語。
             return;
         }
         // 關閉密語
         if (!whisperTo.isCanWhisper()) {
-            whisperFrom.sendPackets(new S_ServerMessage(205, whisperTo
+            whisperFrom.sendPackets(new S_ServerMessage(L1SystemMessageId.$205, whisperTo
                     .getName())); // \f1%0%d 目前關閉悄悄話。
             return;
         }

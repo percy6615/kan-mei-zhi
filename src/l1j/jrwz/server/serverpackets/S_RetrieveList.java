@@ -23,6 +23,7 @@ import java.io.IOException;
 import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 
 public class S_RetrieveList extends ServerBasePacket {
     public S_RetrieveList(int objid, L1PcInstance pc) {
@@ -50,7 +51,7 @@ public class S_RetrieveList extends ServerBasePacket {
              * S_SystemMessage("何もお預かりしていません。")); }
              */
         } else {
-            pc.sendPackets(new S_ServerMessage(263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
         }
     }
 

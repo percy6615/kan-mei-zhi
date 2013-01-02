@@ -33,6 +33,7 @@ import l1j.jrwz.server.model.Instance.L1NpcInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
 import l1j.jrwz.server.model.Instance.L1SummonInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ItemName;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.templates.L1Npc;
@@ -83,16 +84,16 @@ public class C_GiveItem extends ClientBasePacket {
             return;
         }
         if (item.isEquipped()) {
-            pc.sendPackets(new S_ServerMessage(141)); // \f1你不能夠將轉移已經裝備的物品。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$141)); // \f1你不能夠將轉移已經裝備的物品。
             return;
         }
         if (!item.getItem().isTradable()) {
-            pc.sendPackets(new S_ServerMessage(210, item.getItem().getName())); // \f1%0%d是不可轉移的…
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem().getName())); // \f1%0%d是不可轉移的…
             return;
         }
         if (item.getBless() >= 128) { // 封印的裝備
             // \f1%0%d是不可轉移的…
-            pc.sendPackets(new S_ServerMessage(210, item.getItem().getName()));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem().getName()));
             return;
         }
         for (Object petObject : pc.getPetList().values()) {
@@ -100,14 +101,14 @@ public class C_GiveItem extends ClientBasePacket {
                 L1PetInstance pet = (L1PetInstance) petObject;
                 if (item.getId() == pet.getItemObjId()) {
                     // \f1%0%d是不可轉移的…
-                    pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                             .getName()));
                     return;
                 }
             }
         }
         if (targetInv.checkAddItem(item, count) != L1Inventory.OK) {
-            pc.sendPackets(new S_ServerMessage(942)); // 對方的負重太重，無法再給予。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$942)); // 對方的負重太重，無法再給予。
             return;
         }
         item = inv.tradeItem(item, count, targetInv);
@@ -222,7 +223,7 @@ public class C_GiveItem extends ClientBasePacket {
                     pc.sendPackets(new S_ItemName(petamu));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(324)); // 馴養失敗。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$324)); // 馴養失敗。
             }
         }
     }

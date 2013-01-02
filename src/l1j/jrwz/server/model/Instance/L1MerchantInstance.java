@@ -32,6 +32,7 @@ import l1j.jrwz.server.model.L1Quest;
 import l1j.jrwz.server.model.L1TownLocation;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.gametime.L1GameTimeClock;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ChangeHeading;
 import l1j.jrwz.server.serverpackets.S_NPCTalkReturn;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -150,7 +151,7 @@ public class L1MerchantInstance extends L1NpcInstance {
         pc.getInventory().consumeItem(sealId, sealCount);
         L1ItemInstance item = pc.getInventory().storeItem(rulerId, 1);
         if (item != null) {
-            pc.sendPackets(new S_ServerMessage(143,
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$143,
                     getNpcTemplate().get_name(), item.getLogName())); // \f1%0%s 给你%1%o 。
         }
     }

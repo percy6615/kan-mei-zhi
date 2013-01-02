@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.utils:
@@ -45,7 +46,7 @@ public class FaceToFace {
                 1);
 
         if (players.size() == 0) { // 如果1格范围内没有任何人
-            pc.sendPackets(new S_ServerMessage(93)); // \f1你注视的地方没有人。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$93)); // \f1你注视的地方没有人。
             return null;
         }
         for (L1PcInstance target : players) {
@@ -56,7 +57,7 @@ public class FaceToFace {
                 if (targetHeading == 4) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 1 && pcX == (targetX - 1)
@@ -64,14 +65,14 @@ public class FaceToFace {
                 if (targetHeading == 5) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 2 && pcX == (targetX - 1) && pcY == targetY) {
                 if (targetHeading == 6) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 3 && pcX == (targetX - 1)
@@ -79,14 +80,14 @@ public class FaceToFace {
                 if (targetHeading == 7) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 4 && pcX == targetX && pcY == (targetY - 1)) {
                 if (targetHeading == 0) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 5 && pcX == (targetX + 1)
@@ -94,14 +95,14 @@ public class FaceToFace {
                 if (targetHeading == 1) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 6 && pcX == (targetX + 1) && pcY == targetY) {
                 if (targetHeading == 2) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             } else if (pcHeading == 7 && pcX == (targetX + 1)
@@ -109,12 +110,12 @@ public class FaceToFace {
                 if (targetHeading == 3) {
                     return target;
                 } else {
-                    pc.sendPackets(new S_ServerMessage(91, target.getName())); // \f1%0%s 没有面对着你。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$91, target.getName())); // \f1%0%s 没有面对着你。
                     return null;
                 }
             }
         }
-        pc.sendPackets(new S_ServerMessage(93)); // \f1你注视的地方没有人。
+        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$93)); // \f1你注视的地方没有人。
         return null;
     }
 

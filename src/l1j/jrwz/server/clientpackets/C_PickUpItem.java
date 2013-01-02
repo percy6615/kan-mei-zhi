@@ -27,6 +27,7 @@ import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_AttackPacket;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -67,7 +68,7 @@ public class C_PickUpItem extends ClientBasePacket {
             L1ItemInstance item = (L1ItemInstance) object;
             if (item.getItemOwnerId() != 0
                     && pc.getId() != item.getItemOwnerId()) {
-                pc.sendPackets(new S_ServerMessage(623)); // 道具取得失败。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$623)); // 道具取得失败。
                 return;
             }
             if (pc.getLocation().getTileLineDistance(item.getLocation()) > 3) {
@@ -83,7 +84,7 @@ public class C_PickUpItem extends ClientBasePacket {
                 }
                 // 超過20億
                 if ((long) inventoryItemCount + (long) pickupCount > 2000000000L) {
-                    pc.sendPackets(new S_ServerMessage(166, // \f1%0%s %4%1%3 %2.
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, // \f1%0%s %4%1%3 %2.
                             "你身上的金币已经超过", "2,000,000,000了，所以不能捡起金币。"));
                     return;
                 }

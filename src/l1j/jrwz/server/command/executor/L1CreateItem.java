@@ -26,6 +26,7 @@ import l1j.jrwz.server.datatables.ItemTable;
 import l1j.jrwz.server.model.L1Inventory;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_SystemMessage;
 import l1j.jrwz.server.templates.L1Item;
@@ -83,7 +84,7 @@ public class L1CreateItem implements L1CommandExecutor {
                     }
                     if (pc.getInventory().checkAddItem(item, count) == L1Inventory.OK) {
                         pc.getInventory().storeItem(item);
-                        pc.sendPackets(new S_ServerMessage(403, // %0を手に入れました。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, // %0を手に入れました。
                                 item.getLogName() + "(ID:" + itemid + ")"));
                     }
                 } else {
@@ -102,7 +103,7 @@ public class L1CreateItem implements L1CommandExecutor {
                         }
                     }
                     if (createCount > 0) {
-                        pc.sendPackets(new S_ServerMessage(403, // %0を手に入れました。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$403, // %0を手に入れました。
                                 item.getLogName() + "(ID:" + itemid + ")"));
                     }
                 }

@@ -35,6 +35,7 @@ import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1MonsterInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ChatPacket;
 import l1j.jrwz.server.serverpackets.S_NpcChatPacket;
 import l1j.jrwz.server.serverpackets.S_PacketBox;
@@ -63,7 +64,7 @@ public class C_Chat extends ClientBasePacket {
             return;
         }
         if (pc.hasSkillEffect(1005)) { // 被魔封
-            pc.sendPackets(new S_ServerMessage(242)); // 你已被禁止聊天。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$242)); // 你已被禁止聊天。
             return;
         }
 
@@ -248,13 +249,13 @@ public class C_Chat extends ClientBasePacket {
                         }
                     }
                 } else {
-                    pc.sendPackets(new S_ServerMessage(462)); // \f1你太过于饥饿以致于无法谈话。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$462)); // \f1你太过于饥饿以致于无法谈话。
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(510)); // 管理者有非常重要的事项公告，请见谅。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$510)); // 管理者有非常重要的事项公告，请见谅。
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(195, String
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$195, String
                     .valueOf(Config.GLOBAL_CHAT_LEVEL))); // 等級 %0 以下的角色無法使用公頻或買賣頻道。
         }
     }

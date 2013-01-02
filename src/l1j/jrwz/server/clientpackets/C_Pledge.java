@@ -25,6 +25,7 @@ import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Pledge;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
@@ -55,7 +56,7 @@ public class C_Pledge extends ClientBasePacket {
                         .getClanName(), clan.getOnlineMembersFP()));
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(1064)); // 不属于血盟。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1064)); // 不属于血盟。
             // pc.sendPackets(new S_Pledge("pledge", pc.getId()));
         }
     }

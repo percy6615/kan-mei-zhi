@@ -22,6 +22,7 @@ import l1j.jrwz.server.model.L1Location;
 import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1Teleport;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.model.npc.L1NpcHtml;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -52,7 +53,7 @@ public class L1NpcTeleportAction extends L1NpcXmlAction {
     public L1NpcHtml execute(String actionName, L1PcInstance pc, L1Object obj,
             byte[] args) {
         if (!pc.getInventory().checkItem(L1ItemId.ADENA, _price)) {
-            pc.sendPackets(new S_ServerMessage(337, "$4")); // アデナが不足しています。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$337, "$4")); // アデナが不足しています。
             return L1NpcHtml.HTML_CLOSE;
         }
         pc.getInventory().consumeItem(L1ItemId.ADENA, _price);

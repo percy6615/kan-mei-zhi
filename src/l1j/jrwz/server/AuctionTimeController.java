@@ -32,6 +32,7 @@ import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.storage.CharactersItemStorage;
@@ -114,7 +115,7 @@ public class AuctionTimeController implements Runnable {
                 oldOwnerPc.getInventory().storeItem(L1ItemId.ADENA, payPrice);
                 // あなたが所有していた家が最終価格%1アデナで落札されました。%n
                 // 手数料10%%を除いた残りの金額%0アデナを差し上げます。%nありがとうございました。%n%n
-                oldOwnerPc.sendPackets(new S_ServerMessage(527, String
+                oldOwnerPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$527, String
                         .valueOf(payPrice)));
             } else { // 沒有前主人
                 L1ItemInstance item = ItemTable.getInstance().createItem(
@@ -134,7 +135,7 @@ public class AuctionTimeController implements Runnable {
             if (bidderPc != null) { // 如果有得標者
                 // おめでとうございます。%nあなたが参加された競売は最終価格%0アデナの価格で落札されました。%n
                 // 様がご購入された家はすぐにご利用できます。%nありがとうございました。%n%n
-                bidderPc.sendPackets(new S_ServerMessage(524, String
+                bidderPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$524, String
                         .valueOf(price), bidder));
             }
             deleteHouseInfo(houseId);
@@ -146,7 +147,7 @@ public class AuctionTimeController implements Runnable {
             if (bidderPc != null) { // 落札者がオンライン中
                 // おめでとうございます。%nあなたが参加された競売は最終価格%0アデナの価格で落札されました。%n
                 // 様がご購入された家はすぐにご利用できます。%nありがとうございました。%n%n
-                bidderPc.sendPackets(new S_ServerMessage(524, String
+                bidderPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$524, String
                         .valueOf(price), bidder));
             }
 
@@ -158,7 +159,7 @@ public class AuctionTimeController implements Runnable {
             if (oldOwnerPc != null) { // 以前の所有者がオンライン中
                 // あなたが申請なさった競売は、競売期間内に提示した金額以上での支払いを表明した方が現れなかったため、結局取り消されました。%n
                 // 従って、所有権があなたに戻されたことをお知らせします。%nありがとうございました。%n%n
-                oldOwnerPc.sendPackets(new S_ServerMessage(528));
+                oldOwnerPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$528));
             }
             deleteNote(houseId);
         } else if (oldOwnerId == 0 && bidderId == 0) { // 在先前的擁有者沒有中標

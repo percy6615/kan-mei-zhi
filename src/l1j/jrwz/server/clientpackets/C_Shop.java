@@ -27,6 +27,7 @@ import l1j.jrwz.server.codes.ActionCodes;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_DoActionGFX;
 import l1j.jrwz.server.serverpackets.S_DoActionShop;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -55,7 +56,7 @@ public class C_Shop extends ClientBasePacket {
 
         int mapId = pc.getMapId();
         if (mapId != 340 && mapId != 350 && mapId != 360 && mapId != 370) {
-            pc.sendPackets(new S_ServerMessage(876)); // 无法在此开设个人商店。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$876)); // 无法在此开设个人商店。
             return;
         }
 
@@ -78,7 +79,7 @@ public class C_Shop extends ClientBasePacket {
                 checkItem = pc.getInventory().getItem(sellObjectId);
                 if (!checkItem.getItem().isTradable()) {
                     tradable = false;
-                    pc.sendPackets(new S_ServerMessage(166, // \f1%0%s %4%1%3 %2.
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, // \f1%0%s %4%1%3 %2.
                             checkItem.getItem().getName(), "这是不可能处理。"));
                 }
                 Object[] petlist = pc.getPetList().values().toArray();
@@ -87,7 +88,7 @@ public class C_Shop extends ClientBasePacket {
                         L1PetInstance pet = (L1PetInstance) petObject;
                         if (checkItem.getId() == pet.getItemObjId()) {
                             tradable = false;
-                            pc.sendPackets(new S_ServerMessage(166, // \f1%0%s %4%1%3 %2.
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, // \f1%0%s %4%1%3 %2.
                                     checkItem.getItem().getName(), "这是不可能处理。"));
                             break;
                         }
@@ -111,12 +112,12 @@ public class C_Shop extends ClientBasePacket {
                 checkItem = pc.getInventory().getItem(buyObjectId);
                 if (!checkItem.getItem().isTradable()) {
                     tradable = false;
-                    pc.sendPackets(new S_ServerMessage(166, // \f1%0%s %4%1%3 %2.
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, // \f1%0%s %4%1%3 %2.
                             checkItem.getItem().getName(), "这是不可能处理。"));
                 }
                 if (checkItem.getBless() >= 128) { // 封印的裝備
                     // \f1%0%d 是不可丢弃或转移的
-                    pc.sendPackets(new S_ServerMessage(210, checkItem.getItem()
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, checkItem.getItem()
                             .getName()));
                     return;
                 }
@@ -127,7 +128,7 @@ public class C_Shop extends ClientBasePacket {
                         L1PetInstance pet = (L1PetInstance) petObject;
                         if (checkItem.getId() == pet.getItemObjId()) {
                             tradable = false;
-                            pc.sendPackets(new S_ServerMessage(166, // \f1%0%s %4%1%3 %2.
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$166, // \f1%0%s %4%1%3 %2.
                                     checkItem.getItem().getName(), "这是不可能处理。"));
                             break;
                         }

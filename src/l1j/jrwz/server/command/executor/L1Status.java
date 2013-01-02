@@ -22,6 +22,7 @@ import java.util.StringTokenizer;
 
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Lawful;
 import l1j.jrwz.server.serverpackets.S_OwnCharStatus;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -53,7 +54,7 @@ public class L1Status implements L1CommandExecutor {
             }
 
             if (target == null) {
-                pc.sendPackets(new S_ServerMessage(73, char_name)); // \f1%0はゲームをしていません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$73, char_name)); // \f1%0はゲームをしていません。
                 return;
             }
 

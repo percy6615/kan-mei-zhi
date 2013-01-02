@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import l1j.jrwz.L1DatabaseFactory;
 import l1j.jrwz.server.IdFactory;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Bookmarks;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.utils.SQLUtil;
@@ -38,12 +39,12 @@ public class L1BookMark {
     public static void addBookmark(L1PcInstance pc, String s) {
         // クライアント側でチェックされるため不要
         // if (s.length() > 12) {
-        // pc.sendPackets(new S_ServerMessage(204));
+        // pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$204));
         // return;
         // }
 
         if (!pc.getMap().isMarkable()) {
-            pc.sendPackets(new S_ServerMessage(214)); // \f1ここを記憶することができません。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$214)); // \f1ここを記憶することができません。
             return;
         }
 
@@ -86,7 +87,7 @@ public class L1BookMark {
             pc.sendPackets(new S_Bookmarks(s, bookmark.getMapId(), bookmark
                     .getId()));
         } else {
-            pc.sendPackets(new S_ServerMessage(327)); // 同じ名前がすでに存在しています。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$327)); // 同じ名前がすでに存在しています。
         }
     }
 

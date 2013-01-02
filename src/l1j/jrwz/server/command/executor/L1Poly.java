@@ -23,6 +23,7 @@ import java.util.StringTokenizer;
 import l1j.jrwz.server.model.L1PolyMorph;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_SystemMessage;
 
@@ -46,7 +47,7 @@ public class L1Poly implements L1CommandExecutor {
             L1PcInstance tg = L1World.getInstance().getPlayer(name);
 
             if (tg == null) {
-                pc.sendPackets(new S_ServerMessage(73, name)); // \f1%0はゲームをしていません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$73, name)); // \f1%0はゲームをしていません。
             } else {
                 try {
                     L1PolyMorph.doPoly(tg, polyid, 7200,

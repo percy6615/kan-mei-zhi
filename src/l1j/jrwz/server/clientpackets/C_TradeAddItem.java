@@ -28,6 +28,7 @@ import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
 import l1j.jrwz.server.model.Instance.L1PetInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -51,12 +52,12 @@ public class C_TradeAddItem extends ClientBasePacket {
         L1Trade trade = new L1Trade();
         L1ItemInstance item = pc.getInventory().getItem(itemid);
         if (!item.getItem().isTradable()) {
-            pc.sendPackets(new S_ServerMessage(210, item.getItem().getName())); // \f1%0%d 是不可丢弃或转移的
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem().getName())); // \f1%0%d 是不可丢弃或转移的
             return;
         }
         if (item.getBless() >= 128) { // 封印的裝備
             // \f1%0%d 是不可丢弃或转移的
-            pc.sendPackets(new S_ServerMessage(210, item.getItem().getName()));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem().getName()));
             return;
         }
         Object[] petlist = pc.getPetList().values().toArray();
@@ -65,7 +66,7 @@ public class C_TradeAddItem extends ClientBasePacket {
                 L1PetInstance pet = (L1PetInstance) petObject;
                 if (item.getId() == pet.getItemObjId()) {
                     // \f1%0%d 是不可丢弃或转移的
-                    pc.sendPackets(new S_ServerMessage(210, item.getItem()
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$210, item.getItem()
                             .getName()));
                     return;
                 }
@@ -81,8 +82,8 @@ public class C_TradeAddItem extends ClientBasePacket {
             return;
         }
         if (tradingPartner.getInventory().checkAddItem(item, itemcount) != L1Inventory.OK) { // 檢查容量與重量
-            tradingPartner.sendPackets(new S_ServerMessage(270)); // \f1当你负担过重时不能交易。
-            pc.sendPackets(new S_ServerMessage(271)); // \f1对方携带的物品过重，无法交易。
+            tradingPartner.sendPackets(new S_ServerMessage(L1SystemMessageId.$270)); // \f1当你负担过重时不能交易。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$271)); // \f1对方携带的物品过重，无法交易。
             return;
         }
 

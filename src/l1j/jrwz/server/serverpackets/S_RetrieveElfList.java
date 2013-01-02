@@ -23,6 +23,7 @@ import java.io.IOException;
 import l1j.jrwz.server.codes.Opcodes;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 
 public class S_RetrieveElfList extends ServerBasePacket {
     public S_RetrieveElfList(int objid, L1PcInstance pc) {
@@ -46,7 +47,7 @@ public class S_RetrieveElfList extends ServerBasePacket {
                 }
             }
         } else {
-            pc.sendPackets(new S_ServerMessage(263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$263)); // \f1一人のキャラクターが持って歩けるアイテムは最大180個までです。
         }
     }
 

@@ -25,6 +25,7 @@ import l1j.jrwz.configure.Config;
 import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_PacketBox;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.serverpackets.S_WhoCharinfo;
@@ -53,12 +54,12 @@ public class C_Who extends ClientBasePacket {
             S_WhoCharinfo s_whocharinfo = new S_WhoCharinfo(find);
             pc.sendPackets(s_whocharinfo);
         } else if (s != null && !"".equals(s)) {
-            pc.sendPackets(new S_ServerMessage(109, s));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, s));
         } else {
             String amount = String.valueOf(L1World.getInstance().getAllPlayers().size());
             // S_WhoAmount s_whoamount = new S_WhoAmount(amount);
             // pc.sendPackets(s_whoamount);
-            pc.sendPackets(new S_ServerMessage("\\fY当前游戏人数为:" + amount));
+            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$81,amount));
             if (pc.isGm()) { // GM点选玩家清单可瞬移到玩家身边
                 pc.sendPackets(new S_PacketBox(S_PacketBox.CALL_SOMETHING));
             }

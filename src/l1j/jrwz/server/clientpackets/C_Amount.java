@@ -34,6 +34,7 @@ import l1j.jrwz.server.model.L1Object;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.model.item.L1ItemId;
 import l1j.jrwz.server.model.npc.L1NpcHtml;
 import l1j.jrwz.server.model.npc.action.L1NpcAction;
@@ -84,7 +85,7 @@ public class C_Amount extends ClientBasePacket {
             AuctionBoardTable boardTable = new AuctionBoardTable();
             for (L1AuctionBoard board : boardTable.getAuctionBoardTableList()) {
                 if (pcName.equalsIgnoreCase(board.getBidder())) {
-                    pc.sendPackets(new S_ServerMessage(523)); // 已经参与其他血盟小屋拍卖。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$523)); // 已经参与其他血盟小屋拍卖。
                     return;
                 }
             }
@@ -106,7 +107,7 @@ public class C_Amount extends ClientBasePacket {
                             bidPc.getInventory().storeItem(L1ItemId.ADENA, nowPrice);
                             // 有人提出比您高的金额，因此无法给你购买权。%n因为您参与拍卖没有得标，所以还给你
                             // %0金币。%n谢谢。%n%n
-                            bidPc.sendPackets(new S_ServerMessage(525, String.valueOf(nowPrice)));
+                            bidPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$525, String.valueOf(nowPrice)));
                         } else { // 玩家離線中
                             L1ItemInstance item = ItemTable.getInstance().createItem(L1ItemId.ADENA);
                             item.setCount(nowPrice);
@@ -115,7 +116,7 @@ public class C_Amount extends ClientBasePacket {
                         }
                     }
                 } else {
-                    pc.sendPackets(new S_ServerMessage(189)); // \f1金币不足。
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$189)); // \f1金币不足。
                 }
             }
         } else if (s1.equalsIgnoreCase("agsell")) { // 出售盟屋

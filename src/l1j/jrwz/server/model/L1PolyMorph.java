@@ -28,6 +28,7 @@ import l1j.jrwz.server.datatables.PolyTable;
 import l1j.jrwz.server.model.Instance.L1ItemInstance;
 import l1j.jrwz.server.model.Instance.L1MonsterInstance;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ChangeShape;
 import l1j.jrwz.server.serverpackets.S_CharVisualUpdate;
 import l1j.jrwz.server.serverpackets.S_CloseList;
@@ -145,15 +146,15 @@ public class L1PolyMorph {
         if (cha instanceof L1PcInstance) {
             L1PcInstance pc = (L1PcInstance) cha;
             if (pc.getMapId() == 5124) { // 釣り場
-                pc.sendPackets(new S_ServerMessage(1170)); // ここでは変身できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1170)); // ここでは変身できません。
                 return;
             }
             if (pc.getTempCharGfx() == 6034 || pc.getTempCharGfx() == 6035) {
-                pc.sendPackets(new S_ServerMessage(181)); // \f1そのようなモンスターには変身できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$181)); // \f1そのようなモンスターには変身できません。
                 return;
             }
             if (!isMatchCause(polyId, cause)) {
-                pc.sendPackets(new S_ServerMessage(181)); // \f1そのようなモンスターには変身できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$181)); // \f1そのようなモンスターには変身できません。
                 return;
             }
 
@@ -211,14 +212,14 @@ public class L1PolyMorph {
                 }
             } else if (pc.getLevel() >= poly.getMinLevel() || pc.isGm()) {
                 if (pc.getTempCharGfx() == 6034 || pc.getTempCharGfx() == 6035) {
-                    pc.sendPackets(new S_ServerMessage(181));
+                    pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$181));
                     // \f1そのようなモンスターには変身できません。
                 } else {
                     doPoly(pc, poly.getPolyId(), 7200, MORPH_BY_ITEMMAGIC);
                     pc.sendPackets(new S_CloseList(pc.getId()));
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(181)); // \f1そのようなモンスターには変身できません。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$181)); // \f1そのようなモンスターには変身できません。
             }
         }
     }

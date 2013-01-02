@@ -27,6 +27,7 @@ import l1j.jrwz.server.datatables.CharacterTable;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 
 // Referenced classes of package l1j.jrwz.server.clientpackets:
@@ -63,12 +64,12 @@ public class C_BanClan extends ClientBasePacket {
                         tempPc.setClanRank(0);
                         tempPc.save(); // 儲存玩家的資料到資料庫中
                         clan.delMemberName(tempPc.getName());
-                        tempPc.sendPackets(new S_ServerMessage(238, pc
+                        tempPc.sendPackets(new S_ServerMessage(L1SystemMessageId.$238, pc
                                 .getClanname())); // 你被 %0 血盟驅逐了。
-                        pc.sendPackets(new S_ServerMessage(240, tempPc
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$240, tempPc
                                 .getName())); // %0%o 被你從你的血盟驅逐了。
                     } else {
-                        pc.sendPackets(new S_ServerMessage(109, s)); // 沒有叫%0的人。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, s)); // 沒有叫%0的人。
                     }
                 } else { // 玩家離線中
                     try {
@@ -81,17 +82,17 @@ public class C_BanClan extends ClientBasePacket {
                             restorePc.setClanRank(0);
                             restorePc.save(); // 儲存玩家的資料到資料庫中
                             clan.delMemberName(restorePc.getName());
-                            pc.sendPackets(new S_ServerMessage(240, restorePc
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$240, restorePc
                                     .getName())); // %0%o 被你從你的血盟驅逐了。
                         } else {
-                            pc.sendPackets(new S_ServerMessage(109, s)); // %0%o 被你從你的血盟驅逐了。
+                            pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$109, s)); // %0%o 被你從你的血盟驅逐了。
                         }
                     } catch (Exception e) {
                         _log.log(Level.SEVERE, e.getLocalizedMessage(), e);
                     }
                 }
             } else {
-                pc.sendPackets(new S_ServerMessage(518)); // 血盟君主才可使用此命令。
+                pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$518)); // 血盟君主才可使用此命令。
             }
         }
     }

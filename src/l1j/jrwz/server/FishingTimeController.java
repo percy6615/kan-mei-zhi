@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_CharVisualUpdate;
 import l1j.jrwz.server.serverpackets.S_PacketBox;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
@@ -72,7 +73,7 @@ public class FishingTimeController implements Runnable {
                         pc.setFishing(false);
                         pc.sendPackets(new S_CharVisualUpdate(pc));
                         pc.broadcastPacket(new S_CharVisualUpdate(pc));
-                        pc.sendPackets(new S_ServerMessage(1163, "")); // 钓鱼已经结束了。
+                        pc.sendPackets(new S_ServerMessage(L1SystemMessageId.$1163, "")); // 钓鱼已经结束了。
                         removeMember(pc);
                     }
                 }

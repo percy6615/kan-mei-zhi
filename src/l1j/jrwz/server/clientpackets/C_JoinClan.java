@@ -25,6 +25,7 @@ import l1j.jrwz.server.ClientThread;
 import l1j.jrwz.server.model.L1Clan;
 import l1j.jrwz.server.model.L1World;
 import l1j.jrwz.server.model.Instance.L1PcInstance;
+import l1j.jrwz.server.model.identity.L1SystemMessageId;
 import l1j.jrwz.server.serverpackets.S_Message_YN;
 import l1j.jrwz.server.serverpackets.S_ServerMessage;
 import l1j.jrwz.server.utils.FaceToFace;
@@ -63,14 +64,14 @@ public class C_JoinClan extends ClientBasePacket {
 
     private void JoinClan(L1PcInstance player, L1PcInstance target) {
         if (!target.isCrown()) { // 如果面對的對象不是王族
-            player.sendPackets(new S_ServerMessage(92, target.getName())); // \f1%0%d 不是王子或公主。
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$92, target.getName())); // \f1%0%d 不是王子或公主。
             return;
         }
 
         int clan_id = target.getClanid();
         String clan_name = target.getClanname();
         if (clan_id == 0) { // 面對的對象沒有創立血盟
-            player.sendPackets(new S_ServerMessage(90, target.getName())); // \f1%0%d 尚未创建血盟。
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$90, target.getName())); // \f1%0%d 尚未创建血盟。
             return;
         }
 
@@ -80,7 +81,7 @@ public class C_JoinClan extends ClientBasePacket {
         }
 
         if (target.getId() != clan.getLeaderId()) { // 面對的對象不是盟主
-            player.sendPackets(new S_ServerMessage(92, target.getName())); // \f1%0%d 不是王子或公主。
+            player.sendPackets(new S_ServerMessage(L1SystemMessageId.$92, target.getName())); // \f1%0%d 不是王子或公主。
             return;
         }
 
@@ -94,17 +95,17 @@ public class C_JoinClan extends ClientBasePacket {
                 }
 
                 if (player.getId() != player_clan.getLeaderId()) { // 已經加入其他血盟
-                    player.sendPackets(new S_ServerMessage(89)); // \f1你已拥有所属血盟。
+                    player.sendPackets(new S_ServerMessage(L1SystemMessageId.$89)); // \f1你已拥有所属血盟。
                     return;
                 }
 
                 if (player_clan.getCastleId() != 0 || // 有城堡或有血盟小屋
                         player_clan.getHouseId() != 0) {
-                    player.sendPackets(new S_ServerMessage(665)); // \f1拥有城堡与血盟小屋的状态下无法解散血盟。
+                    player.sendPackets(new S_ServerMessage(L1SystemMessageId.$665)); // \f1拥有城堡与血盟小屋的状态下无法解散血盟。
                     return;
                 }
             } else {
-                player.sendPackets(new S_ServerMessage(89)); // \f1你已拥有所属血盟。
+                player.sendPackets(new S_ServerMessage(L1SystemMessageId.$89)); // \f1你已拥有所属血盟。
                 return;
             }
         }
